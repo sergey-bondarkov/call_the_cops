@@ -1,0 +1,61 @@
+This is BibTeX, Version 0.99d (TeX Live 2022/dev/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+The style file: apacite.bst
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=200001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: bib.bib
+Warning--I didn't find a database entry for "ruback_advice_1994"
+Warning--I didn't find a database entry for "?"
+Warning--I didn't find a database entry for ""
+apacite.bst [2013/07/21 v6.03 APA bibliography style]
+Warning--No journal in felstiner1981emergence
+You've used 22 entries,
+            6951 wiz_defined-function locations,
+            1406 strings with 14279 characters,
+and the built_in function-call counts, 40546 in all, are:
+= -- 5050
+> -- 304
+< -- 1969
++ -- 2019
+- -- 44
+* -- 2586
+:= -- 7559
+add.period$ -- 91
+call.type$ -- 22
+change.case$ -- 375
+chr.to.int$ -- 0
+cite$ -- 45
+duplicate$ -- 1022
+empty$ -- 1585
+format.name$ -- 493
+if$ -- 7696
+int.to.chr$ -- 0
+int.to.str$ -- 66
+missing$ -- 0
+newline$ -- 529
+num.names$ -- 176
+pop$ -- 631
+preamble$ -- 1
+purify$ -- 88
+quote$ -- 0
+skip$ -- 2690
+stack$ -- 0
+substring$ -- 2200
+swap$ -- 615
+text.length$ -- 48
+text.prefix$ -- 0
+top$ -- 1
+type$ -- 1824
+warning$ -- 1
+while$ -- 176
+width$ -- 0
+write$ -- 640
+(There were 4 warnings)
