@@ -3,4 +3,6 @@ lit/
 
 # Temp files
 .R.sw*
+.swp
+.swo
 

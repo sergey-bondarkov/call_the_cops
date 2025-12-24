@@ -23,6 +23,88 @@ Anderson, E.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Baert%
+\ \protect \BOthers {.}}{%
+Baert%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2024}}%
+}]{%
+baert2024factors}
+\APACinsertmetastar {%
+baert2024factors}%
+\begin{APACrefauthors}%
+Baert, S.%
+, De~Buyser, S.%
+, Van~Belle, S.%
+, Gemmel, P.%
+, Rousseau, C.%
+, Roelens, K.%
+\BCBL {}\ \BBA {} Keygnaert, I.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2024}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Factors related to police reporting in sexual assault
+  care centers: are we underestimating the role of support persons?} {Factors
+  related to police reporting in sexual assault care centers: are we
+  underestimating the role of support persons?}{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Violence against women}{30}{15-16}{3943--3969}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Baumer%
+}{%
+Baumer%
+}{%
+{\protect \APACyear {2002}}%
+}]{%
+baumer2002neighborhood}
+\APACinsertmetastar {%
+baumer2002neighborhood}%
+\begin{APACrefauthors}%
+Baumer, E\BPBI P.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2002}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Neighborhood disadvantage and police notification by
+  victims of violence} {Neighborhood disadvantage and police notification by
+  victims of violence}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Criminology}{40}{3}{579--616}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Berg%
+\ \BBA {} Rogers%
+}{%
+Berg%
+\ \BBA {} Rogers%
+}{%
+{\protect \APACyear {2017}}%
+}]{%
+berg2017mobilization}
+\APACinsertmetastar {%
+berg2017mobilization}%
+\begin{APACrefauthors}%
+Berg, M\BPBI T.%
+\BCBT {}\ \BBA {} Rogers, E\BPBI M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2017}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The mobilization of criminal law} {The mobilization of
+  criminal law}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Annual Review of Law and Social
+  Science}{13}{1}{451--469}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Bergemann%
 }{%
 Bergemann%
@@ -68,6 +150,29 @@ Black, D.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+D.~Black%
+}{%
+D.~Black%
+}{%
+{\protect \APACyear {1979}}%
+}]{%
+black1979common}
+\APACinsertmetastar {%
+black1979common}%
+\begin{APACrefauthors}%
+Black, D.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1979}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Common sense in the sociology of law} {Common sense in
+  the sociology of law}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{American Sociological Review}{}{}{18--27}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 D\BPBI J.~Black%
 }{%
 D\BPBI J.~Black%
@@ -88,6 +193,57 @@ Black, D\BPBI J.%
   law}.{\BBCQ}
 \newblock
 \APACjournalVolNumPages{The journal of legal studies}{2}{1}{125--149}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Bronfenbrenner%
+}{%
+Bronfenbrenner%
+}{%
+{\protect \APACyear {1979}}%
+}]{%
+bronfenbrenner1979ecology}
+\APACinsertmetastar {%
+bronfenbrenner1979ecology}%
+\begin{APACrefauthors}%
+Bronfenbrenner, U.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{1979}.
+\newblock
+\APACrefbtitle {The ecology of human development: Experiments by nature and
+  design} {The ecology of human development: Experiments by nature and design}.
+\newblock
+\APACaddressPublisher{}{Harvard university press}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Collins%
+, Cox%
+\BCBL {}\ \BBA {} Langan%
+}{%
+Collins%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {1987}}%
+}]{%
+collins1987job}
+\APACinsertmetastar {%
+collins1987job}%
+\begin{APACrefauthors}%
+Collins, J\BPBI J.%
+, Cox, B\BPBI G.%
+\BCBL {}\ \BBA {} Langan, P\BPBI A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1987}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Job activities and personal crime victimization:
+  Implications for theory} {Job activities and personal crime victimization:
+  Implications for theory}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Social Science Research}{16}{4}{345--360}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -116,35 +272,6 @@ Dzmitryieva, A.%
 \newblock
 \APACjournalVolNumPages{International Journal of Comparative and Applied
   Criminal Justice}{}{}{1--25}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Fagan%
-, Geller%
-, Davies%
-\BCBL {}\ \BBA {} West%
-}{%
-Fagan%
-\ \protect \BOthers {.}}{%
-{\protect \APACyear {2010}}%
-}]{%
-fagan2010street}
-\APACinsertmetastar {%
-fagan2010street}%
-\begin{APACrefauthors}%
-Fagan, J.%
-, Geller, A.%
-, Davies, G.%
-\BCBL {}\ \BBA {} West, V.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{2010}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {Street stops and broken windows revisited} {Street stops
-  and broken windows revisited}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{Race, ethnicity, and policing}{}{}{309--348}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -204,6 +331,35 @@ Felstiner, W\BPBI L.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Garofalo%
+, Siegel%
+\BCBL {}\ \BBA {} Laub%
+}{%
+Garofalo%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {1987}}%
+}]{%
+garofalo1987school}
+\APACinsertmetastar {%
+garofalo1987school}%
+\begin{APACrefauthors}%
+Garofalo, J.%
+, Siegel, L.%
+\BCBL {}\ \BBA {} Laub, J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1987}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {School-related victimizations among adolescents: An
+  analysis of National Crime Survey (NCS) narratives} {School-related
+  victimizations among adolescents: An analysis of national crime survey (ncs)
+  narratives}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of quantitative criminology}{3}{4}{321--338}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Gottfredson%
 \ \BBA {} Gottfredson%
 }{%
@@ -238,7 +394,7 @@ Gottfredson%
 \ \BBA {} Hindelang%
 }{%
 {\protect \APACyear {1979}}%
-}]{%
+{\protect \APACexlab {{\protect \BCnt {1}}}}}]{%
 gottfredson1979study}
 \APACinsertmetastar {%
 gottfredson1979study}%
@@ -248,12 +404,38 @@ Gottfredson, M\BPBI R.%
 \end{APACrefauthors}%
 \unskip\
 \newblock
-\APACrefYearMonthDay{1979}{}{}.
+\APACrefYearMonthDay{1979{\protect \BCnt {1}}}{}{}.
 \newblock
 {\BBOQ}\APACrefatitle {A study of the behavior of law} {A study of the behavior
   of law}.{\BBCQ}
 \newblock
 \APACjournalVolNumPages{American sociological review}{}{}{3--18}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Gottfredson%
+\ \BBA {} Hindelang%
+}{%
+Gottfredson%
+\ \BBA {} Hindelang%
+}{%
+{\protect \APACyear {1979}}%
+{\protect \APACexlab {{\protect \BCnt {2}}}}}]{%
+gottfredson1979theory}
+\APACinsertmetastar {%
+gottfredson1979theory}%
+\begin{APACrefauthors}%
+Gottfredson, M\BPBI R.%
+\BCBT {}\ \BBA {} Hindelang, M\BPBI J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1979{\protect \BCnt {2}}}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Theory and research in the sociology of law} {Theory and
+  research in the sociology of law}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{American Sociological Review}{}{}{27--37}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -313,6 +495,34 @@ Goudriaan, H.%
   socio-economic disadvantage 1}.{\BBCQ}
 \newblock
 \APACjournalVolNumPages{British journal of criminology}{46}{4}{719--742}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Greenberg%
+\ \BBA {} Beach%
+}{%
+Greenberg%
+\ \BBA {} Beach%
+}{%
+{\protect \APACyear {2004}}%
+}]{%
+greenberg2004property}
+\APACinsertmetastar {%
+greenberg2004property}%
+\begin{APACrefauthors}%
+Greenberg, M\BPBI S.%
+\BCBT {}\ \BBA {} Beach, S\BPBI R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2004}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Property crime victims' decision to notify the police:
+  Social, cognitive, and affective determinants} {Property crime victims'
+  decision to notify the police: Social, cognitive, and affective
+  determinants}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Law and Human Behavior}{28}{2}{177--186}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -392,6 +602,88 @@ Kaukinen, C.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Knoth%
+\ \BBA {} Ruback%
+}{%
+Knoth%
+\ \BBA {} Ruback%
+}{%
+{\protect \APACyear {2019}}%
+}]{%
+knoth2019reporting}
+\APACinsertmetastar {%
+knoth2019reporting}%
+\begin{APACrefauthors}%
+Knoth, L\BPBI K.%
+\BCBT {}\ \BBA {} Ruback, R\BPBI B.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2019}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Reporting crimes to the police depends on relationship
+  networks: Effects of ties among victims, advisors, and offenders} {Reporting
+  crimes to the police depends on relationship networks: Effects of ties among
+  victims, advisors, and offenders}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of interpersonal violence}{34}{13}{2749--2773}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Mason%
+\ \BBA {} Benson%
+}{%
+Mason%
+\ \BBA {} Benson%
+}{%
+{\protect \APACyear {1996}}%
+}]{%
+mason1996effect}
+\APACinsertmetastar {%
+mason1996effect}%
+\begin{APACrefauthors}%
+Mason, K\BPBI A.%
+\BCBT {}\ \BBA {} Benson, M\BPBI L.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1996}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The effect of social support on fraud victims' reporting
+  behavior: A research note} {The effect of social support on fraud victims'
+  reporting behavior: A research note}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Justice Quarterly}{13}{3}{511--524}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Orcutt%
+\ \BBA {} Faison%
+}{%
+Orcutt%
+\ \BBA {} Faison%
+}{%
+{\protect \APACyear {1988}}%
+}]{%
+orcutt1988sex}
+\APACinsertmetastar {%
+orcutt1988sex}%
+\begin{APACrefauthors}%
+Orcutt, J\BPBI D.%
+\BCBT {}\ \BBA {} Faison, R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1988}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Sex-role attitude change and reporting of rape
+  victimization, 1973--1985} {Sex-role attitude change and reporting of rape
+  victimization, 1973--1985}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{The Sociological Quarterly}{29}{4}{589--604}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Pescosolido%
 }{%
 Pescosolido%
@@ -413,6 +705,31 @@ Pescosolido, B\BPBI A.%
   seek help}.{\BBCQ}
 \newblock
 \APACjournalVolNumPages{American journal of sociology}{97}{4}{1096--1138}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Ruback%
+}{%
+Ruback%
+}{%
+{\protect \APACyear {1993}}%
+}]{%
+ruback1993comment}
+\APACinsertmetastar {%
+ruback1993comment}%
+\begin{APACrefauthors}%
+Ruback, R\BPBI B.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1993}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Comment on Bachman (1993) The victim-offender
+  relationship does affect victims' decisions to report sexual assaults}
+  {Comment on bachman (1993) the victim-offender relationship does affect
+  victims' decisions to report sexual assaults}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Criminal Justice and Behavior}{20}{3}{271--279}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -440,6 +757,32 @@ Ruback, R\BPBI B.%
   {Social influence and crime-victim decision making}.{\BBCQ}
 \newblock
 \APACjournalVolNumPages{Journal of social issues}{40}{1}{51--76}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Ruback%
+\ \BBA {} Thompson%
+}{%
+Ruback%
+\ \BBA {} Thompson%
+}{%
+{\protect \APACyear {2001}}%
+}]{%
+ruback2001social}
+\APACinsertmetastar {%
+ruback2001social}%
+\begin{APACrefauthors}%
+Ruback, R\BPBI B.%
+\BCBT {}\ \BBA {} Thompson, M\BPBI P.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2001}.
+\newblock
+\APACrefbtitle {Social and psychological consequences of violent victimization}
+  {Social and psychological consequences of violent victimization}.
+\newblock
+\APACaddressPublisher{}{Sage}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -491,6 +834,33 @@ Skogan, W\BPBI G.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Spelman%
+\ \BBA {} Brown%
+}{%
+Spelman%
+\ \BBA {} Brown%
+}{%
+{\protect \APACyear {1985}}%
+}]{%
+spelman1985calling}
+\APACinsertmetastar {%
+spelman1985calling}%
+\begin{APACrefauthors}%
+Spelman, W.%
+\BCBT {}\ \BBA {} Brown, D\BPBI K.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{1985}.
+\newblock
+\APACrefbtitle {Calling the Police: Citizen Reporting of Serious Crime, 1979}
+  {Calling the police: Citizen reporting of serious crime, 1979}.
+\newblock
+\APACaddressPublisher{}{Inter-university Consortium for Political and Social
+  Research}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Tarling%
 \ \BBA {} Morris%
 }{%
@@ -514,6 +884,57 @@ Tarling, R.%
   police}.{\BBCQ}
 \newblock
 \APACjournalVolNumPages{The British Journal of Criminology}{50}{3}{474--490}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Van~Kirk%
+}{%
+Van~Kirk%
+}{%
+{\protect \APACyear {1978}}%
+}]{%
+van1978response}
+\APACinsertmetastar {%
+van1978response}%
+\begin{APACrefauthors}%
+Van~Kirk, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1978}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Response time analysis} {Response time analysis}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Executive Summary). Washington, DC: US Government
+  Printing Office}{}{}{}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Wikstr{\"o}m%
+}{%
+Wikstr{\"o}m%
+}{%
+{\protect \APACyear {2011}}%
+}]{%
+wikstrom2011does}
+\APACinsertmetastar {%
+wikstrom2011does}%
+\begin{APACrefauthors}%
+Wikstr{\"o}m, P\BHBI O\BPBI H.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2011}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Does everything matter?: addressing the problem of
+  causation and explanation in the study of crime} {Does everything matter?:
+  addressing the problem of causation and explanation in the study of
+  crime}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {When crime appears} {When crime appears}\ (\BPGS\
+  53--72).
+\newblock
+\APACaddressPublisher{}{Routledge}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
