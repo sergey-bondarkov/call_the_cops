@@ -684,6 +684,38 @@ Orcutt, J\BPBI D.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Paul%
+, Zinzow%
+, McCauley%
+, Kilpatrick%
+\BCBL {}\ \BBA {} Resnick%
+}{%
+Paul%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2014}}%
+}]{%
+paul2014does}
+\APACinsertmetastar {%
+paul2014does}%
+\begin{APACrefauthors}%
+Paul, L\BPBI A.%
+, Zinzow, H\BPBI M.%
+, McCauley, J\BPBI L.%
+, Kilpatrick, D\BPBI G.%
+\BCBL {}\ \BBA {} Resnick, H\BPBI S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2014}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Does encouragement by others increase rape reporting?
+  Findings from a national sample of women} {Does encouragement by others
+  increase rape reporting? findings from a national sample of women}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Psychology of Women Quarterly}{38}{2}{222--232}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Pescosolido%
 }{%
 Pescosolido%

@@ -17,45 +17,45 @@ Warning--I didn't find a database entry for "?"
 Warning--I didn't find a database entry for "..."
 apacite.bst [2013/07/21 v6.03 APA bibliography style]
 Warning--No journal in felstiner1981emergence
-You've used 38 entries,
+You've used 39 entries,
             6951 wiz_defined-function locations,
-            1497 strings with 16887 characters,
-and the built_in function-call counts, 72293 in all, are:
-= -- 9045
-> -- 523
-< -- 3599
-+ -- 3702
-- -- 77
-* -- 4650
-:= -- 13578
-add.period$ -- 157
-call.type$ -- 38
-change.case$ -- 664
+            1504 strings with 17134 characters,
+and the built_in function-call counts, 75014 in all, are:
+= -- 9377
+> -- 550
+< -- 3747
++ -- 3884
+- -- 79
+* -- 4835
+:= -- 14085
+add.period$ -- 161
+call.type$ -- 39
+change.case$ -- 681
 chr.to.int$ -- 0
-cite$ -- 77
-duplicate$ -- 1820
-empty$ -- 2762
-format.name$ -- 854
-if$ -- 13664
+cite$ -- 79
+duplicate$ -- 1907
+empty$ -- 2846
+format.name$ -- 904
+if$ -- 14149
 int.to.chr$ -- 0
-int.to.str$ -- 118
+int.to.str$ -- 121
 missing$ -- 0
-newline$ -- 915
-num.names$ -- 304
-pop$ -- 1086
+newline$ -- 945
+num.names$ -- 312
+pop$ -- 1120
 preamble$ -- 1
-purify$ -- 152
+purify$ -- 156
 quote$ -- 0
-skip$ -- 4742
+skip$ -- 4891
 stack$ -- 0
-substring$ -- 4041
-swap$ -- 1069
-text.length$ -- 85
+substring$ -- 4237
+swap$ -- 1112
+text.length$ -- 87
 text.prefix$ -- 0
 top$ -- 1
-type$ -- 3168
+type$ -- 3248
 warning$ -- 1
-while$ -- 296
+while$ -- 312
 width$ -- 0
-write$ -- 1104
+write$ -- 1147
 (There were 4 warnings)
