@@ -1,39 +1,59 @@
-\begin{tabular}{lcccccc}
-\toprule
-  & Theft & Fraud & Cybercrime & All property & Assault & All violent \\ 
-\midrule\addlinespace[2.5pt]
-Told someone & 0.811+ & 1.005 & 0.769 & 0.744+ & 2.100* & 2.152* \\ 
-Financial: (1, 10] thnd rub. & 0.138 & 0.612 & 0.929 & 0.440+ & 0.859 & 0.641 \\ 
-Financial: (10, 50] thnd rub. & 0.852 & 1.645+ & 1.578 & 1.144* & 0.183 & 0.388 \\ 
-Financial: (50, Inf] thnd rub. & 1.477* & 2.178+ & 2.626* & 1.889* & 1.055+ & 1.229+ \\ 
-Physical: Light &  &  &  &  & 0.286 & 0.424 \\ 
-Physical: Heavy &  &  &  &  & 1.162 & 1.129 \\ 
-Incident: Witness &  &  &  &  & 0.373 & 0.276 \\ 
-Incident: Victim resisted &  &  &  &  & -0.422 & -0.419 \\ 
-Incident: Weapon &  &  &  &  & 0.323 & 0.256 \\ 
-Self-blame & -0.620* & -0.163 & -0.614+ & -0.612* & -0.040 & -0.285 \\ 
-Has partner & 0.098 & -0.279 & -0.031 & -0.027 & 0.096 & -0.003 \\ 
-Off. rel.: Acquaintance or colleague &  &  &  &  & 0.588 & 0.342 \\ 
-Off. rel.: Neighbour &  &  &  &  & 1.213 & 1.396 \\ 
-Off. rel.: Spouse, partner, relative, friend &  &  &  &  & -0.114 & 0.099 \\ 
-Gender: Male & -0.309 & -0.229 & -0.133 & -0.195+ & -0.458 & -0.416 \\ 
-Income: Can buy furniture/electonics & -0.015 & 0.273 & 0.170 & 0.113 & 0.085 & -0.002 \\ 
-Income: Can buy a car, or higher & 0.203 & 0.350 & -0.435+ & -0.053 & 0.018 & 0.019 \\ 
-Highly educated & 0.104 & -0.031 & -0.038 & 0.016 & 0.183 & 0.155 \\ 
-Settlement: Small town & -0.175 & 0.408 & -0.116 & -0.050 & 0.974 & 1.040 \\ 
-Settlement: Village & -0.123 & -0.281 & -0.096 & -0.108 & 0.476 & 0.429 \\ 
-Settlement: Unknown & 0.076 & 0.104 & 0.116 & -0.121 & 0.665 & 0.616 \\ 
-Attitude: Victim knows a police & -0.058 & -0.227 & -0.202 & -0.114 & -0.028 & 0.142 \\ 
-{Attitude: Victim has crime record} & {0.511} & {0.535} & {-0.267} & {0.115} & {-0.198} & {0.011} \\ 
-\midrule
-Num.Obs. & 1834 & 585 & 2011 & 4431 & 685 & 883 \\ 
-R2 & 0.152 & 0.223 & 0.166 & 0.139 & 0.308 & 0.291 \\ 
-R2 Adj. & 0.125 & 0.158 & 0.143 & 0.128 & 0.222 & 0.222 \\ 
-R2 Within & 0.105 & 0.139 & 0.134 & 0.104 & 0.263 & 0.248 \\ 
-R2 Within Adj. & 0.087 & 0.092 & 0.119 & 0.097 & 0.198 & 0.196 \\ 
-RMSE & 0.45 & 0.46 & 0.46 & 0.46 & 0.43 & 0.43 \\ 
-Std.Errors clustered by federal district and year & X & X & X & X & X & X \\ 
-FE: federal\_district & X & X & X & X & X & X \\ 
-FE: year & X & X & X & X & X & X \\ 
-\bottomrule\multicolumn{7}{l}{\small + p < 0.1, * p < 0.05, ** p < 0.01, *** p < 0.001}\\
+%\begin{tabular}{lS[table-format=1.3]cccccc}
+\begin{tabular}{@{\hspace*{1.5em}}lS[table-format=1.3]@{\hspace{1cm}}S[table-format=1.3]S[table-format=1.3]S[table-format=1.3]S[table-format=1.3]S[table-format=1.3]S[table-format=1.3]}
+	
+	\toprule
+	& {Theft} & {Fraud} & {Cybercrime} & {Assault} & {All prop.} & {All viol.} \\ 
+	\midrule\addlinespace[2.5pt]
+	\multicolumn{7}{l}{\textsc{Post-victimization behavior}} \\
+	Victim informed friends or family & 2.407** & 1.769 & 1.898* & 8.203*** & 2.121** & 10.335*** \\ 
+	Victim went to hospital &  &  &  & 12.422*** &  & 10.743*** \\ 
+	\multicolumn{7}{l}{\textsc{Socioeconomic status}} \\
+	Male & 0.730 & 0.834 & 0.871 & 0.593 & 0.851*** & 0.580 \\ 
+	Age (\textit{ref. level}: 35--49):\\
+	\tabindent 18--24 & 0.242*** & 4.000* & 0.690{+} & 0.202{+} & 0.530*** & 0.280{+} \\ 
+	\tabindent 25--34 & 0.731 & 0.491{+} & 0.832 & 0.398{+} & 0.758* & 0.598 \\ 
+	\tabindent 50--64 & 0.560* & 0.679 & 0.740 & 0.736 & 0.704*** & 1.289 \\ 
+	\tabindent 65{+} & 1.194 & 0.257{+} & 1.052 & 4.446 & 0.961 & 2.946 \\ 
+	Has a partner & 1.211 & 0.647 & 1.012 & 1.104 & 0.984 & 1.157 \\ 
+	Middle to upper household income & 1.103 & 1.693 & 1.044 & 0.652 & 1.142 & 0.678 \\ 
+	Small town or village & 0.826 & 1.616 & 0.898 & 3.702* & 0.907 & 2.784 \\ 
+	Higher education & 1.139 & 1.383 & 0.970 & 1.093 & 1.046 & 1.018 \\ 
+	Employed or student & 1.150 & 0.386 & 0.872 & 0.282*** & 0.895 & 0.437** \\
+	%	\vspace{1pt}\\
+	\multicolumn{7}{l}{\textsc{Incident characteristics}} \\
+	Damage:\\
+	\multicolumn{7}{l}{\hspace*{2em}Financial, thnd rub. (\textit{ref. level}: 0 to 1):}\\
+	\tabindent\tabindent 1 to 10 & 0.842 & 0.990 & 1.872{+} & 2.086 & 1.189 & 1.835 \\ 
+	\tabindent\tabindent 10 to 50 & 1.929*** & 1.884 & 4.126** & 3.107 & 2.561*** & 2.583** \\ 
+	\tabindent\tabindent 50$+$ & 3.768*** & 7.830*** & 10.477*** & 4.241*** & 5.626*** & 2.954** \\  
+	\tabindent Physical (\textit{ref. level}: No):\\
+	\tabindent\tabindent Light &  &  &  & 1.014 &  & 1.167 \\ 
+	\tabindent\tabindent Heavy &  &  &  & 1.453 &  & 0.897 \\ 
+	There was a witness &  &  &  & 1.749 &  & 1.196 \\ 
+	Victim resisted &  &  &  & 0.689 &  & 0.516 \\ 
+	Offender had a weapon &  &  &  & 2.024* &  & 1.961 \\ 
+	Self-blame & 0.548*** & 0.822 & 0.511*** & 0.823 & 0.533*** & 0.565{+} \\  
+		\multicolumn{7}{l}{\hspace*{1em}Victim-offender relationship (\textit{ref. level}: Stranger):}\\
+		\tabindent Acquaintance &  &  &  & 1.186 &  & 0.914 \\ 
+	\tabindent Colleague or neighbor &  &  &  & 6.790* &  & 11.795{+} \\ 
+	\tabindent Friend or relative &  &  &  & 0.457 &  & 0.733 \\ 
+	\tabindent Spouse or partner &  &  &  & 0.691 &  & 1.050 \\ 
+	%	\vspace{1pt}\\ 
+	\multicolumn{7}{l}{\textsc{Victim's attitude towards the police}} \\
+	Has crime record & 1.844** & 1.143 & 0.771 & 0.622 & 1.051 & 0.837 \\ 
+	{Knows an officer} & {0.897} & {1.036} & {0.829} & {0.736} & {0.884{+}} & {0.870} \\  
+	\midrule
+	N & {1752} & {518} & {1959} & {463} & {4308} & {628} \\ 
+	McFaddens' R2 & 0.202 & 0.328 & 0.188 & 0.500 & 0.157 & 0.452 \\ 
+%	McFaddens' R2 Within & 0.114 & 0.180 & 0.125 & 0.392 & 0.106 & 0.356 \\ 
+	FE: Region & X & X & X & X & X & X \\ 
+	FE: Survey year & X & X & X & X & X & X \\ 
+	\bottomrule
+	\vspace{1pt}\\
+	\multicolumn{7}{l}{${+}$ p $<$ 0.1, * p $<$ 0.05, ** p $<$ 0.01, *** p $<$ 0.001}\\
 \end{tabular}
+
+
+
+
+

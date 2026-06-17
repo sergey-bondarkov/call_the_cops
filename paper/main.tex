@@ -8,6 +8,8 @@
 \usepackage{adjustbox}
 \usepackage{amsmath}
 
+\usepackage{siunitx}
+
 %\usepackage[T2A]{fontenc}
 %\usepackage[utf8]{inputenc}
 %\usepackage[english, russian]{babel}
@@ -21,9 +23,11 @@
 %\usepackage[longnamesfirst,sort]{natbib}% Citation support using natbib.sty
 %\bibpunct[, ]{(}{)}{;}{a}{,}{,}% Citation support using natbib.sty
 %\renewcommand\bibfont{\fontsize{10}{12}\selectfont}% To set the list of references in 10 point font using natbib.sty
-\usepackage[natbibapa,nodoi]{apacite}
-\setlength\bibhang{12pt}
-\renewcommand\bibliographytypesize{\fontsize{10}{12}\selectfont}
+%\usepackage[natbibapa,nodoi]{apacite}
+%\setlength\bibhang{12pt}
+%\renewcommand\bibliographytypesize{\fontsize{10}{12}\selectfont}
+\usepackage[style=apa, backend=biber, maxcitenames=2]{biblatex}
+\addbibresource{bib.bib}
 
 %\usepackage[natbibapa,nodoi]{apacite}% Citation support using apacite.sty. Commands using natbib.sty MUST be deactivated first!
 %\setlength\bibhang{12pt}% To set the indentation in the list of references using apacite.sty. Commands using natbib.sty MUST be deactivated first!
@@ -34,6 +38,7 @@
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{hyp}{Hypothesis}
 
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
@@ -43,12 +48,28 @@
 \newtheorem{remark}{Remark}
 \newtheorem{notation}{Notation}
 
+%\usepackage{hyperref}
+
+
+
+%\usepackage{ntheorem}
+%\newtheorem{hyp}{Hypothesis}
+
+\newcommand*{\tabindent}{\hspace{1em}}
+\newcommand\citep{
+	\parencite
+}
+\newcommand\citet{
+	\textcite
+}
+
 \begin{document}
 	
 	%\articletype{ARTICLE TEMPLATE}% Specify the article type or omit as appropriate
 	
-	%\title{You should call the police: advice from friends and family in victim crime reporting}
-	\title{Call the cops: advice from friends and family in victim crime reporting}
+	\title{Releasing the gatekeeper from duty: the role of social network in victim crime reporting}
+%	\title{You should call the police: advice from friends and family in victim crime reporting}
+%	\title{Call the cops: advice from friends and family in victim crime reporting}
 	
 	\author{
 		\name{S. Bondarkov\textsuperscript{a}\thanks{CONTACT S. Bondarkov. Email: sbondarkov@eu.spb.ru}}
@@ -59,260 +80,255 @@
 	\maketitle
 	
 	\begin{abstract}
-		TBA
+		
 	\end{abstract}
-	
+		Reporting crime victimization to the police is usually viewed from rational choice and ecological perspectives. This paper makes case for reframing the problem in terms of help-seeking and social network dynamics. I test if activation of a victim's social network after victimization is positively associated with the probability that the police will be notified. In order to do this I build a model that include the variable of informing friends or family about an incident alongside predictors of reporting found important in different strains of the literature. I do separate estimations of the model on data concerning several types of victimization, both violent and property, including cybercrime. I find that discussing the matter with another person makes reporting much more likely in all cases except for face-to-face fraud, although in case of cybercrime the evidence is tentative. 	
 	\begin{keywords}
-		victimization; RCVS, reporting crime; social support
+		victimization; reporting crime; social support; social networks; RCVS
 	\end{keywords}
 	
-	\section{Introduction}
+	\section*{Introduction}
 	
-	Suppose a rock smashes your window — wrapped around it is a note saying: `You are the gatekeeper of criminal justice system now \citep{gottfredson1987decision}'. That must be confusing. To make sense of what just happened and to figure out a course of action you may want to relate the experience to someone. In the end of this conversation you may choose to mobilize the law by notifiyng the police \citep{black1973mobilization} or to follow the code of the street \citep{anderson1999code%, gangstarr1994code
-	} and personally confront the frustrated editor that you suspect could not tolerate another opening ``gatekeeper'' citation in a paper on victim reporting behavior%\footnote{Whatever you choose, you want to fix that broken window. Or \textit{do} you? \citep{fagan2010street}}
-	.
+	Suppose a rock smashes your window — wrapped around it is a note saying: `You are the gatekeeper of criminal justice system now \citep{gottfredson1987decision}'. That must be confusing. To make sense of what just happened and to figure out a course of action you may want to relate the experience to someone. In the end of this conversation you may choose to mobilize the law by notifying the police \citep{black1973mobilization} or to follow the code of the street \citep{anderson1999code} and personally confront the frustrated editor that, you suspect, could not tolerate another opening ``gatekeeper'' citation in a paper on reporting behavior.
 	
-	Victimization is not a light subject, of course, neither are help-seeking or under-reporting of crime. The vignette above is intended not to ridicule, but to fast-forward us past the stage where I am ritually convincing you in precisely that (that is, in the well established understanding that these are serious problems worth consideration -- which, let's face it, reader, we already share) -- and to simultaneously give you the idea of a behavior mechanism that is at the center of this research. 
+%	Victimization is not a light subject, of course, neither are help-seeking or under-reporting of crime. The vignette above is intended not to ridicule, but to fast-forward us past the stage where I am ritually convincing you in precisely that (that is, in the well established understanding that these are serious problems worth consideration -- which, let's face it, reader, we already share) -- and to simultaneously give you the idea of a behavior mechanism that is at the center of my study. 
 	
-	I assume that, since any victimization is known to be unexpected and cause stress and confusion \citep{janoff1986aftermath}, if for entirely different reasons, we should expect that a victim of a real crime would also turn to others in order ``to reduce their uncertainty and be reassured'' \citep{ruback1984social}. I argue that, other things being equal, in certain types of crime victimization this decision to seek help in others is the most important factor of reporting the incident to the police. While often overlooked, the importance of social support in victim crime reporting is not unrecognized, as I will show in the next section. However, historically most of the work on the subject was focused on sexualized and intimate partner violence (IPV), evidence for other types of crime remaining scarce \citep{xie2019crime} or, as is the case with cybercrime, non-existent, to the best of my knowledge. This is the gap that I address in this paper. To this end, I use pooled data from three waves of the Russian Crime Victimization Survey (RCVS) \citep{?} -- a regular and nationally representative monitoring that targets Russian citizens of 18 years and older. 
+	I assume that, since any victimization is known to be unexpected and cause stress and confusion \citep{janoff1986aftermath}, we should expect that a victim of a real crime would also turn to others in order `to reduce their uncertainty and be reassured' \citep{ruback1984social}. I aim to make case for reframing reporting as a social process rather than an individual decision. In order to do that I show that, other things being equal, in certain types of crime victimization seeking help in others is the most important predictor of notifying the police about an incident. While often overlooked, the importance of social network in victim crime reporting is not unrecognized, as I will show in the next section. However, historically most of the work on the subject was focused on sexualized assault (SA) and intimate partner violence (IPV) \citep{paul2014does, patterson2010rape, baert2024factors, allen2007reporting}, evidence for other types of crime remaining scarce \citep{xie2019crime, bergemann2024social} or, as is the case with cybercrime, non-existent, to the best of my knowledge. This is the gap that I address in this paper. 
 	
-	I aim to test whether advice from another person, or, more strictly, the opportunity to talk the incident through with someone a victim relies on, significantly influences the probability that the police will be notified. My perspective on the matter is primarily based on the model of victim decision making developed by Greenberg and Ruback \citep{ruback1984social, ruback_advice_1994, greenberg1992after}: a victim may need help to identify the incident as victimization, in the first place; another person's input -- their emotional support, their perspective on gravity of the accident, on available options of response and on possible consequences -- must also weigh heavy in the decision making process. 
+	My perspective on the matter is formed primarily by two theoretical developments. The first is Greenberg and Ruback's model of post-victimization decision making \citep{ruback1984social, greenberg1992after} which emphasizes psychological aspects of post-victimization situation and the role of others in a person's responding to it. Their model recognizes the factor of stress and posits a different calculus behind decision making, one that minimizes stress rather than maximizes profit. From this perspective, calling the police may be one way to reduce stress --- at the same time, depending on the character of an incident, reporting may be viewed as a source of additional stress to be avoided. Importantly, in this model a decision is rarely made alone, and the more stressed --- the more susceptible to influence a victim is. This is where the problem becomes sociological, and this is where the second inspiration for my work comes in. It is Pescosolido's social organization strategy framework that `shifts the focus from individual ``choice'' to socially constructed patterns of decisions' \citep{pescosolido1992beyond}. Her famous call to move beyond rational choice thinking did not suggest to abandon it all together, as it is obvious that at some point an individual does weigh some costs and benefits, --- rather it stated that a proper sociological subject of study would be the interactive nature of help-seeking, not individual decisions. 	These two frameworks look readily compatible to me. The first provides a micro-level explanation of the need to seek help, formal and informal. The second suggests that if we want to understand help-seeking (and make help more available) we should concentrate on how people navigate the social space, what paths do they take and if these paths differ for different demographics. 
 	
-	Traditionally \citep{skogan1976citizen, skogan1984reporting, gottfredson1979study, tarling2010reporting}, gravity of an incident, i.e. perceived actual and potential harm, is seen as the main predictor of reporting to the police. Relational distance between victim and offender, especially in violent crime, has also received much attention from researchers and was found to be an important factor in post-victimization behavior \citep{felson1999victim, kaukinen2002help, knoth2019reporting}. Recent study by \cite{dzmitryieva2025crime} proved these predictors to be relevant in Russian context, too. However, most of the previous research did not recognize `that individuals who do end up calling the police are likely to first seek advice from a third party' \citep{knoth2019reporting}. Vice versa, the rare works that did take this consideration into account -- and demonstrated the importance of advice from other persons -- usually omitted some predictors found important in different strains of reporting literature. 
+	Both of these frameworks, despite being mentioned in the literature, remain at the margins of research on reporting. As \cite{knoth2019reporting} put it, `studies that assess differences between individuals who report to the police, seek alternative help, or do nothing (e.g., \cite{kaukinen2002help}) often fail to recognize that individuals who do end up calling the police are likely to first seek advice from a third party'. I suspect that the main reason for that is the lack of relevant data, as crime victimization surveys historically concentrated on incident characteristics and victims' demographics. I use a fairly novel source of data --- the Russian Crime Victimization Survey (RCVS) \citep{kuchakov2026rcvs}, a regular and nationally representative monitoring that targets Russian citizens of 18 years and older. The RCVS has the advantage of recording if a victim told their friends or family about the incident. 
 	
-	For a more robust identification of ``counsellors'' effect I attempt to build an integrative model \citep{xie2019crime, bergemann2024social}, accounting for variables associated with rational choice, relational distance, and attitudes towards criminal justice. I also recognize that post-victimization behavior is known to vary with crime type \citep{janoff1986aftermath, greenberg1992after}, so I estimate six separate models on different subsets of data: all violent crime, all property crime, assaults, robberies, thefts, fraud, and, finally, cybercrime.
+	To test whether advice from another person, or, more strictly, activation of a victim's social network, is positively associated with the probability that the police will be notified, I attempt to build an integrative model in the spirit of \cite{xie2019crime}, accounting for variables associated with the established views on crime reporting -- specifically, those emphasizing demographics differences, rational choice, relational distance between victim and offender, and victim's attitudes towards criminal justice. Since post-victimization behavior is known to vary with crime type \citep{janoff1986aftermath, greenberg1992after}, I estimate six separate models on different subsets of data: theft, fraud, cybercrime, assaults; all property crime, and all violent crime. I find that the fact of sharing the experience with a confidant is a strong predictor of notifying the police about victimization, both for violent and property crimes (with the notable exception of face-to-face fraud). 
 	
-	I find that, after controlling for incident gravity and other possible confounders, the fact of sharing the experience with a confident is the strongest predictor of notifying the police about violent victimization. My modeling suggests that this connection is especially pronounced in cases where the perpetrator is someone close. Turning to property crime, I do not find effect of speaking to others on face-to-face fraud, however, there is a tentative evidence of positive effect of consultation with another person proves on the probability of reporting theft and cybercrime.
+	As a second step, I show that taking or not taking a path which goes through informing friends or family is not random. Variables associated with demographics and informal control stand out in this analysis. Males are much less willing to discuss property victimization with others, but having a partner balances this out. Higher household income is associated with higher chances of sharing a theft or cybercrime victimization, but decreases chances of revealing a fraud victimization. Small town or village setting halves the odds of informing others about violent victimization, chances are particularly small if the victim is acquainted with the offender.
 	
-	My paper contributes to ... 
+	\subsection*{Traditional views on reporting problematised}
+	\label{sec:problem}
 	
-	To my knowledge, this is the first paper to analyze reporting of cybercrime in connection with social support ... 
+	How has it been possible for such a seemingly obvious factor as seeking help in friends and family to remain at the margins of reporting literature? I speculate that it is largely explained by a feedback loop between theory and data.
 	
-	A by-product of my work is an analysis of personal covariates of seeking help in intimate circle ...
+	Metaphors are the stuff of science \citep{kuhn1979metaphor} -- and in quantitative research on victim crime reporting there are, arguably, two main metaphors that has been shaping it so far. The first, of course, depicts victim as an entrepreneur making a business decision, i.e. engaged in rational cost-benefit calculus. Enjoying a status close to common sense, this image has guided most of the work in the field so far -- and found consistent empirical support, too. Time and again the gravity of a crime proved to be the most important predictor of reporting \citep{gottfredson1979study, laub1981ecological, skogan1984reporting, baumer2002neighborhood, goudriaan2004reporting, tarling2010reporting, schneider1975role,dzmitryieva2025crime} and backed the veracity of rational choice model. The appeal of rational choice perspective is clear \citep{bruch2017decision}: it `provides a theory of action that can anchor empirical research in meaningful descriptions of individuals’ behavior'. Also, once adopted, this perspective allows to conveniently draw conclusions from data using regression methods straightforwardly implemented in statistical software packages.
+		 
+	The second is the metaphor of ecology, generally understood as layering of contexts that condition the decision making process. 
+%	\footnote{Incidentally, in this perspective, Black's ``law as a natural phenomenon'' with its own behavior \citep{black1976behavior}  can be seen as an inversion of the ecological model: } 
+	This understanding also seems to have a commonsensical quality to it\footnote{Which curiously manifests in how \cite{laub1981ecological}, who must be one of the earliest adopters of the model in the field, uses the metaphor of ecology without referring to \cite{bronfenbrenner1979ecology} or introducing it in any other way.}. However, for a long time assumptions of ecological effects, such as that of neighborhood disadvantage and local attitudes towards police, has seen little empirical testing \citep{baumer2002neighborhood, goudriaan2006neighbourhood}. When \cite{goudriaan2004reporting} challenged the by then established domination of cost-benefit perspective, they argued that as a result of it `we know a great deal about how characteristics of crimes, victims, and the relationship between victims and offenders are related to reporting, but relatively little about contextual effects at the meso- or macrolevel.' 
 	
-	The rest of the paper is conveniently organized the way you would expect. After the literature review in Section \ref{sec:lit_rev}, I will introduce my data (Section \ref{sec:data}) and analytical approach (Section \ref{sec:approach}), present my results (Section \ref{sec:results}), tackle possible effect identification problems (Subsection \ref{subsec:robust}), offer a discussion of findings and the methodological changes they call for (Section \ref{sec:discussion}), and conclude with conclusion (Section \ref{sec:conclusion}).
+	A brief sketch of the ecological model that \cite{goudriaan2004reporting} arrived at may be instructive: it is well explicated in their paper and provides an insight into a certain manner of thinking about reporting. The suggested framework has two dimensions. The first axis represents nested levels of factors affecting a victim's decision process. Micro-level comprises immediate characteristics of the incident: amount of harm suffered, weapon use, availability of a witness, feeling of shame, etc. Meso-level is characteristics of a neighborhood or community where the incident took place: social disorganization, local attitudes towards the police, etc. Finally, on macro-level one is influenced by state or nation-wide features such as a country's criminal code. Thus, on all levels social context is geographically defined -- with a notable exception of a victim's social network `that people bring to any location'. The second axis results from distinguishing between two driving forces behind decision making -- rational cost-benefit calculus and normative response. These operate within `ecological entities' of micro-, meso- and macro-levels.
 	
-	\section{Literature review}
-	\label{sec:lit_rev}
+	The entrepreneur and ecology metaphors are perfectly complimentary. One can layer as much social context over an individual as one sees fit without modifying the cost-benefit core of the individual's agency. This mode of thinking was famously challenged by \cite{pescosolido1992beyond}: writing about research on how people seek medical help she pointed that `by bringing in the social merely as an overlay to individual mental events, we abandon sociological notions of the pivotal process of interaction as the mechanism through which social phenomena, including but not limited to decision making, occur'. The similarity between problems of seeking medical help and reporting victimization is obvious: essentially both are problems of seeking help \citep{xie2019crime}. One particular common feature of illness and criminal victimization is that both frequently emerge as a shock not only to an individual but to a broader network \citep{ruback1984social, friedman1982victims}. If the shock is spread over the network it triggers what is essentially a collective response: the victim receives emotional and practical support (or, sadly, further trauma \citep{davis1996supportive}), other parties become involved into decision making process, and sometimes even act on behalf of the victim. It follows that this response must differ from the one a victim is capable of on their own --- which is calling to focus on the interaction that follows a crime incident.
 	
-	There are, arguably, three main metaphors that has been shaping research on reporting so far. The first, ``purely sociological'', is Black's ``law as a natural phenomenon'' that has its own behavior \citep{black1976behavior}. The second, coming from economist mindset, depicts victim as a rational subject engaged in cost-benefit calculus. Enjoying a status close to common sense, this image has guided most of the work in the field, and found consistent empirical support. Time after time the gravity of a crime proved to be the most important predictor of reporting \citep{gottfredson1979study, skogan1984reporting, tarling2010reporting, ...} which backed the veracity of rational choice model. 
+	But in practice such shift of focus happens to be precluded with data limitations. \cite{goudriaan2004reporting} were keen to point out that the focus on crime seriousness had resulted in emphasis on attributes of crime in victimization surveys which in turn led to obscuring of crime's context in discussion of the decision to report. To this I would like to add that the social nature of reporting has remained a blind spot in the surveys most widely used in the literature \citep{xie2019crime}. In NCVS, a question about informing some party other than police first appeared only in the latest update \citep{bjs@redesign}, after 50 years of research. In CSEW it is reserved for 10-15 year-olds only. ICVS never featured such a question. Here we are reminded that metaphors are not mere devices for understanding phenomena or conveying such understanding to other people --- they shape the instruments and data we use to arrive at the understanding in the first place \citep{feyerabend1975against}. It is characteristic that those researchers who investigated social influence on reporting mostly had to rely on qualitative material \citep{campbell2015pathways, dworkin2018correlates, brooks2020doing} or gather their own data \citep{greenberg1992after, greenberg2004property, baert2024factors, mason1996effect, knoth2019reporting}.
 	
-	The third metaphor, stemming from developmental psychology and seemingly reconciling the macro- and micro- levels, i.e. ``nature'' and individual, happens to be the metaphor of ecology \citep{bronfenbrenner1979ecology}. It has been used in reporting literature at least since \cite{goudriaan2004reporting} challenged the by then established domination of cost-benefit perspective, arguing that as a result of it `we know a great deal about how characteristics of crimes, victims, and the relationship between victims and offenders are related to reporting, but relatively little about contextual effects at the meso- or macrolevel. Specifically, we do not know how norms, resources and policies at the organizational, community, jurisdiction, and nation level influence the decision to report.'\footnote{It is not too desperate to argue that implicitly the understanding of reporting as a multilevel process has been present at least ever since \cite{gottfredson1979study} tested predictions from Black's theory on the individual-level victimization survey data and the ensuing stand-off \citep{black1979common, gottfredson1979theory}: most studies has combined different micro- and meso- level variables, if not articulating it like that.} Ecological model of reporting did not dethrone the cost-benefit view of victim's decision making. Rather, it provided correction, taking into account environment in which calculus takes place, or, as \cite{pescosolido1992beyond} put it regarding the revised rational choice perspective on how people seek medical help, it still `focuses on the individual but tilts the analytic lens upward in an attempt to capture other larger conditions (including networks) that affect the individual unit of analysis'. 
+	\subsection*{Focusing on social interaction after the crime}
+	\label{sec:focusing}
+		
+	While acknowledging the influence others may exert on a victim's decision to call the police, ecological model does not fully recognize the interactive nature of this social act. Yet, indications of such a nature were there right from the start. Two massive studies of police response time \citep{van1978response, spelman1985calling} found that most of the time dialing the police was delayed by people talking to others, either witnesses or advisors, in order to gather information, make sense of the situation or cope with stress. This, as well as contemporary advances in psychology of trauma \citep{wortman1979interpersonal, kunreuther1978disaster, figley1985trauma, perloff1983perceptions, bard1980things}, led \cite{ruback1984social} to suggest a new framework of victim decision making grounded in social psychology and fully developed in their \textit{After the Crime} \citep{greenberg1992after}. At first glance, their model was not unlike the ``naming-claiming-blaming'' model of disputes emergence \citep{felstiner1981emergence}. It decomposed the process into three stages, too: a) labeling event as a crime, b) determining its seriousness, 3) deciding what to do. Moreover, both models accounted for social influence. The main difference between the two was that, despite nodding to social psychology, the first was ecological in spirit, while the second focused on psychological mechanisms at work.
 	
-	\textit{TBA: examples of studies employing ecological framework and their findings \citep{berg2017mobilization, baumer2002neighborhood, goudriaan2006neighbourhood}.}
+	At the center of Greenberg and Ruback's framework is, once again, an individual, but one that is fundamentally stressed, confused, their assumptions about the world challenged or shattered \citep{janoff1986aftermath}. The metaphor of doing business does not seem to be accurate anymore --- more appropriate would be something like coping with a natural disaster. Rather than seeking to maximize their net profit, in this perspective a victim acts to amend the distress. The incentive for reporting, wrote \cite{greenberg1992after}, `varies as a joint function of victims' level of distress and the belief that notification will ameliorate the distress'. They emphasized the part that `counselors' play in helping with stress and modifying victim's beliefs on each of the three stages of decision process, more so given that a victim may be in a state of ambiguity or shock which makes them uncertain of what to do and susceptible to influence. Such influence can take form of cuing the victim to particular options and scripts not yet considered, providing information, channeling certain norms, offering emotional and practical support. Findings from a series of field-laboratory experiments, interview studies and archive researches described in \cite{greenberg1992after} tended to support the model. Most victims (70--82\% depending on crime type) were likely to talk with someone before turning to the police, and most of those (58--92\%) followed the advice received from others. However, both experiments, clever as they were, and studies of archives of police and crisis centers had limited generalizability. 
 	
-	\textit{Attitudes literature goes here (dressed as ecological).}
+	Since than, more quantitative evidence of importance of social support for reporting has been gathered. \cite{greenberg2004property} employed data from a survey of property crime victims to evaluate three frameworks of reporting: cost-benefit calculus, affective action, and social influence, -- and demonstrated that the latter was the best predictor of the three. \cite{mason1996effect} applied social influence model to reporting of white collar crime and found that encouragement to report increased the probability of notifying the police from 28\% to 41\%. In a study of reporting violent victimization among young people \cite{zaykowski2015reconceptualizing} found that parental knowledge about an incident was a key factor influencing police awareness. \cite{kaukinen2004help} argued that reporting to the police should be viewed as one possible strategy of help-seeking in dealing with violence, and that it overlaps with other strategies, turning to friends and family among them. The WHO multi-country survey on domestic violence against women \citep{garcia2005multi} showed that, although victims rarely seek help from agencies, friends and family can serve as a stepping stone to them. Studies by \cite{paul2014does} and \cite{baert2024factors} both concluded that social support increased the likelihood of informing the police about sexualized assault. 
 	
-	While acknowledging the influence others may exert on a victim's decision to call the police, ecological model does not fully recognize the interactive nature of this social act. Yet, indications of such a nature were there right from the start. Two massive studies of police response time \citep{van1978response, spelman1985calling} found that most of the time dialing the police was delayed by people talking to others, either witnesses or advisors, in order to gather information, make sense of the situation or cope with stress. This led \cite{ruback1984social} to suggest a new framework of victim decision making grounded in social psychology and fully developed in their \textit{After the Crime} \citep{greenberg1992after}. At first glance, their model was not unlike the ``naming-claiming-blaming'' model of disputes emergence \citep{felstiner1981emergence}. It decomposed the process into three stages, too: a) labeling event as a crime, b) determining its seriousness, 3) deciding what to do. Moreover, both models accounted for social influence. The main difference between the two was that, despite nodding to social psychology, the first was ecological in spirit, while the second focused on psychological mechanisms at work.
+	To sum up, the evidence for importance of social network dynamics in post-victimization help-seeking is present, but the body of work remains small, fragmented by types of victimization and victim demographics, and constrained mainly to North American and the UK jurisdictions. In this study I aim to explicitly reframe the problem in the spirit of \cite{pescosolido1992beyond} while encompassing both violent and property crime, the newly emerged cybercrime included, against general population.
 	
-	At the center of Greenberg and Ruback's framework is, once again, an individual, but one that is fundamentally stressed, confused, their assumptions about the world challenged or shattered \citep{janoff1986aftermath}. Rather than seeking to maximize their net profit, in this perspective a victim acts to amend the distress and to protect their peace of mind in the long run. The incentive for reporting, wrote \cite{greenberg1992after}, `varies as a joint function of victims' level of distress and the belief that notification will ameliorate the distress'. They emphasized the part that ``counselors'' play in helping with stress and modifying victim's beliefs on each of the three stages of decision process, more so given that a victim may be in a state of ambiguity or shock which makes them uncertain of what to do and susceptible to influence. Such influence can take form of cuing the victim to particular options and scripts not yet considered, providing information, channeling certain norms, offering emotional and practical support. Findings from a series of field-laboratory experiments, interview studies and archive researches described in \cite{greenberg1992after} tended to support the model. Most victims (70-82\% depending on crime type) were likely to talk with someone before turning to the police, and most of those (58-92\%) followed the advice received from others.
-	
-	However, both experiments, clever as they were, and studies of archives of police and crisis centers had limited generalizability (\textit{TBA: what about interview studies of burglary victims?}). In a later work \cite{greenberg2004property} employed data from survey of property crime to evaluate three frameworks of crime reporting: cost-benefit calculus, affective action, and social influence, -- and demonstrated that the latter was the best predictor of the three. Before that, \cite{mason1996effect} applied social influence model to reporting of white collar crime and found that encouragement to report increased the probability of notifying the police from 28\% to 41\%.
-	
-	Despite the tentative evidence importance of direct social influence for reporting victimization, the model have not yet received much empirical support in quantitative literature. As \cite{knoth2019reporting} put it, most studies `fail to recognize that individuals who do end up calling the police are likely to first seek advice from a third party'. \textit{TBA: add on work of \cite{kaukinen2002help}, \cite{zaykowski2015reconceptualizing}, ...}  
-	
-	\textit{TBA: add on QUALITATIVE literature on reporting sexualized violence and IPV...} In quantitative literature on reporting of rape the role of informal advisors has received little attention so far. Notable exceptions are papers by \cite{paul2014does} and \cite{baert2024factors} both of which concluded that social support increased the likelihood of informing the police.  
-	
-	Finally, recent works by \cite{xie2019crime} and \cite{bergemann2024social} call for integrative models, combining the ecological and social influence perspectives. \textit{TBA: elaborate on that...}
-	
-	\section{Data PLACEHOLDER}
+	\section*{Data}
 	\label{sec:data}
 	
-	\textit{In this analysis, we used pooled cross-sectional data obtained by merging two waves of the Russian Crime Victimization Surveys, conducted in 2018 and 2021 (Knorre, 2019, 2022). These surveys employed nearly identical questionnaires and shared a consistent methodology, which made their integration analytically sound. This approach increases statistical power and the precision of estimates (Verbeek, 2008), with year fixed effects included in the analysis to control for differences between the survey periods. The surveys were conducted using Computer-Assisted personal communication (CATI) with Random Digit Dialing (RDD) of mobile phone numbers. In this approach, the system generates a random number, invites a call, and if a respondent answers, the operator proceeds with the interview.} 
+	For this analysis, I use pooled data from three waves of the Russian Crime Victimization Survey (RCVS) \citep{kuchakov2026rcvs}\footnote{Available from Harvard Dataverse \citep{harvard2026rcvs} and GitHub (\url{https://github.com/irlcode/RCVS}).}. It is a nationally representative survey conducted every three years, targeting the entire adult (18+) population of Russia. The survey waves were carried out in 2018, 2021, and 2024 in the Russian language. All three survey waves employed a Random Digit Dialing (RDD) methodology --- a probability sampling technique in which telephone numbers are generated at random. Data collection was conducted using the Computer-Assisted Telephone Interviewing (CATI) method. Raking algorithm was used to obtain weights for correction of sample imbalances.
 	
-	\textit{The survey achieved a 14.1\% completion rate among individuals who answered the phone call. Of the people who answered the phone, 16.5\% agreed to answer the interviewer’s question, and of those who agreed, 85.5\% proceeded to complete the full survey. Although CATI with RDD is not commonly used in victimisation research, this strategy proved more appropriate in the Russian context, where large-scale falsifications by field interviewers in face-to-face surveys are a persistent problem (Rogozin \& Ipatova, 2015). }
+	Each wave employs a screening design: a person is asked if they were subject to some kind of offense in last 5 years\footnote{The precise wording is `Please recall whether you were robbed, assaulted, threatened, or were a victim of violence, fraud, or other crimes in Russia during the last 5 years?'} --- if yes, the person completes the full questionnaire, if no, a shortened version comprised only of questions about their sociodemographics and subjective characteristics. The process continues until a threshold of about 3,000 individuals reporting a victimization experience is reached. Across all waves, the total sample includes 42,572 respondents, 8,688 of whom responded positively to the screening question.
 	
-	\textit{Both surveys implemented a simple random sampling strategy, aiming to interview 3,000 individuals who had experienced victimisation within the past five years. Additionally, participants were also asked about their victimisation experiences in the past twelve months. The survey instruments captured data from both victims and non-victims, collecting detailed information on socio-demographic characteristics, income, and experiences with crime. The survey was conducted across all geographical areas of the country, covering approximately 3,500 locations. }
+	All respondents are asked only about their most recent incident occurring within the five years (and 12 months prior to the interview). The type of an incident is derived from responses to a number of dichotomous questions presented in everyday language (see Table \ref{app.table:crime_types} in Appendices for explication of crime type construction logic). After removing non-victims, victims of attempted cybercrime, and of offenses classified as `other', my sample consists of 5,697 observations --- these are people who report being victimized within five years before their interview.
 	
-	\textit{Both the RCVS2018 and RCVS2021 surveys achieved a high degree of representativeness at the national level based on key socio-demographic indicators (Serebrennikov \& Titaev, 2022; Verkeev et al., 2019). A comparison of the respondents’ principal sociodemographic characteristics with data from the Federal State Statistics Service of Russia (GKS, 2019) and the Comprehensive Survey of Living Conditions of the Population (KOUZ, 2020) reveals statistically insignificant differences in age and gender. However, the RCVS sample shows a slight skew in age and education level, with those aged 65 and older underrepresented and individuals with higher education overrepresented. This bias can be attributed to the lower availability of the elderly for personal communication due to health or technological barriers, and the higher availability of educated individuals. As is often the case, marginalised populations are less accessible to survey methodologies, potentially leading to missing data on major violent crimes (Verkeev et al., 2019). }
+	The questionnaires employed across the three waves are nearly identical. %Notable exceptions important for this study are questions on trust (in the police, courts, and other people), and  impact of victimization --- they were introduced only in the 2024 wave. This is why I use corresponding variables only for robustness check on the subset of data coming from this wave.
+	An exception important for this study is the question about emotional impact of victimization --- it was introduced only in the 2024 wave. This is why I use the corresponding variable only for robustness check on the subset of data coming from this latest wave of survey.
 	
-	\textit{The questionnaires used in RCVS2018 and RCVS2021 were nearly identical. The RCVS2018 questionnaire was developed through in-depth interviews with victims of various crimes and an extensive review of victimisation surveys in other countries (Verkeev et al., 2019). In early 2021, a methodological audit of the RCVS2018 was conducted, leading to minor revisions and the inclusion of new questions. However, these revisions did not affect the variables used in the present analysis. Since not all events reported to the police meet the legal definition of a crime, this study uses the term “incident” to refer to any such reported event, regardless of its legal qualification. }
-	
-	\textit{Victims were identified based on their response to the following survey question: “Please recall whether you were robbed, assaulted, threatened, or were a victim of violence, fraud, or other crimes in Russia during the last 5 years?” Respondents who answered affirmatively were classified as victims for this analysis. Table 1 presents descriptive statistics from the two surveys, showing the initial distribution of victims and non-victims. For the purposes of our analysis, only respondents who reported victimisation were included. The data were analysed using the statistical analysis software Stata version 14, and were prepared, cleaned, and captured in the Statistical Package for Social Sciences (SPSS) version 25 prior to analysis.}
-	
-	TBA:
-	
-	Add on raking procedure.
-	
-	Table \ref{table:table1} describes the data I use... It is evident that most people do inform someone close about victimization incident and that it is positively correlated with reporting to the police. However, as I show in Section \ref{sec:approach}, at this point we should rather attribute this to multiple confounders of the two variables...
-	
-	Table \ref{?} in Appendix documents questions behind the variables and my aggregation decisions...
+	Table \ref{table:table1} describes the data I use (the questions behind the variables are listed in Table \ref{app.table:questions} of Appendices). 
+	%(for analogous tabulation for wave 2024 only see \ref{app.table:table1_2024} in Appendices).
+	It is evident that most people do inform someone close about victimization incident and that doing so is positively correlated with reporting to the police. However, as I show in the next section, at this point we should rather attribute this to multiple confounders of the two variables.
 	
 	\begin{table}[p]
-		\caption{Victimization and reported incidents share tabulated by variables used in this study}
+		\caption{Numbers of victimized and reported incidents shares tabulated by variables used in this study}
 		\label{table:table1}
-		\begin{adjustbox}{width=1\textwidth, height=4in}
+		\begin{adjustbox}{width=1\textwidth, height=4.5in}
 			\input{tables/table1.tex}
 		\end{adjustbox}
 	\end{table}
 	
-	\section{Analytical approach}
-	\label{sec:approach}
+	\section*{Method}
+	\label{sec:method}
 	
+	Figure \ref{fig:causal_diagram} provides a visual summary of the process I assume. I divide all observed variables into two groups. The first consists of all things \textit{given}, namely a person's socioeconomic situation pre-victimization (I assume that in most cases it was not affected severely), characteristics of the incident, and macro context. The second group are \textit{actions to take} post-victimization: these should not be reduced, as is often the case, to reporting or non-reporting --- at the very least they should include informing one's intimate circle and, in case of violent crime, seeking medical help. The latter is especially important for identification of `counsellors' effect: going to hospital suggests serious harm which is hard to conceal from friends and family, at the same time medical personnel are required to inform the police about patients `with injuries for which there are reasonable grounds to believe that they were sustained as a result of unlawful actions'\footnote{It is required by the order of the Ministry of Health which sets `the procedure for informing medical organizations of internal affairs agencies in cases established by paragraph 5 of part 4 of article 13 of the Federal Law ``On the Fundamentals of Protecting the Health of Citizens in the Russian Federation"'. Whether medical personnel complies with this requirement is another question: as shown in Table \ref{table:table1}, the police were notified about 74\% of assaults and 77\% of robberies where victims went to hospital. It is clear that much is left for discretion of the medical personnel, who, not being trained to judge on causes of injuries, have to rely on a patient's word in many cases.}. Moreover, medical staff can give informal advice to report victimization\footnote{\cite{kamalov2023partnerskoye} found that about 6\% of IPV victims in Russia asked medical personnel for help. It is a considerable quantity, for comparison: only 15\% of victims sought help in police. Also, in less sensitive cases of non-partner violence, informal consultations about reporting may be more frequent.}. Modeling-wise, (the usual) omission of this variable would mean a potential confounding problem.
+	
+	It stands out in the scheme that both the outcome and focus variables are supposedly influenced by the same set of factors. It should come as no surprise considering that both represent decisions to make in certain circumstances.  Fortunately, the data allow to control for these multiple confounders. A possible endogeneity problem (red arrow in Figure \ref{fig:causal_diagram}) is discussed below.
+		
 	\begin{figure}
 		\centering
-		\includegraphics[width = .7\textwidth]{figures/causal_diagram_1.pdf}
+		\includegraphics[width = 1\textwidth]{figures/causal_diagram_color.pdf}
 		\caption{Causal diagram of decision making model}
 		\label{fig:causal_diagram}	
 	\end{figure}
 	
-	\subsection{Dependent variable} 
-	Definition of reporting, definitions of crime types (wording in questionaire).
+	\subsection*{Outcome and focus variables} 
+	My outcome variable is a respondent's answer to the question `Did the law enforcement find out about the crime?'\footnote{A positive answer to this question may mean both reporting by the victim themselves or one of their confidants --- in my framing this ambiguity is not important as I am interested in network response as opposed to solo response.} The variable of interest is the answer to the question `Did you tell someone close about the crime?'. Both are yes or no questions. Importantly, the data do not tell us anything about the order of events. Therefore, I must explicate an assumption I make: if a victim notifies both their intimate circle and the police, then they first turn to family and friends, then to the law enforcement. Theoretically, it is not always the case, which means that I might have an endogeneity problem. I reassure myself in two ways. First, what we know about post-victimization behavior suggests that if someone is notified at all then friends or family come before the police \citep{ruback2001social, knoth2019reporting}. Second, consider the situation from econometric perspective: after controlling for incident characteristics and other predictors common to both variables, there is no variation left in reporting variable that could explain variation in focus variable except for that which comes from the very act of communication with the police. In other words, the suspected endogeneity is possible only if we think that it is something in the experience with the law enforcement that prompts relation of the whole story to a friend or family. While not incomprehensible, this path seems less likely than the one in the opposite direction. Still, to reduce such possibility I estimate an additional model on a subset of data in which I remove observations where the police was notified but no case was initiated. The rationale: I assume that a popular scenario for \textit{incident---police---friends/family} path must be seeking help in police but being rejected and turning to intimate circle out of resentment for the perceived injustice. %Finally, I draw on the understanding that victims are more reluctant to cooperate with the police when offender is someone they know \citep{felson2016victims, gartner1995effect}: the denser the relationship between two parties the more averse a victim to introducing a third party into the relationship \citep{ruback1993comment}. This motivates my additional modeling on subset of cases where the offender was an intimate partner, friend, or relative: I can be more confident that in these cases a victim first turned to their intimate circle. Tables with regression results from additional models can be found in Appendices.
 	
-	Recency problem \citep{goudriaan2004reporting}):
-	\textit{The use of a 5-year reference period has probably resulted in an underestimate of victimization rates and an overestimate of the proportion reported to the police. Memory decays with time and the longer the reference period, the less complete the recall and reporting of crime events. Because events reported to the police are rehearsed and have consequences subsequent to the event, they will be remembered more frequently than events that are not reported to the police. Biderman and Lynch (1981) have shown, however, that this type of recency bias is not correlated with other attributes of the crime, so it is unlikely to affect the analyses presented here. They compared attributes of events reported in the most recent month of the reference period for the National Crime Survey with those reported in the most distant month of the reference period. The distributions of these event attributes were similar for the most proximate and the most distant month of the reference period for all attributes except reporting to the police. The percent reported to the police in the most distant month was significantly greater than the proportion reported to the police in the most proximate month.}
+	\subsection*{Control variables} 
 	
-	\subsection{Independent variables} 
+	Other variables, apart from going to hospital, that I use for control are those listed in panels C, D, E of Table \ref{table:table1}. They describe a victim in dimensions that were found relevant in the strains of research that emphasize demographics \citep{zaykowski2019examining, hart2003reporting, baumer2010reporting, black1973mobilization}, gravity of an incident \citep{skogan1976citizen, skogan1984reporting, gottfredson1979study, tarling2010reporting}, post-victimization self-blame \citep{felson1999victim, kaukinen2002help, knoth2019reporting}, relational distance between victim and offender \citep{felson2016victims, ruback1993comment, kaukinen2004help, brennan2016violence, gartner1995effect}, role of witnesses \citep{felson1999victim},  urban vs rural context \citep{rennison2013context,black1976behavior,laub1981ecological}, and a victim's personal attitudes towards the police \citep{goudriaan2004reporting,boateng2018crime,ann2010neighborhood,warner2007directly}. Admittedly, I have only rather specific proxies for a person's trust in the police: having a (self-reported) experience of criminal prosecution, and being personally acquainted with someone in law enforcement\footnote{In wave 2024 of the RCVS a question about trust in the police was added to the questionnaire, but for my purposes it is useless since the level of trust reported post-victimization can be informed by the very fact of reporting the crime to the police.}. On the other hand, these may be more telling than a reported degree of trust in the police, as some scholarship finds that it is direct experience with the law enforcement, and not declared perceptions of it, that affects reporting behavior \citep{davis2003willingness}.
 	
-	I regard these variables as possible predictors rather than factors of reporting \citep{wikstrom2011does}...
+	Apart from that I use two variables to control for macro-context. A victim's region is meant to capture local informal norms that may inform the default behavior of both victims and their `counselors' \citep{goudriaan2004reporting}. This is a rather crude proxy since context may vary greatly across a city, not to mention a region \citep{goudriaan2006neighbourhood, baumer2002neighborhood}, but the best that my data allow: names of towns and villages are removed from the dataset to ensure respondents' anonymity. To account for possible changes in society-level attitudes towards certain crimes and cooperation with police \citep{tarling2010reporting} I use survey wave fixed effect.
 	
-	Incident chars: witness: presence of a witness removes effect of victim-offender relationship FOR THIRD PARTY in study by \cite{felson1999victim}...
-	
-	\cite{goudriaan2004reporting} juxtapose rational cost-benefit calculus and "normative response": \textit{ In contrast, normative responses are not directly caused by expected costs or benefits, but by norms that exist in the victim's social context. "Crimes should be reported to the police," "this is not a case for the police," or "I should deal with this myself' are examples of possible norms that may influence crime reporting.}. This seems a highly doubtful analysis.
-	
-	A visual summary of causal relations in my model provided in Fig \ref{fig:causal_diagram} makes it evident that an integrative framework is not merely reasonable or theoretically sound but plain necessary if one aims to identify the effect of social support on reporting. Almost all the factors that are supposed to influence the decision to notify the police may as well influence the decision to seek help in friends and family. In other words, the dependent and the focus independent variables have multiple confounders. This poses a threat to identification, which I am able to overcome by inclusion of a broad range of controls. However, there are three caveats. 
-	
-	First, I do not observe a victim's cultural context. The only way I am able to try to control for it is to introduce federal district fixed effects and settlement type variable, which is better than nothing but admittedly a very crude solution, because context may vary greatly across a city, not to mention a federal district \citep{goudriaan2006neighbourhood, baumer2002neighborhood}. 
-	
-	Second, I do not observe offenders characteristics other than their gender and relation to a victim. I do not include offender gender or interaction of victim-offender genders in my modeling because in my data almost the crime was committed by men. I do include relationship distance which proves to be an important factor. Still, I know nothing of offender's resourcefulness which must be one of the serious considerations in a victim's decision making process. This is an important omission, but one that my study shares with virtually all the research on reporting.
-	\textit{TBAa: fear of reprisal \citep{felson1999victim}}
-	
-	Third, I know only if the police was notified and if a victim told about the incident to someone in their intimate circle -- and I do not know which came first. This means endogeneity is possible: a victim may report to the police and then relate the whole story to friends or family \textit{because} of how the interaction with the police has worked out. While our knowledge of post-victimization behavior suggests that if someone is notified at all then friends or family come before the police \citep{ruback2001social, knoth2019reporting}, the doubt remains. I address this issue in Subsection \ref{subsec:robust} by introducing a supporting model of different design. 
-	
-	Motivation for year fixed effects:
-	\textit{Some scholars have attributed substantive meanings to this change and argued that it was caused by changes in sex-role attitudes in the United States (e.g., Orcutt \& Faison 1988) or by the success of rape law reforms and media campaigns (e.g., Bachman 1993, Spohn \& Horney 1992). The evidence from the United Kingdom similarly supported the notion that research and policy attention to rape, sexual assault, and domestic violence had led to more adequate handling of such crimes and that this had resulted in a greater willingness of victims to report crimes by intimate friends and relatives (Tarling \& Morris 2010).}
+	\subsection*{Model} 
 	
 	My base model has the following linear form:
 	
 	\begin{align}
 		\label{eq:1}
-		%    P(Reported_i) =
-		%    g(\beta_1 ToldSomeone_i + \beta_2 Relationship_i \\ + \beta_x SES_i + \beta_y Incident_i + \beta_z Attitude_i + \lambda + \gamma)
-		Reported_i = \alpha + \beta_1 ToldSomeone_i + \sum \beta_a Relation_i + \sum \beta_b SES_i \nonumber+ \\\nonumber
-		\sum \beta_c Incident_i + \sum \beta_d Attitude_i + \lambda + \gamma + \epsilon_i
+		Reported_i = %\alpha + 
+		\beta_{b_1} ToldSomeone_i + \beta_{b_2} WentHospital_i + \\\nonumber \sum \beta_C SES_i +
+		\sum \beta_D Incident_i + \sum \beta_E Attitude_i + \lambda + \gamma + \epsilon_i
 	\end{align}
 	
-	where $Reported$ is binary indicator of informing the police; $\beta_b$ is effects of $b$ variables listed in panel B of Table \ref{table:table1}, and grouped here as $Relation$, including my focus variable that indicates if a victim talked with friends or family about the incident; $SES$ stand for a vector of socioeconomic variables); $Incident$ comprises situational characteristics and account for gravity of victimization; $Attitude$ is a vector of variables that capture a victim's attitude towards police. For conciseness, I do not list all the individual variables here and refer you to Table \ref{table:table1} since the groups in the equation correspond to the panels in the table. Finally, $\lambda$ and $\gamma$ are federal district and year fixed effects.
+	where $Reported$ is a binary indicator of informing the police, $ToldSomeone$ is my focus variable that indicates if a victim talked with friends or family about the incident, and $WentHospital$ is indication of seeking medical help (used only in models of reporting violent crime). For conciseness, I do not list all the individual control variables here and refer you to Table \ref{table:table1}: the groups in the equation correspond to the panels in the table, e.g. $SES$ comprises variables related to socioeconomic status listed in panel C; $Incident$ stands for incident characteristics (panel D); $Attitude$ is a vector of variables that capture a victim's attitude towards the police (panel E). Finally, $\lambda$ and $\gamma$ are region and survey year fixed effects.
 	
-	I estimate this model using logistic regression on six subsets of victim only data split by crime type: theft, face-to-face fraud, cybercrime, assault, all property crime, all violent crime.
+	I estimate this model using logistic regression on six subsets of victim only data split by crime type: theft, face-to-face fraud, cybercrime, assault; all property crime, all violent crime. Property crime comprises theft, fraud, and cybercrime; violent crime includes assault and robbery (the latter being too rare to estimate a separate model). Modeling is done in R using fixest package \citep{berge2026fixest}, the code for replication of my results is available at a GitHub repository\footnote{\url{TBA}}.
 	
-	\section{Results}
+	\section*{Results}
 	\label{sec:results}
 	
-	Regression results in Table \ref{table:regr_pooled} offer both expected and unexpected findings...
+	\subsection*{Notifying the police}
 	
-	We observe effect where victimization is more challenging to a person's assumptions about the world \citep{janoff1986aftermath}.	
+	Regression results in Table \ref{table:regr_pooled} suggest that a positive `counselors' effect on reporting is present both in cases of property crimes and violent victimization --- with a notable exception of face-to-face fraud \footnote{This is not the only regard in which fraud stands out. While in other crime types younger victims (18--24) are less likely to report than the middle aged (35--49), in case of fraud it is the other way round: young victims are the most likely reporters --- with the elders (65+) being the least likely to notify the police. The latter, by itself, should not come as a surprise: it is known that the elderly may be unwilling to report fraud \citep{parti2023if}. However, one of the expected reasons to conceal fraud victimization is feeling of guilt, and fear to compromise one's autonomy in the eyes of others -- but in my modeling there is no statistically significant association of self-blame with reporting, and neither with informing friends or family (Table \ref{table:regr_told}) -- which again singles fraud out among other crime types. I am inclined to believe that these discrepancies may be due to varying nature of fraud in different age groups, but this issue requires further investigation.}. It is almost as universal as the effect of large monetary loss (more than 50,000 rubles, or approximately 700 US dollars), and is especially pronounced in cases of violent crime: victims of assault and robbery who informed friends or family are 8-10 times more likely to notify the police. The effect is comparable with that of going to hospital as an aftermath of the incident.
+
+\begin{table}
+	\caption{Odds ratios of reporting victimization to the police (logistic regression)}
+	\label{table:regr_pooled}
+	\begin{adjustbox}{width=1\textwidth}
+		\input{tables/regr_pooled}
+	\end{adjustbox}
+	\footnotesize Standard errors are clustered by region and survey year. Observations' weights are used to correct sample imbalances.
+\end{table}
+
+	However, a theoretically important variable is omitted in this analysis --- the level of emotional damage which can be driving both informal (friends and family) and formal (the police) help-seeking. It may well be that it is not simply a function of the amount of monetary loss, physical damage, and other observed characteristics of an incident --- if so, there is a potential confounder in my modeling. To control for that, I use data from the 2024 survey wave which featured an explicit question about emotional damage. For each crime type\footnote{Except for fraud: there were only 32 such cases in wave 2024 (fraudsters seem to be switching to online schemes). I do not drop these cases completely, they are included in model for reporting property crime in general.}, I first estimate a model of the same specification as was used on the full sample (panel B in Table \ref{table:regr_robustness}), then a model with emotional damage added (panel C). The first thing to notice is that after constraining analysis to 2024 data (panel B) the coefficient at my focus variable ceases to be statistically significant in models of reporting theft and cybercrime, in model for property crimes in general it retains significance at $\alpha = 0.1$. In models of reporting violent crimes, the coefficient retains significance at $\alpha = 0.05$ and lower. Adding emotional damage (panel C) to models does not change this, and coefficients at damage levels are mostly insignificant. Rather than omission of an important variable, these results suggest lack of statistical power due to shrinking of data: there are five times less observations for theft and three times --- for cybercrime (that in violent crime models the effect survives switching to less observations points to differences in the aftermath of violent and property victimizations).
 	
-	It may be more instructive to assess predictions from the model in Fig \ref{fig:predictions}: ...
+	Next, as discussed in Method section, I have to address a possible endogeneity problem due to unknown order of informing the intimate circle and notifying the police. To ensure the \textit{incident---friends/family---police} path I remove from analysis the observations in which a report did not result in a police case. The effect stands for violent crimes, and theft, but not for other property crimes (panel D in Table \ref{table:regr_robustness}). However, this robustness check must be throwing at least part of champagne with the cork. Initiation or non-initiation of a case is not random: the police aims to filter out hard to investigate cases and those with a potential for retraction, because solved cases share is the key indicator by which their performance is judged \citep{paneyakh2014faking}. It is safe to assume that in many of such cases a victim is also doubtful of filing a report or even labeling the incident a police matter. And, according to \cite{greenberg1992after}, these are precisely the cases in which `counselors' effect must be the most pronounced. This means my estimates must be biased towards zero.
 	
-	\begin{table}[htb!]
-		\caption{Logistic regression result}
-		\label{table:regr_pooled}
-		\begin{adjustbox}{width=1\textwidth}
-			\input{tables/regr_pooled}
-		\end{adjustbox}
-	\end{table}
+	Bearing this in mind (and also that most people do turn to their intimate circle before the police \citep{ruback2001social, knoth2019reporting, garcia2005multi}), I am not too discouraged by the robustness check results. They warrant to conclude that activation of social network is positively associated with reporting violent victimization and, there are good reasons to believe, with reporting theft and cybercrime, too --- although in the latter case prudence is recommended until we have data detailing the order of actions in the aftermath of victimization.
+
+\begin{table}
+	\caption{Robustness tests: odds ratios of reporting victimization to the police, model estimations with varying model specifications and sample}
+	\label{table:regr_robustness}
+	\begin{adjustbox}{width=1\textwidth}
+		\input{tables/regr_robustness}
+	\end{adjustbox}
+	\vspace{1pt}\\
+	\footnotesize All models include the same list of control variables as in Table \ref{table:regr_pooled}. Fixed effects are region and year in panel A and D, region only in panels B and C. Standard errors are clustered by region and year in panels A and D, by region only in panels B and C. Observations' weights are used to correct sample imbalances.
+\end{table}
+
+	\subsection*{Informing friends or family}
+
+	Turning now to predictors of social network activation, I find that the process is different from that of formal help seeking. Whereas in modeling of reporting a statistically significant association with \textit{gender} was observed only for property crime in general, in seeking informal help being a male is a prominent negative predictor for each property crime type.%, and its effect is twice as large as in the reporting model. 
+	Having a \textit{partner} somewhat balances this out. \textit{Age group}, which was universally important in the first exercise, makes a difference only for sharing information of violent crimes (younger victims are less willing to let anyone know) and fraud (but there is no clear pattern). The amount of \textit{financial damage} is much less important for sharing with the intimate circle than for reporting to the police. The influence of \textit{informal control} is evident: odds of discussing violent victimization are halved if it happened in a small town or a village, if the victim is acquainted the offender chances of relating the story to friends or family are ten times lower than if it were stranger. Interestingly, personally \textit{knowing a policeman} significantly raises chances of discussing fraud of cybercrime (with, I assume, the very policeman), but lowers chances of reporting property crime\footnote{It is tempting to conclude that informally a policeman shares that there is not much that the law enforcement can do to help with fraud and cybercrime -- but this subject requires a separate qualitative research.}.
 	
-	\begin{figure}[h!]
-		\centering
-		\includegraphics[width = \textwidth]{figures/avg_predicted_probs_grouped.pdf}
-		\caption{Predictions from model}
-		\label{fig:predictions}	
-	\end{figure}
-	
-	\subsection{Robustness checks}
-	\label{subsec:robust}
-	
-	\cite{greenberg1992after}: \textit{Even higher percentages of the victims said they had spoken about the crime with someone at some time prior to calling the police (82\% of theft victims, 71\% of burglary victims, and 78\% of rape victims)}.
-	
-	change overtime: \cite{orcutt1988sex, ruback1993comment}
-	
-	
-	
-	Addressing possible
-	\begin{enumerate}
-		\item endogeneity:
-		\begin{itemize}
-			\item failed IV (only a mention, regression result not included)
-			\item subset of crime with close offenders \citep{felson1999victim}
-		\end{itemize}
-		\item omitted variables: emotional damage, trust in police \citep{goudriaan2004reporting}
-		\begin{itemize}
-			\item regression on 2024 data with inclusion omitted vars
-		\end{itemize}
-		\item memory bias:
-		\begin{itemize}
-			\item switching to sample of those victimized in last 12 months
-		\end{itemize}
-	\end{enumerate}
-	
-	\begin{table}
-		\caption{Logistic regression result after controlling for police trust and emotional damage, 2024 data only}
-		\label{table:regr_2024}
-		\begin{adjustbox}{width=1\textwidth}
-			\input{tables/regr_2024}
-		\end{adjustbox}
-	\end{table}
-	
-	
-	
-	\section{Discussion}
+\begin{table}
+	\caption{Odds ratios of informing friends or family about victimization (logistic regression)}
+	\label{table:regr_told}
+	\begin{adjustbox}{width=1\textwidth}
+		\input{tables/regr_told}
+	\end{adjustbox}
+	\footnotesize Standard errors are clustered by region and survey year. Observations' weights are used to correct sample imbalances.
+\end{table}
+
+%\begin{table}
+%	\caption{Logistic regression: odds ratios of reporting victimization to the police --- after controlling for trust in police and emotional damage, wave 2024 only}
+%	\label{table:regr_pooled_told}
+%	\begin{adjustbox}{width=1\textwidth}
+%		\input{tables/regr_pooled_told}
+%	\end{adjustbox}
+%\end{table}
+
+	\section*{Discussion}
 	\label{sec:discussion}
 	
+	Most of the literature on reporting victimization to the police has been searching for correlates of non-cooperation, this gave us knowledge on who are under-represented in the police data, what are the blind spots of law enforcement --- basically, how strongly and in what manner the official picture is distorted. This line of inquiry is important, not least because it provided us with understanding of the connections between this distortion and vulnerabilities of certain social groups \citep{warner2007directly,orcutt1988sex,gartner1995effect}. When backed with sufficient social mobilization this knowledge would help to change the \textit{status quo} by establishing victims services \citep{maguire1988victims}, changing the law \citep{spohn1992rape}, or introducing new practices into the police work to make help more available \citep{sukhtankar2022policing}. At the same time, this research still leaves a lot to be learnt about \textit{how} victims of crime seek help.
 	
+	There are several paths one can take in seeking help after victimization, some of these lead to or pass through notifying the police \citep{akers2009police, kaukinen2004help}. For example, a person can inform a friend who suggests to visit a crisis center where, among other things, the person is recommended to file a case against the offender \citep{baert2024factors}. It is on these paths that decisions are made --- one could go so far as to suggest that decisions \textit{happen} in `drifting' on the default currents \citep{bruch2017decision}, and that the availability of certain paths that shapes the outcomes \citep{small2016because}. Anyway, it is clear then that it is these paths and the factors of taking them, that are under-studied and should be explored for new applicable insights. My aim in this study was to make case for this perspective by demonstrating how strongly path variables compete against victim's and incident's characteristics. 
 	
-	I do not observe victim-advisor and offender-advisor relationship \citep{knoth2019reporting}, but if anything this should make my estimation more conservative. 
+	Admittedly, I chose the paths more traveled by --- those that go through friends and family, ERs, and sometimes reach police stations. There are other waypoints worth mapping: courts, lawyers, crisis centers, criminal authorities, etc. If these are recorded we could reconceptualize the dependent variable as taking one of the paths as suggested by \cite{pescosolido1998social} --- my study can be seen as approaching such framework but not quite getting there because of too narrow set of help-seeking options. The same paper by \cite{pescosolido1998social} points to another possible direction of research --- \textit{content} of this network: the values, norms, or defaults that it transmits. In this study I have to make a naive assumption that friends and family can only `push' a victim towards the police while it is obviously more complicated than that. Pursuing these lines of inquiry requires updating our instruments. Where including a question about waypoints visited and their order seems to be trivial from the technical point of view, to record the content of one's social network is a more challenging problem --- but, I believe, worth the effort.
 	
+	Introducing my perspective on the matter I suggested replacing the entrepreneur metaphor with that of coping with an aftermath of a natural disaster (inspired, I guess, by \cite{kunreuther1978disaster}) --- it was only later that I realized how \textit{ecological} it is\footnote{Even later I came across the same analogy in a paper by \cite{wright1977nobody}: writing about a victim's need for recognition of the injustice he likens it to expectation of `a visit by a government minister to the disaster area', --- another peculiar convergence.}. Metaphors are funny things. Anyway, let me invoke it one more time. In a book on social epidemiology, \cite{kawachi2014social} open up their chapter on social cohesion and health by describing a deadly earthquake that hit Kobe, Japan, in 1997. Some neighborhoods of the city sustained less damage and recovered faster --- not because they were less struck, but because of the spontaneous collective response of local citizens: they formed bucket brigades to put out fires, assisted in rescue operations, guarded abandoned property, oversaw reconstruction, and established organizations that lobbied allocating resources to local businesses. I think the moral of this story translates well to crime victimization. Shifting focus from individuals and magnitude of incidents that strike them to how their social network respond to victimization may provide us with better understanding of how to reduce harm. Such shift would mean a departure from the original problem of reporting --- but this transition from the interest of state to an individual's well-being seems only natural. A victim is not a `gatekeeper' in the master's service, they are first and foremost a person who needs help.
+		
+%		\bibliographystyle{apacite}
+%		\bibliography{bib.bib}
+		
+%		\bibliography{bibliography}
+		
+%		\clearpage
+		
+%		\section*{Appendices}
+%		\setcounter{section}{1}  
+%		\setcounter{figure}{0}  
+%		\setcounter{table}{0}  
+%		%\renewcommand{\thesubsection}{\Alph{subsection}}
+%		\renewcommand\thesubsection{\arabic{subsection}}
+%		\renewcommand\thefigure{A\arabic{figure}} 
+%		\renewcommand\thetable{A\arabic{table}} 
+%		\label{app}
+		
+	\section*{Appendices}
+		
+%		\noindent Subsections, equations, figures, tables, etc.\ within appendices will then be automatically numbered as appropriate. Some theorem-like environments may need to have their counters reset manually (e.g.\ if they are not numbered within sections in the main text). You can achieve this by using \verb"\numberwithin{remark}{section}" (for example) just after the \verb"\appendix" command.
+		
+%		Note that if the \verb"endfloat" package is used on a document containing any appendices, the \verb"\processdelayedfloats" command must be included immediately before the \verb"\appendix" command in order to ensure that the floats belonging to the main body of the text are numbered as such.
+		
+	\appendix
 	
-	%\textit{Add on Matsueda, Wikstrom, and Coleman's boat) \citep{mcgloin2011crime, matsueda2017toward}? Guess, no.
+	\section{Construction of crime types}
+	\label{app.table:crime_types}
+	\begin{tabular}{lr}
+	\toprule
+	Crime type & Condition\\
+	\end{tabular}
+
+	\section{Questions formulations and construction of variables}
+	\label{app.table:questions}
+	\begin{tabular}{lrr}
+	\toprule
+	Question & Encoding & Variable\\
+	\end{tabular}
+	
+	\section{Wave 2024 tabulation}
+			\begin{table}[h!]
+			\caption{Numbers of victimized and reported incidents shares tabulated by variables used in this study, survey wave 2024 only}
+			\label{app.table:table1_2024}
+			\begin{adjustbox}{width=.9\textwidth, height=3.9in}
+				\input{tables/table1_2024.tex}
+			\end{adjustbox}
+		\end{table}
+	
+%	\section{Regression results' robustness check}
+%	\begin{table}
+%		\caption{Logistic regression: odds ratios of reporting victimization to the police --- after controlling for trust in police and emotional damage, wave 2024 only}
+%		\label{app.table:regr_2024}
+%		\begin{adjustbox}{width=1\textwidth}
+%			\input{tables/regr_2024}
+%		\end{adjustbox}
+%	\end{table}
+%
+%	\begin{table}
+%		\caption{Logistic regression: odds ratios of reporting victimization to the police --- after removing observations where report did not result into case initiation}
+%		\label{app.table:regr_pooled_caseinit}
+%		\begin{adjustbox}{width=1\textwidth}
+%			\input{tables/regr_pooled_caseinit}
+%		\end{adjustbox}
+%	\end{table}
 		
+%		\section{This is the title of the second appendix}
 		
-		Organizational context \citep{goudriaan2004reporting, garofalo1987school, collins1987job}
+		%\processdelayedfloats %%% See above for an explanation of why this command might be needed here.
 		
-		\cite{knoth2019reporting}
-		\textit{Crimes are least likely to be reported if the offender is part of the same triad as the victim and the advisor, and crimes are most likely to be reported if the victim, the advisor, and the offender are all strangers. Study 1 also found that males are more likely to protect friends who are offenders (by advising against reporting), while females are more likely to protect friends who are victims (by advising them to report). Study 2 found that the effect of these relationships on reporting is conditioned by the nature of the organization to which the offender belongs, such that males are particularly likely to protect their friends in athletic organizations and fraternities when accused of minor property crimes. Both studies found that gender differences in the advice to report are moderated by characteristics of the crime and triad structure.
-		}
+
 		
-		
-		I would go as far as to suggest that in different kinds of victimization different models of reporting behavior are relevant. The cost-benefit calculus model coming from microeconomics
-		
-		Scarcity of research on connection between seeking informal help and reporting may in part be due to there are seemingly no immediate policy implications \citep{greenberg1992after}. However, 1) it may be more effective to work through situational advisors (victim decision making being compromised by shock), i.e. potentially anyone; 2) if we believe that consulting others heightens probability of reporting we must conclude that lonely people report less, which gives us an insight on the direction of bias introduced by under-reporting crime.
-		
-		\cite{pescosolido1992beyond} 1) victimization is a shock to the whole network, 2) by including consultation with friends/family we tap into network focused research but are still far from it, 3) we can guess about structure of network but we don't know anything about content -- if anything, this makes my estimation conservative. 
-		
-		\cite{pescosolido1992beyond}:\textit{ illness triggers a dynamic, social process of coping. It is through contact with others that individuals deal with situations of medical uncertainty and find ways to solve emotional and physical problems (Kulka, Veroff, and Douvan 1979). Individuals in social networks are more than an influence on help seeking, they are caregivers and advisors, part of a "therapy managing group" (Janzen 1978).}
-		
-		\cite{goudriaan2004reporting}: \textit{According to Gartner and Macmillan (1995), however, the unpredicted finding might be in part due to measurement error in the ICVS. Contact crimes by intimates or acquaintances are less likely to be mentioned in victimization surveys than similar crimes by unknown offenders because such surveys often do not encourage respondents to think about intimate violence as relevant for the survey (Cantor \& Lynch, 2000; Kalish, 1974). Victims of intimate violence tend to mention only the more serious crimes that they have also reported to the police. Put another way, victims of less serious attacks appear more willing to reveal these in surveys if the offender was a stranger. This tendency will bias estimates of the effects of victimoffender relationship on reporting to the police (Gartner \& Macmillan, 1995).}
-		
-		\section{Conclusion}
-		\label{sec:conclusion}
-		
-		\bibliographystyle{apacite}
-		\bibliography{bib.bib}
-		
-		%
-		%\section{Appendices}
-		%
-		%Any appendices should be placed after the list of references, beginning with the command \verb"\appendix" followed by the command \verb"\section" for each appendix title, e.g.
-		%\begin{verbatim}
-		%\appendix
-		%\section{This is the title of the first appendix}
-		%\section{This is the title of the second appendix}
-		%\end{verbatim}
-		%produces:\medskip
-		%
-		%\noindent\textbf{Appendix A. This is the title of the first appendix}\medskip
-		%
-		%\noindent\textbf{Appendix B. This is the title of the second appendix}\medskip
-		%
-		%\noindent Subsections, equations, figures, tables, etc.\ within appendices will then be automatically numbered as appropriate. Some theorem-like environments may need to have their counters reset manually (e.g.\ if they are not numbered within sections in the main text). You can achieve this by using \verb"\numberwithin{remark}{section}" (for example) just after the \verb"\appendix" command.
-		%
-		%Note that if the \verb"endfloat" package is used on a document containing any appendices, the \verb"\processdelayedfloats" command must be included immediately before the \verb"\appendix" command in order to ensure that the floats belonging to the main body of the text are numbered as such.
-		%
-		%%\processdelayedfloats %%% See above for an explanation of why this command might be needed here.
-		%
-		%\appendix
-		%
 		%\section{Troubleshooting}
 		%
 		%Authors may occasionally encounter problems with the preparation of a manuscript using \LaTeX. The appropriate action to take will depend on the nature of the problem:

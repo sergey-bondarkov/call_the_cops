@@ -1,0 +1,17 @@
+[0] Config.pm:307> INFO - This is Biber 2.17
+[0] Config.pm:310> INFO - Logfile is 'pres8jun2026irl.blg'
+[102] biber:340> INFO - === Mon Jun  8, 2026, 14:29:10
+[121] Biber.pm:418> INFO - Reading 'pres8jun2026irl.bcf'
+[225] Biber.pm:972> INFO - Found 12 citekeys in bib section 0
+[250] Biber.pm:4383> INFO - Processing section 0
+[266] Biber.pm:4574> INFO - Looking for bibtex file '../../paper/bib.bib' for section 0
+[272] bibtex.pm:1713> INFO - LaTeX decoding ...
+[458] bibtex.pm:1518> INFO - Found BibTeX data source '../../paper/bib.bib'
+[643] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[643] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[643] Biber.pm:4203> INFO - Sorting list 'apa/global//global/global' of type 'entry' with template 'apa' and locale 'en-US'
+[643] Biber.pm:4209> INFO - No sort tailoring available for locale 'en-US'
+[672] bbl.pm:654> INFO - Writing 'pres8jun2026irl.bbl' with encoding 'UTF-8'
+[687] bbl.pm:757> INFO - Output to pres8jun2026irl.bbl
+[687] Biber.pm:130> WARN - Duplicate entry key: 'kaukinen2002help' in file '../../paper/bib.bib', skipping ...
+[687] Biber.pm:132> INFO - WARNINGS: 1

@@ -1,8 +1,10 @@
 # Literature
 lit/
+data/
 
 # Temp files
 .R.sw*
 .swp
 .swo
+.sw*
 

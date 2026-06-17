@@ -1,1023 +1,3007 @@
-\begin{thebibliography}{}
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
 
-\bibitem [\protect \citeauthoryear {%
-Anderson%
-}{%
-Anderson%
-}{%
-{\protect \APACyear {1999}}%
-}]{%
-anderson1999code}
-\APACinsertmetastar {%
-anderson1999code}%
-\begin{APACrefauthors}%
-Anderson, E.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{1999}{}{}.
-\newblock
-\APACrefbtitle {Code of the Street.} {Code of the street.}
-\newblock
-\APACaddressPublisher{}{New York: Norton}.
-\PrintBackRefs{\CurrentBib}
 
-\bibitem [\protect \citeauthoryear {%
-Baert%
-\ \protect \BOthers {.}}{%
-Baert%
-\ \protect \BOthers {.}}{%
-{\protect \APACyear {2024}}%
-}]{%
-baert2024factors}
-\APACinsertmetastar {%
-baert2024factors}%
-\begin{APACrefauthors}%
-Baert, S.%
-, De~Buyser, S.%
-, Van~Belle, S.%
-, Gemmel, P.%
-, Rousseau, C.%
-, Roelens, K.%
-\BCBL {}\ \BBA {} Keygnaert, I.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{2024}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {Factors related to police reporting in sexual assault
-  care centers: are we underestimating the role of support persons?} {Factors
-  related to police reporting in sexual assault care centers: are we
-  underestimating the role of support persons?}{\BBCQ}
-\newblock
-\APACjournalVolNumPages{Violence against women}{30}{15-16}{3943--3969}.
-\PrintBackRefs{\CurrentBib}
+\refsection{0}
+  \datalist[entry]{apa/global//global/global}
+    \entry{akers2009police}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=1abccfafd5bd5a33e46501757a553483}{%
+           family={Akers},
+           familyi={A\bibinitperiod},
+           given={Caroline},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6b3fecbacad827c8a30132b2f7136152}{%
+           family={Kaukinen},
+           familyi={K\bibinitperiod},
+           given={Catherine},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{670e7270d836056459a21c0f7d61b548}
+      \strng{fullhash}{670e7270d836056459a21c0f7d61b548}
+      \strng{bibnamehash}{670e7270d836056459a21c0f7d61b548}
+      \strng{authorbibnamehash}{670e7270d836056459a21c0f7d61b548}
+      \strng{authornamehash}{670e7270d836056459a21c0f7d61b548}
+      \strng{authorfullhash}{670e7270d836056459a21c0f7d61b548}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of family violence}
+      \field{number}{3}
+      \field{title}{The police reporting behavior of intimate partner violence victims}
+      \field{volume}{24}
+      \field{year}{2009}
+      \field{pages}{159\bibrangedash 171}
+      \range{pages}{13}
+    \endentry
+    \entry{allen2007reporting}{article}{}
+      \name{author}{1}{}{%
+        {{un=1,uniquepart=given,hash=b89ff303864bf4d49dd5e6cb9bcc71b8}{%
+           family={Allen},
+           familyi={A\bibinitperiod},
+           given={W\bibnamedelima David},
+           giveni={W\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=1}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley Online Library}%
+      }
+      \strng{namehash}{b89ff303864bf4d49dd5e6cb9bcc71b8}
+      \strng{fullhash}{b89ff303864bf4d49dd5e6cb9bcc71b8}
+      \strng{bibnamehash}{b89ff303864bf4d49dd5e6cb9bcc71b8}
+      \strng{authorbibnamehash}{b89ff303864bf4d49dd5e6cb9bcc71b8}
+      \strng{authornamehash}{b89ff303864bf4d49dd5e6cb9bcc71b8}
+      \strng{authorfullhash}{b89ff303864bf4d49dd5e6cb9bcc71b8}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Southern Economic Journal}
+      \field{number}{3}
+      \field{title}{The reporting and underreporting of rape}
+      \field{volume}{73}
+      \field{year}{2007}
+      \field{pages}{623\bibrangedash 641}
+      \range{pages}{19}
+    \endentry
+    \entry{anderson1999code}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=579b2ba4f1ca057482816a34937ba669}{%
+           family={Anderson},
+           familyi={A\bibinitperiod},
+           given={Elijah},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {New York: Norton}%
+      }
+      \strng{namehash}{579b2ba4f1ca057482816a34937ba669}
+      \strng{fullhash}{579b2ba4f1ca057482816a34937ba669}
+      \strng{bibnamehash}{579b2ba4f1ca057482816a34937ba669}
+      \strng{authorbibnamehash}{579b2ba4f1ca057482816a34937ba669}
+      \strng{authornamehash}{579b2ba4f1ca057482816a34937ba669}
+      \strng{authorfullhash}{579b2ba4f1ca057482816a34937ba669}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Code of the Street}
+      \field{year}{1999}
+    \endentry
+    \entry{baert2024factors}{article}{}
+      \name{author}{7}{}{%
+        {{un=0,uniquepart=base,hash=866930e51bc09f5a5e4d1091247a6480}{%
+           family={Baert},
+           familyi={B\bibinitperiod},
+           given={Saar},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=be8524bffbdc3ee7cb82406b5d3f2b13}{%
+           family={De\bibnamedelima Buyser},
+           familyi={D\bibinitperiod\bibinitdelim B\bibinitperiod},
+           given={Stefanie},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=bcdfee5833bab5884d8fe746f7b290df}{%
+           family={Van\bibnamedelima Belle},
+           familyi={V\bibinitperiod\bibinitdelim B\bibinitperiod},
+           given={Sara},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=10127e9296a403894bbab50cd02e7764}{%
+           family={Gemmel},
+           familyi={G\bibinitperiod},
+           given={Paul},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8c571e2f1881470a8333dfc550a1dfcf}{%
+           family={Rousseau},
+           familyi={R\bibinitperiod},
+           given={Charlotte},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7b5a403308a1f69bf836c59e45bfa8fd}{%
+           family={Roelens},
+           familyi={R\bibinitperiod},
+           given={Kristien},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=42bf8fd9044278ac37c8dfde51916d00}{%
+           family={Keygnaert},
+           familyi={K\bibinitperiod},
+           given={Ines},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {SAGE Publications Sage CA: Los Angeles, CA}%
+      }
+      \strng{namehash}{11fc3fd38a33fb20393857c96937ac87}
+      \strng{fullhash}{ea8acdcac7103895a18334fc067b8776}
+      \strng{bibnamehash}{ea8acdcac7103895a18334fc067b8776}
+      \strng{authorbibnamehash}{ea8acdcac7103895a18334fc067b8776}
+      \strng{authornamehash}{11fc3fd38a33fb20393857c96937ac87}
+      \strng{authorfullhash}{ea8acdcac7103895a18334fc067b8776}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Violence against women}
+      \field{number}{15-16}
+      \field{title}{Factors related to police reporting in sexual assault care centers: are we underestimating the role of support persons?}
+      \field{volume}{30}
+      \field{year}{2024}
+      \field{pages}{3943\bibrangedash 3969}
+      \range{pages}{27}
+    \endentry
+    \entry{bard1980things}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=534b22580860cf36882b19d3277c1591}{%
+           family={Bard},
+           familyi={B\bibinitperiod},
+           given={Morton},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c76c3447254dac4acdecde270ecb98ae}{%
+           family={Sangrey},
+           familyi={S\bibinitperiod},
+           given={Dawn},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{d87a7d30a6a972a2936ac16b161b0cc6}
+      \strng{fullhash}{d87a7d30a6a972a2936ac16b161b0cc6}
+      \strng{bibnamehash}{d87a7d30a6a972a2936ac16b161b0cc6}
+      \strng{authorbibnamehash}{d87a7d30a6a972a2936ac16b161b0cc6}
+      \strng{authornamehash}{d87a7d30a6a972a2936ac16b161b0cc6}
+      \strng{authorfullhash}{d87a7d30a6a972a2936ac16b161b0cc6}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Evaluation and Change (Special Issue)}
+      \field{title}{Things fall apart: Victims in crisis}
+      \field{volume}{28}
+      \field{year}{1980}
+      \field{pages}{35}
+      \range{pages}{1}
+    \endentry
+    \entry{baumer2002neighborhood}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=0135c28cf0a706156af0f2ead0a3a2ac}{%
+           family={Baumer},
+           familyi={B\bibinitperiod},
+           given={Eric\bibnamedelima P},
+           giveni={E\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley Online Library}%
+      }
+      \strng{namehash}{0135c28cf0a706156af0f2ead0a3a2ac}
+      \strng{fullhash}{0135c28cf0a706156af0f2ead0a3a2ac}
+      \strng{bibnamehash}{0135c28cf0a706156af0f2ead0a3a2ac}
+      \strng{authorbibnamehash}{0135c28cf0a706156af0f2ead0a3a2ac}
+      \strng{authornamehash}{0135c28cf0a706156af0f2ead0a3a2ac}
+      \strng{authorfullhash}{0135c28cf0a706156af0f2ead0a3a2ac}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Criminology}
+      \field{number}{3}
+      \field{title}{Neighborhood disadvantage and police notification by victims of violence}
+      \field{volume}{40}
+      \field{year}{2002}
+      \field{pages}{579\bibrangedash 616}
+      \range{pages}{38}
+    \endentry
+    \entry{baumer2010reporting}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=0135c28cf0a706156af0f2ead0a3a2ac}{%
+           family={Baumer},
+           familyi={B\bibinitperiod},
+           given={Eric\bibnamedelima P},
+           giveni={E\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8a291ba666270ee929ce37d066d918d0}{%
+           family={Lauritsen},
+           familyi={L\bibinitperiod},
+           given={Janet\bibnamedelima L},
+           giveni={J\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley Online Library}%
+      }
+      \strng{namehash}{e4d0699f3a96c212a4e122705c881aec}
+      \strng{fullhash}{e4d0699f3a96c212a4e122705c881aec}
+      \strng{bibnamehash}{e4d0699f3a96c212a4e122705c881aec}
+      \strng{authorbibnamehash}{e4d0699f3a96c212a4e122705c881aec}
+      \strng{authornamehash}{e4d0699f3a96c212a4e122705c881aec}
+      \strng{authorfullhash}{e4d0699f3a96c212a4e122705c881aec}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Criminology}
+      \field{number}{1}
+      \field{title}{Reporting crime to the police, 1973--2005: a multivariate analysis of long-term trends in the National Crime Survey (NCS) and National Crime Victimization Survey (NCVS)}
+      \field{volume}{48}
+      \field{year}{2010}
+      \field{pages}{131\bibrangedash 185}
+      \range{pages}{55}
+    \endentry
+    \entry{berge2026fixest}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=73a33d9350c492de9af0ef6a5297aadb}{%
+           family={Bergé},
+           familyi={B\bibinitperiod},
+           given={Laurent\bibnamedelima R.},
+           giveni={L\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=186f99b33d835f3175ded1f498188a92}{%
+           family={Butts},
+           familyi={B\bibinitperiod},
+           given={Kyle},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f151f140b4a137814aeebcd233e2e9eb}{%
+           family={McDermott},
+           familyi={M\bibinitperiod},
+           given={Grant},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{ffbd6fb407a2bd4628ac2b031074698a}
+      \strng{fullhash}{85ac7d73b2086aead01c2702ebe1f77e}
+      \strng{bibnamehash}{85ac7d73b2086aead01c2702ebe1f77e}
+      \strng{authorbibnamehash}{85ac7d73b2086aead01c2702ebe1f77e}
+      \strng{authornamehash}{ffbd6fb407a2bd4628ac2b031074698a}
+      \strng{authorfullhash}{85ac7d73b2086aead01c2702ebe1f77e}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:2601.21749}
+      \field{title}{Fast and user-friendly econometrics estimations: {T}he {R} package fixest}
+      \field{year}{2026}
+      \verb{doi}
+      \verb 10.48550/arXiv.2601.21749
+      \endverb
+    \endentry
+    \entry{bergemann2024social}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=8fe8350536a4852a36d3c65e3bae3413}{%
+           family={Bergemann},
+           familyi={B\bibinitperiod},
+           given={Patrick},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Annual Reviews}%
+      }
+      \strng{namehash}{8fe8350536a4852a36d3c65e3bae3413}
+      \strng{fullhash}{8fe8350536a4852a36d3c65e3bae3413}
+      \strng{bibnamehash}{8fe8350536a4852a36d3c65e3bae3413}
+      \strng{authorbibnamehash}{8fe8350536a4852a36d3c65e3bae3413}
+      \strng{authornamehash}{8fe8350536a4852a36d3c65e3bae3413}
+      \strng{authorfullhash}{8fe8350536a4852a36d3c65e3bae3413}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Annual Review of Sociology}
+      \field{title}{How Social Influence Affects Reporting: Toward an Integration of Crime Reporting, Whistleblowing, and Denunciation}
+      \field{volume}{50}
+      \field{year}{2024}
+    \endentry
+    \entry{black1976behavior}{book}{}
+      \name{author}{1}{}{%
+        {{un=1,uniquepart=given,hash=451567d401761493abc56bf3d3a1812d}{%
+           family={Black},
+           familyi={B\bibinitperiod},
+           given={Donald},
+           giveni={D\bibinitperiod},
+           givenun=1}}%
+      }
+      \strng{namehash}{451567d401761493abc56bf3d3a1812d}
+      \strng{fullhash}{451567d401761493abc56bf3d3a1812d}
+      \strng{bibnamehash}{451567d401761493abc56bf3d3a1812d}
+      \strng{authorbibnamehash}{451567d401761493abc56bf3d3a1812d}
+      \strng{authornamehash}{451567d401761493abc56bf3d3a1812d}
+      \strng{authorfullhash}{451567d401761493abc56bf3d3a1812d}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The behavior of law}
+      \field{year}{1976}
+    \endentry
+    \entry{black1973mobilization}{article}{}
+      \name{author}{1}{}{%
+        {{un=1,uniquepart=given,hash=cb6dc761dfb92846af132e041540dbcc}{%
+           family={Black},
+           familyi={B\bibinitperiod},
+           given={Donald\bibnamedelima J},
+           giveni={D\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=1}}%
+      }
+      \list{publisher}{1}{%
+        {The University of Chicago Law School}%
+      }
+      \strng{namehash}{cb6dc761dfb92846af132e041540dbcc}
+      \strng{fullhash}{cb6dc761dfb92846af132e041540dbcc}
+      \strng{bibnamehash}{cb6dc761dfb92846af132e041540dbcc}
+      \strng{authorbibnamehash}{cb6dc761dfb92846af132e041540dbcc}
+      \strng{authornamehash}{cb6dc761dfb92846af132e041540dbcc}
+      \strng{authorfullhash}{cb6dc761dfb92846af132e041540dbcc}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The journal of legal studies}
+      \field{number}{1}
+      \field{title}{The mobilization of law}
+      \field{volume}{2}
+      \field{year}{1973}
+      \field{pages}{125\bibrangedash 149}
+      \range{pages}{25}
+    \endentry
+    \entry{boateng2018crime}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=4c6834e0fc3dfe4e05b5a1e0619b1481}{%
+           family={Boateng},
+           familyi={B\bibinitperiod},
+           given={Francis\bibnamedelima D},
+           giveni={F\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Sage Publications Sage CA: Los Angeles, CA}%
+      }
+      \strng{namehash}{4c6834e0fc3dfe4e05b5a1e0619b1481}
+      \strng{fullhash}{4c6834e0fc3dfe4e05b5a1e0619b1481}
+      \strng{bibnamehash}{4c6834e0fc3dfe4e05b5a1e0619b1481}
+      \strng{authorbibnamehash}{4c6834e0fc3dfe4e05b5a1e0619b1481}
+      \strng{authornamehash}{4c6834e0fc3dfe4e05b5a1e0619b1481}
+      \strng{authorfullhash}{4c6834e0fc3dfe4e05b5a1e0619b1481}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of interpersonal violence}
+      \field{number}{18}
+      \field{title}{Crime reporting behavior: Do attitudes toward the police matter?}
+      \field{volume}{33}
+      \field{year}{2018}
+      \field{pages}{2891\bibrangedash 2916}
+      \range{pages}{26}
+    \endentry
+    \entry{brennan2016violence}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=d3f2680a2c956a367bf67c2806ce91de}{%
+           family={Brennan},
+           familyi={B\bibinitperiod},
+           given={Iain\bibnamedelima R},
+           giveni={I\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {SAGE Publications Sage UK: London, England}%
+      }
+      \strng{namehash}{d3f2680a2c956a367bf67c2806ce91de}
+      \strng{fullhash}{d3f2680a2c956a367bf67c2806ce91de}
+      \strng{bibnamehash}{d3f2680a2c956a367bf67c2806ce91de}
+      \strng{authorbibnamehash}{d3f2680a2c956a367bf67c2806ce91de}
+      \strng{authornamehash}{d3f2680a2c956a367bf67c2806ce91de}
+      \strng{authorfullhash}{d3f2680a2c956a367bf67c2806ce91de}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International review of victimology}
+      \field{number}{1}
+      \field{title}{When is violence not a crime? Factors associated with victims’ labelling of violence as a crime}
+      \field{volume}{22}
+      \field{year}{2016}
+      \field{pages}{3\bibrangedash 23}
+      \range{pages}{21}
+    \endentry
+    \entry{bronfenbrenner1979ecology}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=8be9ed6316c6f644d32aa3bd81eabe35}{%
+           family={Bronfenbrenner},
+           familyi={B\bibinitperiod},
+           given={Urie},
+           giveni={U\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Harvard university press}%
+      }
+      \strng{namehash}{8be9ed6316c6f644d32aa3bd81eabe35}
+      \strng{fullhash}{8be9ed6316c6f644d32aa3bd81eabe35}
+      \strng{bibnamehash}{8be9ed6316c6f644d32aa3bd81eabe35}
+      \strng{authorbibnamehash}{8be9ed6316c6f644d32aa3bd81eabe35}
+      \strng{authornamehash}{8be9ed6316c6f644d32aa3bd81eabe35}
+      \strng{authorfullhash}{8be9ed6316c6f644d32aa3bd81eabe35}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The ecology of human development: Experiments by nature and design}
+      \field{year}{1979}
+    \endentry
+    \entry{brooks2020doing}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=569b0f0a91d1b8e6424b157b2df00d1c}{%
+           family={Brooks-Hay},
+           familyi={B\bibinithyphendelim H\bibinitperiod},
+           given={Oona},
+           giveni={O\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Sage Publications Sage CA: Los Angeles, CA}%
+      }
+      \strng{namehash}{569b0f0a91d1b8e6424b157b2df00d1c}
+      \strng{fullhash}{569b0f0a91d1b8e6424b157b2df00d1c}
+      \strng{bibnamehash}{569b0f0a91d1b8e6424b157b2df00d1c}
+      \strng{authorbibnamehash}{569b0f0a91d1b8e6424b157b2df00d1c}
+      \strng{authornamehash}{569b0f0a91d1b8e6424b157b2df00d1c}
+      \strng{authorfullhash}{569b0f0a91d1b8e6424b157b2df00d1c}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Feminist criminology}
+      \field{number}{2}
+      \field{title}{Doing the “right thing”? Understanding why rape victim-survivors report to the police}
+      \field{volume}{15}
+      \field{year}{2020}
+      \field{pages}{174\bibrangedash 195}
+      \range{pages}{22}
+    \endentry
+    \entry{bruch2017decision}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=4d6076b5a53f7bd4f6238af18f737014}{%
+           family={Bruch},
+           familyi={B\bibinitperiod},
+           given={Elizabeth},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cf8ce1adb7fcff27926e562fe638e84f}{%
+           family={Feinberg},
+           familyi={F\bibinitperiod},
+           given={Fred},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Annual Reviews}%
+      }
+      \strng{namehash}{08395b9a406136d8fc1d63954a2c0c55}
+      \strng{fullhash}{08395b9a406136d8fc1d63954a2c0c55}
+      \strng{bibnamehash}{08395b9a406136d8fc1d63954a2c0c55}
+      \strng{authorbibnamehash}{08395b9a406136d8fc1d63954a2c0c55}
+      \strng{authornamehash}{08395b9a406136d8fc1d63954a2c0c55}
+      \strng{authorfullhash}{08395b9a406136d8fc1d63954a2c0c55}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Annual review of sociology}
+      \field{number}{1}
+      \field{title}{Decision-making processes in social contexts}
+      \field{volume}{43}
+      \field{year}{2017}
+      \field{pages}{207\bibrangedash 227}
+      \range{pages}{21}
+    \endentry
+    \entry{bjs@redesign}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=d5f88b9393873fa528244a01674f1e94}{%
+           family={{Bureau of Justice Statistics}},
+           familyi={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{d5f88b9393873fa528244a01674f1e94}
+      \strng{fullhash}{d5f88b9393873fa528244a01674f1e94}
+      \strng{bibnamehash}{d5f88b9393873fa528244a01674f1e94}
+      \strng{authorbibnamehash}{d5f88b9393873fa528244a01674f1e94}
+      \strng{authornamehash}{d5f88b9393873fa528244a01674f1e94}
+      \strng{authorfullhash}{d5f88b9393873fa528244a01674f1e94}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{NCVS Instrument Redesign}
+      \field{year}{2022}
+      \verb{urlraw}
+      \verb https://bjs.ojp.gov/programs/ncvs/instrument-redesign
+      \endverb
+      \verb{url}
+      \verb https://bjs.ojp.gov/programs/ncvs/instrument-redesign
+      \endverb
+    \endentry
+    \entry{campbell2015pathways}{article}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=c61d79252450a8ba77b3495d213cf68c}{%
+           family={Campbell},
+           familyi={C\bibinitperiod},
+           given={Rebecca},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=202ee35b4fcc7152071c4e8d10f8f38c}{%
+           family={Greeson},
+           familyi={G\bibinitperiod},
+           given={Megan\bibnamedelima R},
+           giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b9d4605146c35b69c507f5aff44369ac}{%
+           family={Fehler-Cabral},
+           familyi={F\bibinithyphendelim C\bibinitperiod},
+           given={Giannina},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2e58185d3dd12a5dec20492e0d3be3c7}{%
+           family={Kennedy},
+           familyi={K\bibinitperiod},
+           given={Angie\bibnamedelima C},
+           giveni={A\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Sage Publications Sage CA: Los Angeles, CA}%
+      }
+      \strng{namehash}{5dc557f1feff782c666c312d2f30fb6c}
+      \strng{fullhash}{9ba28bd6be205d0de11f9bf2ab1e7e75}
+      \strng{bibnamehash}{9ba28bd6be205d0de11f9bf2ab1e7e75}
+      \strng{authorbibnamehash}{9ba28bd6be205d0de11f9bf2ab1e7e75}
+      \strng{authornamehash}{5dc557f1feff782c666c312d2f30fb6c}
+      \strng{authorfullhash}{9ba28bd6be205d0de11f9bf2ab1e7e75}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Violence against women}
+      \field{number}{7}
+      \field{title}{Pathways to help: Adolescent sexual assault victims’ disclosure and help-seeking experiences}
+      \field{volume}{21}
+      \field{year}{2015}
+      \field{pages}{824\bibrangedash 847}
+      \range{pages}{24}
+    \endentry
+    \entry{davis1996supportive}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=56750165bd45dac252e35ca4ab131489}{%
+           family={Davis},
+           familyi={D\bibinitperiod},
+           given={Robert\bibnamedelima C},
+           giveni={R\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=55ffbd1f67e216f7d52dcf6a9bf74ebc}{%
+           family={Brickman},
+           familyi={B\bibinitperiod},
+           given={Ellen},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {SAGE Periodicals Press}%
+      }
+      \strng{namehash}{53a8460f250b62af5c947491f43370f2}
+      \strng{fullhash}{53a8460f250b62af5c947491f43370f2}
+      \strng{bibnamehash}{53a8460f250b62af5c947491f43370f2}
+      \strng{authorbibnamehash}{53a8460f250b62af5c947491f43370f2}
+      \strng{authornamehash}{53a8460f250b62af5c947491f43370f2}
+      \strng{authorfullhash}{53a8460f250b62af5c947491f43370f2}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Interpersonal Violence}
+      \field{number}{2}
+      \field{title}{Supportive and unsupportive aspects of the behavior of others toward victims of sexual and nonsexual assault}
+      \field{volume}{11}
+      \field{year}{1996}
+      \field{pages}{250\bibrangedash 262}
+      \range{pages}{13}
+    \endentry
+    \entry{davis2003willingness}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=56750165bd45dac252e35ca4ab131489}{%
+           family={Davis},
+           familyi={D\bibinitperiod},
+           given={Robert\bibnamedelima C},
+           giveni={R\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=60c1d41389a4d696ddfc6cbd2afb8486}{%
+           family={Henderson},
+           familyi={H\bibinitperiod},
+           given={Nicole\bibnamedelima J},
+           giveni={N\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Sage Publications}%
+      }
+      \strng{namehash}{03afa8e4c8d6d8918542f2a600d98bf7}
+      \strng{fullhash}{03afa8e4c8d6d8918542f2a600d98bf7}
+      \strng{bibnamehash}{03afa8e4c8d6d8918542f2a600d98bf7}
+      \strng{authorbibnamehash}{03afa8e4c8d6d8918542f2a600d98bf7}
+      \strng{authornamehash}{03afa8e4c8d6d8918542f2a600d98bf7}
+      \strng{authorfullhash}{03afa8e4c8d6d8918542f2a600d98bf7}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Crime \& Delinquency}
+      \field{number}{4}
+      \field{title}{Willingness to report crimes: The role of ethnic group membership and community efficacy}
+      \field{volume}{49}
+      \field{year}{2003}
+      \field{pages}{564\bibrangedash 580}
+      \range{pages}{17}
+    \endentry
+    \entry{dworkin2018correlates}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=fa9c17776f3d79abdf204caa68573257}{%
+           family={Dworkin},
+           familyi={D\bibinitperiod},
+           given={Emily\bibnamedelima R},
+           giveni={E\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+        {{un=1,uniquepart=given,hash=ebecd7af7dcb35d50f86723b99a8573f}{%
+           family={Allen},
+           familyi={A\bibinitperiod},
+           given={Nicole},
+           giveni={N\bibinitperiod},
+           givenun=1}}%
+      }
+      \list{publisher}{1}{%
+        {Sage Publications Sage CA: Los Angeles, CA}%
+      }
+      \strng{namehash}{64a58f04083009734a73c5f94b97cf9a}
+      \strng{fullhash}{64a58f04083009734a73c5f94b97cf9a}
+      \strng{bibnamehash}{64a58f04083009734a73c5f94b97cf9a}
+      \strng{authorbibnamehash}{64a58f04083009734a73c5f94b97cf9a}
+      \strng{authornamehash}{64a58f04083009734a73c5f94b97cf9a}
+      \strng{authorfullhash}{64a58f04083009734a73c5f94b97cf9a}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Violence against women}
+      \field{number}{1}
+      \field{title}{Correlates of disclosure cessation after sexual assault}
+      \field{volume}{24}
+      \field{year}{2018}
+      \field{pages}{85\bibrangedash 100}
+      \range{pages}{16}
+    \endentry
+    \entry{dzmitryieva2025crime}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=6aacef17a253a6f56a9ccd2aeb1a3ebb}{%
+           family={Dzmitryieva},
+           familyi={D\bibinitperiod},
+           given={Aryna},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3ca54f219696e116337b9b1a19585ee9}{%
+           family={Titaev},
+           familyi={T\bibinitperiod},
+           given={Kirill},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Taylor \& Francis}%
+      }
+      \strng{namehash}{d26f7cbbff69d01e3e444b980f56379b}
+      \strng{fullhash}{d26f7cbbff69d01e3e444b980f56379b}
+      \strng{bibnamehash}{d26f7cbbff69d01e3e444b980f56379b}
+      \strng{authorbibnamehash}{d26f7cbbff69d01e3e444b980f56379b}
+      \strng{authornamehash}{d26f7cbbff69d01e3e444b980f56379b}
+      \strng{authorfullhash}{d26f7cbbff69d01e3e444b980f56379b}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal of Comparative and Applied Criminal Justice}
+      \field{title}{Crime reporting in Russia: testing theoretical perspectives with national survey data}
+      \field{year}{2025}
+      \field{pages}{1\bibrangedash 25}
+      \range{pages}{25}
+    \endentry
+    \entry{felson2016victims}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=e55a4b88311375dbae95b96d865c7106}{%
+           family={Felson},
+           familyi={F\bibinitperiod},
+           given={Richard\bibnamedelima B},
+           giveni={R\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8aaeef3ea43b762ea2e626487392cd35}{%
+           family={Lantz},
+           familyi={L\bibinitperiod},
+           given={Brendan},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley Online Library}%
+      }
+      \strng{namehash}{a4e17ad6208334e95d4a26a3b1b364ef}
+      \strng{fullhash}{a4e17ad6208334e95d4a26a3b1b364ef}
+      \strng{bibnamehash}{a4e17ad6208334e95d4a26a3b1b364ef}
+      \strng{authorbibnamehash}{a4e17ad6208334e95d4a26a3b1b364ef}
+      \strng{authornamehash}{a4e17ad6208334e95d4a26a3b1b364ef}
+      \strng{authorfullhash}{a4e17ad6208334e95d4a26a3b1b364ef}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Aggressive behavior}
+      \field{number}{1}
+      \field{title}{When are victims unlikely to cooperate with the police?}
+      \field{volume}{42}
+      \field{year}{2016}
+      \field{pages}{97\bibrangedash 108}
+      \range{pages}{12}
+    \endentry
+    \entry{felson1999victim}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=e55a4b88311375dbae95b96d865c7106}{%
+           family={Felson},
+           familyi={F\bibinitperiod},
+           given={Richard\bibnamedelima B},
+           giveni={R\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=afbfcdcb0ffa026da40a6bfa0e7245cd}{%
+           family={Messner},
+           familyi={M\bibinitperiod},
+           given={Steven\bibnamedelima F},
+           giveni={S\bibinitperiod\bibinitdelim F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9f7e01ad37903bf369e5d4011410c8d4}{%
+           family={Hoskin},
+           familyi={H\bibinitperiod},
+           given={Anthony},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley Online Library}%
+      }
+      \strng{namehash}{2f9aa280763009f3da560c5e21e1f5c9}
+      \strng{fullhash}{3f26c4a8d282a21814b83f9dd2bc5b76}
+      \strng{bibnamehash}{3f26c4a8d282a21814b83f9dd2bc5b76}
+      \strng{authorbibnamehash}{3f26c4a8d282a21814b83f9dd2bc5b76}
+      \strng{authornamehash}{2f9aa280763009f3da560c5e21e1f5c9}
+      \strng{authorfullhash}{3f26c4a8d282a21814b83f9dd2bc5b76}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Criminology}
+      \field{number}{4}
+      \field{title}{The victim-offender relationship and calling the police in assaults}
+      \field{volume}{37}
+      \field{year}{1999}
+      \field{pages}{931\bibrangedash 948}
+      \range{pages}{18}
+    \endentry
+    \entry{felstiner1981emergence}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=3b3aee931e48fdf77363ee7f257c6f29}{%
+           family={Felstiner},
+           familyi={F\bibinitperiod},
+           given={William\bibnamedelima LF},
+           giveni={W\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=dc15c287394c66f0673d17d21efde9e9}{%
+           family={Abel},
+           familyi={A\bibinitperiod},
+           given={Richard\bibnamedelima L},
+           giveni={R\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2562d136756e951e0fc9fa3194026061}{%
+           family={Sarat},
+           familyi={S\bibinitperiod},
+           given={Austin},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{7c7abf3789af0d874e828dce3ee91e9d}
+      \strng{fullhash}{f19100c72d84b535eb910c66187cff85}
+      \strng{bibnamehash}{f19100c72d84b535eb910c66187cff85}
+      \strng{authorbibnamehash}{f19100c72d84b535eb910c66187cff85}
+      \strng{authornamehash}{7c7abf3789af0d874e828dce3ee91e9d}
+      \strng{authorfullhash}{f19100c72d84b535eb910c66187cff85}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The emergence and transformation of disputes: Naming, blaming, claiming…}
+      \field{year}{1981}
+    \endentry
+    \entry{feyerabend1975against}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=6636c2ff933363a6800f81eaf3a8574b}{%
+           family={Feyerabend},
+           familyi={F\bibinitperiod},
+           given={Paul},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Verso Books}%
+      }
+      \strng{namehash}{6636c2ff933363a6800f81eaf3a8574b}
+      \strng{fullhash}{6636c2ff933363a6800f81eaf3a8574b}
+      \strng{bibnamehash}{6636c2ff933363a6800f81eaf3a8574b}
+      \strng{authorbibnamehash}{6636c2ff933363a6800f81eaf3a8574b}
+      \strng{authornamehash}{6636c2ff933363a6800f81eaf3a8574b}
+      \strng{authorfullhash}{6636c2ff933363a6800f81eaf3a8574b}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Against method: Outline of an anarchistic theory of knowledge}
+      \field{year}{1975}
+    \endentry
+    \entry{figley1985trauma}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=935c90a5809011f025647a1a01b56e80}{%
+           family={Figley},
+           familyi={F\bibinitperiod},
+           given={Charles\bibnamedelima R},
+           giveni={C\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Psychology Press}%
+      }
+      \strng{namehash}{935c90a5809011f025647a1a01b56e80}
+      \strng{fullhash}{935c90a5809011f025647a1a01b56e80}
+      \strng{bibnamehash}{935c90a5809011f025647a1a01b56e80}
+      \strng{authorbibnamehash}{935c90a5809011f025647a1a01b56e80}
+      \strng{authornamehash}{935c90a5809011f025647a1a01b56e80}
+      \strng{authorfullhash}{935c90a5809011f025647a1a01b56e80}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Trauma and Its Wake: The study and treatment of post-traumatic stress disorder}
+      \field{volume}{1}
+      \field{year}{1985}
+    \endentry
+    \entry{friedman1982victims}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=dc71721d35f8a435605b66ccff82c905}{%
+           family={Friedman},
+           familyi={F\bibinitperiod},
+           given={Kenneth},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {US Department of Justice, National Institute of Justice}%
+      }
+      \strng{namehash}{dc71721d35f8a435605b66ccff82c905}
+      \strng{fullhash}{dc71721d35f8a435605b66ccff82c905}
+      \strng{bibnamehash}{dc71721d35f8a435605b66ccff82c905}
+      \strng{authorbibnamehash}{dc71721d35f8a435605b66ccff82c905}
+      \strng{authornamehash}{dc71721d35f8a435605b66ccff82c905}
+      \strng{authorfullhash}{dc71721d35f8a435605b66ccff82c905}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Victims and helpers: Reactions to crime}
+      \field{year}{1982}
+    \endentry
+    \entry{garcia2005multi}{report}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=2c71503c41f8064c887e4d1ed4ecc43f}{%
+           family={Garcia-Moreno},
+           familyi={G\bibinithyphendelim M\bibinitperiod},
+           given={Claudia},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=62a37aacf8070d29b0180d64eaaa1a22}{%
+           family={Jansen},
+           familyi={J\bibinitperiod},
+           given={Henrica\bibnamedelima A.F.M.},
+           giveni={H\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=139e2d62f56239f1a59eaf84ffa78ffa}{%
+           family={Watts},
+           familyi={W\bibinitperiod},
+           given={Charlotte},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3ae4cda81b1a3fdef3b4c531498fc686}{%
+           family={Ellsberg},
+           familyi={E\bibinitperiod},
+           given={Mary},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ce7fcd7bebad71e8d3deabf27bebf1c1}{%
+           family={Heise},
+           familyi={H\bibinitperiod},
+           given={Lori},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{institution}{1}{%
+        {WHO}%
+      }
+      \strng{namehash}{85bf8b21f4cec7166081583f63ea21c4}
+      \strng{fullhash}{4eba09ea6fde95801e56c2f60d7d42ad}
+      \strng{bibnamehash}{4eba09ea6fde95801e56c2f60d7d42ad}
+      \strng{authorbibnamehash}{4eba09ea6fde95801e56c2f60d7d42ad}
+      \strng{authornamehash}{85bf8b21f4cec7166081583f63ea21c4}
+      \strng{authorfullhash}{4eba09ea6fde95801e56c2f60d7d42ad}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{WHO Multi-Country Study on Women’s Health and Domestic Violence against Women: Initial Results on Prevalence, Health Outcomes and Women’s Responses}}
+      \field{year}{2005}
+      \verb{urlraw}
+      \verb https://www.who.int/publications/i/item/9241593512
+      \endverb
+      \verb{url}
+      \verb https://www.who.int/publications/i/item/9241593512
+      \endverb
+    \endentry
+    \entry{gartner1995effect}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=7d7fde0dfbaec3c3be2da4d4d31c94ec}{%
+           family={Gartner},
+           familyi={G\bibinitperiod},
+           given={Rosemary},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6bde26e0bbab931c3434a1fc4ebbff8c}{%
+           family={Macmillan},
+           familyi={M\bibinitperiod},
+           given={Ross},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {University of Toronto Press}%
+      }
+      \strng{namehash}{183fa5aafa2087d717aadd084ed44370}
+      \strng{fullhash}{183fa5aafa2087d717aadd084ed44370}
+      \strng{bibnamehash}{183fa5aafa2087d717aadd084ed44370}
+      \strng{authorbibnamehash}{183fa5aafa2087d717aadd084ed44370}
+      \strng{authornamehash}{183fa5aafa2087d717aadd084ed44370}
+      \strng{authorfullhash}{183fa5aafa2087d717aadd084ed44370}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Canadian journal of criminology}
+      \field{number}{3}
+      \field{title}{The effect of victim-offender relationship on reporting crimes of violence against women}
+      \field{volume}{37}
+      \field{year}{1995}
+      \field{pages}{393\bibrangedash 429}
+      \range{pages}{37}
+    \endentry
+    \entry{gottfredson1987decision}{book}{}
+      \name{author}{2}{}{%
+        {{un=1,uniquepart=given,hash=8ed1c15280d65059dab45691cb901431}{%
+           family={Gottfredson},
+           familyi={G\bibinitperiod},
+           given={Michael\bibnamedelima R},
+           giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=1}}%
+        {{un=1,uniquepart=given,hash=1b20412d3391e44f192e5f6c2725bf64}{%
+           family={Gottfredson},
+           familyi={G\bibinitperiod},
+           given={Don\bibnamedelima M},
+           giveni={D\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=1}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Science \& Business Media}%
+      }
+      \strng{namehash}{998f9da17d5c6aae8c1e8d9305819aa1}
+      \strng{fullhash}{998f9da17d5c6aae8c1e8d9305819aa1}
+      \strng{bibnamehash}{998f9da17d5c6aae8c1e8d9305819aa1}
+      \strng{authorbibnamehash}{998f9da17d5c6aae8c1e8d9305819aa1}
+      \strng{authornamehash}{998f9da17d5c6aae8c1e8d9305819aa1}
+      \strng{authorfullhash}{998f9da17d5c6aae8c1e8d9305819aa1}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Decision making in criminal justice: Toward the rational exercise of discretion}
+      \field{volume}{3}
+      \field{year}{1987}
+    \endentry
+    \entry{gottfredson1979study}{article}{}
+      \name{author}{2}{}{%
+        {{un=1,uniquepart=given,hash=8ed1c15280d65059dab45691cb901431}{%
+           family={Gottfredson},
+           familyi={G\bibinitperiod},
+           given={Michael\bibnamedelima R},
+           giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=1}}%
+        {{un=0,uniquepart=base,hash=9165fc8774fdf4a058ffcb92de471cf1}{%
+           family={Hindelang},
+           familyi={H\bibinitperiod},
+           given={Michael\bibnamedelima J},
+           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {JSTOR}%
+      }
+      \strng{namehash}{6fc9d33b0291263cf7fabfcd8852a26f}
+      \strng{fullhash}{6fc9d33b0291263cf7fabfcd8852a26f}
+      \strng{bibnamehash}{6fc9d33b0291263cf7fabfcd8852a26f}
+      \strng{authorbibnamehash}{6fc9d33b0291263cf7fabfcd8852a26f}
+      \strng{authornamehash}{6fc9d33b0291263cf7fabfcd8852a26f}
+      \strng{authorfullhash}{6fc9d33b0291263cf7fabfcd8852a26f}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{American sociological review}
+      \field{title}{A study of the behavior of law}
+      \field{year}{1979}
+      \field{pages}{3\bibrangedash 18}
+      \range{pages}{16}
+    \endentry
+    \entry{goudriaan2004reporting}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=92ba74ac7c8e07b10e287185e9cf66e8}{%
+           family={Goudriaan},
+           familyi={G\bibinitperiod},
+           given={Heike},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=03f97059f4b65e39f3fdaa6ff05b6a83}{%
+           family={Lynch},
+           familyi={L\bibinitperiod},
+           given={James\bibnamedelima P},
+           giveni={J\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=99b9179c77643fa18a5f809cbb9fadb5}{%
+           family={Nieuwbeerta},
+           familyi={N\bibinitperiod},
+           given={Paul},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Taylor \& Francis}%
+      }
+      \strng{namehash}{3f102045c312c9cd07883df500cf0b87}
+      \strng{fullhash}{5cc28fb4aa453f27c28ff38f12f703fd}
+      \strng{bibnamehash}{5cc28fb4aa453f27c28ff38f12f703fd}
+      \strng{authorbibnamehash}{5cc28fb4aa453f27c28ff38f12f703fd}
+      \strng{authornamehash}{3f102045c312c9cd07883df500cf0b87}
+      \strng{authorfullhash}{5cc28fb4aa453f27c28ff38f12f703fd}
+      \field{extraname}{1}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Justice quarterly}
+      \field{number}{4}
+      \field{title}{Reporting to the police in western nations: A theoretical analysis of the effects of social context}
+      \field{volume}{21}
+      \field{year}{2004}
+      \field{pages}{933\bibrangedash 969}
+      \range{pages}{37}
+    \endentry
+    \entry{goudriaan2006neighbourhood}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=92ba74ac7c8e07b10e287185e9cf66e8}{%
+           family={Goudriaan},
+           familyi={G\bibinitperiod},
+           given={Heike},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c53e66fb1a4dac4ff5b900014eee5fb3}{%
+           family={Wittebrood},
+           familyi={W\bibinitperiod},
+           given={Karin},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=99b9179c77643fa18a5f809cbb9fadb5}{%
+           family={Nieuwbeerta},
+           familyi={N\bibinitperiod},
+           given={Paul},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Oxford University Press}%
+      }
+      \strng{namehash}{3f102045c312c9cd07883df500cf0b87}
+      \strng{fullhash}{2a12a4e6365f981d5965b2e01d1e6e7f}
+      \strng{bibnamehash}{2a12a4e6365f981d5965b2e01d1e6e7f}
+      \strng{authorbibnamehash}{2a12a4e6365f981d5965b2e01d1e6e7f}
+      \strng{authornamehash}{3f102045c312c9cd07883df500cf0b87}
+      \strng{authorfullhash}{2a12a4e6365f981d5965b2e01d1e6e7f}
+      \field{extraname}{2}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{British journal of criminology}
+      \field{number}{4}
+      \field{title}{Neighbourhood characteristics and reporting crime: Effects of social cohesion, confidence in police effectiveness and socio-economic disadvantage 1}
+      \field{volume}{46}
+      \field{year}{2006}
+      \field{pages}{719\bibrangedash 742}
+      \range{pages}{24}
+    \endentry
+    \entry{greenberg2004property}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=50e55439c20adf5c95e31ad39ff33498}{%
+           family={Greenberg},
+           familyi={G\bibinitperiod},
+           given={Martin\bibnamedelima S},
+           giveni={M\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3eb69bddd246fa0b932cdfab6b9323bd}{%
+           family={Beach},
+           familyi={B\bibinitperiod},
+           given={Scott\bibnamedelima R},
+           giveni={S\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{d97bd372c4047753bf5c9eda720ecc7a}
+      \strng{fullhash}{d97bd372c4047753bf5c9eda720ecc7a}
+      \strng{bibnamehash}{d97bd372c4047753bf5c9eda720ecc7a}
+      \strng{authorbibnamehash}{d97bd372c4047753bf5c9eda720ecc7a}
+      \strng{authornamehash}{d97bd372c4047753bf5c9eda720ecc7a}
+      \strng{authorfullhash}{d97bd372c4047753bf5c9eda720ecc7a}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Law and Human Behavior}
+      \field{number}{2}
+      \field{title}{Property crime victims' decision to notify the police: Social, cognitive, and affective determinants}
+      \field{volume}{28}
+      \field{year}{2004}
+      \field{pages}{177\bibrangedash 186}
+      \range{pages}{10}
+    \endentry
+    \entry{greenberg1992after}{book}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=50e55439c20adf5c95e31ad39ff33498}{%
+           family={Greenberg},
+           familyi={G\bibinitperiod},
+           given={Martin\bibnamedelima S},
+           giveni={M\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=17709a61d7bd186fa01b92fb638daa4e}{%
+           family={Ruback},
+           familyi={R\bibinitperiod},
+           given={R\bibnamedelima Barry},
+           giveni={R\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Science \& Business Media}%
+      }
+      \strng{namehash}{bd90160b1efaa935dce1319dbfb7fead}
+      \strng{fullhash}{bd90160b1efaa935dce1319dbfb7fead}
+      \strng{bibnamehash}{bd90160b1efaa935dce1319dbfb7fead}
+      \strng{authorbibnamehash}{bd90160b1efaa935dce1319dbfb7fead}
+      \strng{authornamehash}{bd90160b1efaa935dce1319dbfb7fead}
+      \strng{authorfullhash}{bd90160b1efaa935dce1319dbfb7fead}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{After the crime: Victim decision making}
+      \field{volume}{9}
+      \field{year}{1992}
+    \endentry
+    \entry{hart2003reporting}{book}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=d2d55393ecb9f10582d440f8289554ef}{%
+           family={Hart},
+           familyi={H\bibinitperiod},
+           given={Timothy\bibnamedelima C},
+           giveni={T\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=74e4d50d17522f04832d9dee070e7c5a}{%
+           family={Rennison},
+           familyi={R\bibinitperiod},
+           given={Callie\bibnamedelima Marie},
+           giveni={C\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {US Department of Justice, Office of Justice Programs Washington, DC}%
+      }
+      \strng{namehash}{179b15dbce197fe9afd4c0d6e95986c2}
+      \strng{fullhash}{179b15dbce197fe9afd4c0d6e95986c2}
+      \strng{bibnamehash}{179b15dbce197fe9afd4c0d6e95986c2}
+      \strng{authorbibnamehash}{179b15dbce197fe9afd4c0d6e95986c2}
+      \strng{authornamehash}{179b15dbce197fe9afd4c0d6e95986c2}
+      \strng{authorfullhash}{179b15dbce197fe9afd4c0d6e95986c2}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Reporting crime to the police, 1992-2000}
+      \field{year}{2003}
+    \endentry
+    \entry{janoff1986aftermath}{inbook}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=8f2e7792c9c4e89b6962140a3d858cb4}{%
+           family={Janoff-Bulman},
+           familyi={J\bibinithyphendelim B\bibinitperiod},
+           given={Ronnie},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{8f2e7792c9c4e89b6962140a3d858cb4}
+      \strng{fullhash}{8f2e7792c9c4e89b6962140a3d858cb4}
+      \strng{bibnamehash}{8f2e7792c9c4e89b6962140a3d858cb4}
+      \strng{authorbibnamehash}{8f2e7792c9c4e89b6962140a3d858cb4}
+      \strng{authornamehash}{8f2e7792c9c4e89b6962140a3d858cb4}
+      \strng{authorfullhash}{8f2e7792c9c4e89b6962140a3d858cb4}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Trauma and its wake}
+      \field{title}{The aftermath of victimization: Rebuilding shattered assumptions}
+      \field{year}{1986}
+    \endentry
+    \entry{kamalov2023partnerskoye}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=efce479eaaad7e16b83946550bc19c65}{%
+           family={Kamalov},
+           familyi={K\bibinitperiod},
+           given={Emil},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=bce65e7713d18b0f46bdeb66e566cef3}{%
+           family={Sergeeva},
+           familyi={S\bibinitperiod},
+           given={Ivetta},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{28fbdc7e85b013951d792e4c44ac3146}
+      \strng{fullhash}{28fbdc7e85b013951d792e4c44ac3146}
+      \strng{bibnamehash}{28fbdc7e85b013951d792e4c44ac3146}
+      \strng{authorbibnamehash}{28fbdc7e85b013951d792e4c44ac3146}
+      \strng{authornamehash}{28fbdc7e85b013951d792e4c44ac3146}
+      \strng{authorfullhash}{28fbdc7e85b013951d792e4c44ac3146}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{URL: www. violencemonitor. org/report\_2023}
+      \field{title}{Partnerskoe nasilie v Rossii: rezultati serii oprosov}
+      \field{year}{2023}
+    \endentry
+    \entry{kaukinen2002help}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=6b3fecbacad827c8a30132b2f7136152}{%
+           family={Kaukinen},
+           familyi={K\bibinitperiod},
+           given={Catherine},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Sage Publications Sage CA: Thousand Oaks, CA}%
+      }
+      \strng{namehash}{6b3fecbacad827c8a30132b2f7136152}
+      \strng{fullhash}{6b3fecbacad827c8a30132b2f7136152}
+      \strng{bibnamehash}{6b3fecbacad827c8a30132b2f7136152}
+      \strng{authorbibnamehash}{6b3fecbacad827c8a30132b2f7136152}
+      \strng{authornamehash}{6b3fecbacad827c8a30132b2f7136152}
+      \strng{authorfullhash}{6b3fecbacad827c8a30132b2f7136152}
+      \field{extraname}{1}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of interpersonal violence}
+      \field{number}{4}
+      \field{title}{The help-seeking decisions of violent crime victims: An examination of the direct and conditional effects of gender and the victim-offender relationship}
+      \field{volume}{17}
+      \field{year}{2002}
+      \field{pages}{432\bibrangedash 456}
+      \range{pages}{25}
+    \endentry
+    \entry{kaukinen2004help}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=6b3fecbacad827c8a30132b2f7136152}{%
+           family={Kaukinen},
+           familyi={K\bibinitperiod},
+           given={Catherine},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Sage Publications Sage CA: Thousand Oaks, CA}%
+      }
+      \strng{namehash}{6b3fecbacad827c8a30132b2f7136152}
+      \strng{fullhash}{6b3fecbacad827c8a30132b2f7136152}
+      \strng{bibnamehash}{6b3fecbacad827c8a30132b2f7136152}
+      \strng{authorbibnamehash}{6b3fecbacad827c8a30132b2f7136152}
+      \strng{authornamehash}{6b3fecbacad827c8a30132b2f7136152}
+      \strng{authorfullhash}{6b3fecbacad827c8a30132b2f7136152}
+      \field{extraname}{2}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of interpersonal violence}
+      \field{number}{9}
+      \field{title}{The help-seeking strategies of female violent-crime victims: The direct and conditional effects of race and the victim-offender relationship}
+      \field{volume}{19}
+      \field{year}{2004}
+      \field{pages}{967\bibrangedash 990}
+      \range{pages}{24}
+    \endentry
+    \entry{kawachi2014social}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=7eda5d918234a6da7b01b8688fe8705b}{%
+           family={Kawachi},
+           familyi={K\bibinitperiod},
+           given={Ichiro},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ea5bc66537ad480764f7cfe0720a5753}{%
+           family={Berkman},
+           familyi={B\bibinitperiod},
+           given={Lisa\bibnamedelima F},
+           giveni={L\bibinitperiod\bibinitdelim F\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Oxford University Press}%
+      }
+      \strng{namehash}{bc47e913582c1f32c8761a92849c8ecc}
+      \strng{fullhash}{bc47e913582c1f32c8761a92849c8ecc}
+      \strng{bibnamehash}{bc47e913582c1f32c8761a92849c8ecc}
+      \strng{authorbibnamehash}{bc47e913582c1f32c8761a92849c8ecc}
+      \strng{authornamehash}{bc47e913582c1f32c8761a92849c8ecc}
+      \strng{authorfullhash}{bc47e913582c1f32c8761a92849c8ecc}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Social epidemiology}
+      \field{title}{Social capital, social cohesion, and health}
+      \field{year}{2014}
+      \field{pages}{290\bibrangedash 319}
+      \range{pages}{30}
+    \endentry
+    \entry{knoth2019reporting}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=e38a11747411b75751e536ac1dc2cc1c}{%
+           family={Knoth},
+           familyi={K\bibinitperiod},
+           given={Lauren\bibnamedelima K},
+           giveni={L\bibinitperiod\bibinitdelim K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=17709a61d7bd186fa01b92fb638daa4e}{%
+           family={Ruback},
+           familyi={R\bibinitperiod},
+           given={R\bibnamedelima Barry},
+           giveni={R\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Sage Publications Sage CA: Los Angeles, CA}%
+      }
+      \strng{namehash}{c8fa209c89e7247f0df41aaed822bfdc}
+      \strng{fullhash}{c8fa209c89e7247f0df41aaed822bfdc}
+      \strng{bibnamehash}{c8fa209c89e7247f0df41aaed822bfdc}
+      \strng{authorbibnamehash}{c8fa209c89e7247f0df41aaed822bfdc}
+      \strng{authornamehash}{c8fa209c89e7247f0df41aaed822bfdc}
+      \strng{authorfullhash}{c8fa209c89e7247f0df41aaed822bfdc}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of interpersonal violence}
+      \field{number}{13}
+      \field{title}{Reporting crimes to the police depends on relationship networks: Effects of ties among victims, advisors, and offenders}
+      \field{volume}{34}
+      \field{year}{2019}
+      \field{pages}{2749\bibrangedash 2773}
+      \range{pages}{25}
+    \endentry
+    \entry{kuchakov2026rcvs}{article}{}
+      \name{author}{5}{ul=5}{%
+        {{un=0,uniquepart=base,hash=a33fbb95bfe8a0985f09a7b41b16903c}{%
+           family={Kuchakov},
+           familyi={K\bibinitperiod},
+           given={Ruslan},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a8514b1cec881625b20cd1fe8072f135}{%
+           family={Serebrennikov},
+           familyi={S\bibinitperiod},
+           given={Dmitriy},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7443b3a279453ff61ff95d78843fb1b7}{%
+           family={Bobrikov},
+           familyi={B\bibinitperiod},
+           given={Dmitriy},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=24d753f543ceae59a1da129fc5c05dce}{%
+           family={Knorre},
+           familyi={K\bibinitperiod},
+           given={Alex},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=867986e5433321a8bf5086e1ac16eeca}{%
+           family={Skougarevskiy},
+           familyi={S\bibinitperiod},
+           given={Dmitriy},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{01444baedb8b8c46fb4d3c8ddbe83b1c}
+      \strng{fullhash}{01444baedb8b8c46fb4d3c8ddbe83b1c}
+      \strng{bibnamehash}{01444baedb8b8c46fb4d3c8ddbe83b1c}
+      \strng{authorbibnamehash}{01444baedb8b8c46fb4d3c8ddbe83b1c}
+      \strng{authornamehash}{01444baedb8b8c46fb4d3c8ddbe83b1c}
+      \strng{authorfullhash}{01444baedb8b8c46fb4d3c8ddbe83b1c}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Social Science Research Network (SSRN)}
+      \field{title}{{R}ussian {C}rime {V}ictimization {S}urvey: {P}ooled {C}ross-{S}ections and a {L}ongitudinal {P}anel, 2018–2024}
+      \field{year}{2026}
+      \verb{doi}
+      \verb http://dx.doi.org/10.2139/ssrn.6418058
+      \endverb
+    \endentry
+    \entry{harvard2026rcvs}{data}{}
+      \name{author}{6}{ul=6}{%
+        {{un=0,uniquepart=base,hash=a33fbb95bfe8a0985f09a7b41b16903c}{%
+           family={Kuchakov},
+           familyi={K\bibinitperiod},
+           given={Ruslan},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a8514b1cec881625b20cd1fe8072f135}{%
+           family={Serebrennikov},
+           familyi={S\bibinitperiod},
+           given={Dmitriy},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7443b3a279453ff61ff95d78843fb1b7}{%
+           family={Bobrikov},
+           familyi={B\bibinitperiod},
+           given={Dmitriy},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=24d753f543ceae59a1da129fc5c05dce}{%
+           family={Knorre},
+           familyi={K\bibinitperiod},
+           given={Alex},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=867986e5433321a8bf5086e1ac16eeca}{%
+           family={Skougarevskiy},
+           familyi={S\bibinitperiod},
+           given={Dmitriy},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3ca54f219696e116337b9b1a19585ee9}{%
+           family={Titaev},
+           familyi={T\bibinitperiod},
+           given={Kirill},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Harvard Dataverse}%
+      }
+      \strng{namehash}{0325110f0ce714c01c1547ee2aeb209f}
+      \strng{fullhash}{0325110f0ce714c01c1547ee2aeb209f}
+      \strng{bibnamehash}{0325110f0ce714c01c1547ee2aeb209f}
+      \strng{authorbibnamehash}{0325110f0ce714c01c1547ee2aeb209f}
+      \strng{authornamehash}{0325110f0ce714c01c1547ee2aeb209f}
+      \strng{authorfullhash}{0325110f0ce714c01c1547ee2aeb209f}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{Russian Crime Victimization Survey: Pooled Cross-Sections 2018, 2021, 2024, and Panel 2021–2024}}
+      \field{version}{V2}
+      \field{year}{2026}
+      \verb{doi}
+      \verb 10.7910/DVN/ISMDV5
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.7910/DVN/ISMDV5
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.7910/DVN/ISMDV5
+      \endverb
+    \endentry
+    \entry{kuhn1979metaphor}{article}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=d0261ae5373d7a2ba373aa72a2ddac43}{%
+           family={Kuhn},
+           familyi={K\bibinitperiod},
+           given={Thomas\bibnamedelima S},
+           giveni={T\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press Cambridge}%
+      }
+      \strng{namehash}{3daa1dcf90b2060b430d803e5f07fec7}
+      \strng{fullhash}{3daa1dcf90b2060b430d803e5f07fec7}
+      \strng{bibnamehash}{3daa1dcf90b2060b430d803e5f07fec7}
+      \strng{authorbibnamehash}{3daa1dcf90b2060b430d803e5f07fec7}
+      \strng{authornamehash}{3daa1dcf90b2060b430d803e5f07fec7}
+      \strng{authorfullhash}{3daa1dcf90b2060b430d803e5f07fec7}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Metaphor and thought}
+      \field{title}{Metaphor in science}
+      \field{volume}{2}
+      \field{year}{1979}
+      \field{pages}{533\bibrangedash 542}
+      \range{pages}{10}
+    \endentry
+    \entry{kunreuther1978disaster}{article}{}
+      \name{author}{7}{}{%
+        {{un=0,uniquepart=base,hash=93ad4b5f967da99a5c1493f023b3f360}{%
+           family={Kunreuther},
+           familyi={K\bibinitperiod},
+           given={Howard},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=51dc8932876816ff742a05b04933d671}{%
+           family={Ginsberg},
+           familyi={G\bibinitperiod},
+           given={Ralph},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b8325ead86e36e9feb534f67b583bba9}{%
+           family={Miller},
+           familyi={M\bibinitperiod},
+           given={Louis},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b215fd2291bd8da6006d2e249e0151cc}{%
+           family={Sagi},
+           familyi={S\bibinitperiod},
+           given={Philip},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1f98811f35f2a5d68ea95bf9b4def931}{%
+           family={Slovic},
+           familyi={S\bibinitperiod},
+           given={Paul},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0bdce337f34dd174cb21c365a01ffbac}{%
+           family={Borkan},
+           familyi={B\bibinitperiod},
+           given={Bradley},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2e1d521be840fa74e21cda2204d2714d}{%
+           family={Katz},
+           familyi={K\bibinitperiod},
+           given={Norman},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley New York}%
+      }
+      \strng{namehash}{6e0531c265aa982737079aa4fc9e1464}
+      \strng{fullhash}{9e842b31253050220b513238c813a437}
+      \strng{bibnamehash}{9e842b31253050220b513238c813a437}
+      \strng{authorbibnamehash}{9e842b31253050220b513238c813a437}
+      \strng{authornamehash}{6e0531c265aa982737079aa4fc9e1464}
+      \strng{authorfullhash}{9e842b31253050220b513238c813a437}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Disaster insurance protection: Public policy lessons}
+      \field{year}{1978}
+    \endentry
+    \entry{laub1981ecological}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=15a37a1e1632d7cff84a2fe4f2d433fa}{%
+           family={Laub},
+           familyi={L\bibinitperiod},
+           given={John\bibnamedelima H},
+           giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{15a37a1e1632d7cff84a2fe4f2d433fa}
+      \strng{fullhash}{15a37a1e1632d7cff84a2fe4f2d433fa}
+      \strng{bibnamehash}{15a37a1e1632d7cff84a2fe4f2d433fa}
+      \strng{authorbibnamehash}{15a37a1e1632d7cff84a2fe4f2d433fa}
+      \strng{authornamehash}{15a37a1e1632d7cff84a2fe4f2d433fa}
+      \strng{authorfullhash}{15a37a1e1632d7cff84a2fe4f2d433fa}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Criminal Justice}
+      \field{number}{6}
+      \field{title}{Ecological considerations in victim reporting to the police}
+      \field{volume}{9}
+      \field{year}{1981}
+      \field{pages}{419\bibrangedash 430}
+      \range{pages}{12}
+    \endentry
+    \entry{maguire1988victims}{book}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=0e96c4320c071153b44765391fdd3302}{%
+           family={Maguire},
+           familyi={M\bibinitperiod},
+           given={Mike},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=da0aa73416134fd84d5b92bb24c8d6a7}{%
+           family={Pointing},
+           familyi={P\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Open University Press}%
+      }
+      \strng{namehash}{8eee51b7bfd2a4cbd098d52a45ea914e}
+      \strng{fullhash}{8eee51b7bfd2a4cbd098d52a45ea914e}
+      \strng{bibnamehash}{8eee51b7bfd2a4cbd098d52a45ea914e}
+      \strng{authorbibnamehash}{8eee51b7bfd2a4cbd098d52a45ea914e}
+      \strng{authornamehash}{8eee51b7bfd2a4cbd098d52a45ea914e}
+      \strng{authorfullhash}{8eee51b7bfd2a4cbd098d52a45ea914e}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Victims of crime: a new deal?}
+      \field{year}{1988}
+    \endentry
+    \entry{mason1996effect}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=42fcdc15c42037fe92da0810f8adbe96}{%
+           family={Mason},
+           familyi={M\bibinitperiod},
+           given={Karen\bibnamedelima A},
+           giveni={K\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b15999670651c3d122fa8cee16af47a4}{%
+           family={Benson},
+           familyi={B\bibinitperiod},
+           given={Michael\bibnamedelima L},
+           giveni={M\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Taylor \& Francis}%
+      }
+      \strng{namehash}{a52f52c0224e943454dba554b7df192e}
+      \strng{fullhash}{a52f52c0224e943454dba554b7df192e}
+      \strng{bibnamehash}{a52f52c0224e943454dba554b7df192e}
+      \strng{authorbibnamehash}{a52f52c0224e943454dba554b7df192e}
+      \strng{authornamehash}{a52f52c0224e943454dba554b7df192e}
+      \strng{authorfullhash}{a52f52c0224e943454dba554b7df192e}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Justice Quarterly}
+      \field{number}{3}
+      \field{title}{The effect of social support on fraud victims' reporting behavior: A research note}
+      \field{volume}{13}
+      \field{year}{1996}
+      \field{pages}{511\bibrangedash 524}
+      \range{pages}{14}
+    \endentry
+    \entry{orcutt1988sex}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=2c38faae981c18d9800e9ca1bdedaa31}{%
+           family={Orcutt},
+           familyi={O\bibinitperiod},
+           given={James\bibnamedelima D},
+           giveni={J\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a7e32681a90b1b01e802e444d1f2d448}{%
+           family={Faison},
+           familyi={F\bibinitperiod},
+           given={Rebecca},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Taylor \& Francis}%
+      }
+      \strng{namehash}{1f5fd348abbeae0df3e43047be46748c}
+      \strng{fullhash}{1f5fd348abbeae0df3e43047be46748c}
+      \strng{bibnamehash}{1f5fd348abbeae0df3e43047be46748c}
+      \strng{authorbibnamehash}{1f5fd348abbeae0df3e43047be46748c}
+      \strng{authornamehash}{1f5fd348abbeae0df3e43047be46748c}
+      \strng{authorfullhash}{1f5fd348abbeae0df3e43047be46748c}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The Sociological Quarterly}
+      \field{number}{4}
+      \field{title}{Sex-role attitude change and reporting of rape victimization, 1973--1985}
+      \field{volume}{29}
+      \field{year}{1988}
+      \field{pages}{589\bibrangedash 604}
+      \range{pages}{16}
+    \endentry
+    \entry{paneyakh2014faking}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=e076d95088a1a36748381b6d4224a201}{%
+           family={Paneyakh},
+           familyi={P\bibinitperiod},
+           given={Ella},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Taylor \& Francis}%
+      }
+      \strng{namehash}{e076d95088a1a36748381b6d4224a201}
+      \strng{fullhash}{e076d95088a1a36748381b6d4224a201}
+      \strng{bibnamehash}{e076d95088a1a36748381b6d4224a201}
+      \strng{authorbibnamehash}{e076d95088a1a36748381b6d4224a201}
+      \strng{authornamehash}{e076d95088a1a36748381b6d4224a201}
+      \strng{authorfullhash}{e076d95088a1a36748381b6d4224a201}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Post-Soviet Affairs}
+      \field{number}{2-3}
+      \field{title}{Faking performance together: Systems of performance evaluation in Russian enforcement agencies and production of bias and privilege}
+      \field{volume}{30}
+      \field{year}{2014}
+      \field{pages}{115\bibrangedash 136}
+      \range{pages}{22}
+    \endentry
+    \entry{parti2023if}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=79bcd19cd537ace1e0390d33c6481362}{%
+           family={Parti},
+           familyi={P\bibinitperiod},
+           given={Katalin},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=daccbafc2a9cef40ee3f67f2cbb520e5}{%
+           family={Tahir},
+           familyi={T\bibinitperiod},
+           given={Faika},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {MDPI}%
+      }
+      \strng{namehash}{487c089f200ad516c70b797972bad113}
+      \strng{fullhash}{487c089f200ad516c70b797972bad113}
+      \strng{bibnamehash}{487c089f200ad516c70b797972bad113}
+      \strng{authorbibnamehash}{487c089f200ad516c70b797972bad113}
+      \strng{authornamehash}{487c089f200ad516c70b797972bad113}
+      \strng{authorfullhash}{487c089f200ad516c70b797972bad113}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Social Sciences}
+      \field{number}{5}
+      \field{title}{“If we don’t listen to them, we make them lose more than money:” exploring reasons for underreporting and the needs of older scam victims}
+      \field{volume}{12}
+      \field{year}{2023}
+      \field{pages}{264}
+      \range{pages}{1}
+    \endentry
+    \entry{patterson2010rape}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=7cea04d847d1c8f35d0f7bc87cc73a7d}{%
+           family={Patterson},
+           familyi={P\bibinitperiod},
+           given={Debra},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c61d79252450a8ba77b3495d213cf68c}{%
+           family={Campbell},
+           familyi={C\bibinitperiod},
+           given={Rebecca},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley Online Library}%
+      }
+      \strng{namehash}{ad7848f4246fcdd598da6f8cb1f8b2f5}
+      \strng{fullhash}{ad7848f4246fcdd598da6f8cb1f8b2f5}
+      \strng{bibnamehash}{ad7848f4246fcdd598da6f8cb1f8b2f5}
+      \strng{authorbibnamehash}{ad7848f4246fcdd598da6f8cb1f8b2f5}
+      \strng{authornamehash}{ad7848f4246fcdd598da6f8cb1f8b2f5}
+      \strng{authorfullhash}{ad7848f4246fcdd598da6f8cb1f8b2f5}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Community Psychology}
+      \field{number}{2}
+      \field{title}{Why rape survivors participate in the criminal justice system}
+      \field{volume}{38}
+      \field{year}{2010}
+      \field{pages}{191\bibrangedash 205}
+      \range{pages}{15}
+    \endentry
+    \entry{paul2014does}{article}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=c3d0f44c041d441a9c85af25ada3063e}{%
+           family={Paul},
+           familyi={P\bibinitperiod},
+           given={Lisa\bibnamedelima A},
+           giveni={L\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cad7f27f2381305cc7b426ca669356a4}{%
+           family={Zinzow},
+           familyi={Z\bibinitperiod},
+           given={Heidi\bibnamedelima M},
+           giveni={H\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2e4c7bad3f13575e971dda8c24548dab}{%
+           family={McCauley},
+           familyi={M\bibinitperiod},
+           given={Jenna\bibnamedelima L},
+           giveni={J\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d5e0f910c8f20f1714c3d86a00a78817}{%
+           family={Kilpatrick},
+           familyi={K\bibinitperiod},
+           given={Dean\bibnamedelima G},
+           giveni={D\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=10de6d617617699844a4e040fdb39e38}{%
+           family={Resnick},
+           familyi={R\bibinitperiod},
+           given={Heidi\bibnamedelima S},
+           giveni={H\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Sage Publications Sage CA: Los Angeles, CA}%
+      }
+      \strng{namehash}{0ec0c7bdb7df60d4d298df3cb1841311}
+      \strng{fullhash}{60f6467c5dda321eb5c70aa6b39fd69d}
+      \strng{bibnamehash}{60f6467c5dda321eb5c70aa6b39fd69d}
+      \strng{authorbibnamehash}{60f6467c5dda321eb5c70aa6b39fd69d}
+      \strng{authornamehash}{0ec0c7bdb7df60d4d298df3cb1841311}
+      \strng{authorfullhash}{60f6467c5dda321eb5c70aa6b39fd69d}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Psychology of Women Quarterly}
+      \field{number}{2}
+      \field{title}{Does encouragement by others increase rape reporting? Findings from a national sample of women}
+      \field{volume}{38}
+      \field{year}{2014}
+      \field{pages}{222\bibrangedash 232}
+      \range{pages}{11}
+    \endentry
+    \entry{perloff1983perceptions}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=10336d8fd1b1d0fa3132572b76fd5de3}{%
+           family={Perloff},
+           familyi={P\bibinitperiod},
+           given={Linda\bibnamedelima S},
+           giveni={L\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley Online Library}%
+      }
+      \strng{namehash}{10336d8fd1b1d0fa3132572b76fd5de3}
+      \strng{fullhash}{10336d8fd1b1d0fa3132572b76fd5de3}
+      \strng{bibnamehash}{10336d8fd1b1d0fa3132572b76fd5de3}
+      \strng{authorbibnamehash}{10336d8fd1b1d0fa3132572b76fd5de3}
+      \strng{authornamehash}{10336d8fd1b1d0fa3132572b76fd5de3}
+      \strng{authorfullhash}{10336d8fd1b1d0fa3132572b76fd5de3}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Social Issues}
+      \field{number}{2}
+      \field{title}{Perceptions of vulnerability to victimization}
+      \field{volume}{39}
+      \field{year}{1983}
+      \field{pages}{41\bibrangedash 61}
+      \range{pages}{21}
+    \endentry
+    \entry{pescosolido1992beyond}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=dcc2310ff213d8e34b7721e779b58a78}{%
+           family={Pescosolido},
+           familyi={P\bibinitperiod},
+           given={Bernice\bibnamedelima A},
+           giveni={B\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {University of Chicago Press}%
+      }
+      \strng{namehash}{dcc2310ff213d8e34b7721e779b58a78}
+      \strng{fullhash}{dcc2310ff213d8e34b7721e779b58a78}
+      \strng{bibnamehash}{dcc2310ff213d8e34b7721e779b58a78}
+      \strng{authorbibnamehash}{dcc2310ff213d8e34b7721e779b58a78}
+      \strng{authornamehash}{dcc2310ff213d8e34b7721e779b58a78}
+      \strng{authorfullhash}{dcc2310ff213d8e34b7721e779b58a78}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{American journal of sociology}
+      \field{number}{4}
+      \field{title}{Beyond rational choice: The social dynamics of how people seek help}
+      \field{volume}{97}
+      \field{year}{1992}
+      \field{pages}{1096\bibrangedash 1138}
+      \range{pages}{43}
+    \endentry
+    \entry{pescosolido1998social}{article}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=dcc2310ff213d8e34b7721e779b58a78}{%
+           family={Pescosolido},
+           familyi={P\bibinitperiod},
+           given={Bernice\bibnamedelima A},
+           giveni={B\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f657f6590983efa548cfc2f4ce9ae4e4}{%
+           family={Wright},
+           familyi={W\bibinitperiod},
+           given={Eric\bibnamedelima R},
+           giveni={E\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5331b60dd70432aec0231b888e80a042}{%
+           family={Alegria},
+           familyi={A\bibinitperiod},
+           given={Margarita},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6a3ac5a09ef4513eaca3947997fa5c8d}{%
+           family={Vera},
+           familyi={V\bibinitperiod},
+           given={Mildred},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {LWW}%
+      }
+      \strng{namehash}{ca5a4a8e377fcc5a057d8a56f52005f5}
+      \strng{fullhash}{070ec04347ec03e4c3aeee1ad8815684}
+      \strng{bibnamehash}{070ec04347ec03e4c3aeee1ad8815684}
+      \strng{authorbibnamehash}{070ec04347ec03e4c3aeee1ad8815684}
+      \strng{authornamehash}{ca5a4a8e377fcc5a057d8a56f52005f5}
+      \strng{authorfullhash}{070ec04347ec03e4c3aeee1ad8815684}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Medical care}
+      \field{number}{7}
+      \field{title}{Social networks and patterns of use among the poor with mental health problems in Puerto Rico}
+      \field{volume}{36}
+      \field{year}{1998}
+      \field{pages}{1057\bibrangedash 1072}
+      \range{pages}{16}
+    \endentry
+    \entry{rennison2013context}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=74e4d50d17522f04832d9dee070e7c5a}{%
+           family={Rennison},
+           familyi={R\bibinitperiod},
+           given={Callie\bibnamedelima Marie},
+           giveni={C\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8f9878bee3476a13bccf36d12c59c42d}{%
+           family={Dragiewicz},
+           familyi={D\bibinitperiod},
+           given={Molly},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f16989bd54b95b2f5e6a9ac63fc01fde}{%
+           family={DeKeseredy},
+           familyi={D\bibinitperiod},
+           given={Walter\bibnamedelima S},
+           giveni={W\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{9a8e29b65e992f115e18e57b62227eb3}
+      \strng{fullhash}{d12bd2e092f6502b749cc2596d120627}
+      \strng{bibnamehash}{d12bd2e092f6502b749cc2596d120627}
+      \strng{authorbibnamehash}{d12bd2e092f6502b749cc2596d120627}
+      \strng{authornamehash}{9a8e29b65e992f115e18e57b62227eb3}
+      \strng{authorfullhash}{d12bd2e092f6502b749cc2596d120627}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{American journal of criminal justice}
+      \field{number}{1}
+      \field{title}{Context matters: Violence against women and reporting to police in rural, suburban and urban areas}
+      \field{volume}{38}
+      \field{year}{2013}
+      \field{pages}{141\bibrangedash 159}
+      \range{pages}{19}
+    \endentry
+    \entry{ruback1993comment}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=17709a61d7bd186fa01b92fb638daa4e}{%
+           family={Ruback},
+           familyi={R\bibinitperiod},
+           given={R\bibnamedelima Barry},
+           giveni={R\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {SAGE Periodicals Press}%
+      }
+      \strng{namehash}{17709a61d7bd186fa01b92fb638daa4e}
+      \strng{fullhash}{17709a61d7bd186fa01b92fb638daa4e}
+      \strng{bibnamehash}{17709a61d7bd186fa01b92fb638daa4e}
+      \strng{authorbibnamehash}{17709a61d7bd186fa01b92fb638daa4e}
+      \strng{authornamehash}{17709a61d7bd186fa01b92fb638daa4e}
+      \strng{authorfullhash}{17709a61d7bd186fa01b92fb638daa4e}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Criminal Justice and Behavior}
+      \field{number}{3}
+      \field{title}{Comment on Bachman (1993) The victim-offender relationship does affect victims' decisions to report sexual assaults}
+      \field{volume}{20}
+      \field{year}{1993}
+      \field{pages}{271\bibrangedash 279}
+      \range{pages}{9}
+    \endentry
+    \entry{ruback1984social}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=17709a61d7bd186fa01b92fb638daa4e}{%
+           family={Ruback},
+           familyi={R\bibinitperiod},
+           given={R\bibnamedelima Barry},
+           giveni={R\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=50e55439c20adf5c95e31ad39ff33498}{%
+           family={Greenberg},
+           familyi={G\bibinitperiod},
+           given={Martin\bibnamedelima S},
+           giveni={M\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=98b7b7364ea9816f2b93ebfb01553a27}{%
+           family={Westcott},
+           familyi={W\bibinitperiod},
+           given={David\bibnamedelima R},
+           giveni={D\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley Online Library}%
+      }
+      \strng{namehash}{c991b011276d808597bf210bafe29020}
+      \strng{fullhash}{d1041157278ae7643f0ec141b77abc66}
+      \strng{bibnamehash}{d1041157278ae7643f0ec141b77abc66}
+      \strng{authorbibnamehash}{d1041157278ae7643f0ec141b77abc66}
+      \strng{authornamehash}{c991b011276d808597bf210bafe29020}
+      \strng{authorfullhash}{d1041157278ae7643f0ec141b77abc66}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of social issues}
+      \field{number}{1}
+      \field{title}{Social influence and crime-victim decision making}
+      \field{volume}{40}
+      \field{year}{1984}
+      \field{pages}{51\bibrangedash 76}
+      \range{pages}{26}
+    \endentry
+    \entry{ruback2001social}{book}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=17709a61d7bd186fa01b92fb638daa4e}{%
+           family={Ruback},
+           familyi={R\bibinitperiod},
+           given={R\bibnamedelima Barry},
+           giveni={R\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b047978318ebdcdeb68621a54b06e2f1}{%
+           family={Thompson},
+           familyi={T\bibinitperiod},
+           given={Martie\bibnamedelima P},
+           giveni={M\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Sage}%
+      }
+      \strng{namehash}{ce71bfbb0e64fa53b4c98cfbf7710778}
+      \strng{fullhash}{ce71bfbb0e64fa53b4c98cfbf7710778}
+      \strng{bibnamehash}{ce71bfbb0e64fa53b4c98cfbf7710778}
+      \strng{authorbibnamehash}{ce71bfbb0e64fa53b4c98cfbf7710778}
+      \strng{authornamehash}{ce71bfbb0e64fa53b4c98cfbf7710778}
+      \strng{authorfullhash}{ce71bfbb0e64fa53b4c98cfbf7710778}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Social and psychological consequences of violent victimization}
+      \field{year}{2001}
+    \endentry
+    \entry{schneider1975role}{book}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=6968cca30a87b0ec4f489e64f0231ad9}{%
+           family={Schneider},
+           familyi={S\bibinitperiod},
+           given={Anne\bibnamedelima Larason},
+           giveni={A\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=397ee029c17169a3b743ce363917326d}{%
+           family={Wilson},
+           familyi={W\bibinitperiod},
+           given={LA},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=70a47da0bdfa7de2419ed7091e8e4c76}{%
+           family={Burcart},
+           familyi={B\bibinitperiod},
+           given={Janie},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Oregon Research Institute Eugene, Oregon}%
+      }
+      \strng{namehash}{bca3139c98cc238fe69dc5b0920203f2}
+      \strng{fullhash}{9968d867868029525322d50d1c60b69f}
+      \strng{bibnamehash}{9968d867868029525322d50d1c60b69f}
+      \strng{authorbibnamehash}{9968d867868029525322d50d1c60b69f}
+      \strng{authornamehash}{bca3139c98cc238fe69dc5b0920203f2}
+      \strng{authorfullhash}{9968d867868029525322d50d1c60b69f}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Role of attitudes in decisions to report crimes to the police}
+      \field{year}{1975}
+    \endentry
+    \entry{skogan1976citizen}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=456d388ebf0018195a491d696fce986f}{%
+           family={Skogan},
+           familyi={S\bibinitperiod},
+           given={Wesley\bibnamedelima G},
+           giveni={W\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley Online Library}%
+      }
+      \strng{namehash}{456d388ebf0018195a491d696fce986f}
+      \strng{fullhash}{456d388ebf0018195a491d696fce986f}
+      \strng{bibnamehash}{456d388ebf0018195a491d696fce986f}
+      \strng{authorbibnamehash}{456d388ebf0018195a491d696fce986f}
+      \strng{authornamehash}{456d388ebf0018195a491d696fce986f}
+      \strng{authorfullhash}{456d388ebf0018195a491d696fce986f}
+      \field{extraname}{1}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Criminology}
+      \field{number}{4}
+      \field{title}{Citizen reporting of crime some national panel data}
+      \field{volume}{13}
+      \field{year}{1976}
+      \field{pages}{535\bibrangedash 549}
+      \range{pages}{15}
+    \endentry
+    \entry{skogan1984reporting}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=456d388ebf0018195a491d696fce986f}{%
+           family={Skogan},
+           familyi={S\bibinitperiod},
+           given={Wesley\bibnamedelima G},
+           giveni={W\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Sage Publications}%
+      }
+      \strng{namehash}{456d388ebf0018195a491d696fce986f}
+      \strng{fullhash}{456d388ebf0018195a491d696fce986f}
+      \strng{bibnamehash}{456d388ebf0018195a491d696fce986f}
+      \strng{authorbibnamehash}{456d388ebf0018195a491d696fce986f}
+      \strng{authornamehash}{456d388ebf0018195a491d696fce986f}
+      \strng{authorfullhash}{456d388ebf0018195a491d696fce986f}
+      \field{extraname}{2}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of research in crime and delinquency}
+      \field{number}{2}
+      \field{title}{Reporting crimes to the police: The status of world research}
+      \field{volume}{21}
+      \field{year}{1984}
+      \field{pages}{113\bibrangedash 137}
+      \range{pages}{25}
+    \endentry
+    \entry{ann2010neighborhood}{article}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=aceb97a126e60a438d3d2ac831cdc2ea}{%
+           family={Slocum},
+           familyi={S\bibinitperiod},
+           given={Lee\bibnamedelima Ann},
+           giveni={L\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1cff4f651f13b2d03c3257c1b23382d4}{%
+           family={Taylor},
+           familyi={T\bibinitperiod},
+           given={Terrance\bibnamedelima J},
+           giveni={T\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=54fc2e24de7dd5557d57341b5e1e3580}{%
+           family={Brick},
+           familyi={B\bibinitperiod},
+           given={Bradley\bibnamedelima T},
+           giveni={B\bibinitperiod\bibinitdelim T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8849c583e9d8f23217f674a68ba5e848}{%
+           family={Esbensen},
+           familyi={E\bibinitperiod},
+           given={Finn-Aage},
+           giveni={F\bibinithyphendelim A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley Online Library}%
+      }
+      \strng{namehash}{a70f0de8dbf352dc32b0b20feac67558}
+      \strng{fullhash}{deec3a314848a4589afd4b281b7b6378}
+      \strng{bibnamehash}{deec3a314848a4589afd4b281b7b6378}
+      \strng{authorbibnamehash}{deec3a314848a4589afd4b281b7b6378}
+      \strng{authornamehash}{a70f0de8dbf352dc32b0b20feac67558}
+      \strng{authorfullhash}{deec3a314848a4589afd4b281b7b6378}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Criminology}
+      \field{number}{4}
+      \field{title}{Neighborhood structural characteristics, individual-level attitudes, and youths'crime reporting intentions}
+      \field{volume}{48}
+      \field{year}{2010}
+      \field{pages}{1063\bibrangedash 1100}
+      \range{pages}{38}
+    \endentry
+    \entry{small2016because}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=3edb26a1ddd3b714c63b3b076dadb234}{%
+           family={Small},
+           familyi={S\bibinitperiod},
+           given={Mario\bibnamedelima L},
+           giveni={M\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5764d4c31140d902f94561757cc352d7}{%
+           family={Sukhu},
+           familyi={S\bibinitperiod},
+           given={Christopher},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{c7f9e5d7942900b090e7834853e8f94f}
+      \strng{fullhash}{c7f9e5d7942900b090e7834853e8f94f}
+      \strng{bibnamehash}{c7f9e5d7942900b090e7834853e8f94f}
+      \strng{authorbibnamehash}{c7f9e5d7942900b090e7834853e8f94f}
+      \strng{authornamehash}{c7f9e5d7942900b090e7834853e8f94f}
+      \strng{authorfullhash}{c7f9e5d7942900b090e7834853e8f94f}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Social Networks}
+      \field{title}{Because they were there: Access, deliberation, and the mobilization of networks for support}
+      \field{volume}{47}
+      \field{year}{2016}
+      \field{pages}{73\bibrangedash 84}
+      \range{pages}{12}
+    \endentry
+    \entry{spelman1985calling}{book}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=2afb32475d3e23c5304c466e159f226c}{%
+           family={Spelman},
+           familyi={S\bibinitperiod},
+           given={William},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e54ced9db6205cf47f565b904b71b17f}{%
+           family={Brown},
+           familyi={B\bibinitperiod},
+           given={Dale\bibnamedelima K},
+           giveni={D\bibinitperiod\bibinitdelim K\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{2}{%
+        {Inter-university Consortium for Political}%
+        {Social Research}%
+      }
+      \strng{namehash}{4b70cfb3191518ab0a7d26f306675b6c}
+      \strng{fullhash}{4b70cfb3191518ab0a7d26f306675b6c}
+      \strng{bibnamehash}{4b70cfb3191518ab0a7d26f306675b6c}
+      \strng{authorbibnamehash}{4b70cfb3191518ab0a7d26f306675b6c}
+      \strng{authornamehash}{4b70cfb3191518ab0a7d26f306675b6c}
+      \strng{authorfullhash}{4b70cfb3191518ab0a7d26f306675b6c}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Calling the Police: Citizen Reporting of Serious Crime, 1979}
+      \field{year}{1985}
+    \endentry
+    \entry{spohn1992rape}{book}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=204496c47e1fae9f3560b0b7b457c9b1}{%
+           family={Spohn},
+           familyi={S\bibinitperiod},
+           given={Cassia},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7e9ae54480043f673b4813faac7e0ac6}{%
+           family={Horney},
+           familyi={H\bibinitperiod},
+           given={Julie},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Science \& Business Media}%
+      }
+      \strng{namehash}{4e3bbc96d503f334114bae17d94fc03c}
+      \strng{fullhash}{4e3bbc96d503f334114bae17d94fc03c}
+      \strng{bibnamehash}{4e3bbc96d503f334114bae17d94fc03c}
+      \strng{authorbibnamehash}{4e3bbc96d503f334114bae17d94fc03c}
+      \strng{authornamehash}{4e3bbc96d503f334114bae17d94fc03c}
+      \strng{authorfullhash}{4e3bbc96d503f334114bae17d94fc03c}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Rape law reform: A grassroots revolution and its impact}
+      \field{year}{1992}
+    \endentry
+    \entry{sukhtankar2022policing}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=6953485d38a15a394064849bf248d62a}{%
+           family={Sukhtankar},
+           familyi={S\bibinitperiod},
+           given={Sandip},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=aacc3583f8b524560154cf15343d9d6f}{%
+           family={Kruks-Wisner},
+           familyi={K\bibinithyphendelim W\bibinitperiod},
+           given={Gabrielle},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e726e08c1fa658ed46a7bb4643573bdf}{%
+           family={Mangla},
+           familyi={M\bibinitperiod},
+           given={Akshay},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {American Association for the Advancement of Science}%
+      }
+      \strng{namehash}{69c51f10b39f526ba2039b65b8a817ca}
+      \strng{fullhash}{2db2f8aa65874987c3df8461f1cc4817}
+      \strng{bibnamehash}{2db2f8aa65874987c3df8461f1cc4817}
+      \strng{authorbibnamehash}{2db2f8aa65874987c3df8461f1cc4817}
+      \strng{authornamehash}{69c51f10b39f526ba2039b65b8a817ca}
+      \strng{authorfullhash}{2db2f8aa65874987c3df8461f1cc4817}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Science}
+      \field{number}{6602}
+      \field{title}{Policing in patriarchy: An experimental evaluation of reforms to improve police responsiveness to women in India}
+      \field{volume}{377}
+      \field{year}{2022}
+      \field{pages}{191\bibrangedash 198}
+      \range{pages}{8}
+    \endentry
+    \entry{tarling2010reporting}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=ac2637ab94b655a01ca463d103541252}{%
+           family={Tarling},
+           familyi={T\bibinitperiod},
+           given={Roger},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e9ca8f24ac64aaecb5c3b1a27d0bbbc6}{%
+           family={Morris},
+           familyi={M\bibinitperiod},
+           given={Katie},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Oxford University Press}%
+      }
+      \strng{namehash}{242628bef2b69981569124fdf66c0003}
+      \strng{fullhash}{242628bef2b69981569124fdf66c0003}
+      \strng{bibnamehash}{242628bef2b69981569124fdf66c0003}
+      \strng{authorbibnamehash}{242628bef2b69981569124fdf66c0003}
+      \strng{authornamehash}{242628bef2b69981569124fdf66c0003}
+      \strng{authorfullhash}{242628bef2b69981569124fdf66c0003}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The British Journal of Criminology}
+      \field{number}{3}
+      \field{title}{Reporting crime to the police}
+      \field{volume}{50}
+      \field{year}{2010}
+      \field{pages}{474\bibrangedash 490}
+      \range{pages}{17}
+    \endentry
+    \entry{van1978response}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=047bbbc6fcac8888eea27286e4dd3766}{%
+           family={Van\bibnamedelima Kirk},
+           familyi={V\bibinitperiod\bibinitdelim K\bibinitperiod},
+           given={Marvin},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{047bbbc6fcac8888eea27286e4dd3766}
+      \strng{fullhash}{047bbbc6fcac8888eea27286e4dd3766}
+      \strng{bibnamehash}{047bbbc6fcac8888eea27286e4dd3766}
+      \strng{authorbibnamehash}{047bbbc6fcac8888eea27286e4dd3766}
+      \strng{authornamehash}{047bbbc6fcac8888eea27286e4dd3766}
+      \strng{authorfullhash}{047bbbc6fcac8888eea27286e4dd3766}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Executive Summary). Washington, DC: US Government Printing Office}
+      \field{title}{Response time analysis}
+      \field{year}{1978}
+    \endentry
+    \entry{warner2007directly}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=838c4ca2ad5cd56eed2c9705186db927}{%
+           family={Warner},
+           familyi={W\bibinitperiod},
+           given={Barbara\bibnamedelima D},
+           giveni={B\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley Online Library}%
+      }
+      \strng{namehash}{838c4ca2ad5cd56eed2c9705186db927}
+      \strng{fullhash}{838c4ca2ad5cd56eed2c9705186db927}
+      \strng{bibnamehash}{838c4ca2ad5cd56eed2c9705186db927}
+      \strng{authorbibnamehash}{838c4ca2ad5cd56eed2c9705186db927}
+      \strng{authornamehash}{838c4ca2ad5cd56eed2c9705186db927}
+      \strng{authorfullhash}{838c4ca2ad5cd56eed2c9705186db927}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Criminology}
+      \field{number}{1}
+      \field{title}{Directly intervene or call the authorities? A study of forms of neighborhood social control within a social disorganization framework}
+      \field{volume}{45}
+      \field{year}{2007}
+      \field{pages}{99\bibrangedash 129}
+      \range{pages}{31}
+    \endentry
+    \entry{wortman1979interpersonal}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=5385938c18f1b644c53e78ddccae5188}{%
+           family={Wortman},
+           familyi={W\bibinitperiod},
+           given={Camille\bibnamedelima B},
+           giveni={C\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=da0c6954c1e2ba18cfa4790b5f3e2385}{%
+           family={Dunkel-Schetter},
+           familyi={D\bibinithyphendelim S\bibinitperiod},
+           given={Christine},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley Online Library}%
+      }
+      \strng{namehash}{caee8f1a498714831f92c5a76bb789ef}
+      \strng{fullhash}{caee8f1a498714831f92c5a76bb789ef}
+      \strng{bibnamehash}{caee8f1a498714831f92c5a76bb789ef}
+      \strng{authorbibnamehash}{caee8f1a498714831f92c5a76bb789ef}
+      \strng{authornamehash}{caee8f1a498714831f92c5a76bb789ef}
+      \strng{authorfullhash}{caee8f1a498714831f92c5a76bb789ef}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of social issues}
+      \field{number}{1}
+      \field{title}{Interpersonal relationships and cancer: A theoretical analysis}
+      \field{volume}{35}
+      \field{year}{1979}
+      \field{pages}{120\bibrangedash 155}
+      \range{pages}{36}
+    \endentry
+    \entry{wright1977nobody}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=600ecfb4e809f492b9d64f1dda6b6193}{%
+           family={Wright},
+           familyi={W\bibinitperiod},
+           given={Martin},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {HeinOnline}%
+      }
+      \strng{namehash}{600ecfb4e809f492b9d64f1dda6b6193}
+      \strng{fullhash}{600ecfb4e809f492b9d64f1dda6b6193}
+      \strng{bibnamehash}{600ecfb4e809f492b9d64f1dda6b6193}
+      \strng{authorbibnamehash}{600ecfb4e809f492b9d64f1dda6b6193}
+      \strng{authornamehash}{600ecfb4e809f492b9d64f1dda6b6193}
+      \strng{authorfullhash}{600ecfb4e809f492b9d64f1dda6b6193}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{How. J. Penology \& Crime Prevention}
+      \field{title}{Nobody came: criminal justice and the needs of victims}
+      \field{volume}{16}
+      \field{year}{1977}
+      \field{pages}{22}
+      \range{pages}{1}
+    \endentry
+    \entry{xie2019crime}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=3bbca48f316decc3a0fc2ebf74f81d1f}{%
+           family={Xie},
+           familyi={X\bibinitperiod},
+           given={Min},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0135c28cf0a706156af0f2ead0a3a2ac}{%
+           family={Baumer},
+           familyi={B\bibinitperiod},
+           given={Eric\bibnamedelima P},
+           giveni={E\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Annual Reviews}%
+      }
+      \strng{namehash}{224817126f56189fa55b6117e3df4729}
+      \strng{fullhash}{224817126f56189fa55b6117e3df4729}
+      \strng{bibnamehash}{224817126f56189fa55b6117e3df4729}
+      \strng{authorbibnamehash}{224817126f56189fa55b6117e3df4729}
+      \strng{authornamehash}{224817126f56189fa55b6117e3df4729}
+      \strng{authorfullhash}{224817126f56189fa55b6117e3df4729}
+      \field{sortinit}{X}
+      \field{sortinithash}{1965c258adceecf23ce3d67b05113442}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Annual Review of Criminology}
+      \field{number}{1}
+      \field{title}{Crime victims’ decisions to call the police: Past research and new directions}
+      \field{volume}{2}
+      \field{year}{2019}
+      \field{pages}{217\bibrangedash 240}
+      \range{pages}{24}
+    \endentry
+    \entry{zaykowski2015reconceptualizing}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=2b9e143ae8198197ac0fe85f91e0cebe}{%
+           family={Zaykowski},
+           familyi={Z\bibinitperiod},
+           given={Heather},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Sage Publications Sage CA: Los Angeles, CA}%
+      }
+      \strng{namehash}{2b9e143ae8198197ac0fe85f91e0cebe}
+      \strng{fullhash}{2b9e143ae8198197ac0fe85f91e0cebe}
+      \strng{bibnamehash}{2b9e143ae8198197ac0fe85f91e0cebe}
+      \strng{authorbibnamehash}{2b9e143ae8198197ac0fe85f91e0cebe}
+      \strng{authornamehash}{2b9e143ae8198197ac0fe85f91e0cebe}
+      \strng{authorfullhash}{2b9e143ae8198197ac0fe85f91e0cebe}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Crime \& Delinquency}
+      \field{number}{2}
+      \field{title}{Reconceptualizing victimization and victimization responses}
+      \field{volume}{61}
+      \field{year}{2015}
+      \field{pages}{271\bibrangedash 296}
+      \range{pages}{26}
+    \endentry
+    \entry{zaykowski2019examining}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=2b9e143ae8198197ac0fe85f91e0cebe}{%
+           family={Zaykowski},
+           familyi={Z\bibinitperiod},
+           given={Heather},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=08da28b4e336fddfc04cddea862fc3d2}{%
+           family={Allain},
+           familyi={A\bibinitperiod},
+           given={Erin\bibnamedelima Cournoyer},
+           giveni={E\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=346e1de26b63469a5c6c43220a3b842b}{%
+           family={Campagna},
+           familyi={C\bibinitperiod},
+           given={Lena\bibnamedelima M},
+           giveni={L\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press \& Assessment}%
+      }
+      \strng{namehash}{0489dcc89c9cc0da78fbf66b83a083d9}
+      \strng{fullhash}{be354daf51a94315620eee37c305c93d}
+      \strng{bibnamehash}{be354daf51a94315620eee37c305c93d}
+      \strng{authorbibnamehash}{be354daf51a94315620eee37c305c93d}
+      \strng{authornamehash}{0489dcc89c9cc0da78fbf66b83a083d9}
+      \strng{authorfullhash}{be354daf51a94315620eee37c305c93d}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Law \& society review}
+      \field{number}{4}
+      \field{title}{Examining the paradox of crime reporting: Are disadvantaged victims more likely to report to the police?}
+      \field{volume}{53}
+      \field{year}{2019}
+      \field{pages}{1305\bibrangedash 1340}
+      \range{pages}{36}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
 
-\bibitem [\protect \citeauthoryear {%
-Baumer%
-}{%
-Baumer%
-}{%
-{\protect \APACyear {2002}}%
-}]{%
-baumer2002neighborhood}
-\APACinsertmetastar {%
-baumer2002neighborhood}%
-\begin{APACrefauthors}%
-Baumer, E\BPBI P.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{2002}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {Neighborhood disadvantage and police notification by
-  victims of violence} {Neighborhood disadvantage and police notification by
-  victims of violence}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{Criminology}{40}{3}{579--616}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Berg%
-\ \BBA {} Rogers%
-}{%
-Berg%
-\ \BBA {} Rogers%
-}{%
-{\protect \APACyear {2017}}%
-}]{%
-berg2017mobilization}
-\APACinsertmetastar {%
-berg2017mobilization}%
-\begin{APACrefauthors}%
-Berg, M\BPBI T.%
-\BCBT {}\ \BBA {} Rogers, E\BPBI M.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{2017}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {The mobilization of criminal law} {The mobilization of
-  criminal law}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{Annual Review of Law and Social
-  Science}{13}{1}{451--469}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Bergemann%
-}{%
-Bergemann%
-}{%
-{\protect \APACyear {2024}}%
-}]{%
-bergemann2024social}
-\APACinsertmetastar {%
-bergemann2024social}%
-\begin{APACrefauthors}%
-Bergemann, P.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{2024}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {How Social Influence Affects Reporting: Toward an
-  Integration of Crime Reporting, Whistleblowing, and Denunciation} {How social
-  influence affects reporting: Toward an integration of crime reporting,
-  whistleblowing, and denunciation}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{Annual Review of Sociology}{50}{}{}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-D.~Black%
-}{%
-D.~Black%
-}{%
-{\protect \APACyear {1976}}%
-}]{%
-black1976behavior}
-\APACinsertmetastar {%
-black1976behavior}%
-\begin{APACrefauthors}%
-Black, D.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYear{1976}.
-\newblock
-\APACrefbtitle {The behavior of law} {The behavior of law}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-D.~Black%
-}{%
-D.~Black%
-}{%
-{\protect \APACyear {1979}}%
-}]{%
-black1979common}
-\APACinsertmetastar {%
-black1979common}%
-\begin{APACrefauthors}%
-Black, D.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{1979}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {Common sense in the sociology of law} {Common sense in
-  the sociology of law}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{American Sociological Review}{}{}{18--27}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-D\BPBI J.~Black%
-}{%
-D\BPBI J.~Black%
-}{%
-{\protect \APACyear {1973}}%
-}]{%
-black1973mobilization}
-\APACinsertmetastar {%
-black1973mobilization}%
-\begin{APACrefauthors}%
-Black, D\BPBI J.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{1973}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {The mobilization of law} {The mobilization of
-  law}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{The journal of legal studies}{2}{1}{125--149}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Bronfenbrenner%
-}{%
-Bronfenbrenner%
-}{%
-{\protect \APACyear {1979}}%
-}]{%
-bronfenbrenner1979ecology}
-\APACinsertmetastar {%
-bronfenbrenner1979ecology}%
-\begin{APACrefauthors}%
-Bronfenbrenner, U.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYear{1979}.
-\newblock
-\APACrefbtitle {The ecology of human development: Experiments by nature and
-  design} {The ecology of human development: Experiments by nature and design}.
-\newblock
-\APACaddressPublisher{}{Harvard university press}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Collins%
-, Cox%
-\BCBL {}\ \BBA {} Langan%
-}{%
-Collins%
-\ \protect \BOthers {.}}{%
-{\protect \APACyear {1987}}%
-}]{%
-collins1987job}
-\APACinsertmetastar {%
-collins1987job}%
-\begin{APACrefauthors}%
-Collins, J\BPBI J.%
-, Cox, B\BPBI G.%
-\BCBL {}\ \BBA {} Langan, P\BPBI A.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{1987}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {Job activities and personal crime victimization:
-  Implications for theory} {Job activities and personal crime victimization:
-  Implications for theory}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{Social Science Research}{16}{4}{345--360}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Dzmitryieva%
-\ \BBA {} Titaev%
-}{%
-Dzmitryieva%
-\ \BBA {} Titaev%
-}{%
-{\protect \APACyear {2025}}%
-}]{%
-dzmitryieva2025crime}
-\APACinsertmetastar {%
-dzmitryieva2025crime}%
-\begin{APACrefauthors}%
-Dzmitryieva, A.%
-\BCBT {}\ \BBA {} Titaev, K.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{2025}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {Crime reporting in Russia: testing theoretical
-  perspectives with national survey data} {Crime reporting in russia: testing
-  theoretical perspectives with national survey data}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{International Journal of Comparative and Applied
-  Criminal Justice}{}{}{1--25}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Felson%
-, Messner%
-\BCBL {}\ \BBA {} Hoskin%
-}{%
-Felson%
-\ \protect \BOthers {.}}{%
-{\protect \APACyear {1999}}%
-}]{%
-felson1999victim}
-\APACinsertmetastar {%
-felson1999victim}%
-\begin{APACrefauthors}%
-Felson, R\BPBI B.%
-, Messner, S\BPBI F.%
-\BCBL {}\ \BBA {} Hoskin, A.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{1999}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {The victim-offender relationship and calling the police
-  in assaults} {The victim-offender relationship and calling the police in
-  assaults}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{Criminology}{37}{4}{931--948}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Felstiner%
-, Abel%
-\BCBL {}\ \BBA {} Sarat%
-}{%
-Felstiner%
-\ \protect \BOthers {.}}{%
-{\protect \APACyear {1981}}%
-}]{%
-felstiner1981emergence}
-\APACinsertmetastar {%
-felstiner1981emergence}%
-\begin{APACrefauthors}%
-Felstiner, W\BPBI L.%
-, Abel, R\BPBI L.%
-\BCBL {}\ \BBA {} Sarat, A.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{1981}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {The emergence and transformation of disputes: Naming,
-  blaming, claiming…} {The emergence and transformation of disputes: Naming,
-  blaming, claiming…}.{\BBCQ}
-\newblock
-
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Garofalo%
-, Siegel%
-\BCBL {}\ \BBA {} Laub%
-}{%
-Garofalo%
-\ \protect \BOthers {.}}{%
-{\protect \APACyear {1987}}%
-}]{%
-garofalo1987school}
-\APACinsertmetastar {%
-garofalo1987school}%
-\begin{APACrefauthors}%
-Garofalo, J.%
-, Siegel, L.%
-\BCBL {}\ \BBA {} Laub, J.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{1987}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {School-related victimizations among adolescents: An
-  analysis of National Crime Survey (NCS) narratives} {School-related
-  victimizations among adolescents: An analysis of national crime survey (ncs)
-  narratives}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{Journal of quantitative criminology}{3}{4}{321--338}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Gottfredson%
-\ \BBA {} Gottfredson%
-}{%
-Gottfredson%
-\ \BBA {} Gottfredson%
-}{%
-{\protect \APACyear {1987}}%
-}]{%
-gottfredson1987decision}
-\APACinsertmetastar {%
-gottfredson1987decision}%
-\begin{APACrefauthors}%
-Gottfredson, M\BPBI R.%
-\BCBT {}\ \BBA {} Gottfredson, D\BPBI M.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYear{1987}.
-\newblock
-\APACrefbtitle {Decision making in criminal justice: Toward the rational
-  exercise of discretion} {Decision making in criminal justice: Toward the
-  rational exercise of discretion}\ (\BVOL~3).
-\newblock
-\APACaddressPublisher{}{Springer Science \& Business Media}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Gottfredson%
-\ \BBA {} Hindelang%
-}{%
-Gottfredson%
-\ \BBA {} Hindelang%
-}{%
-{\protect \APACyear {1979}}%
-{\protect \APACexlab {{\protect \BCnt {1}}}}}]{%
-gottfredson1979study}
-\APACinsertmetastar {%
-gottfredson1979study}%
-\begin{APACrefauthors}%
-Gottfredson, M\BPBI R.%
-\BCBT {}\ \BBA {} Hindelang, M\BPBI J.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{1979{\protect \BCnt {1}}}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {A study of the behavior of law} {A study of the behavior
-  of law}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{American sociological review}{}{}{3--18}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Gottfredson%
-\ \BBA {} Hindelang%
-}{%
-Gottfredson%
-\ \BBA {} Hindelang%
-}{%
-{\protect \APACyear {1979}}%
-{\protect \APACexlab {{\protect \BCnt {2}}}}}]{%
-gottfredson1979theory}
-\APACinsertmetastar {%
-gottfredson1979theory}%
-\begin{APACrefauthors}%
-Gottfredson, M\BPBI R.%
-\BCBT {}\ \BBA {} Hindelang, M\BPBI J.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{1979{\protect \BCnt {2}}}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {Theory and research in the sociology of law} {Theory and
-  research in the sociology of law}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{American Sociological Review}{}{}{27--37}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Goudriaan%
-, Lynch%
-\BCBL {}\ \BBA {} Nieuwbeerta%
-}{%
-Goudriaan%
-\ \protect \BOthers {.}}{%
-{\protect \APACyear {2004}}%
-}]{%
-goudriaan2004reporting}
-\APACinsertmetastar {%
-goudriaan2004reporting}%
-\begin{APACrefauthors}%
-Goudriaan, H.%
-, Lynch, J\BPBI P.%
-\BCBL {}\ \BBA {} Nieuwbeerta, P.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{2004}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {Reporting to the police in western nations: A
-  theoretical analysis of the effects of social context} {Reporting to the
-  police in western nations: A theoretical analysis of the effects of social
-  context}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{Justice quarterly}{21}{4}{933--969}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Goudriaan%
-, Wittebrood%
-\BCBL {}\ \BBA {} Nieuwbeerta%
-}{%
-Goudriaan%
-\ \protect \BOthers {.}}{%
-{\protect \APACyear {2006}}%
-}]{%
-goudriaan2006neighbourhood}
-\APACinsertmetastar {%
-goudriaan2006neighbourhood}%
-\begin{APACrefauthors}%
-Goudriaan, H.%
-, Wittebrood, K.%
-\BCBL {}\ \BBA {} Nieuwbeerta, P.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{2006}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {Neighbourhood characteristics and reporting crime:
-  Effects of social cohesion, confidence in police effectiveness and
-  socio-economic disadvantage 1} {Neighbourhood characteristics and reporting
-  crime: Effects of social cohesion, confidence in police effectiveness and
-  socio-economic disadvantage 1}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{British journal of criminology}{46}{4}{719--742}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Greenberg%
-\ \BBA {} Beach%
-}{%
-Greenberg%
-\ \BBA {} Beach%
-}{%
-{\protect \APACyear {2004}}%
-}]{%
-greenberg2004property}
-\APACinsertmetastar {%
-greenberg2004property}%
-\begin{APACrefauthors}%
-Greenberg, M\BPBI S.%
-\BCBT {}\ \BBA {} Beach, S\BPBI R.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{2004}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {Property crime victims' decision to notify the police:
-  Social, cognitive, and affective determinants} {Property crime victims'
-  decision to notify the police: Social, cognitive, and affective
-  determinants}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{Law and Human Behavior}{28}{2}{177--186}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Greenberg%
-\ \BBA {} Ruback%
-}{%
-Greenberg%
-\ \BBA {} Ruback%
-}{%
-{\protect \APACyear {1992}}%
-}]{%
-greenberg1992after}
-\APACinsertmetastar {%
-greenberg1992after}%
-\begin{APACrefauthors}%
-Greenberg, M\BPBI S.%
-\BCBT {}\ \BBA {} Ruback, R\BPBI B.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYear{1992}.
-\newblock
-\APACrefbtitle {After the crime: Victim decision making} {After the crime:
-  Victim decision making}\ (\BVOL~9).
-\newblock
-\APACaddressPublisher{}{Springer Science \& Business Media}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Janoff-Bulman%
-}{%
-Janoff-Bulman%
-}{%
-{\protect \APACyear {1986}}%
-}]{%
-janoff1986aftermath}
-\APACinsertmetastar {%
-janoff1986aftermath}%
-\begin{APACrefauthors}%
-Janoff-Bulman, R.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{1986}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {The aftermath of victimization: Rebuilding shattered
-  assumptions} {The aftermath of victimization: Rebuilding shattered
-  assumptions}.{\BBCQ}
-\newblock
-\BIn{} \APACrefbtitle {Trauma and its wake.} {Trauma and its wake.}
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Kaukinen%
-}{%
-Kaukinen%
-}{%
-{\protect \APACyear {2002}}%
-}]{%
-kaukinen2002help}
-\APACinsertmetastar {%
-kaukinen2002help}%
-\begin{APACrefauthors}%
-Kaukinen, C.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{2002}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {The help-seeking decisions of violent crime victims: An
-  examination of the direct and conditional effects of gender and the
-  victim-offender relationship} {The help-seeking decisions of violent crime
-  victims: An examination of the direct and conditional effects of gender and
-  the victim-offender relationship}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{Journal of interpersonal violence}{17}{4}{432--456}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Knoth%
-\ \BBA {} Ruback%
-}{%
-Knoth%
-\ \BBA {} Ruback%
-}{%
-{\protect \APACyear {2019}}%
-}]{%
-knoth2019reporting}
-\APACinsertmetastar {%
-knoth2019reporting}%
-\begin{APACrefauthors}%
-Knoth, L\BPBI K.%
-\BCBT {}\ \BBA {} Ruback, R\BPBI B.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{2019}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {Reporting crimes to the police depends on relationship
-  networks: Effects of ties among victims, advisors, and offenders} {Reporting
-  crimes to the police depends on relationship networks: Effects of ties among
-  victims, advisors, and offenders}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{Journal of interpersonal violence}{34}{13}{2749--2773}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Mason%
-\ \BBA {} Benson%
-}{%
-Mason%
-\ \BBA {} Benson%
-}{%
-{\protect \APACyear {1996}}%
-}]{%
-mason1996effect}
-\APACinsertmetastar {%
-mason1996effect}%
-\begin{APACrefauthors}%
-Mason, K\BPBI A.%
-\BCBT {}\ \BBA {} Benson, M\BPBI L.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{1996}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {The effect of social support on fraud victims' reporting
-  behavior: A research note} {The effect of social support on fraud victims'
-  reporting behavior: A research note}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{Justice Quarterly}{13}{3}{511--524}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Orcutt%
-\ \BBA {} Faison%
-}{%
-Orcutt%
-\ \BBA {} Faison%
-}{%
-{\protect \APACyear {1988}}%
-}]{%
-orcutt1988sex}
-\APACinsertmetastar {%
-orcutt1988sex}%
-\begin{APACrefauthors}%
-Orcutt, J\BPBI D.%
-\BCBT {}\ \BBA {} Faison, R.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{1988}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {Sex-role attitude change and reporting of rape
-  victimization, 1973--1985} {Sex-role attitude change and reporting of rape
-  victimization, 1973--1985}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{The Sociological Quarterly}{29}{4}{589--604}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Paul%
-, Zinzow%
-, McCauley%
-, Kilpatrick%
-\BCBL {}\ \BBA {} Resnick%
-}{%
-Paul%
-\ \protect \BOthers {.}}{%
-{\protect \APACyear {2014}}%
-}]{%
-paul2014does}
-\APACinsertmetastar {%
-paul2014does}%
-\begin{APACrefauthors}%
-Paul, L\BPBI A.%
-, Zinzow, H\BPBI M.%
-, McCauley, J\BPBI L.%
-, Kilpatrick, D\BPBI G.%
-\BCBL {}\ \BBA {} Resnick, H\BPBI S.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{2014}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {Does encouragement by others increase rape reporting?
-  Findings from a national sample of women} {Does encouragement by others
-  increase rape reporting? findings from a national sample of women}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{Psychology of Women Quarterly}{38}{2}{222--232}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Pescosolido%
-}{%
-Pescosolido%
-}{%
-{\protect \APACyear {1992}}%
-}]{%
-pescosolido1992beyond}
-\APACinsertmetastar {%
-pescosolido1992beyond}%
-\begin{APACrefauthors}%
-Pescosolido, B\BPBI A.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{1992}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {Beyond rational choice: The social dynamics of how
-  people seek help} {Beyond rational choice: The social dynamics of how people
-  seek help}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{American journal of sociology}{97}{4}{1096--1138}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Ruback%
-}{%
-Ruback%
-}{%
-{\protect \APACyear {1993}}%
-}]{%
-ruback1993comment}
-\APACinsertmetastar {%
-ruback1993comment}%
-\begin{APACrefauthors}%
-Ruback, R\BPBI B.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{1993}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {Comment on Bachman (1993) The victim-offender
-  relationship does affect victims' decisions to report sexual assaults}
-  {Comment on bachman (1993) the victim-offender relationship does affect
-  victims' decisions to report sexual assaults}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{Criminal Justice and Behavior}{20}{3}{271--279}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Ruback%
-, Greenberg%
-\BCBL {}\ \BBA {} Westcott%
-}{%
-Ruback%
-\ \protect \BOthers {.}}{%
-{\protect \APACyear {1984}}%
-}]{%
-ruback1984social}
-\APACinsertmetastar {%
-ruback1984social}%
-\begin{APACrefauthors}%
-Ruback, R\BPBI B.%
-, Greenberg, M\BPBI S.%
-\BCBL {}\ \BBA {} Westcott, D\BPBI R.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{1984}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {Social influence and crime-victim decision making}
-  {Social influence and crime-victim decision making}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{Journal of social issues}{40}{1}{51--76}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Ruback%
-\ \BBA {} Thompson%
-}{%
-Ruback%
-\ \BBA {} Thompson%
-}{%
-{\protect \APACyear {2001}}%
-}]{%
-ruback2001social}
-\APACinsertmetastar {%
-ruback2001social}%
-\begin{APACrefauthors}%
-Ruback, R\BPBI B.%
-\BCBT {}\ \BBA {} Thompson, M\BPBI P.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYear{2001}.
-\newblock
-\APACrefbtitle {Social and psychological consequences of violent victimization}
-  {Social and psychological consequences of violent victimization}.
-\newblock
-\APACaddressPublisher{}{Sage}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Skogan%
-}{%
-Skogan%
-}{%
-{\protect \APACyear {1976}}%
-}]{%
-skogan1976citizen}
-\APACinsertmetastar {%
-skogan1976citizen}%
-\begin{APACrefauthors}%
-Skogan, W\BPBI G.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{1976}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {Citizen reporting of crime some national panel data}
-  {Citizen reporting of crime some national panel data}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{Criminology}{13}{4}{535--549}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Skogan%
-}{%
-Skogan%
-}{%
-{\protect \APACyear {1984}}%
-}]{%
-skogan1984reporting}
-\APACinsertmetastar {%
-skogan1984reporting}%
-\begin{APACrefauthors}%
-Skogan, W\BPBI G.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{1984}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {Reporting crimes to the police: The status of world
-  research} {Reporting crimes to the police: The status of world
-  research}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{Journal of research in crime and
-  delinquency}{21}{2}{113--137}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Spelman%
-\ \BBA {} Brown%
-}{%
-Spelman%
-\ \BBA {} Brown%
-}{%
-{\protect \APACyear {1985}}%
-}]{%
-spelman1985calling}
-\APACinsertmetastar {%
-spelman1985calling}%
-\begin{APACrefauthors}%
-Spelman, W.%
-\BCBT {}\ \BBA {} Brown, D\BPBI K.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYear{1985}.
-\newblock
-\APACrefbtitle {Calling the Police: Citizen Reporting of Serious Crime, 1979}
-  {Calling the police: Citizen reporting of serious crime, 1979}.
-\newblock
-\APACaddressPublisher{}{Inter-university Consortium for Political and Social
-  Research}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Tarling%
-\ \BBA {} Morris%
-}{%
-Tarling%
-\ \BBA {} Morris%
-}{%
-{\protect \APACyear {2010}}%
-}]{%
-tarling2010reporting}
-\APACinsertmetastar {%
-tarling2010reporting}%
-\begin{APACrefauthors}%
-Tarling, R.%
-\BCBT {}\ \BBA {} Morris, K.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{2010}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {Reporting crime to the police} {Reporting crime to the
-  police}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{The British Journal of Criminology}{50}{3}{474--490}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Van~Kirk%
-}{%
-Van~Kirk%
-}{%
-{\protect \APACyear {1978}}%
-}]{%
-van1978response}
-\APACinsertmetastar {%
-van1978response}%
-\begin{APACrefauthors}%
-Van~Kirk, M.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{1978}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {Response time analysis} {Response time analysis}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{Executive Summary). Washington, DC: US Government
-  Printing Office}{}{}{}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Wikstr{\"o}m%
-}{%
-Wikstr{\"o}m%
-}{%
-{\protect \APACyear {2011}}%
-}]{%
-wikstrom2011does}
-\APACinsertmetastar {%
-wikstrom2011does}%
-\begin{APACrefauthors}%
-Wikstr{\"o}m, P\BHBI O\BPBI H.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{2011}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {Does everything matter?: addressing the problem of
-  causation and explanation in the study of crime} {Does everything matter?:
-  addressing the problem of causation and explanation in the study of
-  crime}.{\BBCQ}
-\newblock
-\BIn{} \APACrefbtitle {When crime appears} {When crime appears}\ (\BPGS\
-  53--72).
-\newblock
-\APACaddressPublisher{}{Routledge}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Xie%
-\ \BBA {} Baumer%
-}{%
-Xie%
-\ \BBA {} Baumer%
-}{%
-{\protect \APACyear {2019}}%
-}]{%
-xie2019crime}
-\APACinsertmetastar {%
-xie2019crime}%
-\begin{APACrefauthors}%
-Xie, M.%
-\BCBT {}\ \BBA {} Baumer, E\BPBI P.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{2019}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {Crime victims’ decisions to call the police: Past
-  research and new directions} {Crime victims’ decisions to call the police:
-  Past research and new directions}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{Annual Review of Criminology}{2}{1}{217--240}.
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Zaykowski%
-}{%
-Zaykowski%
-}{%
-{\protect \APACyear {2015}}%
-}]{%
-zaykowski2015reconceptualizing}
-\APACinsertmetastar {%
-zaykowski2015reconceptualizing}%
-\begin{APACrefauthors}%
-Zaykowski, H.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{2015}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {Reconceptualizing victimization and victimization
-  responses} {Reconceptualizing victimization and victimization
-  responses}.{\BBCQ}
-\newblock
-\APACjournalVolNumPages{Crime \& Delinquency}{61}{2}{271--296}.
-\PrintBackRefs{\CurrentBib}
-
-\end{thebibliography}
