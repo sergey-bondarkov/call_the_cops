@@ -343,12 +343,21 @@ saveRDS(data_2024_prep, "data/processed/rcvs_2024_prep.Rds")
 
 victims_pooled <- data_pooled_prep[!is.na(incident.crime_class)]
 victims_2024 <- data_2024_prep[!is.na(incident.crime_class)]
+
+# Define path outcomes
+victims_pooled[, .N, .(social.told_someone, reported.police)
+] |> dcast(social.told_someone ~ reported.police)
+victims_pooled[, F1P1 := fifelse(social.told_someone == 1 & reported.police == 1, 1, 0)]
+victims_pooled[, F0P1 := fifelse(social.told_someone == 0 & reported.police == 1, 1, 0)]
+victims_pooled[, F1P0 := fifelse(social.told_someone == 1 & reported.police == 0, 1, 0)]
+victims_pooled[, F0P0 := fifelse(social.told_someone == 0 & reported.police == 0, 1, 0)]
+
+victims_2024[, .N, .(social.told_someone, reported.police)
+] |> dcast(social.told_someone ~ reported.police)
+victims_2024[, F1P1 := fifelse(social.told_someone == 1 & reported.police == 1, 1, 0)]
+victims_2024[, F0P1 := fifelse(social.told_someone == 0 & reported.police == 1, 1, 0)]
+victims_2024[, F1P0 := fifelse(social.told_someone == 1 & reported.police == 0, 1, 0)]
+victims_2024[, F0P0 := fifelse(social.told_someone == 0 & reported.police == 0, 1, 0)]
+
 saveRDS(victims_2024, "data/processed/victims_2024.Rds")
 saveRDS(victims_pooled, "data/processed/victims_pooled.Rds")
-
-# data_pooled_prep[, .N, incident.crime_type2]
-# victims_pooled[, .N, incident.crime_class]
-# victims_pooled[is.na(incident.crime_class), .N, incident.crime_type]
-# ch <- victims_pooled[is.na(incident.crime_class) & incident.crime_type %notin% c("Attempted cybercrime", "Not enough information", "Other"), ]
-# ch[, .N, incident.crime_type]
-# View(ch[incident.crime_type == "Assault"])
