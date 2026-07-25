@@ -91,24 +91,18 @@
       \field{pages}{623\bibrangedash 641}
       \range{pages}{19}
     \endentry
-    \entry{anderson1999code}{misc}{}
+    \entry{abf2025access}{report}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=579b2ba4f1ca057482816a34937ba669}{%
-           family={Anderson},
-           familyi={A\bibinitperiod},
-           given={Elijah},
-           giveni={E\bibinitperiod},
-           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7c8748d0cd9d042d79694dc4edb8b82c}{%
+           family={{American Bar Foundation}},
+           familyi={A\bibinitperiod}}}%
       }
-      \list{publisher}{1}{%
-        {New York: Norton}%
-      }
-      \strng{namehash}{579b2ba4f1ca057482816a34937ba669}
-      \strng{fullhash}{579b2ba4f1ca057482816a34937ba669}
-      \strng{bibnamehash}{579b2ba4f1ca057482816a34937ba669}
-      \strng{authorbibnamehash}{579b2ba4f1ca057482816a34937ba669}
-      \strng{authornamehash}{579b2ba4f1ca057482816a34937ba669}
-      \strng{authorfullhash}{579b2ba4f1ca057482816a34937ba669}
+      \strng{namehash}{7c8748d0cd9d042d79694dc4edb8b82c}
+      \strng{fullhash}{7c8748d0cd9d042d79694dc4edb8b82c}
+      \strng{bibnamehash}{7c8748d0cd9d042d79694dc4edb8b82c}
+      \strng{authorbibnamehash}{7c8748d0cd9d042d79694dc4edb8b82c}
+      \strng{authornamehash}{7c8748d0cd9d042d79694dc4edb8b82c}
+      \strng{authorfullhash}{7c8748d0cd9d042d79694dc4edb8b82c}
       \field{sortinit}{A}
       \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
       \field{extradatescope}{labelyear}
@@ -116,8 +110,8 @@
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Code of the Street}
-      \field{year}{1999}
+      \field{title}{{State of the Art in Civil Legal Needs Surveys: A Comparative Perspective}}
+      \field{year}{2025}
     \endentry
     \entry{baert2024factors}{article}{}
       \name{author}{7}{}{%
@@ -222,6 +216,45 @@
       \field{year}{1980}
       \field{pages}{35}
       \range{pages}{1}
+    \endentry
+    \entry{barnard1999miscellanea}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=e88ccd9dbb7030135c0bca49c9610242}{%
+           family={Barnard},
+           familyi={B\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=49a367b6280de8a239f8bbdd573f996f}{%
+           family={Rubin},
+           familyi={R\bibinitperiod},
+           given={Donald\bibnamedelima B},
+           giveni={D\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Oxford University Press}%
+      }
+      \strng{namehash}{77e867f8afeb745083555dbbf8395d91}
+      \strng{fullhash}{77e867f8afeb745083555dbbf8395d91}
+      \strng{bibnamehash}{77e867f8afeb745083555dbbf8395d91}
+      \strng{authorbibnamehash}{77e867f8afeb745083555dbbf8395d91}
+      \strng{authornamehash}{77e867f8afeb745083555dbbf8395d91}
+      \strng{authorfullhash}{77e867f8afeb745083555dbbf8395d91}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Biometrika}
+      \field{number}{4}
+      \field{title}{Miscellanea. Small-sample degrees of freedom with multiple imputation}
+      \field{volume}{86}
+      \field{year}{1999}
+      \field{pages}{948\bibrangedash 955}
+      \range{pages}{8}
     \endentry
     \entry{baumer2002neighborhood}{article}{}
       \name{author}{1}{}{%
@@ -488,34 +521,6 @@
       \field{pages}{3\bibrangedash 23}
       \range{pages}{21}
     \endentry
-    \entry{bronfenbrenner1979ecology}{book}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=8be9ed6316c6f644d32aa3bd81eabe35}{%
-           family={Bronfenbrenner},
-           familyi={B\bibinitperiod},
-           given={Urie},
-           giveni={U\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Harvard university press}%
-      }
-      \strng{namehash}{8be9ed6316c6f644d32aa3bd81eabe35}
-      \strng{fullhash}{8be9ed6316c6f644d32aa3bd81eabe35}
-      \strng{bibnamehash}{8be9ed6316c6f644d32aa3bd81eabe35}
-      \strng{authorbibnamehash}{8be9ed6316c6f644d32aa3bd81eabe35}
-      \strng{authornamehash}{8be9ed6316c6f644d32aa3bd81eabe35}
-      \strng{authorfullhash}{8be9ed6316c6f644d32aa3bd81eabe35}
-      \field{sortinit}{B}
-      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{The ecology of human development: Experiments by nature and design}
-      \field{year}{1979}
-    \endentry
     \entry{brooks2020doing}{article}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=569b0f0a91d1b8e6424b157b2df00d1c}{%
@@ -587,6 +592,52 @@
       \field{year}{2017}
       \field{pages}{207\bibrangedash 227}
       \range{pages}{21}
+    \endentry
+    \entry{buck2010community}{article}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=3562cb73c502497f15c4a7981f292fa6}{%
+           family={Buck},
+           familyi={B\bibinitperiod},
+           given={A},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e44f09a2d84db823a77079697cf1a851}{%
+           family={Smith},
+           familyi={S\bibinitperiod},
+           given={M},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c43856b77e3c611f7f3a3db36927a2b1}{%
+           family={Sidaway},
+           familyi={S\bibinitperiod},
+           given={J},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=02529856c9b0b1ac65a64b601d2254a9}{%
+           family={Balmer},
+           familyi={B\bibinitperiod},
+           given={NJ},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Legal Services Commission}%
+      }
+      \strng{namehash}{a70f0ae6ae5f4e6141e9f8aae992d2df}
+      \strng{fullhash}{0467b959b97947e62758db2908bba5e2}
+      \strng{bibnamehash}{0467b959b97947e62758db2908bba5e2}
+      \strng{authorbibnamehash}{0467b959b97947e62758db2908bba5e2}
+      \strng{authornamehash}{a70f0ae6ae5f4e6141e9f8aae992d2df}
+      \strng{authorfullhash}{0467b959b97947e62758db2908bba5e2}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Community legal advice centres: a survey of clients in reception areas}
+      \field{year}{2010}
     \endentry
     \entry{bjs@redesign}{online}{}
       \name{author}{1}{}{%
@@ -904,43 +955,6 @@
       \field{year}{1999}
       \field{pages}{931\bibrangedash 948}
       \range{pages}{18}
-    \endentry
-    \entry{felstiner1981emergence}{article}{}
-      \name{author}{3}{}{%
-        {{un=0,uniquepart=base,hash=3b3aee931e48fdf77363ee7f257c6f29}{%
-           family={Felstiner},
-           familyi={F\bibinitperiod},
-           given={William\bibnamedelima LF},
-           giveni={W\bibinitperiod\bibinitdelim L\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=dc15c287394c66f0673d17d21efde9e9}{%
-           family={Abel},
-           familyi={A\bibinitperiod},
-           given={Richard\bibnamedelima L},
-           giveni={R\bibinitperiod\bibinitdelim L\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=2562d136756e951e0fc9fa3194026061}{%
-           family={Sarat},
-           familyi={S\bibinitperiod},
-           given={Austin},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{7c7abf3789af0d874e828dce3ee91e9d}
-      \strng{fullhash}{f19100c72d84b535eb910c66187cff85}
-      \strng{bibnamehash}{f19100c72d84b535eb910c66187cff85}
-      \strng{authorbibnamehash}{f19100c72d84b535eb910c66187cff85}
-      \strng{authornamehash}{7c7abf3789af0d874e828dce3ee91e9d}
-      \strng{authorfullhash}{f19100c72d84b535eb910c66187cff85}
-      \field{sortinit}{F}
-      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{The emergence and transformation of disputes: Naming, blaming, claiming…}
-      \field{year}{1981}
     \endentry
     \entry{feyerabend1975against}{book}{}
       \name{author}{1}{}{%
@@ -1599,7 +1613,7 @@
       \range{pages}{25}
     \endentry
     \entry{kuchakov2026rcvs}{article}{}
-      \name{author}{5}{ul=5}{%
+      \name{author}{5}{}{%
         {{un=0,uniquepart=base,hash=a33fbb95bfe8a0985f09a7b41b16903c}{%
            family={Kuchakov},
            familyi={K\bibinitperiod},
@@ -1631,11 +1645,11 @@
            giveni={D\bibinitperiod},
            givenun=0}}%
       }
-      \strng{namehash}{01444baedb8b8c46fb4d3c8ddbe83b1c}
+      \strng{namehash}{89bbfed7af8beb7bc9c5cc1b2116d621}
       \strng{fullhash}{01444baedb8b8c46fb4d3c8ddbe83b1c}
       \strng{bibnamehash}{01444baedb8b8c46fb4d3c8ddbe83b1c}
       \strng{authorbibnamehash}{01444baedb8b8c46fb4d3c8ddbe83b1c}
-      \strng{authornamehash}{01444baedb8b8c46fb4d3c8ddbe83b1c}
+      \strng{authornamehash}{89bbfed7af8beb7bc9c5cc1b2116d621}
       \strng{authorfullhash}{01444baedb8b8c46fb4d3c8ddbe83b1c}
       \field{sortinit}{K}
       \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
@@ -1649,74 +1663,6 @@
       \field{year}{2026}
       \verb{doi}
       \verb http://dx.doi.org/10.2139/ssrn.6418058
-      \endverb
-    \endentry
-    \entry{harvard2026rcvs}{data}{}
-      \name{author}{6}{ul=6}{%
-        {{un=0,uniquepart=base,hash=a33fbb95bfe8a0985f09a7b41b16903c}{%
-           family={Kuchakov},
-           familyi={K\bibinitperiod},
-           given={Ruslan},
-           giveni={R\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=a8514b1cec881625b20cd1fe8072f135}{%
-           family={Serebrennikov},
-           familyi={S\bibinitperiod},
-           given={Dmitriy},
-           giveni={D\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=7443b3a279453ff61ff95d78843fb1b7}{%
-           family={Bobrikov},
-           familyi={B\bibinitperiod},
-           given={Dmitriy},
-           giveni={D\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=24d753f543ceae59a1da129fc5c05dce}{%
-           family={Knorre},
-           familyi={K\bibinitperiod},
-           given={Alex},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=867986e5433321a8bf5086e1ac16eeca}{%
-           family={Skougarevskiy},
-           familyi={S\bibinitperiod},
-           given={Dmitriy},
-           giveni={D\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=3ca54f219696e116337b9b1a19585ee9}{%
-           family={Titaev},
-           familyi={T\bibinitperiod},
-           given={Kirill},
-           giveni={K\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Harvard Dataverse}%
-      }
-      \strng{namehash}{0325110f0ce714c01c1547ee2aeb209f}
-      \strng{fullhash}{0325110f0ce714c01c1547ee2aeb209f}
-      \strng{bibnamehash}{0325110f0ce714c01c1547ee2aeb209f}
-      \strng{authorbibnamehash}{0325110f0ce714c01c1547ee2aeb209f}
-      \strng{authornamehash}{0325110f0ce714c01c1547ee2aeb209f}
-      \strng{authorfullhash}{0325110f0ce714c01c1547ee2aeb209f}
-      \field{sortinit}{K}
-      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{{Russian Crime Victimization Survey: Pooled Cross-Sections 2018, 2021, 2024, and Panel 2021–2024}}
-      \field{version}{V2}
-      \field{year}{2026}
-      \verb{doi}
-      \verb 10.7910/DVN/ISMDV5
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.7910/DVN/ISMDV5
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.7910/DVN/ISMDV5
       \endverb
     \endentry
     \entry{kuhn1979metaphor}{article}{}
@@ -1923,6 +1869,28 @@
       \field{pages}{511\bibrangedash 524}
       \range{pages}{14}
     \endentry
+    \entry{ogp2019access}{report}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=402258c002a9076e77fab4532edcc6d3}{%
+           family={{Open Government Partnership}},
+           familyi={O\bibinitperiod}}}%
+      }
+      \strng{namehash}{402258c002a9076e77fab4532edcc6d3}
+      \strng{fullhash}{402258c002a9076e77fab4532edcc6d3}
+      \strng{bibnamehash}{402258c002a9076e77fab4532edcc6d3}
+      \strng{authorbibnamehash}{402258c002a9076e77fab4532edcc6d3}
+      \strng{authornamehash}{402258c002a9076e77fab4532edcc6d3}
+      \strng{authorfullhash}{402258c002a9076e77fab4532edcc6d3}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{Open Government Partnership Global Report. Justice Policy Series, Part I. Access to Justice}}
+      \field{year}{2019}
+    \endentry
     \entry{orcutt1988sex}{article}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=2c38faae981c18d9800e9ca1bdedaa31}{%
@@ -1994,45 +1962,6 @@
       \field{year}{2014}
       \field{pages}{115\bibrangedash 136}
       \range{pages}{22}
-    \endentry
-    \entry{parti2023if}{article}{}
-      \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=79bcd19cd537ace1e0390d33c6481362}{%
-           family={Parti},
-           familyi={P\bibinitperiod},
-           given={Katalin},
-           giveni={K\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=daccbafc2a9cef40ee3f67f2cbb520e5}{%
-           family={Tahir},
-           familyi={T\bibinitperiod},
-           given={Faika},
-           giveni={F\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {MDPI}%
-      }
-      \strng{namehash}{487c089f200ad516c70b797972bad113}
-      \strng{fullhash}{487c089f200ad516c70b797972bad113}
-      \strng{bibnamehash}{487c089f200ad516c70b797972bad113}
-      \strng{authorbibnamehash}{487c089f200ad516c70b797972bad113}
-      \strng{authornamehash}{487c089f200ad516c70b797972bad113}
-      \strng{authorfullhash}{487c089f200ad516c70b797972bad113}
-      \field{sortinit}{P}
-      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Social Sciences}
-      \field{number}{5}
-      \field{title}{“If we don’t listen to them, we make them lose more than money:” exploring reasons for underreporting and the needs of older scam victims}
-      \field{volume}{12}
-      \field{year}{2023}
-      \field{pages}{264}
-      \range{pages}{1}
     \endentry
     \entry{patterson2010rape}{article}{}
       \name{author}{2}{}{%
@@ -2563,44 +2492,6 @@
       \field{pages}{1063\bibrangedash 1100}
       \range{pages}{38}
     \endentry
-    \entry{small2016because}{article}{}
-      \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=3edb26a1ddd3b714c63b3b076dadb234}{%
-           family={Small},
-           familyi={S\bibinitperiod},
-           given={Mario\bibnamedelima L},
-           giveni={M\bibinitperiod\bibinitdelim L\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=5764d4c31140d902f94561757cc352d7}{%
-           family={Sukhu},
-           familyi={S\bibinitperiod},
-           given={Christopher},
-           giveni={C\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Elsevier}%
-      }
-      \strng{namehash}{c7f9e5d7942900b090e7834853e8f94f}
-      \strng{fullhash}{c7f9e5d7942900b090e7834853e8f94f}
-      \strng{bibnamehash}{c7f9e5d7942900b090e7834853e8f94f}
-      \strng{authorbibnamehash}{c7f9e5d7942900b090e7834853e8f94f}
-      \strng{authornamehash}{c7f9e5d7942900b090e7834853e8f94f}
-      \strng{authorfullhash}{c7f9e5d7942900b090e7834853e8f94f}
-      \field{sortinit}{S}
-      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Social Networks}
-      \field{title}{Because they were there: Access, deliberation, and the mobilization of networks for support}
-      \field{volume}{47}
-      \field{year}{2016}
-      \field{pages}{73\bibrangedash 84}
-      \range{pages}{12}
-    \endentry
     \entry{spelman1985calling}{book}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=2afb32475d3e23c5304c466e159f226c}{%
@@ -2754,6 +2645,77 @@
       \field{pages}{474\bibrangedash 490}
       \range{pages}{17}
     \endentry
+    \entry{timoneda2021estimating}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=f88af472f4eefa4f8dc07ae82a9dcc05}{%
+           family={Timoneda},
+           familyi={T\bibinitperiod},
+           given={Joan\bibnamedelima C},
+           giveni={J\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{f88af472f4eefa4f8dc07ae82a9dcc05}
+      \strng{fullhash}{f88af472f4eefa4f8dc07ae82a9dcc05}
+      \strng{bibnamehash}{f88af472f4eefa4f8dc07ae82a9dcc05}
+      \strng{authorbibnamehash}{f88af472f4eefa4f8dc07ae82a9dcc05}
+      \strng{authornamehash}{f88af472f4eefa4f8dc07ae82a9dcc05}
+      \strng{authorfullhash}{f88af472f4eefa4f8dc07ae82a9dcc05}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Social Science Research}
+      \field{title}{Estimating group fixed effects in panel data with a binary dependent variable: How the LPM outperforms logistic regression in rare events data}
+      \field{volume}{93}
+      \field{year}{2021}
+      \field{pages}{102486}
+      \range{pages}{1}
+    \endentry
+    \entry{buuren2011mice}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=bc2b17be0859294de039f6a318340de2}{%
+           family={{van Buuren}},
+           familyi={v\bibinitperiod},
+           given={Stef},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=608d0e9a1fa5297e662ddcf0f605c2ab}{%
+           family={Groothuis-Oudshoorn},
+           familyi={G\bibinithyphendelim O\bibinitperiod},
+           given={Karin},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{d76903115e02d42c810b0a2141fadc58}
+      \strng{fullhash}{d76903115e02d42c810b0a2141fadc58}
+      \strng{bibnamehash}{d76903115e02d42c810b0a2141fadc58}
+      \strng{authorbibnamehash}{d76903115e02d42c810b0a2141fadc58}
+      \strng{authornamehash}{d76903115e02d42c810b0a2141fadc58}
+      \strng{authorfullhash}{d76903115e02d42c810b0a2141fadc58}
+      \field{sortinit}{v}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Statistical Software}
+      \field{number}{3}
+      \field{title}{{mice}: Multivariate Imputation by Chained Equations in R}
+      \field{volume}{45}
+      \field{year}{2011}
+      \field{pages}{1\bibrangedash 67}
+      \range{pages}{67}
+      \verb{doi}
+      \verb 10.18637/jss.v045.i03
+      \endverb
+    \endentry
     \entry{van1978response}{article}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=047bbbc6fcac8888eea27286e4dd3766}{%
@@ -2779,6 +2741,42 @@
       \field{journaltitle}{Executive Summary). Washington, DC: US Government Printing Office}
       \field{title}{Response time analysis}
       \field{year}{1978}
+    \endentry
+    \entry{hippel2020how}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=48e6f158a744f4aab5766e1ef531b63b}{%
+           family={{von Hippel}},
+           familyi={v\bibinitperiod},
+           given={Paul\bibnamedelima T},
+           giveni={P\bibinitperiod\bibinitdelim T\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{48e6f158a744f4aab5766e1ef531b63b}
+      \strng{fullhash}{48e6f158a744f4aab5766e1ef531b63b}
+      \strng{bibnamehash}{48e6f158a744f4aab5766e1ef531b63b}
+      \strng{authorbibnamehash}{48e6f158a744f4aab5766e1ef531b63b}
+      \strng{authornamehash}{48e6f158a744f4aab5766e1ef531b63b}
+      \strng{authorfullhash}{48e6f158a744f4aab5766e1ef531b63b}
+      \field{sortinit}{v}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Sociological Methods \& Research}
+      \field{number}{33}
+      \field{title}{How Many Imputations Do You Need? A Two-stage Calculation Using a Quadratic Rule.}
+      \field{volume}{49}
+      \field{year}{2020}
+      \field{pages}{699\bibrangedash 718}
+      \range{pages}{20}
+      \verb{urlraw}
+      \verb https://journals.sagepub.com/doi/full/10.1177/0049124117747303
+      \endverb
+      \verb{url}
+      \verb https://journals.sagepub.com/doi/full/10.1177/0049124117747303
+      \endverb
     \endentry
     \entry{warner2007directly}{article}{}
       \name{author}{1}{}{%
@@ -2852,38 +2850,6 @@
       \field{pages}{120\bibrangedash 155}
       \range{pages}{36}
     \endentry
-    \entry{wright1977nobody}{article}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=600ecfb4e809f492b9d64f1dda6b6193}{%
-           family={Wright},
-           familyi={W\bibinitperiod},
-           given={Martin},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {HeinOnline}%
-      }
-      \strng{namehash}{600ecfb4e809f492b9d64f1dda6b6193}
-      \strng{fullhash}{600ecfb4e809f492b9d64f1dda6b6193}
-      \strng{bibnamehash}{600ecfb4e809f492b9d64f1dda6b6193}
-      \strng{authorbibnamehash}{600ecfb4e809f492b9d64f1dda6b6193}
-      \strng{authornamehash}{600ecfb4e809f492b9d64f1dda6b6193}
-      \strng{authorfullhash}{600ecfb4e809f492b9d64f1dda6b6193}
-      \field{sortinit}{W}
-      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{How. J. Penology \& Crime Prevention}
-      \field{title}{Nobody came: criminal justice and the needs of victims}
-      \field{volume}{16}
-      \field{year}{1977}
-      \field{pages}{22}
-      \range{pages}{1}
-    \endentry
     \entry{xie2019crime}{article}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=3bbca48f316decc3a0fc2ebf74f81d1f}{%
@@ -2922,6 +2888,57 @@
       \field{year}{2019}
       \field{pages}{217\bibrangedash 240}
       \range{pages}{24}
+    \endentry
+    \entry{xie2006prior}{article}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=3bbca48f316decc3a0fc2ebf74f81d1f}{%
+           family={Xie},
+           familyi={X\bibinitperiod},
+           given={Min},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9eaa18a7b8702d1342533811558c0d02}{%
+           family={Pogarsky},
+           familyi={P\bibinitperiod},
+           given={Greg},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=03f97059f4b65e39f3fdaa6ff05b6a83}{%
+           family={Lynch},
+           familyi={L\bibinitperiod},
+           given={James\bibnamedelima P},
+           giveni={J\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=763d97a50415e0c98031ce0f3472fd97}{%
+           family={McDowall},
+           familyi={M\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Taylor \& Francis}%
+      }
+      \strng{namehash}{b60d5856a8bfd1d3c52c070e4aab9785}
+      \strng{fullhash}{027a447a88a169a8b545fb89143eef4b}
+      \strng{bibnamehash}{027a447a88a169a8b545fb89143eef4b}
+      \strng{authorbibnamehash}{027a447a88a169a8b545fb89143eef4b}
+      \strng{authornamehash}{b60d5856a8bfd1d3c52c070e4aab9785}
+      \strng{authorfullhash}{027a447a88a169a8b545fb89143eef4b}
+      \field{sortinit}{X}
+      \field{sortinithash}{1965c258adceecf23ce3d67b05113442}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Justice quarterly}
+      \field{number}{4}
+      \field{title}{Prior police contact and subsequent victim reporting: Results from the NCVS}
+      \field{volume}{23}
+      \field{year}{2006}
+      \field{pages}{481\bibrangedash 501}
+      \range{pages}{21}
     \endentry
     \entry{zaykowski2015reconceptualizing}{article}{}
       \name{author}{1}{}{%
