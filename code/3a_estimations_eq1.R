@@ -21,8 +21,12 @@ dir.create("data/temp/lpm", showWarnings = F, recursive = T)
 # Set random seed for reproducibility
 set.seed(0)
 # Set number of workers for parallel multiple imputations
-n_workers <- 7
-plan(multisession, workers = n_workers)
+# <<<<<<< HEAD
+# n_workers <- 7
+# =======
+# n_workers <- floor(parallelly::availableCores() * 2/3)
+# >>>>>>> 763fa095c1a4fed5bd5bc1d5c80c776795a78aee
+# plan(multisession, workers = n_workers)
 
 # Load data
 victims_pooled <- readRDS("data/processed/victims_pooled.Rds")
@@ -46,7 +50,7 @@ vars_to_use <- c(
 	"ses.household_size",
 	"ses.job",
 	"attitude.has_crime_record",
-	# "weight",
+	"weight",
 	"region",
 	"year")
 
@@ -98,28 +102,28 @@ mdl_viol_2024 <- pooled_reg_with_mult_imp(victims_2024,
 saveRDS(mdl_viol_2024, file = "data/temp/lpm/mdl_viol_2024.Rds")
 
 ## Models augmented with interaction of emotional damage and informing relatives
-mdl_cyber_2024_mediator <- pooled_reg_with_mult_imp(victims_2024,
+mdl_cyber_2024_moderation <- pooled_reg_with_mult_imp(victims_2024,
 																										fml = as.formula(g("reported.police ~ social.told_someone * damage.emotional + {paste(X_property, collapse = '+')} | region")),
 																										crime_class = "Cybercrime",
 																										vars_to_impute = vars_to_impute,
 																										vars_to_use = setdiff(vars_to_use, "year"))
-saveRDS(mdl_cyber_2024_mediator, file = "data/temp/lpm/mdl_cyber_2024_mediator.Rds")
+saveRDS(mdl_cyber_2024_moderation, file = "data/temp/lpm/mdl_cyber_2024_moderation.Rds")
 
 
-mdl_prop_2024_mediator <- pooled_reg_with_mult_imp(victims_2024,
+mdl_prop_2024_moderation <- pooled_reg_with_mult_imp(victims_2024,
 																									 fml = as.formula(g("reported.police ~ social.told_someone * damage.emotional + {paste(X_property, collapse = '+')} | region")),
 																									 crime_class = "Property",
 																									 vars_to_impute = vars_to_impute,
 																									 vars_to_use = setdiff(vars_to_use, "year"))
-saveRDS(mdl_prop_2024_mediator, file = "data/temp/lpm/mdl_prop_2024_mediator.Rds")
+saveRDS(mdl_prop_2024_moderation, file = "data/temp/lpm/mdl_prop_2024_moderation.Rds")
 
 
-mdl_viol_2024_mediator <- pooled_reg_with_mult_imp(victims_2024,
+mdl_viol_2024_moderation <- pooled_reg_with_mult_imp(victims_2024,
 																									 fml = as.formula(g("reported.police ~ social.told_someone * damage.emotional + {paste(X_violent, collapse = '+')} | region")),
 																									 crime_class = "Violent",
 																									 vars_to_impute = vars_to_impute,
 																									 vars_to_use = setdiff(vars_to_use, "year"))
-saveRDS(mdl_viol_2024_mediator, file = "data/temp/lpm/mdl_viol_2024_mediator.Rds")
+saveRDS(mdl_viol_2024_moderation, file = "data/temp/lpm/mdl_viol_2024_moderation.Rds")
 
 # ==============================================================================
 
@@ -135,8 +139,13 @@ modelsummary::modelsummary(list(Cyber = mdl_cyber$mdl,
 													 fmt = modelsummary::fmt_decimal(3),
 													 estimate = "{estimate} ({std.error}){stars}",
 													 stars = c("*" = .1, "**" = .05, "***" = .01),
-													 title = "Pooled data",
-													 output = "latex")
+# <<<<<<< HEAD
+# 													 title = "Pooled data",
+# 													 output = "latex")
+# =======
+													 title = "Pooled data")
+
+# >>>>>>> 763fa095c1a4fed5bd5bc1d5c80c776795a78aee
 
 mdl_cyber_2024 <- readRDS( "data/temp/lpm/mdl_cyber_2024.Rds")
 mdl_prop_2024 <- readRDS( "data/temp/lpm/mdl_prop_2024.Rds")
@@ -150,6 +159,7 @@ modelsummary::modelsummary(list(Cyber = mdl_cyber_2024$mdl,
 													 fmt = modelsummary::fmt_decimal(3),
 													 estimate = "{estimate} ({std.error}){stars}",
 													 stars = c("*" = .1, "**" = .05, "***" = .01),
+# <<<<<<< HEAD
 													 # title = "Wave 2024: base model",
 													 output = "latex"
 													 )
@@ -161,14 +171,31 @@ mdl_viol_2024_mediator <- readRDS( "data/temp/lpm/mdl_viol_2024_mediator.Rds.Rds
 modelsummary::modelsummary(list(Cyber = mdl_cyber_2024_mediator$mdl,
 																Property = mdl_prop_2024_mediator$mdl,
 																Violent = mdl_viol_2024_mediator$mdl),
-													 statistic = NULL,
-													 coef_map = coef_map,
-													 fmt = modelsummary::fmt_decimal(3),
-													 estimate = "{estimate} ({std.error}){stars}",
-													 stars = c("*" = .1, "**" = .05, "***" = .01),
-													 # title = "Wave 2024: mediation",
-													 output = "latex"
-													 )
+# =======
+													 title = "Wave 2024")
 
+mdl_cyber_2024_moderation <- readRDS( "data/temp/lpm/mdl_cyber_2024_moderation.Rds")
+mdl_prop_2024_moderation <- readRDS( "data/temp/lpm/mdl_prop_2024_moderation.Rds")
+mdl_viol_2024_moderation <- readRDS( "data/temp/lpm/mdl_viol_2024_moderation.Rds")
 
-
+# modelsummary::modelsummary(list(Cyber = mdl_cyber_2024_moderation$mdl,
+# 																Property = mdl_prop_2024_moderation$mdl,
+# 																Violent = mdl_viol_2024_moderation$mdl),
+# >>>>>>> 763fa095c1a4fed5bd5bc1d5c80c776795a78aee
+# 													 statistic = NULL,
+# 													 coef_map = coef_map,
+# 													 fmt = modelsummary::fmt_decimal(3),
+# 													 estimate = "{estimate} ({std.error}){stars}",
+# 													 stars = c("*" = .1, "**" = .05, "***" = .01),
+# <<<<<<< HEAD
+# 													 # title = "Wave 2024: mediation",
+# 													 output = "latex"
+# 													 )
+#
+#
+#
+# =======
+# 													 title = "Wave 2024")
+#
+#
+# >>>>>>> 763fa095c1a4fed5bd5bc1d5c80c776795a78aee

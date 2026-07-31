@@ -2,6 +2,7 @@
 pooled_reg_with_mult_imp <- function(dat, fml, crime_class,
 																		 vars_to_impute = vars_to_impute,
 																		 vars_to_use = vars_to_use) {
+
 	# Prepare arguments for mice
 	## 'where' matrix tells which rows and columns hold values that need be imputed,
 	## the default is is.na(data) but we need to impute missings only in two columns,
@@ -21,12 +22,22 @@ pooled_reg_with_mult_imp <- function(dat, fml, crime_class,
 	# Do initial multiple imputations
 	message("Parallel multiple imputations: 5")
 	n_imp_initial <- 5
-	imp1 <- futuremice(dat,
-										 m = 5,
-										 meth = "rf",
-										 predictorMatrix = pred_m,
-										 where = where_m,
-										 parallelseed = 0)
+	# imp1 <- futuremice(dat,
+	# 									 m = 5,
+	# 									 meth = "rf",
+	# 									 predictorMatrix = pred_m,
+	# 									 where = where_m,
+	# 									 parallelseed = 0)
+	imp1 <- future_lapply(1:n_imp_initial,
+												function(seed) {
+													mice(dat,
+															 m = 1,
+															 meth = "rf",
+															 predictorMatrix = pred_m,
+															 where = where_m,
+															 seed = seed)
+												})
+	imp1 <- do.call(ibind, imp1)
 
 	# Fit models using imputed data
 	message("LPM regressions on 5 completed datasets")
@@ -51,12 +62,23 @@ pooled_reg_with_mult_imp <- function(dat, fml, crime_class,
 	} else {
 		## If no, rerun imputations and regressions, then pool
 		message("Parallel multiple imputations: ", n_imp_empirical)
-		imp2 <- futuremice(dat,
-											 m = n_imp_empirical,
-											 meth = "rf",
-											 predictorMatrix = pred_m,
-											 where = where_m,
-											 parallelseed = 0)
+		# imp2 <- mice::futuremice(dat,
+		# 												 m = n_imp_empirical,
+		# 												 meth = "rf",
+		# 												 predictorMatrix = pred_m,
+		# 												 where = where_m,
+		# 												 parallelseed = 0,
+		# 												 n.core = future::nbrOfWorkers())
+		imp2 <- future_lapply(1:n_imp_empirical,
+													function(seed) {
+														mice(dat,
+																 m = 1,
+																 meth = "rf",
+																 predictorMatrix = pred_m,
+																 where = where_m,
+																 seed = seed)
+													})
+		imp2 <- do.call(ibind, imp2)
 
 		imp2_dat <- complete(imp2, action = "all")
 		imp2_mdls <- lapply(imp2_dat, fit_reg, fml = fml, crime_class = crime_class)
@@ -171,8 +193,8 @@ plot_path_profile <- function(mdls_list, title, a_min = 0.05) {
 
 # Wrapper for LPM regression with multiple imputations
 pooled_reg_with_mult_imp2 <- function(dat, fml, crime_class,
-																		 vars_to_impute = vars_to_impute,
-																		 vars_to_use = vars_to_use) {
+																			vars_to_impute = vars_to_impute,
+																			vars_to_use = vars_to_use) {
 	# Prepare arguments for mice
 	## 'where' matrix tells which rows and columns hold values that need be imputed,
 	## the default is is.na(data) but we need to impute missings only in two columns,
