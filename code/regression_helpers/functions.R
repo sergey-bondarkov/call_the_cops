@@ -90,8 +90,8 @@ pooled_reg_with_mult_imp <- function(dat, fml, crime_class,
 }
 
 # Wrapper for plotting path covariates patterns
-plot_path_profile <- function(mdls_list, title) {
-	mdls_list <- paths_mdls_cyber
+plot_path_profile <- function(mdls_list, title, a_min = 0.05) {
+	# mdls_list <- paths_mdls_cyber
 	pl_data <-
 		rbindlist(
 			lapply(mdls_list, function(x) {
@@ -108,27 +108,27 @@ plot_path_profile <- function(mdls_list, title) {
 	pl_data[, CIh := estimate + std.error * 1.96]
 	pl_data[, CIl := estimate - std.error * 1.96]
 
-	anno <-
-		rbindlist(
-			lapply(mdls_list, function(x) {
-				data.table(path = x$info$outcome,
-									 anno = paste0("N: ", x$info$n_obs,
-									 							"\nCl. 1: ", x$info$n_class1,
-									 							"\nR2: ", round(pool.r.squared(x$mdl)[1], 2)),
-									 class1 = paste0(x$info$n_class1, "/", x$info$n_obs),
-									 r2 = round(pool.r.squared(x$mdl)[1], 2),
-									 ymin = {
-									 	mdl_sum <- summary(x$mdl)
-									 	min(summary(mdl_sum$estimate - mdl_sum$std.error * 1.96))
-									 },
-									 ymax = {
-									 	mdl_sum <- summary(x$mdl)
-									 	max(summary(mdl_sum$estimate - mdl_sum$std.error * 1.96))
-									 },
-									 xmax = x$info$len_X
-				)
-			})
-		)
+	# anno <-
+	# 	rbindlist(
+	# 		lapply(mdls_list, function(x) {
+	# 			data.table(path = x$info$outcome,
+	# 								 anno = paste0("N: ", x$info$n_obs,
+	# 								 							"\nCl. 1: ", x$info$n_class1,
+	# 								 							"\nR2: ", round(pool.r.squared(x$mdl)[1], 2)),
+	# 								 class1 = paste0(x$info$n_class1, "/", x$info$n_obs),
+	# 								 r2 = round(pool.r.squared(x$mdl)[1], 2),
+	# 								 ymin = {
+	# 								 	mdl_sum <- summary(x$mdl)
+	# 								 	min(summary(mdl_sum$estimate - mdl_sum$std.error * 1.96))
+	# 								 },
+	# 								 ymax = {
+	# 								 	mdl_sum <- summary(x$mdl)
+	# 								 	max(summary(mdl_sum$estimate - mdl_sum$std.error * 1.96))
+	# 								 },
+	# 								 xmax = x$info$len_X
+	# 			)
+	# 		})
+	# 	)
 
 	# f <- function(p) {
 	# 	d <- anno[path == p, ]
@@ -138,7 +138,11 @@ plot_path_profile <- function(mdls_list, title) {
 	# f("F1P0")
 
 	# print(
-	ggplot(pl_data, aes(term, estimate, alpha = ifelse(p.value <= 0.1, "sign", "nonsign"))) +
+	ggplot(pl_data, aes(term, estimate,
+											#alpha = ifelse(p.value <= a_min, "sign", "nonsign")
+											col = fcase(p.value <= 0.05, "0.05",
+																	p.value <= 0.1, "0.1",
+																	default = NA))) +
 		geom_point() +
 		geom_errorbar(aes(ymin = CIl, ymax = CIh), width = 0) +
 		scale_alpha_manual(breaks = c("sign", "nonsign"), values = c(1, .2)) +

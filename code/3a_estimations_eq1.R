@@ -16,12 +16,12 @@ source("code/regression_helpers/functions.R")
 # options(browser="/usr/bin/google-chrome")
 
 # Dir to store results
-dir.create("data/temp/lpm", showWarnings = F)
+dir.create("data/temp/lpm", showWarnings = F, recursive = T)
 
 # Set random seed for reproducibility
 set.seed(0)
 # Set number of workers for parallel multiple imputations
-n_workers <- 30
+n_workers <- 7
 plan(multisession, workers = n_workers)
 
 # Load data
@@ -135,62 +135,40 @@ modelsummary::modelsummary(list(Cyber = mdl_cyber$mdl,
 													 fmt = modelsummary::fmt_decimal(3),
 													 estimate = "{estimate} ({std.error}){stars}",
 													 stars = c("*" = .1, "**" = .05, "***" = .01),
-													 title = "Pooled data")
-
-modelsummary::modelsummary(list(Cyber = mdl_cyber_ignore$mdl,
-																Property = mdl_prop_ignore$mdl,
-																Violent = mdl_viol_ignore$mdl),
-													 statistic = NULL,
-													 coef_map = coef_map,
-													 fmt = modelsummary::fmt_decimal(3),
-													 estimate = "{estimate} ({std.error}){stars}",
-													 stars = c("*" = .1, "**" = .05, "***" = .01),
-													 title = "Pooled data: ignoring social network factor")
+													 title = "Pooled data",
+													 output = "latex")
 
 mdl_cyber_2024 <- readRDS( "data/temp/lpm/mdl_cyber_2024.Rds")
 mdl_prop_2024 <- readRDS( "data/temp/lpm/mdl_prop_2024.Rds")
 mdl_viol_2024 <- readRDS( "data/temp/lpm/mdl_viol_2024.Rds")
 
-modelsummary::modelsummary(list(Cyber = mdl_cyber_2024_base$mdl,
-																Property = mdl_prop_2024_base$mdl,
-																Violent = mdl_viol_2024_base$mdl),
+modelsummary::modelsummary(list(Cyber = mdl_cyber_2024$mdl,
+																Property = mdl_prop_2024$mdl,
+																Violent = mdl_viol_2024$mdl),
 													 statistic = NULL,
 													 coef_map = coef_map,
 													 fmt = modelsummary::fmt_decimal(3),
 													 estimate = "{estimate} ({std.error}){stars}",
 													 stars = c("*" = .1, "**" = .05, "***" = .01),
-													 title = "Wave 2024: base model")
+													 # title = "Wave 2024: base model",
+													 output = "latex"
+													 )
+
+mdl_cyber_2024_mediator <- readRDS( "data/temp/lpm/mdl_cyber_2024_mediator.Rds.Rds")
+mdl_prop_2024_mediator <- readRDS( "data/temp/lpm/mdl_prop_2024_mediator.Rds.Rds")
+mdl_viol_2024_mediator <- readRDS( "data/temp/lpm/mdl_viol_2024_mediator.Rds.Rds")
+
+modelsummary::modelsummary(list(Cyber = mdl_cyber_2024_mediator$mdl,
+																Property = mdl_prop_2024_mediator$mdl,
+																Violent = mdl_viol_2024_mediator$mdl),
+													 statistic = NULL,
+													 coef_map = coef_map,
+													 fmt = modelsummary::fmt_decimal(3),
+													 estimate = "{estimate} ({std.error}){stars}",
+													 stars = c("*" = .1, "**" = .05, "***" = .01),
+													 # title = "Wave 2024: mediation",
+													 output = "latex"
+													 )
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-d <- mtcars
-
-set.seed(0)
-m1 <- feols(mpg ~ cyl, data = d[-sample(1:nrow(d), 5), ])
-set.seed(1)
-m2 <- feols(mpg ~ cyl, data = d[-sample(1:nrow(d), 10), ])
-mice::pool(list(m1, m2))

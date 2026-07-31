@@ -188,9 +188,9 @@
 	\section*{Method}
 	\label{sec:method}
 	
-	Figure \ref{fig:causal_diagram} provides a visual summary of the process I assume. I divide all observed variables into two groups. The first consists of all things \textit{given}, namely a person's socioeconomic situation pre-victimization (I assume that in most cases it was not affected severely), characteristics of the incident, and macro context. The second group are \textit{actions to take} post-victimization: these should not be reduced, as is often the case, to reporting or non-reporting --- at the very least they should include informing one's intimate circle and, in case of violent crime, seeking medical help. The latter is especially important for identification of `counsellors' effect: going to hospital suggests serious harm which is hard to conceal from friends and family, at the same time medical personnel are required to inform the police about patients `with injuries for which there are reasonable grounds to believe that they were sustained as a result of unlawful actions'\footnote{It is required by the order of the Ministry of Health which sets `the procedure for informing medical organizations of internal affairs agencies in cases established by paragraph 5 of part 4 of article 13 of the Federal Law ``On the Fundamentals of Protecting the Health of Citizens in the Russian Federation"'. Whether medical personnel complies with this requirement is another question: as shown in Table \ref{table:table_1}, the police were notified about 74\% of violent crimes where victims went to hospital. It is clear that much is left for discretion of the medical personnel, who, not being trained to judge on causes of injuries, have to rely on a patient's word in many cases.}. Moreover, medical staff can give informal advice to report victimization\footnote{\citet{kamalov2023partnerskoye} found that about 6\% of IPV victims in Russia asked medical personnel for help. It is a considerable quantity, for comparison: only 15\% of victims sought help in police. In less sensitive cases of non-partner violence, informal advice to report may be more frequent.}. Modeling-wise, (the usual) omission of this variable would mean a potential confounding problem.
+	Figure \ref{fig:causal_diagram} provides a visual summary of the process I assume. I divide all observed variables into two groups. The first consists of all things \textit{given}, namely a person's socioeconomic situation pre-victimization (I assume that in most cases it was not affected severely), characteristics of the incident, and macro context. The second group are \textit{actions to take} post-victimization: these should not be reduced, as is often the case, to reporting or non-reporting --- at the very least they should include informing one's intimate circle and, in case of violent crime, seeking medical help. The latter is especially important for identification of `counselors' effect: going to hospital suggests serious harm which is hard to conceal from friends and family, at the same time medical personnel are required to inform the police about patients `with injuries for which there are reasonable grounds to believe that they were sustained as a result of unlawful actions'\footnote{It is required by the order of the Ministry of Health which sets `the procedure for informing medical organizations of internal affairs agencies in cases established by paragraph 5 of part 4 of article 13 of the Federal Law ``On the Fundamentals of Protecting the Health of Citizens in the Russian Federation"'. Whether medical personnel complies with this requirement is another question: as shown in Table \ref{table:table_1}, the police were notified about 74\% of violent crimes where victims went to hospital. It is clear that much is left for discretion of the medical personnel, who, not being trained to judge on causes of injuries, have to rely on a patient's word in many cases.}. Moreover, medical staff can give informal advice to report victimization\footnote{\citet{kamalov2023partnerskoye} found that about 6\% of IPV victims in Russia asked medical personnel for help. It is a considerable quantity, for comparison: only 15\% of victims sought help in police. In less sensitive cases of non-partner violence, informal advice to report may be more frequent.}. Modeling-wise, (the usual) omission of this variable would mean a potential confounding problem.
 	
-	It stands out in the scheme that both the outcome and focus variables are supposedly influenced by the same set of factors. It should come as no surprise considering that both represent decisions to make in certain circumstances.  Fortunately, the data allow to control for these multiple confounders. A possible endogeneity problem (red arrow in Figure \ref{fig:causal_diagram}) is discussed below.
+	It stands out in the scheme that both the outcome and focus variables are supposedly influenced by the same set of factors. It should come as no surprise considering that both represent decisions to make in certain circumstances. Fortunately, the data allow to control for these multiple confounders. A possible endogeneity problem (red arrow in Figure \ref{fig:causal_diagram}) is discussed below.
 		
 	\begin{figure}
 		\centering
@@ -203,11 +203,11 @@
 	My first outcome variable is a respondent's answer to the question `Did the law enforcement find out about the crime?'%\footnote{A positive answer to this question may mean both reporting by the victim themselves or one of their confidants --- in my framing this ambiguity is not important as I am interested in network response as opposed to solo response.} 
 	The variable of interest is the answer to the question `Did you tell someone close about the crime?'. Both are yes or no questions. The second outcome that I consider is the combination of sources of help a victim has turned to. I code these as follows: F0P0 --- victim informed neither friends and family nor the police; F1P0 --- social network is informed, but not the police; F0P1 --- the police is informed while friends and family are oblivious of the incident; F1P1 --- both social network and the police are informed.
 	
-	Importantly, the data do not tell us anything about the order of events post-victimization. Therefore, I must explicate an assumption I make: if a victim notifies both their intimate circle and the police, then they first turn to family and friends, then to the law enforcement. Theoretically, it is not always the case, which means that I might have an endogeneity problem. One possible solution would be to use an instrumental variable, such that modifies the probability of talking to friends or family but can not be affected by the event of reporting to the police. The RCVS features only question suitable for an instrument, `How often do you communicate with your closest relatives?' --- unfortunately, it was introduced only in the latest wave of the survey, which sufficiently reduces sample, and was found too weak in an attempted experiment.
+	Importantly, the data do not tell us anything about the order of events post-victimization. Therefore, I must explicate an assumption I make: if a victim notifies both their intimate circle and the police, then they first turn to family and friends, then to the law enforcement. In that I rely on existing literature which suggests that if someone is notified at all then friends or family come before the police \citep{ruback2001social, knoth2019reporting}. But, theoretically, it is not always the case, which means that I might have an endogeneity problem: if there are police-first cases they introduce positive bias into my estimation. One possible solution would be to use an instrumental variable, such that modifies the probability of talking to friends or family but can not be affected by the event of reporting to the police. The RCVS features only question suitable for an instrument, `How often do you communicate with your closest relatives?' --- unfortunately, it was introduced only in the latest wave of the survey, which sufficiently reduces sample, and was found too weak in an attempted experiment. 
 	
-	I reassure myself in two ways. First, what we know about post-victimization behavior suggests that if someone is notified at all then friends or family come before the police \citep{ruback2001social, knoth2019reporting}. The reverse order of events, \textit{reporting to the police $\rightarrow$ talking to friends or family}, must be rare, but still, there remains the principal possibility that such cases are present in the data and introduce a positive bias in the estimation. Suppose they do, but what proportion must they constitute to make the effect falsely significant? In order to answer that I run a simple simulation: I do re-estimations iteratively excluding part of the observations where the victim informed both their network and the police, from 5\% to 50\%, moving in 5 percent points steps; each step is replicated 50 times randomizing the observations to be excluded, estimation results a pooled. The results of this simulation suggest that, to refute effect identification based on possible endogeneity we must assume that police-first cases constitute at least XX\% of all cases where both the police and friends or family were notified. This does not sound realistic given the evidence in existing literature.
+	Another way to address the problem of probable contamination is to try to assess its gravity. Suppose there are police-first cases, but what proportion must they constitute to make `counselors' effect falsely significant? To approximate it, I run a simple simulation: re-estimations are done iteratively, on each step excluding part of the observations where the victim informed both their network and the police, from 10\% to 50\%, moving by 5 percent points; each step is replicated 50 times randomizing the observations to be excluded, replication results a pooled. The intuition is as follows: 1) we suppose that some proportion of F1P1 cases are police-first, 2) we have no way to find which of them are, so we suspect each one; 3) randomly removing a certain part of F1P1 cases we observe the effect attenuation, searching for the threshold proportion of dropped cases after which the effect disappears. Results of this exercise are related in the next section.
 	
-	Second, this concern about reverse causality is only meaningful when modeling reporting, but not path taken --- as in the latter case I model only combination of help options used, and their order is irrelevant. 
+	Also notice that the concern about reverse causality is only meaningful when modeling reporting, but not path taken: in the latter case I model only combination of help options used, and their order is irrelevant. 
 	
 	%Second, consider the situation from econometric perspective: after controlling for incident characteristics and other predictors common to both variables, there is no variation left in reporting variable that could explain variation in focus variable except for that which comes from the very act of communication with the police. In other words, the suspected endogeneity is possible only if we think that it is something in the experience with the law enforcement that prompts relation of the whole story to a friend or family. While not incomprehensible, this path seems less likely than the one in the opposite direction. Still, to reduce such possibility I estimate an additional model on a subset of data in which I remove observations where the police was notified but no case was initiated. The rationale: I assume that a popular scenario for \textit{incident---police---friends/family} path must be seeking help in police but being rejected and turning to intimate circle out of resentment for the perceived injustice. %Finally, I draw on the understanding that victims are more reluctant to cooperate with the police when offender is someone they know \citep{felson2016victims, gartner1995effect}: the denser the relationship between two parties the more averse a victim to introducing a third party into the relationship \citep{ruback1993comment}. This motivates my additional modeling on subset of cases where the offender was an intimate partner, friend, or relative: I can be more confident that in these cases a victim first turned to their intimate circle. Tables with regression results from additional models can be found in Appendices.
 	%Second, this poses a problem only for a part of my argument. Indeed, although the existing literature suggests that the reverse order of these two events, \textit{reporting to the police $\rightarrow$ talking to friends or family}, must be rare there is still no way around the principal possibility that such cases are present in the data and introduce a positive bias in the estimation. 
@@ -240,7 +240,7 @@
 
 	where $Reported$ is a binary indicator of informing the police, $ToldSomeone$ is my focus variable that indicates if a victim talked with friends or family about the incident, and $WentHospital$ is indication of seeking medical help (used only in models of reporting violent crime). For conciseness, I do not list all the individual control variables here and refer you to Table \ref{table:table_1}: the groups in the equation correspond to the panels in the table, e.g. $SES$ comprises variables related to socioeconomic status listed in panel C; $Incident$ stands for incident characteristics (panel D); $Attitude$ is a vector of variables that capture a victim's attitude towards the police (panel E). Finally, $\lambda$ and $\gamma$ are region and survey year fixed effects.
 	
-	While the classic instrument for binary outcome problems is logistic regression, in this case it performs poorly due to quasi-separation issues: the coefficients are unrealistically large and standard errors look overoptimistic. To overcome this I use linear probability modeling (LPM). I follow \citet{timoneda2021estimating} who demonstrated that, while theoretically inferior to maximum likelihood models, in practice LPM with fixed effects is on par with them in most settings or even more accurate. I run regressions on three subsets of victims only data split by crime type: cybercrime, property crime, and violent crime. Observations weights are included in modeling to account for sample imbalances.% Property crime comprises theft, fraud, and cybercrime; violent crime includes assault and robbery (the latter being too rare to estimate a separate model).
+	While the classic instrument for binary outcome problems is logistic regression, in this case it performs poorly due to separation issues: the coefficients are unrealistically large and standard errors look overoptimistic. The data is sparse due to inclusion of multiple region dummies and they cannot be omitted because they represent local norms and perceptions of the police which are theoretically  important for modeling reporting behavior \citep{goudriaan2004reporting, boateng2018crime, ann2010neighborhood}. As a workaround, I use linear probability modeling (LPM) where it is possible to center data before estimation. I follow \citet{timoneda2021estimating} who demonstrated that, while theoretically inferior to maximum likelihood models, in practice LPM with fixed effects is on par with them in most settings or even more accurate. I run regressions on three subsets of victims only data split by crime type: cybercrime, property crime, and violent crime. Observations weights are included in modeling to account for sample imbalances.% Property crime comprises theft, fraud, and cybercrime; violent crime includes assault and robbery (the latter being too rare to estimate a separate model).
 	
 	\subsubsection*{Navigating post-victimization}
 	
@@ -253,13 +253,9 @@
 		\sum \beta_D Incident_i \\ + \sum \beta_E Attitude_i + \lambda_i + \gamma_i + \epsilon_i
 	\end{multlined}
 	\end{equation}
-	where $Path$ is a combination of `waypoints' --- the sources of help a victim has turned to. A multiple outcome problem, it could be modeled with multinomial logistic regression. But aside from the quasi-separation issue mentioned above there is also a conceptual issue with using it. One of the assumtions of multinomial logit is independence of 
+	where $Path$ is a combination of `waypoints' --- the sources of help a victim has turned to. A multiple outcome problem, it could be modeled with multinomial logistic regression. But the aforementioned separation problem is even more pronounced here due to class imbalance int the new dependent variable, F0P0 and F0P1 paths being far less frequent than the two others. I resort again to LPM, doing four separate estimations, dichotomizing outcome in One-vs-All fashion: first, it equals 1 if F0P0 path is taken and 0 otherwise, then --- 1 if F1P0 path is taken and 0 otherwise, and so on.
 	
-	
-	
-	 path I do four separate LPM estimations, dichotomizing outcome so that, first, it equals 1 if F0P0 path is taken and 0 otherwise, then --- 1 if F1P0 path is taken and 0 otherwise, and so on.
-	
-	All estimations are done in R using `fixest' package \citep{berge2026fixest}, the code for replication of my results is available at a GitHub repository\footnote{\url{TBA}}.
+	All estimations are done in R using `fixest' package \citep{berge2026fixest}, the code for replication of my results is available at a GitHub repository\footnote{\url{https://github.com/sergey-bondarkov/call_the_cops}}.
 
 	\section*{Results}
 	\label{sec:results}
@@ -278,9 +274,12 @@
 
 	Regression results in Panel A of Table \ref{table:regr_1} suggest a positive `counselors' effect on reporting of all three types of victimization. However, a theoretically important variable is omitted in this modeling --- the level of emotional damage which can be driving both informal (friends and family) and formal (the police) help-seeking. It may well be that it is not simply a function of the amount of monetary loss, physical damage, and other observed characteristics of an incident --- and, if so, there is a potential confounder in my modeling. To rule that out, I use data from the 2024 survey wave in which an explicit question about emotional damage was added to the questionnaire. Panel B of Table \ref{table:regr_1} demonstrates that inclusion of emotional damage level into the model does not change results dramatically: the effect of consulting friends or family is still positive and statistically significant, although for cybercrime only at $\alpha = 0.1$. 
 	
-	Next, as discussed in Method section, I have to address a possible endogeneity problem due to unknown order of informing the intimate circle and notifying the police. To ensure the \textit{incident---friends/family---police} path I remove from analysis the observations in which a report did not result in a police case. The friends-and-family effect still stands for all three types of victimization (panel C in Table \ref{table:regr_1}). Notice that in case of cybercrime both magnitude is and level of statistical significance drop --- I attribute it to the fact that initiation or non-initiation of a case is not random: the police aims to filter out hard to investigate cases and those with a potential for retraction, because solved cases share is the key indicator by which their performance is judged \citep{paneyakh2014faking}. It is safe to assume that in many of such cases a victim is also doubtful of filing a report or even labeling the incident a police matter. And, according to \citet{greenberg1992after}, these are precisely the cases in which `counselors' effect must be the most pronounced. That the drop occurs only in cybercrime suggests that this type of victimization is the most puzzling for victims when it comes to reporting.
+	It is possible that emotional damage is not only confounder of both informing friends or family and reporting to the police but also a moderator of `counselors' effect: the personal network's reaction can be different depending on the emotional state of the victimized. To test for that, I add interaction of the two variables to the model. Estimation results in Panel C of Table \ref{table:regr_1} do not suggest moderation: the estimated coefficients at interaction terms are not significant.
 	
-	Bearing this in mind (and also that most people do turn to their intimate circle before the police \citep{ruback2001social, knoth2019reporting, garcia2005multi}), I am encouraged by the robustness check results. They warrant to conclude that activation of social network is positively associated with reporting all three types of crime --- although prudence is still recommended until we have data detailing the order of actions in the aftermath of victimization.
+	Next, as discussed in Method section, I have to address a possible endogeneity problem due to unknown order of informing the intimate circle and notifying the police. %To ensure the \textit{incident---friends/family---police} path I remove from analysis the observations in which a report did not result in a police case. The friends-and-family effect still stands for all three types of victimization (panel C in Table \ref{table:regr_1}). Notice that in case of cybercrime both magnitude is and level of statistical significance drop --- I attribute it to the fact that initiation or non-initiation of a case is not random: the police aims to filter out hard to investigate cases and those with a potential for retraction, because solved cases share is the key indicator by which their performance is judged \citep{paneyakh2014faking}. It is safe to assume that in many of such cases a victim is also doubtful of filing a report or even labeling the incident a police matter. And, according to \citet{greenberg1992after}, these are precisely the cases in which `counselors' effect must be the most pronounced. That the drop occurs only in cybercrime suggests that this type of victimization is the most puzzling for victims when it comes to reporting.
+	I run simulations, as described in Methods section, to approximate the minimal proportion of police-first cases which must be assumed to doubt positive and statistically significant `counselors' effect on reporting. The results of this exercise (Fig. \ref{app.fig:sims}) suggest threshold values of about 25\% for cybercrime and 40\% for property and violent crime. Given the evidence in existing literature that most victims turn to family first \citep{ruback2001social, knoth2019reporting} it is doubtful that these thresholds are crossed, at least for offline crime. This means that while it is not possible to estimate the magnitude of `counselors' effect I can be quite sure that it is positive and statistically significant --- which is enough for my argument.
+	
+	%Bearing this in mind (and also that most people do turn to their intimate circle before the police \citep{ruback2001social, knoth2019reporting, garcia2005multi}), I am encouraged by the robustness check results. They warrant to conclude that activation of social network positively affects the probability of reporting all three types of crime. prudence is still recommended until we have data detailing the order of actions in the aftermath of victimization.
 
 	\subsection*{Navigating post-victimization}
 	
@@ -292,12 +291,14 @@
 	\label{fig:paths}	
 	\endgroup
 	\medskip
-	\tiny Emphasized are estimates significant at $\alpha = 0.1$. F0P0 --- victim informed neither friends and family nor the police; F1P0 --- social network is informed, but not the police; F0P1 --- the police is informed while friends and family are oblivious of the incident; F1P1 --- both social network and the police are informed. Ref. levels: Age group --- 35--49; Household size --- 1, Monetary damage --- 0--1 thnd rubles; Physical damage --- No; Offender --- Stranger.
+	\tiny F0P0 --- victim informed neither friends and family nor the police; F1P0 --- social network is informed, but not the police; F0P1 --- the police is informed while friends and family are oblivious of the incident; F1P1 --- both social network and the police are informed. Ref. levels: Age group --- 35--49; Household size --- 1, Monetary damage --- 0--1 thnd rubles; Physical damage --- No; Offender --- Stranger.
 	\end{figure}
 
 	Modeling pathways reveals that they have different covariates profiles, both in terms of victims' social and incident characteristics. Fig. \ref{fig:paths} summarizes these profiles. First thing that catches the eye is that in cyber- and property crime (panels A and B) effect patterns of paths F1P0 and F1P1 are largely mirroring each other --- the main differentiating characteristics being those pertaining to the crime: level of monetary loss, self-blame, and repeatedness of victimization. This almost symmetrical relationship is expected given that 1) the outcomes in each estimation result from dichotomization, and 2) F1P0 and F1P1 are the more popular routes: most of the victims inform friends and family, then either proceed to report to the police or not. 
 	
-	In violent victimization (panel C of Fig. \ref{fig:paths}) the patterns appear to be more socially structured and complex. Males, younger people, those living in small towns or villages, are more likely than others to not seek help at all. Repeated violent victimization predicts path F0P0 rather than F1P0 as in cyber- and property crime. If offender is an acquaintance it also raises the probability that no one will be informed about the incident. On the contrary, cases of IPV a less likely to remain unknown of (but there is no specific path a victim takes in such cases). Surprisingly, sexualized nature of assault is associated with informing the police while skipping friends and family (F0P1) --- the literature on reporting rape suggests otherwise \citep{garcia2005multi, kamalov2023partnerskoye, baert2024factors}. One must remember that the RCVS is a general victimization survey, not tailored for capturing the highly sensitive sexualized crimes. This suggests that 1) we observe only a small fraction of all victimizations of this kind so the signal is rather weak, hence the modest estimated coefficient, 2) this fraction may not be a random sample from all sexualized crime but rather less sensitive cases, where offender is a stranger. Theoretically, the latter could explain going straight to the police while trying to preclude spreading the information through one's social network: since offender is not part of the network there is not much that its members can do, and the information is less crucial for others safety; assuming such perceptions on victim's part, they may be more cautious to cause shock in loved ones, and to risk stigma associated with sexualized victimization. 
+	In violent victimization (panel C of Fig. \ref{fig:paths}) the patterns appear to be more socially structured and complex. Males, younger people, those living in small towns or villages, are more likely than others to not seek help at all. Repeated violent victimization predicts path F0P0 rather than F1P0 as in cyber- and property crime. If offender is an acquaintance it also raises the probability that no one will be informed about the incident. On the contrary, cases of IPV are less likely to remain unknown of (but there is no specific path a victim takes in such cases). Surprisingly, sexualized nature of assault is associated with informing the police while skipping friends and family (F0P1) --- the literature on reporting rape suggests otherwise \citep{garcia2005multi, kamalov2023partnerskoye, baert2024factors}. Although the association is only significant at $\alpha = 0.1$, I consider it worth discussion, as this analysis is exploratory, aiming at establishing lines of inquiry rather than proving a hypothesis. My preliminary explanation of the counter-intuitive finding is that the RCVS is a general victimization survey, not tailored for capturing the highly sensitive sexualized crimes. This means that 1) we observe only a small fraction of all victimizations of this kind, and the signal is rather weak, hence the modest estimated coefficient, 2) this fraction may not be a random sample from all sexualized crime but rather less sensitive cases, where offender is a stranger. Theoretically, the latter could explain going straight to the police while trying to preclude spreading the information through one's social network: since offender is not part of the network there is not much that its members can do, and the information is less crucial for others safety; assuming such perceptions on victim's part, they may be more cautious to cause shock in loved ones, and to risk stigma associated with sexualized victimization. However, this finding clearly requires further investigation.
+	
+	To summarize, this analysis points to a socially structured nature of the post-victimization help-seeking. After controlling for crime gravity, I find a victim's gender important in path choosing: in all types of victimization men are less likely to seek neither formal nor informal help. Younger age is associated with remaining silent about victimization or only sharing with the intimate circle. Self-blame interferes with seeking both formal and informal help (although for a lesser extent). Suffering repeated victimization have different effects in cases of property (both on- and offline) and violent crime: in both cases it hinders reporting to the police, but where in property crime it raises probability of sharing with friends or family, in violent crime it is connected to coping with the aftermath on one's own.   
 	
 	\section*{Discussion}
 	\label{sec:discussion}
@@ -308,7 +309,7 @@
 	
 %	There are several paths one can take in seeking help after victimization, some of these lead to or pass through notifying the police \citep{akers2009police, kaukinen2004help}. For example, a person can inform a friend who suggests to visit a crisis center where, among other things, the person is recommended to file a case against the offender \citep{baert2024factors}. It is on these paths that decisions are made --- one could go so far as to suggest that decisions \textit{happen} in `drifting' on the default currents \citep{bruch2017decision}, and that the availability of certain paths that shapes the outcomes \citep{small2016because}. Anyway, it is clear then that it is these paths and the factors of taking them, that are under-studied and should be explored for new applicable insights. My aim in this study was to make case for this perspective by demonstrating how strongly path variables compete against victim's and incident's characteristics. 
 	
-	There are several paths one can take in seeking help after victimization, some of these lead to or pass through notifying the police \citep{akers2009police, kaukinen2004help}. Admittedly, I chose the paths more traveled by --- those that go through friends and family, ERs, and sometimes reach police stations. There are other waypoints worth mapping: courts, lawyers, banks, crisis centers, criminal authorities, etc. If these are recorded we could reconceptualize the dependent variable as taking one of the paths as suggested by \citet{pescosolido1998social} --- my study can be seen as approaching such framework but not quite getting there because of too narrow set of help-seeking options. The same paper by \citet{pescosolido1998social} points to another possible direction of research --- \textit{content} of this network: the values, norms, or defaults that it transmits. In this study I have to make a naive assumption that friends and family can only `push' a victim towards the police while it is obviously more complicated than that. Pursuing these lines of inquiry requires updating our instruments. Where including a question about waypoints visited and their order seems to be trivial from the technical point of view, to record the content of one's social network is a more challenging problem. \citet{greenberg2004property} gave a radical solution: they surveyed both victims and their advisors. This approach offers rich data but introduces additional sampling problems and ultimately raises the cost of a survey so much that, as a regular monitoring instrument, it seems to be unfeasible in most settings. A simpler instrument is already developed in the adjacent literature on IPV prevalence: questionnaires used in this research include blocks of questions about sources of help a victim used and the perceived amount of help received \citep{garcia2005multi}. This practice seems readily translatable to general victimization surveys.
+	There are several paths one can take in seeking help after victimization, some of these lead to or pass through notifying the police \citep{akers2009police, kaukinen2004help}. Admittedly, I chose the paths more traveled by --- those that go through friends and family, ERs, and sometimes reach police stations. There are other waypoints worth mapping: courts, lawyers, banks, crisis centers, criminal authorities, senior officials (in college and work contexts), etc. If these are recorded we could reconceptualize the dependent variable as taking one of the paths as suggested by \citet{pescosolido1998social} --- my study can be seen as approaching such framework but not quite getting there because of too narrow set of help-seeking options. The same paper by \citet{pescosolido1998social} points to another possible direction of research --- \textit{content} of this network: the values, norms, or defaults that it transmits. In this study I have to make a naive assumption that friends and family can only `push' a victim towards the police while it is obviously more complicated than that. Pursuing these lines of inquiry requires updating our instruments. Where including a question about waypoints visited and their order seems to be trivial from the technical point of view, to record the content of one's social network is a more challenging problem. \citet{greenberg2004property} gave a radical solution: they surveyed both victims and their advisors. This approach offers rich data but introduces additional sampling problems and ultimately raises the cost of a survey so much that, as a regular monitoring instrument, it seems to be unfeasible in most settings. A simpler instrument is already developed in the adjacent literature on IPV prevalence: questionnaires used in this research include blocks of questions about sources of help a victim used and the perceived amount of help received \citep{garcia2005multi}. This practice seems readily translatable to general victimization surveys.
 	
 	Introducing my perspective on the matter I suggested replacing the entrepreneur/ecology metaphor with that of coping with an aftermath of a natural disaster. 
 %	(inspired, I guess, by \citet{kunreuther1978disaster}) 
@@ -318,6 +319,9 @@
 	I think the moral of this story translates well to crime victimization. Shifting focus from individuals and magnitude of incidents that strike them to how they navigate the immediate aftermath of victimization and how their social network respond to the disastrous event may provide us with better understanding of how to reduce harm. Admittedly, such shift would mean a departure from the original problem of reporting --- but this may be a natural evolution of optics. \citet{gottfredson1987decision} are well remembered for dubbing the victim `a principal ``gatekeeper'' of the entire criminal justice process'. This promotion --- from the wronged to a person of great importance --- was in recognition of embeddedness of criminal justice. Yet, as the perspective of the book was justice centered, the view was still quite narrow and did not reach past the system's gate. It is emblematic that the newly appointed gatekeeper was placed under one cover with policemen, prosecutors, judges, and probation officers --- effectively, included into the edifice of the criminal justice system as its furthermost part with one function and one right thing to do. This bias is akin to that the literature on seeking medical help was dealing with several decades ago \citep{pescosolido1992beyond}: it took time and reflection to see that the research was determined by presumption that there is only one positive outcome --- using a modern scientific practitioner or service. 
 	
 	Criminal victimization and medical condition has similarities: both may affect quality of life (think fear of crime), both are shocks not only to an individual but to their social network, in both the others play important role in recognition and naming what is going on, as well as in providing support. Certainly, there are differences as well: ``illness career'' supposes a prolonged condition, and while it is possible to think along these lines about lasting victimization, such as repeated IPV or crimes that take time to develop such as online scams, it is hardly applicable to incidents like bike theft. This should only remind us that any analogy has its limits --- obviously, there is no need to copy medical help-seeking literature in every aspect. But going beyond mere reporting and focusing on the patterns of interaction in the aftermath of victimization clearly promises new insights into the problem.
+	
+	\section*{Ethics statement}  
+	At the time of data collection, the author's institution did not require ethics committee approval for confidential telephone surveys of the general adult population. All respondents provided verbal informed consent prior to participation, including consent for audio recording. Participation was voluntary, and respondents could terminate the interview at any time. All data have been fully anonymized. The data does not contain precise geographical identifiers, only the respondent’s region. The shared data does not include any audio recordings of the interviews.
 		
 	\printbibliography
 %	\theendnotes
@@ -346,26 +350,117 @@
 	
 	\section{Construction of crime types}
 	\label{app.table:crime_types}
-	\begin{tabular}{lr}
-	\toprule
+	\begingroup\small
+	\begin{tabular}{ll}
 	Crime type & Condition\\
+	\midrule
+	Violent crime & Physical damage != `No' \\
+	& OR Violent incident == 1  \\
+	& OR (Offender is seen == 1 AND Threat == 1\\
+	& \hspace{1em}AND (Approximate amount of property damage in rubles $>$ 0\\
+	& \hspace{1em}\hspace{1em} OR Property loss == 1))\\
+	& OR (Offender had weapon == 1 AND Threat == 1)\\
+	& OR Victim could die == 1\\
+	& OR Victim resisted == 1\\
+	& OR Sexualized crime == 1\\
+	& OR Victim needed medical help == 1\\
+	& OR Victim went to hospital == 1\\
+	\midrule
+		Cybercrime & Phone/Internet == 1 \\
+	& AND (Approximate amount of property damage in rubles $>$ 0\\
+	& \hspace{1em} OR Property loss == 1)\\
+	\midrule
+	Offline property crime & Crime type != `Cybercrime' AND Crime type != `Violent crime'\\
+	& AND (Approximate amount of property damage in rubles $>$ 0\\
+	& \hspace{1em} OR Property loss == 1)\\ 
 	\end{tabular}
+	\endgroup
 
-	\section{Questions formulations and construction of variables}
+	\section{Modifications to original variables}
 	\label{app.table:questions}
-	\begin{tabular}{lrr}
-	\toprule
-	Question & Encoding & Variable\\
+	\begingroup\small
+%	\begin{tabular}{llll}
+	\begin{tabular}{p{2.5cm}p{4cm}p{4cm}l}
+	Variable & Question & Encoding & Constructed levels\\
+	\midrule
+	Physical  & Were you physically hurt? & 1: No physical damage & No\\
+	damage & & 2: Yes, I had bruises and abrasions & Light \\
+	& & 3: Yes, I had more serious harm & Heavy \\
+	& & than bruises and abrasions & \\
+	& & 4: Other (what exactly) & \textit{Not used}\\
+	& & 5: Difficult to say & \textit{Not used}\\
+	\midrule
+	Emotional  & How much were you & 1 to 10  & 1 to 5: Light\\
+	damage &  emotionally affected by  & &  6 to 9: Medium \\
+	&			this situation? Please rate& &  10: Heavy  \\
+	&		it  on a scale from 1 to 10, where 1 is absolutely& & \\
+	&			unaffected, 10 is very much affected. & & \\
+	\midrule
+	Household income  &	For research purposes, we & 1: We do not have sufficient income for food & Lower \\  
+	 & will ask several questions about your household’s financial situation. &  2: We have sufficient income for food but not for clothes & Lower \\
+	 & Please note that all responses are anonymous. How would you define your income level? & 3: We have sufficient income for food but not for appliances and furniture & Lower\\
+	 & & 4: We have sufficient income for appliances and furniture, but not a car &Middle to upper\\
+	 & & 5: We have sufficient income to buy a new car, but not a house or cottage & Middle to upper \\
+	 & & 6: We have sufficient income to buy a new house or anything else & Middle to upper \\
+	 & &  7: Difficult to say 8: Do not want to answer & Middle to upper \\
 	\end{tabular}
+		\endgroup
+		
+%	\section{Wave 2024 tabulation}
+%			\begin{table}[h!]
+%			\caption{Numbers of victimized and reported incidents shares tabulated by variables used in this study, survey wave 2024 only}
+%			\label{app.table:table_1_2024}
+%			\begin{adjustbox}{width=.9\textwidth, height=3.9in}
+%				\input{tables/table1_2024.tex}
+%			\end{adjustbox}
+%		\end{table}
+
+	\clearpage
 	
-	\section{Wave 2024 tabulation}
-			\begin{table}[h!]
-			\caption{Numbers of victimized and reported incidents shares tabulated by variables used in this study, survey wave 2024 only}
-			\label{app.table:table_1_2024}
-			\begin{adjustbox}{width=.9\textwidth, height=3.9in}
-				\input{tables/table1_2024.tex}
-			\end{adjustbox}
-		\end{table}
+	\section{Full regression tables}
+	\begin{table}[h!]
+		\caption{LPM of reporting, pooled data of three survey waves}
+		\label{table:regr_base_full}
+		\begin{adjustbox}{width=1\textwidth}
+			\input{tables/regr_base_full}
+		\end{adjustbox}
+		\\
+		\footnotesize Signif. Codes: ***: 0.01, **: 0.05, *: 0.1. Standard errors are clustered by region and survey year. Observations' weights are used to correct sample imbalances. Ref. levels: Age group --- 35--49; Household size --- 1, Monetary damage --- 0--1 thnd rubles; Physical damage --- No; Offender --- Stranger. 
+	\end{table}
+
+	\clearpage
+	\begin{table}[h!]
+		\caption{LPM of reporting, base model augmented with emotional damage level, 2024 wave only}
+		\label{table:regr_2024_full}
+		\begin{adjustbox}{width=1\textwidth}
+		\input{tables/regr_2024_full}
+		\end{adjustbox}
+		\\
+		\footnotesize Signif. Codes: ***: 0.01, **: 0.05, *: 0.1. Standard errors are clustered by region and survey year. Observations' weights are used to correct sample imbalances. Ref. levels: Age group --- 35--49; Household size --- 1, Monetary damage --- 0--1 thnd rubles; Physical damage --- No; Offender --- Stranger; Emotional damage -- Light. 
+	\end{table}
+
+	\clearpage
+\begin{table}[h!]
+	\caption{LPM of reporting, base model augmented with emotional damage level and interaction to account for possible mediation of `counselors' effect by emotional damage, 2024 wave only}
+	\label{table:regr_2024_mdiation_full}
+	\begin{adjustbox}{width=1\textwidth}
+		\input{tables/regr_2024_mediation_full}
+	\end{adjustbox}
+	\\
+	\footnotesize Signif. Codes: ***: 0.01, **: 0.05, *: 0.1. Standard errors are clustered by region and survey year. Observations' weights are used to correct sample imbalances. Ref. levels: Age group --- 35--49; Household size --- 1, Monetary damage --- 0--1 thnd rubles; Physical damage --- No; Offender --- Stranger; Emotional damage -- Light. 
+\end{table}
+	
+\section{Approximation of contamination thresholds for identification of `counselors' effect}  
+
+\label{app.fig:sims}	
+	\begin{figure}
+		\centering
+		\includegraphics[width = 1\textwidth]{figures/sims.pdf}
+		\caption{Iteratively removing a part of observations in which both a victim's intimate circle and the police were informed about the incident. Each iteration is replicated 50 times randomizing the observations chosen for removal.}
+		\label{app.fig:sims}	
+	\end{figure}
+	
+
 	
 %	\section{Regression results' robustness check}
 %	\begin{table}

@@ -1930,39 +1930,6 @@
       \field{pages}{589\bibrangedash 604}
       \range{pages}{16}
     \endentry
-    \entry{paneyakh2014faking}{article}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=e076d95088a1a36748381b6d4224a201}{%
-           family={Paneyakh},
-           familyi={P\bibinitperiod},
-           given={Ella},
-           giveni={E\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Taylor \& Francis}%
-      }
-      \strng{namehash}{e076d95088a1a36748381b6d4224a201}
-      \strng{fullhash}{e076d95088a1a36748381b6d4224a201}
-      \strng{bibnamehash}{e076d95088a1a36748381b6d4224a201}
-      \strng{authorbibnamehash}{e076d95088a1a36748381b6d4224a201}
-      \strng{authornamehash}{e076d95088a1a36748381b6d4224a201}
-      \strng{authorfullhash}{e076d95088a1a36748381b6d4224a201}
-      \field{sortinit}{P}
-      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Post-Soviet Affairs}
-      \field{number}{2-3}
-      \field{title}{Faking performance together: Systems of performance evaluation in Russian enforcement agencies and production of bias and privilege}
-      \field{volume}{30}
-      \field{year}{2014}
-      \field{pages}{115\bibrangedash 136}
-      \range{pages}{22}
-    \endentry
     \entry{patterson2010rape}{article}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=7cea04d847d1c8f35d0f7bc87cc73a7d}{%

@@ -21,7 +21,7 @@ dir.create("data/temp/lpm", showWarnings = F)
 # Set random seed for reproducibility
 set.seed(0)
 # Set number of workers for parallel multiple imputations
-n_workers <- 30
+n_workers <- 7
 plan(multisession, workers = n_workers)
 
 # Load data
@@ -46,12 +46,12 @@ vars_to_use <- c(
 	"ses.household_size",
 	"ses.job",
 	"attitude.has_crime_record",
-	# "weight",
+	"weight",
 	"region",
 	"year")
 
 path_outcomes <- c("F0P0", "F1P0", "F0P1", "F1P1")
-path_outcomes2 <- c("F0P0", "F1P0", "F0P1")
+# path_outcomes2 <- c("F0P0", "F1P0", "F0P1")
 
 rhs_cyber_path <- g("{paste(X_property, collapse = '+')} | region + year")
 paths_mdls_cyber <- lapply(path_outcomes2, function(path) {
@@ -63,7 +63,9 @@ paths_mdls_cyber <- lapply(path_outcomes2, function(path) {
 													 vars_to_impute = vars_to_impute,
 													 vars_to_use = vars_to_use)
 })
-plot_path_profile(paths_mdls_cyber, "123")
+saveRDS(paths_mdls_cyber,file = "data/temp/lpm/paths_mdls_cyber_OneVsRef.Rds")
+plot_path_profile(paths_mdls_cyber, "Cybercrime")
+
 paths_mdls_prop <- lapply(path_outcomes2, function(path) {
 	fml <- as.formula(paste(path, "~", rhs_cyber_path))
 	dat <- victims_pooled[F1P1 == 1 | get(path) == 1]
@@ -73,7 +75,9 @@ paths_mdls_prop <- lapply(path_outcomes2, function(path) {
 													 vars_to_impute = vars_to_impute,
 													 vars_to_use = vars_to_use)
 })
+saveRDS(paths_mdls_prop, file = "data/temp/lpm/paths_mdls_prop_OneVsRef.Rds")
 plot_path_profile(paths_mdls_prop, "Property")
+
 rhs_viol_path <- g("{paste(X_violent, collapse = '+')} | region + year")
 paths_mdls_viol <- lapply(path_outcomes2, function(path) {
 	fml <- as.formula(paste(path, "~", rhs_viol_path))
@@ -178,12 +182,16 @@ paths_mdls_cyber <- readRDS("data/temp/lpm/paths_mdls_cyber_2024.Rds")
 paths_mdls_prop <- readRDS("data/temp/lpm/paths_mdls_prop_2024.Rds")
 paths_mdls_viol <- readRDS("data/temp/lpm/paths_mdls_viol_2024.Rds")
 
-cc <- plot_path_profile(paths_mdls_cyber, "Panel A. Cybercrime")
-pc <- plot_path_profile(paths_mdls_prop, "Panel B. Property crime")
-vc <- plot_path_profile(paths_mdls_viol, "Panel C. Violent crime")
+cc <- plot_path_profile(paths_mdls_cyber, "Panel A. Cybercrime", 0.1)
+pc <- plot_path_profile(paths_mdls_prop, "Panel B. Property crime", 0.1)
+vc <- plot_path_profile(paths_mdls_viol, "Panel C. Violent crime", 0.1)
 
 pdf(file = "paper/figures/paths_combined.pdf", width = 6, height = 11)
-cc / pc / vc + plot_layout(heights = c(1, 1, 1.5)) &
-	theme(text = element_text(size = 7))
+cc / pc / vc + plot_layout(heights = c(1, 1, 1.5), guides = "collect") &
+	theme(text = element_text(size = 7), legend.position = "bottom") &
+	guides(alpha = "none") &
+	scale_color_manual(breaks = c("90%", "95%"),
+										 values = c("orange", "darkred"),
+										 name = "Conf. level:")
 dev.off()
 
