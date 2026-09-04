@@ -6,10 +6,7 @@ library(forcats)
 library(circhelp)
 
 victims_pooled <- readRDS("data/processed/victims_pooled.Rds")
-# victims_pooled <- victims_pooled[!is.na(ses.settlement_type) & as.character(ses.household_income2) != "<NA>"]
 victims_2024 <- readRDS("data/processed/victims_2024.Rds")
-# victims_2024 <- victims_2024[!is.na(ses.settlement_type) & as.character(ses.household_income2) != "<NA>"]
-
 
 weighted_mean_sem <- function(x, w) {
     if(length(x) == 0) {

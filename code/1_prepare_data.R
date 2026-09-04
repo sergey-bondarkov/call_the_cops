@@ -1,12 +1,10 @@
 library(data.table)
 library(forcats)
-# library(missForest)
+# setwd("..")
 
 data_pooled <- readRDS("data/raw/rcvs_18_21_24_2026-06-01.Rds")
 data_2024 <- readRDS("data/raw/rcvs_rdd_2024_2026-03-14.Rds")
-data_pooled[, unique(Q661)]
-data_pooled[, unique(Q662)]
-
+data_2024[, table(victim_damage_emotional)]
 
 data_pooled[, damage.property_loss := as.numeric(rowSums(.SD, na.rm = T) > 0),
             .SDcols = paste0("Q19_", c(1:7, 999))]
@@ -89,18 +87,6 @@ vars_of_interest <- c(
     deflator2024rub = "deflator2024rub"
 )
 
-
-# crime_types <- c(
-#     `Cybercrime` = "Киберпреступление",
-#     `Attempted cybercrime` = "Покушение на киберпреступление",
-#     `Fraud` = "Мошенничество",
-#     `Theft` = "Кража",
-#     Assault = "Нападение",
-#     `Burglary or robbery` = "Грабеж и разбой",
-#     Other = "Прочее",
-#     `Not enough information` = "Недостаточно информации"
-# )
-
 prepare_data <- function(dt) {
     dt <- dt[, intersect(names(vars_of_interest), names(dt)), with = F]
 
@@ -109,13 +95,6 @@ prepare_data <- function(dt) {
     dt[, reported.case_initiated := fifelse(reported.case_initiated == "Да", 1, 0)]
 
     # Incident
-    # dt[, incident.crime_type := fct_recode(incident.crime_type, !!!crime_types)]
-    # dt[, incident.crime_type := fct_relevel(incident.crime_type, names(crime_types))]
-    # dt[, incident.crime_type := fdroplevels(incident.crime_type)]
-    # dt[incident.crime_type %in% c("Fraud", "Theft", "Cybercrime"), incident.crime_type2 := "Property"]
-    # dt[incident.crime_type %in% c("Assault", "Burglary or robbery"), incident.crime_type2 := "Violent"]
-    # dt[, incident.crime_type2 := as.factor(incident.crime_type2)]
-
     dt[, incident.last_12_months := ifelse(incident.last_12_months == "Да", 1, 0)]
 
     dt[, incident.via_phone := fifelse(incident.via_phone == "Да, через телефонный звонок", 1, 0)]
@@ -152,17 +131,6 @@ prepare_data <- function(dt) {
     )]
     dt[, incident.offender_nonstranger := fifelse(incident.offender_relationship == "Stranger", 0, 1)]
 
-    # face_to_face <- substitute(incident.via_phone_internet == 0 | is.na(incident.via_phone_internet))
-    # violent <- substitute((!is.na(damage.physical) & damage.physical != "Нет")
-    #                       | (!is.na(incident.violent) & incident.violent == 1))
-    # threat <- substitute((!is.na(incident.offender_is_seen) & incident.offender_is_seen == 1)
-    #                      & (!is.na(incident.threat) & incident.threat == 1))
-    #
-    # dt[, incident.crime_class := fifelse(eval(face_to_face)
-    #                                      & (eval(violent) | eval(threat)),
-    #                                      "Violent", "Property")]
-    # dt[, incident.crime_class := as.factor(incident.crime_class)]
-
     # Damage
     if("deflator2024rub" %in% names(dt))
         dt[, damage.rub := damage.rub / deflator2024rub]
@@ -179,6 +147,7 @@ prepare_data <- function(dt) {
     dt[, damage.physical := fct_relevel(damage.physical, c("No", "Light", "Heavy"))]
 
     if ("damage.emotional" %in% names(dt)) {
+        dt[, damage.emotional_num := damage.emotional]
         dt[, damage.emotional := fcase(
             # damage.emotional == 11, "Light to medium",
             damage.emotional >= 9, "Heavy",
@@ -192,7 +161,6 @@ prepare_data <- function(dt) {
 
 
     # Crime class
-
     dt[incident.via_phone_internet == 1 & (damage.rub > 0 | damage.property_loss == 1), incident.crime_class := "Cybercrime"]
     dt[damage.physical != "No" | incident.violent == 1, incident.crime_class := "Violent"]
     dt[incident.offender_is_seen == 1 & incident.threat == 1 & (damage.rub > 0 | damage.property_loss == 1),
@@ -215,7 +183,6 @@ prepare_data <- function(dt) {
 
 
     # SES
-    # dt[, ses.gender := factor(ses.male, levels = c(0, 1), labels = c("Female", "Male"))]
     dt[, ses.age_group := fct_relevel(ses.age_group, "35-49")]
 
     dt[, ses.employed := fifelse(ses.job %in% c("Безработный", "Пенсионер"), 0, 1)]
@@ -271,20 +238,13 @@ prepare_data <- function(dt) {
                                                                             "города от 50 до 250 тыс."
                                                                         ),
                                                                         `Small town or village` = c("город менее 50 тыс", "пгт", "города менее 50 тыс., ПГТ", "сельский населенный пункт", "село")
-                                                                        # `Village` = c("сельский населенный пункт", "село")
     )]
-
     dt[, ses.settlement_type := fdroplevels(ses.settlement_type)]
-
-    # dt[, ses.has_partner := factor(ses.has_partner, c(0, 1), c("No", "Yes"))]
 
     # Social network
     if ("social.communication_relatives_freq" %in% names(dt)) {
         dt[, social.communication_relatives_freq := fct_collapse(social.communication_relatives_freq,
-                                                                 Often = c(
-                                                                     "Один раз в неделю или несколько раз в месяц",
-                                                                     "Каждый день", "Несколько раз в неделю"
-                                                                 ),
+                                                                 Often = c( "Один раз в неделю или несколько раз в месяц", "Каждый день", "Несколько раз в неделю"),
                                                                  Never = c("Не общаюсь", "Нет ближайших родственников"),
                                                                  Rarely = c("Несколько раз в год и реже", "Затрудняюсь ответить")
         )]
@@ -315,18 +275,11 @@ prepare_data <- function(dt) {
     }
 
     # Regions and weights
-
     dt[region == "Нет данных", region := NA]
     dt[region %in% c("Донецкая Народная Республика", "Луганская Народная Республика",
                      "Запорожская область", "Херсонская область"),
-       region := "Новые территории"]
-    # dt[, region := fdroplevels(region)]
-
-    # dt[, `:=`(region = as.character(region), federal_district = as.character(federal_district))]
-    # dt[region %in% c("г. Москва", "г. Санкт-Петербург"), federal_district := region]
-    # dt[region %in% c("Донецкая Народная Республика", "Луганская Народная Республика", "Запорожская область", "Херсонская область"), federal_district := "Новые территории"]
-    # dt[, `:=`(region = as.factor(region), federal_district = as.factor(federal_district))]
-
+       region := "Присоединенные территории"]
+    
     dt[, weight := as.numeric(weight)]
 
     if("year" %in% names(dt)) {
@@ -361,3 +314,18 @@ victims_2024[, F0P0 := fifelse(social.told_someone == 0 & reported.police == 0, 
 
 saveRDS(victims_2024, "data/processed/victims_2024.Rds")
 saveRDS(victims_pooled, "data/processed/victims_pooled.Rds")
+
+library(ggplot2)
+ggplot(victims_2024[!is.na(damage.emotional_num), .(.N, Level = first(damage.emotional)), 
+       keyby = .(incident.crime_class, damage.emotional_num)],
+       aes(damage.emotional_num, N, fill = Level)) +
+                      geom_col() +
+                      facet_wrap(~incident.crime_class) +
+                      scale_x_continuous(breaks=1:10) +
+                      labs(y = "Num. obs.", 
+                           x = stringr::str_wrap("How much were you emotionally affected by this situation? Please rate it on a scale from 1 to 10, where 1 is absolutely unaffected, 10 is very much affected.", 120)) +
+                      theme_bw() +
+                      theme(panel.grid.minor = element_blank())
+ggsave("paper/JQC/figures/emotional_impact.pdf", width = 10, height = 4)
+victims_2024[!is.na(damage.emotional_num), .N, .(incident.crime_class, damage.emotional_num)][, .(first(damage.emotional_num), N / sum(N)), incident.crime_class]
+
