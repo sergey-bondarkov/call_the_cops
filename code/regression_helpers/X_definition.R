@@ -31,7 +31,7 @@ X_incident_violent <- c(
 	"incident.repeated"
 )
 X_attitude <- c(
-	"attitude.knows_an_officer",
+	"attitude.familiar_police",
 	"attitude.has_crime_record")
 
 X_property <- c(X_ses, X_damage_property[X_damage_property != "damage.emotional"], X_incident_property, X_attitude)

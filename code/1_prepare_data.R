@@ -1,10 +1,14 @@
 library(data.table)
 library(forcats)
-# setwd("..")
 
 data_pooled <- readRDS("data/raw/rcvs_18_21_24_2026-06-01.Rds")
 data_2024 <- readRDS("data/raw/rcvs_rdd_2024_2026-03-14.Rds")
-data_2024[, table(victim_damage_emotional)]
+
+data_2018 <- readRDS("data/raw/rcvs_2018_dataset_2026-03-14.Rds")
+data_2021 <- readRDS("data/raw/rcvs_2021_dataset_2026-03-14.Rds")
+
+data_pooled[data_2018, on = "ID", c("Q41", "Q43", "Q45") := .(i.Q41, i.Q43, i.Q45)]
+data_pooled[data_2021, on = "ID", c("Q41", "Q43", "Q45") := .(i.Q41, i.Q43, i.Q45)]
 
 data_pooled[, damage.property_loss := as.numeric(rowSums(.SD, na.rm = T) > 0),
             .SDcols = paste0("Q19_", c(1:7, 999))]
@@ -17,10 +21,13 @@ vars_of_interest <- c(
     Q75 = "victim",
 
     # Reporting
-    victim_is_reporting = "reported.police",
-    Q46 = "reported.case_initiated",
+    Q40 = "reported.police",
     #   Q47_5 = "reported.bank",
     #   Q47_6 = "reported.criminal",
+    Q41 = "reported.police_who",
+    Q43 = "reported.police_how",
+    Q45 = "reported.police_ncontacts",
+    Q46 = "reported.case_initiated",
 
     # Incident
     Q76 = "incident.last_12_months",
@@ -30,7 +37,7 @@ vars_of_interest <- c(
     offender_is_male = "incident.offender_is_male",
     crime_is_offender_seen = "incident.offender_is_seen",
     crime_is_people_around = "incident.witness",
-    Q23 = "incident.violent",
+    Q24 = "incident.violent",
     Q25_1 = "incident.no_weapon",
     Q30 = "incident.could_die",
     Q31 = "incident.resisted",
@@ -38,6 +45,7 @@ vars_of_interest <- c(
     offender_alone = "incident.offender_alone",
     Q33 = "incident.threat_hurt",
     Q34 = "incident.threat_weapon",
+    Q9 = "incident.offender_familiar",
     offender_is_familiar = "incident.offender_familiar",
     offender_relationship_grouped = "incident.offender_relationship",
     victim_is_self_accused = "incident.self_blame",
@@ -58,7 +66,7 @@ vars_of_interest <- c(
     Q573 = "attitude.general_trust",
     Q574 = "attitude.trusts_police",
     Q575 = "attitude.trusts_court",
-    resp_is_enforcers_familiar = "attitude.knows_an_officer",
+    resp_is_enforcers_familiar = "attitude.familiar_police",
     resp_is_crime_record = "attitude.has_crime_record",
 
     # Social network
@@ -92,6 +100,31 @@ prepare_data <- function(dt) {
 
     setnames(dt, function(x) vars_of_interest[x])
 
+    dt[, reported.police := fifelse(reported.police == "Да", 1, 0)]
+
+    if("reported.police_who" %in% names(dt)) {
+        relabel_dict <- c("Вы сами" = "Respondent", 
+                          "Ваши знакомые" = "Acquaintances",
+                          "Медицинские организации" = "Medical organizations",
+                          "Затрудняюсь ответить / не знаю / не помню" = "Difficult to say",
+                          "Незнакомые Вам люди" = "People you don't know",
+                          "Другие организации" = "Other organizations"
+        )
+        dt[, reported.police_who := fct_relabel(reported.police_who, function(x) relabel_dict[x])]
+        relabel_dict <- c("По телефону" = "By phone", 
+                          "Пришли лично в отдел" = "Came to the station in person",
+                          "Обратились к участковому" = "Contacted the local police officer",
+                          "Другое" = "Other",
+                          "Полиция сама приехала" = "The police came themselves",
+                          "По почте или через электронную форму" = "By email or via the form on the website"
+        )
+        dt[, reported.police_how := fct_relabel(reported.police_how, function(x) relabel_dict[x])]
+        relabel_dict <- c("1" = "1", "2" = "2", "От 3 до 7" = "3 to 7", 
+                          "Больше 7" = "More than 7", 
+                          "Затрудняюсь ответить / не помню" = "Difficult to say" )
+        dt[, reported.police_ncontacts := fct_relabel(reported.police_ncontacts, function(x) relabel_dict[x])]
+
+    }
     dt[, reported.case_initiated := fifelse(reported.case_initiated == "Да", 1, 0)]
 
     # Incident
@@ -168,12 +201,12 @@ prepare_data <- function(dt) {
     dt[incident.offender_had_weapon == 1
        | (incident.offender_is_seen == 1 & incident.threat_weapon == 1),
        incident.crime_class := "Violent"]
-    dt[incident.could_die == 1, incident.crime_class := "Violent"]
-    dt[incident.resisted == 1, incident.crime_class := "Violent"]
+    # dt[incident.could_die == 1, incident.crime_class := "Violent"]
+    # dt[incident.resisted == 1, incident.crime_class := "Violent"]
     dt[incident.sexualized == 1, incident.crime_class := "Violent"]
     dt[damage.needed_medical_help == 1, incident.crime_class := "Violent"]
     dt[incident.went_to_hospital == 1, incident.crime_class := "Violent"]
-    dt[is.na(incident.crime_class) #incident.crime_class %notin% c("Cybercrime", "Violent")
+    dt[incident.crime_class %notin% c("Cybercrime", "Violent")
        & (damage.rub > 0 | damage.property_loss == 1),
        incident.crime_class := "Property"]
 
@@ -281,6 +314,8 @@ prepare_data <- function(dt) {
        region := "Присоединенные территории"]
     
     dt[, weight := as.numeric(weight)]
+    dt[, weight.reg_scaled := weight * .N / sum(weight), by = region]
+    dt[, weight.fed_scaled := weight * .N / sum(weight), by = federal_district]
 
     if("year" %in% names(dt)) {
         dt[, year := as.factor(year)]
@@ -315,17 +350,17 @@ victims_2024[, F0P0 := fifelse(social.told_someone == 0 & reported.police == 0, 
 saveRDS(victims_2024, "data/processed/victims_2024.Rds")
 saveRDS(victims_pooled, "data/processed/victims_pooled.Rds")
 
-library(ggplot2)
-ggplot(victims_2024[!is.na(damage.emotional_num), .(.N, Level = first(damage.emotional)), 
-       keyby = .(incident.crime_class, damage.emotional_num)],
-       aes(damage.emotional_num, N, fill = Level)) +
-                      geom_col() +
-                      facet_wrap(~incident.crime_class) +
-                      scale_x_continuous(breaks=1:10) +
-                      labs(y = "Num. obs.", 
-                           x = stringr::str_wrap("How much were you emotionally affected by this situation? Please rate it on a scale from 1 to 10, where 1 is absolutely unaffected, 10 is very much affected.", 120)) +
-                      theme_bw() +
-                      theme(panel.grid.minor = element_blank())
-ggsave("paper/JQC/figures/emotional_impact.pdf", width = 10, height = 4)
-victims_2024[!is.na(damage.emotional_num), .N, .(incident.crime_class, damage.emotional_num)][, .(first(damage.emotional_num), N / sum(N)), incident.crime_class]
-
+# library(ggplot2)
+# ggplot(victims_2024[!is.na(damage.emotional_num), .(.N, Level = first(damage.emotional)),
+       # keyby = .(incident.crime_class, damage.emotional_num)],
+       # aes(damage.emotional_num, N, fill = Level)) +
+                      # geom_col() +
+                      # facet_wrap(~incident.crime_class) +
+                      # scale_x_continuous(breaks=1:10) +
+                      # labs(y = "Num. obs.",
+                           # x = stringr::str_wrap("How much were you emotionally affected by this situation? Please rate it on a scale from 1 to 10, where 1 is absolutely unaffected, 10 is very much affected.", 120)) +
+                      # theme_bw() +
+                      # theme(panel.grid.minor = element_blank())
+# ggsave("paper/JQC/figures/emotional_impact.pdf", width = 10, height = 4)
+# victims_2024[!is.na(damage.emotional_num), .N, .(incident.crime_class, damage.emotional_num)][, .(first(damage.emotional_num), N / sum(N)), incident.crime_class]
+#
