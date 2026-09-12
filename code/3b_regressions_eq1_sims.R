@@ -34,11 +34,11 @@ dir.create(out, showWarnings = F, recursive = T)
 set.seed(0)
 
 n_workers <- floor(parallelly::availableCores() * 2/3)
-#plan(list(sequential, multisession))
-plan(list(
-  tweak(multisession, workers = availableCores() %/% 4),
-  tweak(multisession, workers = I(4))
-))
+plan(list(sequential, multisession))
+#plan(list(
+  #tweak(multisession, workers = availableCores() %/% 4),
+  #tweak(multisession, workers = I(4))
+#))
 
 # Load data
 victims_pooled <- readRDS("data/processed/victims_pooled.Rds")
@@ -57,10 +57,9 @@ vars_to_use <- c("incident.crime_class",
                  "region",
                  "year")
 
-# Modeling
-
-props <- seq(0.1, 0.5, by = 0.05)
-n_rep <- 100
+# Simulations
+props <- seq(0.1, 0.5, by = 0.1)
+n_rep <- 10
 
 sims <- function(dat, crime_class, X, props, n_rep, mdl_type, sim_type) {
 
@@ -102,10 +101,10 @@ sims <- function(dat, crime_class, X, props, n_rep, mdl_type, sim_type) {
                                                           pooled_estimate  = mean(estimate),
                                                           pooled_std_error = sqrt(mean(ubar) + (1 + (1 / k)) * var(estimate))
                                                           ), by = term]
-                         if(sims_type == "noise") {
+                         if(sim_type == "noise") {
                              final_results_dt[, random_noise_share := prop]
                          }
-                         if(sims_type == "drop") {
+                         if(sim_type == "drop") {
                              final_results_dt[, random_drop_share := prop]
                          }
 
@@ -113,13 +112,13 @@ sims <- function(dat, crime_class, X, props, n_rep, mdl_type, sim_type) {
 }))
 }
 
-sims_cyber_drop <- sims(dat = victims_pooled, crime_class = "Cybercrime", X = X_property, props = props, mdl_type = "mlm", sim_type = "drop")
-sims_viol_drop <- sims(dat = victims_pooled, crime_class = "Property", X = X_violent, props = props, mdl_type = "mlm", sim_type = "drop")
-sims_viol_drop <- sims(dat = victims_pooled, crime_class = "Violent", X = X_violent, props = props, mdl_type = "mlm", sim_type = "drop")
+sims_cyber_drop <- sims(dat = victims_pooled, crime_class = "Cybercrime", X = X_property, props = props, n_rep = n_rep, mdl_type = "mlm", sim_type = "drop")
+sims_viol_drop <- sims(dat = victims_pooled, crime_class = "Property", X = X_violent, props = props, n_rep = n_rep, mdl_type = "mlm", sim_type = "drop")
+sims_viol_drop <- sims(dat = victims_pooled, crime_class = "Violent", X = X_violent, props = props, n_rep = n_rep, mdl_type = "mlm", sim_type = "drop")
 
-sims_cyber_noise <- sims(dat = victims_pooled, crime_class = "Cybercrime", X = X_property, props = props, mdl_type = "mlm", sim_type = "noise")
-sims_prop_noise <- sims(dat = victims_pooled, crime_class = "Property", X = X_violent, props = props, mdl_type = "mlm", sim_type = "noise")
-sims_viol_noise <- sims(dat = victims_pooled, crime_class = "Violent", X = X_violent, props = props, mdl_type = "mlm", sim_type = "noise")
+sims_cyber_noise <- sims(dat = victims_pooled, crime_class = "Cybercrime", X = X_property, props = props, n_rep = n_rep, mdl_type = "mlm", sim_type = "noise")
+sims_prop_noise <- sims(dat = victims_pooled, crime_class = "Property", X = X_violent, props = props, n_rep = n_rep, mdl_type = "mlm", sim_type = "noise")
+sims_viol_noise <- sims(dat = victims_pooled, crime_class = "Violent", X = X_violent, props = props, n_rep = n_rep, mdl_type = "mlm", sim_type = "noise")
 
 sims_drop <- rbindlist(list(Cybercrime = sims_cyber_drop, Property = sims_prop_drop, Violent = sims_viol_drop), idcol = "crime_class")
 sims_drop[, `:=`(cih = pooled_estimate + pooled_std_error * 1.96, cil = pooled_estimate - pooled_std_error * 1.96)]
