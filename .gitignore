@@ -4,5 +4,6 @@ data/
 
 # Temp files
 *.sw[klmnop]
+*.tmp.R
 
 .Rproj.user

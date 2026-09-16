@@ -64,17 +64,35 @@ pooled_regr_with_mult_imp <- function(dat, crime_class,
     # Do initial multiple imputations
     message("Parallel multiple imputations: 5")
     n_imp_initial <- 5
-    imp1 <- futuremice(dat,
-                       m = 5,
-                       meth = "rf",
-                       predictorMatrix = pred_m,
-                       where = where_m,
-                       parallelseed = 0)
+    # imp1 <- futuremice(dat,
+                       # m = 5,
+                       # meth = "rf",
+                       # predictorMatrix = pred_m,
+                       # where = where_m,
+                       # # future.plan = "sequential",
+                       # # future.plan = "multisession",
+    # parallelseed = 0)
+    imp1_list <- future_replicate(
+                                  n_imp_initial, 
+                                  expr = {
+                                      mice(data = dat,
+                                           m = 1, 
+                                           meth = "rf",
+                                           predictorMatrix = pred_m,
+                                           where = where_m,
+                                           printFlag = FALSE)
+                                  },
+                                  simplify = FALSE,
+                                  future.seed = TRUE # FIX 1: Resolves the UNRELIABLE VALUE warning
+    )
+
+    # FIX 2: Safely merges the list of 5 mids objects step-by-step
+    imp1 <- Reduce(mice::ibind, imp1_list) 
     
     # Fit models using imputed data
     message("Running regressions on 5 completed datasets")
     imp1_dat <- complete(imp1, action = "all")
-    imp1_mdls <- lapply(imp1_dat, fit_reg, fml = fml, crime_class = crime_class)
+    imp1_mdls <- future_lapply(imp1_dat, fit_reg, fml = fml, crime_class = crime_class)
 
     # Check if the number of imputations is enough for robust inference
     message("How many imputations are needed for robust inference?")
@@ -88,16 +106,25 @@ pooled_regr_with_mult_imp <- function(dat, crime_class,
     } else {
         ## If no, rerun imputations and regressions, then pool
         message("Parallel multiple imputations: ", n_imp_empirical)
-        imp2 <- mice::futuremice(dat,
-                                 m = n_imp_empirical,
-                                 meth = "rf",
-                                 predictorMatrix = pred_m,
-                                 where = where_m,
-                                 parallelseed = 0)#,
-                                 # n.core = future::nbrOfWorkers())
+        imp2_list <- future_replicate(
+                                      n_imp_empirical, 
+                                      expr = {
+                                          mice(data = dat,
+                                               m = 1, 
+                                               meth = "rf",
+                                               predictorMatrix = pred_m,
+                                               where = where_m,
+                                               printFlag = FALSE)
+                                      },
+                                      simplify = FALSE,
+                                      future.seed = TRUE # FIX 1: Resolves the UNRELIABLE VALUE warning
+        )
+
+        # FIX 2: Safely merges the list of 5 mids objects step-by-step
+        imp2 <- Reduce(mice::ibind, imp2_list) 
         imp2_dat <- complete(imp2, action = "all")
         message(glue::glue("Running regressions on {n_imp_empirical} completed datasets"))
-        imp2_mdls <- lapply(imp2_dat, fit_reg, fml = fml, crime_class = crime_class)
+        imp2_mdls <- future_lapply(imp2_dat, fit_reg, fml = fml, crime_class = crime_class)
         message("Pooling ", n_imp_empirical, " models...")
         pooled_mdl <- pool(imp2_mdls)
     }

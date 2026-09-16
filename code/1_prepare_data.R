@@ -45,7 +45,7 @@ vars_of_interest <- c(
     offender_alone = "incident.offender_alone",
     Q33 = "incident.threat_hurt",
     Q34 = "incident.threat_weapon",
-    Q9 = "incident.offender_familiar",
+    # Q9 = "incident.offender_familiar",
     offender_is_familiar = "incident.offender_familiar",
     offender_relationship_grouped = "incident.offender_relationship",
     victim_is_self_accused = "incident.self_blame",
@@ -349,18 +349,3 @@ victims_2024[, F0P0 := fifelse(social.told_someone == 0 & reported.police == 0, 
 
 saveRDS(victims_2024, "data/processed/victims_2024.Rds")
 saveRDS(victims_pooled, "data/processed/victims_pooled.Rds")
-
-# library(ggplot2)
-# ggplot(victims_2024[!is.na(damage.emotional_num), .(.N, Level = first(damage.emotional)),
-       # keyby = .(incident.crime_class, damage.emotional_num)],
-       # aes(damage.emotional_num, N, fill = Level)) +
-                      # geom_col() +
-                      # facet_wrap(~incident.crime_class) +
-                      # scale_x_continuous(breaks=1:10) +
-                      # labs(y = "Num. obs.",
-                           # x = stringr::str_wrap("How much were you emotionally affected by this situation? Please rate it on a scale from 1 to 10, where 1 is absolutely unaffected, 10 is very much affected.", 120)) +
-                      # theme_bw() +
-                      # theme(panel.grid.minor = element_blank())
-# ggsave("paper/JQC/figures/emotional_impact.pdf", width = 10, height = 4)
-# victims_2024[!is.na(damage.emotional_num), .N, .(incident.crime_class, damage.emotional_num)][, .(first(damage.emotional_num), N / sum(N)), incident.crime_class]
-#
