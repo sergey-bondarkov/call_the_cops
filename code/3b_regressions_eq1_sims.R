@@ -51,7 +51,7 @@ vars_to_use <- c("incident.crime_class",
                  "year")
 
 # Simulations
-props <- seq(0.05, 0.5, by = 0.05)
+props <- seq(0, 0.5, by = 0.05)
 n_rep <- 100
 mdl_type <- "mlm"
 
@@ -131,3 +131,27 @@ sims_viol_noise <- sims(dat = victims_pooled, crime_class = "Violent", X = X_vio
 sims_noise <- rbindlist(list(Cybercrime = sims_cyber_noise, Property = sims_prop_noise, Violent = sims_viol_noise), idcol = "crime_class")
 sims_noise[, `:=`(cih = pooled_estimate + pooled_std_error * 1.96, cil = pooled_estimate - pooled_std_error * 1.96)]
 fwrite(sims_noise, file.path("data", "temp", "multilevel", "sims_noise.csv"))
+
+pl_drop <-
+    ggplot(sims_drop, aes(random_drop_share, pooled_estimate)) +
+    geom_line() + geom_point() +
+    geom_ribbon(aes(ymin = cil, ymax = cih), alpha = .1) +
+    geom_hline(yintercept = 0) +
+    facet_wrap(~crime_class, nrow = 1) +
+    scale_x_continuous(breaks = seq(0.05, 0.5, 0.05), labels = function(x) stringi::stri_sub(x, from = 2)) +
+    labs(subtitle = "Panel A. Effect of removing a certain share of F1P1 observations on MLM estimate", 
+         y = "Pooled estimate with 95% CI\nfrom 100 replications", x = "Share of F1P1 observations removed")
+
+pl_noise <- 
+    ggplot(sims_noise, aes(random_noise_share, pooled_estimate)) +
+    geom_line() + geom_point() +
+    geom_ribbon(aes(ymin = cil, ymax = cih), alpha = .1) +
+    geom_hline(yintercept = 0) +
+    facet_wrap(~crime_class, nrow = 1) +
+    scale_x_continuous(breaks = seq(0.05, 0.5, 0.05), labels = function(x) stringi::stri_sub(x, from = 2)) +
+    labs(subtitle = "Panel B. Effect of randomly recoding a certain share of F1P1 observations on MLM estimate", 
+         y = "Pooled estimate with 95% CI\nfrom 100 replications", x = "Share of F1P1 observations randomly recoded")
+
+pdf(file.path("paper", "figures", "simulations.pdf"), width = 10, height = 6)
+pl_drop / pl_noise
+dev.off()
