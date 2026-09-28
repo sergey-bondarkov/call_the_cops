@@ -5,9 +5,7 @@ library(data.table)
 library(forcats)
 library(stringi)
 library(ggplot2)
-#library(survey)
-# library(patchwork)
-# library(ggh4x)
+library(patchwork)
 #library(howManyImputations)
 library(future)
 library(future.apply)
@@ -53,7 +51,7 @@ sims <- function(fml, dat, props, n_rep, sim_type) {
                                                        rand_ids <- sample(F1P1_ids, floor(length(F1P1_ids) * prop))
 
                                                        if(sim_type == "recode") {
-                                                           sim_dat[id %in% rand_ids, social.told_someone = rbinom(.N, 1, mean_F1)]
+                                                           sim_dat[id %in% rand_ids, social.told_someone := rbinom(.N, 1, mean_F1)]
                                                        }
                                                        if(sim_type == "drop") {
                                                            sim_dat <- sim_dat[id %notin% rand_ids] 
@@ -116,8 +114,8 @@ pl_drop <-
     geom_ribbon(aes(ymin = cil, ymax = cih), alpha = .1) +
     geom_hline(yintercept = 0) +
     facet_wrap(~crime_class, nrow = 1) +
-    scale_x_continuous(breaks = seq(0.05, 0.5, 0.05), labels = function(x) stringi::stri_sub(x, from = 2)) +
-    labs(subtitle = "Panel A. Effect of removing a certain share of F1P1 observations on MLM estimate", 
+    # scale_x_continuous(breaks = seq(0, 0.5, 0.05), labels = function(x) stringi::stri_sub(x, from = 2)) +
+    labs(subtitle = "Panel A. Effect of removing a certain share of F1P1 observations\non AME of informing friends or family (MLM)", 
          y = "Pooled estimate with 95% CI\nfrom 100 replications", x = "Share of F1P1 observations removed")
 
 pl_recode <- 
@@ -126,10 +124,10 @@ pl_recode <-
     geom_ribbon(aes(ymin = cil, ymax = cih), alpha = .1) +
     geom_hline(yintercept = 0) +
     facet_wrap(~crime_class, nrow = 1) +
-    scale_x_continuous(breaks = seq(0.05, 0.5, 0.05), labels = function(x) stringi::stri_sub(x, from = 2)) +
-    labs(subtitle = "Panel B. Effect of randomly recoding a certain share of F1P1 observations on MLM estimate", 
+    # scale_x_continuous(breaks = seq(0, 0.5, 0.05), labels = function(x) stringi::stri_sub(x, from = 2)) +
+    labs(subtitle = "Panel B. Effect of randomly recoding a certain share of F1P1 observations\non AME of informing friends or family (MLM)", 
          y = "Pooled estimate with 95% CI\nfrom 100 replications", x = "Share of F1P1 observations randomly recoded")
 
     pdf(file.path("paper", "figures", "simulations.pdf"), width = 10, height = 6)
-    pl_drop / pl_noise
+    pl_drop / pl_recode & theme_bw()
     dev.off()
