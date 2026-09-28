@@ -225,3 +225,98 @@ ccref / pcref / vcref + plot_layout(heights = c(1, 1, 1.5), guides = "collect") 
                        # values = c("orange", "darkred"),
                        # name = "Conf. level:")
 dev.off()
+
+
+
+
+# ===============================================================================
+
+
+library(data.table)
+library(glue)
+library(WeMix)
+
+source("typology_helpers.R")
+
+# 1. Prepare raw wide columns into mutual binary types
+setDT(victims_pooled)
+victims_pooled[, `:=`(
+  F1P1 = as.integer(social.told_someone == 1 & reported.police == 1),
+  F0P1 = as.integer(social.told_someone == 0 & reported.police == 1),
+  F1P0 = as.integer(social.told_someone == 1 & reported.police == 0),
+  F0P0 = as.integer(social.told_someone == 0 & reported.police == 0),
+  obs_id = as.character(.I)
+)]
+
+# 2. Reshape to long format via data.table melt
+covariates_list <- c("obs_id", "region", "weight.reg_scaled", "reg_weight",
+                     "ses.settlement_type", "ses.male", "ses.age_group", "ses.household_size_f",
+                     "ses.household_income", "ses.higher_edu", "ses.employed", "damage.rub_thnd_binned",
+                     "damage.physical", "damage.emotional", "incident.witness", "incident.resisted",
+                     "incident.offender_had_weapon", "incident.went_to_hospital",
+                     "incident.offender_relationship_grouped", "incident.self_blame",
+                     "incident.sexualized", "incident.repeated", "attitude.familiar_police",
+                     "attitude.has_crime_record")
+
+dat_multinomial_long <- melt(
+  victims_pooled,
+  id.vars       = covariates_list,
+  measure.vars  = c("F1P1", "F0P1", "F1P0", "F0P0"),
+  variable.name = "category",
+  value.name    = "choice_made"
+)
+
+# 3. Establish explicit factor levels setting F0P0 as baseline reference
+pathways <- c("F0P0", "F1P1", "F0P1", "F1P0")
+dat_multinomial_long[, category := factor(category, levels = pathways)]
+
+# 4. Generate formula concisely using glue
+covariates_str <- paste(covariates_list[!covariates_list %in% c("obs_id", "region", "weight.reg_scaled", "reg_weight")], collapse = " + ")
+
+fml_poisson_concise <- as.formula(
+  glue("choice_made ~ category * ({covariates_str}) + (1 | region) + (1 | obs_id)")
+)
+
+# 5. Fit the survey-weighted multi-level Poisson model
+fit_typology_poisson <- mix(
+  formula = fml_poisson_concise,
+  data    = dat_multinomial_long,
+  weights = c("weight.reg_scaled", "reg_weight"),
+  family  = poisson(link = "log")
+)
+
+# 6. Run inference for your target variable (e.g., ses.male) across all pathways
+typology_inference <- bootstrap_typology_ame(
+  model      = fit_typology_poisson,
+  data       = dat_multinomial_long,
+  target_var = "ses.male",
+  categories = c("F1P1", "F0P1", "F1P0", "F0P0"),
+  B          = 500
+)
+
+print(typology_inference)
+
+# 1. Source your helper script to load the new batch framework
+source("typology_helpers.R")
+
+# 2. Define the exact subset of key covariates you wish to calculate AMEs for
+predictors_to_test <- c(
+  "ses.male", 
+  "ses.higher_edu", 
+  "ses.household_income", 
+  "attitude.familiar_police"
+)
+
+# 3. Execute the batch calculation matrix automatically
+master_typology_inference <- batch_bootstrap_typology_ame(
+  model      = fit_typology_poisson,
+  data       = dat_multinomial_long,
+  target_vars = predictors_to_test,
+  categories = c("F1P1", "F0P1", "F1P0", "F0P0"),
+  B          = 500,
+  seed       = 42
+)
+
+# 4. View your complete publication matrix
+print(master_typology_inference)
+

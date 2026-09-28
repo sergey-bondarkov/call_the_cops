@@ -1,15 +1,14 @@
-library(mice)
+#library(mice)
+library(WeMix)
 library(fixest)
 library(data.table)
 library(forcats)
 library(stringi)
 library(ggplot2)
-library(survey)
-library(modelsummary)
-library(marginaleffects)
+#library(survey)
 # library(patchwork)
 # library(ggh4x)
-library(howManyImputations)
+#library(howManyImputations)
 library(future)
 library(future.apply)
 g <- glue::glue
@@ -28,112 +27,91 @@ dir.create(out, showWarnings = F, recursive = T)
 set.seed(0)
 
 n_workers <- floor(parallelly::availableCores() * 2/3)
-plan(list(
-          tweak(multicore, workers = unname(n_workers) %/% 5),
-          tweak(multicore, workers = I(5))
-          ))
+plan(multisession, workers = n_workers)
+#plan(list(
+          #tweak(multicore, workers = unname(n_workers) %/% 5),
+          #tweak(multicore, workers = I(5))
+          #))
 
 # Load data
 victims_pooled <- readRDS("data/processed/victims_pooled.Rds")
 
-# Define vars to impute and those to use as predictors in imputation
-vars_to_impute <- c("ses.household_income", "ses.settlement_type")
-vars_to_use <- c("incident.crime_class",
-                 "ses.male",
-                 "ses.age_group",
-                 "ses.has_partner",
-                 "ses.edu",
-                 "ses.household_size",
-                 "ses.job",
-                 "attitude.has_crime_record",
-                 "weight.reg_scaled",
-                 "region",
-                 "year")
-
 # Simulations
 props <- seq(0, 0.5, by = 0.05)
 n_rep <- 100
-mdl_type <- "mlm"
 
-sims <- function(dat, crime_class, X, props, n_rep, mdl_type, sim_type) {
+sims <- function(fml, dat, props, n_rep, sim_type) {
 
-    mean_F1 <- dat[incident.crime_class == crime_class, mean(social.told_someone)]
-    mean_P1 <- dat[incident.crime_class == crime_class, mean(reported.police)]
-    
+    mean_F1 <- dat[, mean(social.told_someone)]
+    sim_dat <- copy(dat)
+
     rbindlist(
               lapply(props, function(prop) {
                          repls <- future_replicate(n_rep, 
                                                    {
-                                                       F1P1_ids <- dat[F1P1 == 1 & incident.crime_class == crime_class]$id
+                                                       F1P1_ids <- sim_dat[F1P1 == 1]$id
                                                        rand_ids <- sample(F1P1_ids, floor(length(F1P1_ids) * prop))
 
-                                                       if(sim_type == "noise") {
-                                                           dat[id %in% rand_ids, `:=`(social.told_someone = rbinom(.N, 1, mean_F1),
-                                                                                      reported.police = rbinom(.N, 1, mean_P1))]
+                                                       if(sim_type == "recode") {
+                                                           sim_dat[id %in% rand_ids, social.told_someone = rbinom(.N, 1, mean_F1)]
                                                        }
                                                        if(sim_type == "drop") {
-                                                           dat <- dat[id %notin% rand_ids] 
+                                                           sim_dat <- sim_dat[id %notin% rand_ids] 
                                                        }
-                                                       
-                                                       tryCatch(
-                                                                {
-                                                                    pooled_regr_with_mult_imp(dat = dat,
-                                                                                 crime_class = crime_class,
-                                                                                 y = "reported.police",
-                                                                                 X = c("social.told_someone", X, "year"),
-                                                                                 vars_to_impute = vars_to_impute,
-                                                                                 vars_to_use = vars_to_use,
-                                                                                 mdl_type = mdl_type,
-                                                                                 marginal_effects = F
-                                                       )
-                                                                }, error = function(e) {
-                                                                    message(e)
-                                                                    NULL
-                                                                })
+
+                                                       mdl <- mix(fml, 
+                                                                  data = sim_dat,
+                                                                  weights = c("weight.reg_scaled", "reg_weight"))
+
+                                                       res <- bootstrap_wemix_ame(mdl, sim_dat, "social.told_someone", weighted = T)
+
+                                                       res
 
                                                    }, simplify = F)
-                         repls <- repls[!sapply(repls, is.null)]
-                         repls_dt <- rbindlist(lapply(repls, function(m) as.data.table(m$pooled[m$pooled$term == "social.told_someone", ])))
+                         repls_dt <- rbindlist(repls)
 
-                         # 2. Apply Rubin's Rules grouped by each term
-                         k <- length(repls)
-
-                         if(nrow(repls_dt) > 0) {
-                             final_results_dt <- repls_dt[, .(
-                                                              pooled_estimate  = mean(estimate, na.rm = T),
-                                                              pooled_std_error = sqrt(mean(ubar, na.rm = T) + (1 + (1 / k)) * var(estimate, na.rm = T))
-                                                              ), by = term]
-                             if(sim_type == "noise") {
-                                 final_results_dt[, random_noise_share := prop]
-                             }
-                             if(sim_type == "drop") {
-                                 final_results_dt[, random_drop_share := prop]
-                             }
-
-                             final_results_dt[, n := nrow(repls_dt)]
-                             
-                         } else {
-                             NULL
-                         }
-}))
+                           
+    # --- PROPER SIMULATION POOLING METRICS ---
+    pooled_prop_res <- repls_dt[, .(
+      proportion     = prop,
+      sim_type       = sim_type,
+      
+      # 1. Empirical Point Estimate (Average AME across simulations)
+      empirical_ame  = mean(estimate),
+      
+      # 2. Monte Carlo Standard Error (The true variance of the simulation distribution)
+      mc_std_error   = sd(estimate), 
+      
+      # Average Model-Reported Standard Error (for bias comparison)
+      avg_model_se   = mean(std.error),
+      
+      # 3. Empirical Statistical Power (Proportion of times the effect remained significant)
+      empirical_power = mean(p.value < 0.05),
+      
+      n_replicates   = .N
+    )]
+    
+    return(pooled_prop_res)
 }
+              ))}
 
-sims_cyber_drop <- sims(dat = victims_pooled, crime_class = "Cybercrime", X = X_property, props = props, n_rep = n_rep, mdl_type = "mlm", sim_type = "drop")
-sims_prop_drop <- sims(dat = victims_pooled, crime_class = "Property", X = X_property, props = props, n_rep = n_rep, mdl_type = "mlm", sim_type = "drop")
-sims_viol_drop <- sims(dat = victims_pooled, crime_class = "Violent", X = X_violent, props = props, n_rep = n_rep, mdl_type = "mlm", sim_type = "drop")
+
+sims_cyber_drop <- sims(fml_prop_mlm_pooled, dat_cyber_pooled, props, n_rep, sim_type = "drop" )
+sims_prop_drop <- sims(fml_prop_mlm_pooled, dat_prop_pooled, props, n_rep, sim_type = "drop" )
+sims_viol_drop <- sims(fml_viol_mlm_pooled, dat_viol_pooled, props, n_rep, sim_type = "drop" )
 sims_drop <- rbindlist(list(Cybercrime = sims_cyber_drop, Property = sims_prop_drop, Violent = sims_viol_drop), idcol = "crime_class")
-sims_drop[, `:=`(cih = pooled_estimate + pooled_std_error * 1.96, cil = pooled_estimate - pooled_std_error * 1.96)]
+sims_drop[, `:=`(cil = empirical_ame - mc_std_error * 1.96, cih = empirical_ame + mc_std_error * 1.96)]
 fwrite(sims_drop, file.path("data", "temp", "multilevel", "sims_drop.csv"))
 
-sims_cyber_noise <- sims(dat = victims_pooled, crime_class = "Cybercrime", X = X_property, props = props, n_rep = n_rep, mdl_type = "mlm", sim_type = "noise")
-sims_prop_noise <- sims(dat = victims_pooled, crime_class = "Property", X = X_property, props = props, n_rep = n_rep, mdl_type = "mlm", sim_type = "noise")
-sims_viol_noise <- sims(dat = victims_pooled, crime_class = "Violent", X = X_violent, props = props, n_rep = n_rep, mdl_type = "mlm", sim_type = "noise")
-sims_noise <- rbindlist(list(Cybercrime = sims_cyber_noise, Property = sims_prop_noise, Violent = sims_viol_noise), idcol = "crime_class")
-sims_noise[, `:=`(cih = pooled_estimate + pooled_std_error * 1.96, cil = pooled_estimate - pooled_std_error * 1.96)]
-fwrite(sims_noise, file.path("data", "temp", "multilevel", "sims_noise.csv"))
+sims_cyber_recode <- sims(fml_prop_mlm_pooled, dat_cyber_pooled, props, n_rep, sim_type = "recode" )
+sims_prop_recode <- sims(fml_prop_mlm_pooled, dat_prop_pooled, props, n_rep, sim_type = "recode" )
+sims_viol_recode <- sims(fml_viol_mlm_pooled, dat_viol_pooled, props, n_rep, sim_type = "recode" )
+sims_recode <- rbindlist(list(Cybercrime = sims_cyber_recode, Property = sims_prop_recode, Violent = sims_viol_recode), idcol = "crime_class")
+sims_recode[, `:=`(cil = empirical_ame - mc_std_error * 1.96, cih = empirical_ame + mc_std_error * 1.96)]
+fwrite(sims_recode, file.path("data", "temp", "multilevel", "sims_recode.csv"))
 
 pl_drop <-
-    ggplot(sims_drop, aes(random_drop_share, pooled_estimate)) +
+    ggplot(sims_drop, aes(proportion, empirical_ame)) +
     geom_line() + geom_point() +
     geom_ribbon(aes(ymin = cil, ymax = cih), alpha = .1) +
     geom_hline(yintercept = 0) +
@@ -142,8 +120,8 @@ pl_drop <-
     labs(subtitle = "Panel A. Effect of removing a certain share of F1P1 observations on MLM estimate", 
          y = "Pooled estimate with 95% CI\nfrom 100 replications", x = "Share of F1P1 observations removed")
 
-pl_noise <- 
-    ggplot(sims_noise, aes(random_noise_share, pooled_estimate)) +
+pl_recode <- 
+    ggplot(sims_recode, aes(proportion, empirical_ame)) +
     geom_line() + geom_point() +
     geom_ribbon(aes(ymin = cil, ymax = cih), alpha = .1) +
     geom_hline(yintercept = 0) +
@@ -152,6 +130,6 @@ pl_noise <-
     labs(subtitle = "Panel B. Effect of randomly recoding a certain share of F1P1 observations on MLM estimate", 
          y = "Pooled estimate with 95% CI\nfrom 100 replications", x = "Share of F1P1 observations randomly recoded")
 
-pdf(file.path("paper", "figures", "simulations.pdf"), width = 10, height = 6)
-pl_drop / pl_noise
-dev.off()
+    pdf(file.path("paper", "figures", "simulations.pdf"), width = 10, height = 6)
+    pl_drop / pl_noise
+    dev.off()

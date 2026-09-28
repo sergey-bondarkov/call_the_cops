@@ -29,7 +29,7 @@ source(file.path("code", "regression_helpers", "X_definition.R"))
 
 # Caclulate missings by variable
 missings_cyber <- victims_cyber[, sapply(.SD, function(x) sum(is.na(x))), .SDcols = X_property]
-missings_cyber <- missings_cyber[missings_cyber != 0]
+(missings_cyber <- missings_cyber[missings_cyber != 0])
       # ses.settlement_type      ses.household_size_f
                        # 54                         8
      # ses.household_income            ses.higher_edu
@@ -38,7 +38,7 @@ missings_cyber <- missings_cyber[missings_cyber != 0]
                         # 3                         1
 
 missings_prop <- victims_prop[, sapply(.SD, function(x) sum(is.na(x))), .SDcols = X_property]
-missings_prop <- missings_prop[missings_prop != 0]
+(missings_prop <- missings_prop[missings_prop != 0])
       # ses.settlement_type             ses.age_group
                        # 92                         2
      # ses.household_size_f      ses.household_income
@@ -49,7 +49,7 @@ missings_prop <- missings_prop[missings_prop != 0]
                         # 3
 
 missings_viol <- victims_viol[, sapply(.SD, function(x) sum(is.na(x))), .SDcols = X_violent]
-missings_viol <- missings_viol[missings_viol != 0]
+(missings_viol <- missings_viol[missings_viol != 0])
                    # ses.settlement_type                          ses.age_group
                                     # 39                                      1
                   # ses.household_size_f                   ses.household_income
@@ -63,7 +63,7 @@ missings_viol <- missings_viol[missings_viol != 0]
 
 # We will impute only two variables: Settlement type and Household income
 # They are frequently missing and seem reasonably trivial to predict
-vars_to_impute <- c("ses.settlement_type", "ses.household_income")
+#vars_to_impute <- c("ses.settlement_type", "ses.household_income")
 
 # Share of data that would be lost due to missings in these variables
 victims_cyber[is.na(ses.settlement_type) | is.na(ses.household_income), .N / nrow(victims_cyber)]
@@ -75,44 +75,53 @@ victims_viol[is.na(ses.settlement_type) | is.na(ses.household_income), .N / nrow
 
 # Iterative listwise deletion
 prev <- victims_cyber[, .N]
-for(v in setdiff(names(sort(missings_cyber, decreasing = T)), vars_to_impute)) {
+#for(v in setdiff(names(sort(missings_cyber, decreasing = T)), vars_to_impute)) {
+for(v in names(sort(missings_cyber, decreasing = T))) {
            victims_cyber <- victims_cyber[!is.na(get(v))]
            message(c(v, ": ", missings_cyber[v], " | ", prev - victims_cyber[, .N], " | ", victims_cyber[, .N]))
            prev <- victims_cyber[, .N]
 }
 # Var | Miss. | Loss | N
-# ses.household_size_f: 8 | 8 | 2012
-# ses.higher_edu: 4 | 4 | 2008
-# attitude.familiar_police: 3 | 3 | 2005
-# attitude.has_crime_record: 1 | 1 | 2004
+#ses.settlement_type: 54 | 54 | 1966
+#ses.household_income: 54 | 49 | 1917
+#ses.household_size_f: 8 | 5 | 1912
+#ses.higher_edu: 4 | 2 | 1910
+#attitude.familiar_police: 3 | 3 | 1907
+#attitude.has_crime_record: 1 | 1 | 1906
 
 prev <- victims_prop[, .N]
-for(v in setdiff(names(sort(missings_prop, decreasing = T)), vars_to_impute)) {
+#for(v in setdiff(names(sort(missings_prop, decreasing = T)), vars_to_impute)) {
+for(v in names(sort(missings_prop, decreasing = T))) {
            victims_prop <- victims_prop[!is.na(get(v))]
            message(c(v, ": ", missings_prop[v], " | ", prev - victims_prop[, .N], " | ", victims_prop[, .N]))
            prev <- victims_prop[, .N]
 }
 # Var | Miss. | Loss | N
-# ses.household_size_f: 20 | 20 | 2794
-# attitude.has_crime_record: 3 | 3 | 2791
-# ses.age_group: 2 | 2 | 2789
-# ses.higher_edu: 1 | 1 | 2788
-# attitude.familiar_police: 1 | 0 | 2788
+#ses.settlement_type: 92 | 92 | 2722
+#ses.household_income: 87 | 82 | 2640
+#ses.household_size_f: 20 | 16 | 2624
+#attitude.has_crime_record: 3 | 3 | 2621
+#ses.age_group: 2 | 2 | 2619
+#ses.higher_edu: 1 | 0 | 2619
+#attitude.familiar_police: 1 | 0 | 2619
 
 prev <- victims_viol[, .N]
-for(v in setdiff(names(sort(missings_viol, decreasing = T)), vars_to_impute)) {
+#for(v in setdiff(names(sort(missings_viol, decreasing = T)), vars_to_impute)) {
+for(v in names(sort(missings_viol, decreasing = T))) {
            victims_viol <- victims_viol[!is.na(get(v))]
            message(c(v, ": ", missings_viol[v], " | ", prev - victims_viol[, .N], " | ", victims_viol[, .N]))
            prev <- victims_viol[, .N]
 }
 # Var | Miss. | Loss | N
-# incident.offender_relationship_grouped: 161 | 161 | 1199
-# incident.sexualized: 10 | 6 | 1193
-# incident.offender_had_weapon: 7 | 0 | 1193
-# ses.higher_edu: 5 | 5 | 1188
-# attitude.familiar_police: 4 | 3 | 1185
-# attitude.has_crime_record: 3 | 1 | 1184
-# ses.household_size_f: 2 | 2 | 1182
-# ses.age_group: 1 | 1 | 1181
+#incident.offender_relationship_grouped: 161 | 161 | 1199
+#ses.household_income: 55 | 46 | 1153
+#ses.settlement_type: 39 | 34 | 1119
+#incident.sexualized: 10 | 6 | 1113
+#incident.offender_had_weapon: 7 | 0 | 1113
+#ses.higher_edu: 5 | 2 | 1111
+#attitude.familiar_police: 4 | 2 | 1109
+#attitude.has_crime_record: 3 | 1 | 1108
+#ses.household_size_f: 2 | 2 | 1106
+#ses.age_group: 1 | 1 | 1105
 
 
