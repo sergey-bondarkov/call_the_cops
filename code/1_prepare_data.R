@@ -3,20 +3,25 @@ library(forcats)
 
 setwd(Sys.getenv("CALL_THE_COPS"))
 
+# Load data files manually downloaded from Harvard Dataverse (https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/ISMDV5)
 data_pooled <- readRDS("data/raw/rcvs_18_21_24_2026-06-01.Rds")
 data_2024 <- readRDS("data/raw/rcvs_rdd_2024_2026-03-14.Rds")
 
+# Load data files downloaded from the RCVS github repository (https://github.com/irlcode/RCVS/tree/main/data)
 data_2018 <- readRDS("data/raw/rcvs_2018_dataset_2026-03-14.Rds")
 data_2021 <- readRDS("data/raw/rcvs_2021_dataset_2026-03-14.Rds")
 
+# Add questions about reporting that are not included in the pooled dataset
 data_pooled[data_2018, on = "ID", c("Q41", "Q43", "Q45") := .(i.Q41, i.Q43, i.Q45)]
 data_pooled[data_2021, on = "ID", c("Q41", "Q43", "Q45") := .(i.Q41, i.Q43, i.Q45)]
 
+# Prepare damage.property_loss variable
 data_pooled[, damage.property_loss := as.numeric(rowSums(.SD, na.rm = T) > 0),
             .SDcols = paste0("Q19_", c(1:7, 999))]
 data_2024[, damage.property_loss := as.numeric(rowSums(.SD, na.rm = T) > 0),
             .SDcols = paste0("Q19_", c(1:7, 999))]
 
+# Variables of interest
 vars_of_interest <- c(
 
     ID = "id",
@@ -95,6 +100,7 @@ vars_of_interest <- c(
     deflator2024rub = "deflator2024rub"
 )
 
+# Data pre-processing
 prepare_data <- function(dt) {
     dt <- dt[, intersect(names(vars_of_interest), names(dt)), with = F]
 
@@ -347,5 +353,6 @@ victims_2024[, F0P1 := fifelse(social.told_someone == 0 & reported.police == 1, 
 victims_2024[, F1P0 := fifelse(social.told_someone == 1 & reported.police == 0, 1, 0)]
 victims_2024[, F0P0 := fifelse(social.told_someone == 0 & reported.police == 0, 1, 0)]
 
+# Save
 saveRDS(victims_2024, "data/processed/victims_2024.Rds")
 saveRDS(victims_pooled, "data/processed/victims_pooled.Rds")
