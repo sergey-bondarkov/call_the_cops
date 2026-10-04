@@ -1,6 +1,8 @@
 library(data.table)
 library(forcats)
 
+setwd(Sys.getenv("CALL_THE_COPS"))
+
 data_pooled <- readRDS("data/raw/rcvs_18_21_24_2026-06-01.Rds")
 data_2024 <- readRDS("data/raw/rcvs_rdd_2024_2026-03-14.Rds")
 
@@ -22,11 +24,9 @@ vars_of_interest <- c(
 
     # Reporting
     Q40 = "reported.police",
-    #   Q47_5 = "reported.bank",
-    #   Q47_6 = "reported.criminal",
-    Q41 = "reported.police_who",
-    Q43 = "reported.police_how",
-    Q45 = "reported.police_ncontacts",
+    Q41 = "reported.police_who", # 2018 and 2021 only
+    Q43 = "reported.police_how", # 2018 and 2021 only
+    Q45 = "reported.police_ncontacts", # 2018 and 2021 only
     Q46 = "reported.case_initiated",
 
     # Incident

@@ -1,4 +1,5 @@
-library(WeMix)
+#library(WeMix)
+library(brms)
 library(fixest)
 library(lme4)
 #library(modelsummary)
@@ -12,13 +13,15 @@ g <- glue::glue
 setwd(Sys.getenv("CALL_THE_COPS"))
 
 source("code/coef_map.R")
-source("code/regression_helpers/X_definition.R")
+source("code/helpers/X_definition.R")
 source("code/helpers/functions.R")
 
 # Dir to store results
-out_mlm <- file.path("data", "temp", "mlm")
-out_lpm <- file.path("data", "temp", "lpm")
+out_brm <- file.path("temp", "brm")
+#out_mlm <- file.path("data", "temp", "mlm")
+out_lpm <- file.path("temp", "lpm")
 dir.create(out_mlm, showWarnings = F, recursive = T)
+dir.create(out_brm, showWarnings = F, recursive = T)
 dir.create(out_lpm, showWarnings = F, recursive = T)
 
 # Set random seed for reproducibility
@@ -33,10 +36,15 @@ victims_2024 <- readRDS("data/processed/victims_2024.Rds")
 
 # Formulas =====================================================================
 ## MLM
-fml_prop_mlm_pooled <- as.formula(glue::glue("reported.police ~ social.told_someone + {paste(X_property, collapse = '+')} + year + (1|region)"))
-fml_viol_mlm_pooled <- as.formula(glue::glue("reported.police ~ social.told_someone + {paste(X_violent, collapse = '+')} + year + (1|region)"))
-fml_prop_mlm_2024 <- as.formula(glue::glue("reported.police ~ social.told_someone + {paste(X_property_2024, collapse = '+')} + (1|region)"))
-fml_viol_mlm_2024 <- as.formula(glue::glue("reported.police ~ social.told_someone + {paste(X_violent_2024, collapse = '+')} + (1|region)"))
+#fml_prop_mlm_pooled <- as.formula(glue::glue("reported.police ~ social.told_someone + {paste(X_property, collapse = '+')} + year + (1|region)"))
+#fml_viol_mlm_pooled <- as.formula(glue::glue("reported.police ~ social.told_someone + {paste(X_violent, collapse = '+')} + year + (1|region)"))
+#fml_prop_mlm_2024 <- as.formula(glue::glue("reported.police ~ social.told_someone + {paste(X_property_2024, collapse = '+')} + (1|region)"))
+#fml_viol_mlm_2024 <- as.formula(glue::glue("reported.police ~ social.told_someone + {paste(X_violent_2024, collapse = '+')} + (1|region)"))
+
+fml_prop_brm_pooled <- as.formula(glue::glue("reported.police | weights(weight) ~ social.told_someone + {paste(X_property, collapse = '+')} + year + (1|region)"))
+fml_viol_brm_pooled <- as.formula(glue::glue("reported.police | weights(weight) ~ social.told_someone + {paste(X_violent, collapse = '+')} + year + (1|region)"))
+fml_prop_brm_2024 <- as.formula(glue::glue("reported.police | weights(weight) ~ social.told_someone + {paste(X_property_2024, collapse = '+')} + (1|region)"))
+fml_viol_brm_2024 <- as.formula(glue::glue("reported.police | weights(weight) ~ social.told_someone + {paste(X_violent_2024, collapse = '+')} + (1|region)"))
 
 ## LPM
 fml_prop_lpm_pooled <- as.formula(glue::glue("reported.police ~ social.told_someone + {paste(X_property, collapse = '+')} | year + region"))
@@ -75,6 +83,15 @@ dat_viol_2024[, region := fdroplevels(region)]
 # Modeling =====================================================================
 
 ## Panel A
+brm_cyber_pooled <- brm(
+  formula = fml_property_bin,
+  data    = dat_cyber_pooled,
+  family  = bernoulli(link = "logit"),
+  cores   = 4, chains = 4,   # Distributes computations across CPU cores
+  backend = "cmdstanr"        # Uses Stan's highly optimized C++ engine
+)
+avg_slopes(model_binary_mcmc, variables = "social.told_someone", wts = "weight.reg_scaled")
+
 mlm_cyber_pooled <- mix(fml_prop_mlm_pooled, 
                         data = dat_cyber_pooled,
                         weights = c("weight.reg_scaled", "reg_weight"))

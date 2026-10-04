@@ -1,5 +1,6 @@
 #library(mice)
-library(WeMix)
+#library(WeMix)
+library(brms)
 library(fixest)
 library(data.table)
 library(forcats)
@@ -14,18 +15,18 @@ g <- glue::glue
 setwd(Sys.getenv("CALL_THE_COPS"))
 
 source("code/coef_map.R")
-source("code/regression_helpers/X_definition.R")
-source("code/regression_helpers/functions.R")
+source("code/helpers/X_definition.R")
+source("code/helpers/functions.R")
 
 # Dir to store results
-out <- file.path("data", "temp", "multilevel")
+out <- file.path("temp", "brm")
 dir.create(out, showWarnings = F, recursive = T)
 
 # Set random seed for reproducibility
 set.seed(0)
 
 n_workers <- floor(parallelly::availableCores() * 2/3)
-plan(multisession, workers = n_workers)
+plan(multicore, workers = n_workers)
 #plan(list(
           #tweak(multicore, workers = unname(n_workers) %/% 5),
           #tweak(multicore, workers = I(5))
@@ -34,65 +35,98 @@ plan(multisession, workers = n_workers)
 # Load data
 victims_pooled <- readRDS("data/processed/victims_pooled.Rds")
 
+dat_cyber_pooled <- victims_pooled[incident.crime_class == "Cybercrime"]
+dat_cyber_pooled <- dat_cyber_pooled[complete.cases(dat_cyber_pooled[, ..X_property])]
+dat_cyber_pooled[, region := fdroplevels(region)]
+
+dat_prop_pooled <- victims_pooled[incident.crime_class == "Property"]
+dat_prop_pooled <- dat_prop_pooled[complete.cases(dat_prop_pooled[, ..X_property])]
+dat_prop_pooled[, region := fdroplevels(region)]
+
+dat_viol_pooled <- victims_pooled[incident.crime_class == "Violent"]
+dat_viol_pooled <- dat_viol_pooled[complete.cases(dat_viol_pooled[, ..X_violent])]
+dat_viol_pooled[, region := fdroplevels(region)]
+
+fml_prop_brm_pooled <- as.formula(glue::glue("reported.police | weights(weight) ~ social.told_someone + {paste(X_property, collapse = '+')} + year + (1|region)"))
+fml_viol_brm_pooled <- as.formula(glue::glue("reported.police | weights(weight) ~ social.told_someone + {paste(X_violent, collapse = '+')} + year + (1|region)"))
+
 # Simulations
-props <- seq(0, 0.5, by = 0.05)
+props <- seq(0.05, 0.5, by = 0.05)
 n_rep <- 100
 
-sims <- function(fml, dat, props, n_rep, sim_type) {
+sims <- function(fml, dat, props, n_rep, sim_type, weight_var = "weight") {
 
     mean_F1 <- dat[, mean(social.told_someone)]
-    sim_dat <- copy(dat)
+    
+    # 1. CRITICAL FIX: Pre-compile the model structure once on a single core
+    message("Pre-compiling base Stan model structure to prevent worker race conditions...")
+    base_mdl <- brm(
+        formula = fml,
+        data    = dat, # Use original dataset for structural skeleton
+        family  = bernoulli(link = "logit"),
+        chains  = 0,         # 0 chains means it ONLY compiles the structure and stops
+        backend = "cmdstanr"
+    )
+    message("Pre-compilation complete. Launching parallel simulation loop...")
 
     rbindlist(
-              lapply(props, function(prop) {
-                         repls <- future_replicate(n_rep, 
-                                                   {
-                                                       F1P1_ids <- sim_dat[F1P1 == 1]$id
-                                                       rand_ids <- sample(F1P1_ids, floor(length(F1P1_ids) * prop))
+      lapply(props, function(prop) {
+        # Pass future.seed = TRUE to ensure parallel MCMC reproducibility safely
+        repls <- future_replicate(n_rep, {
+            sim_dat <- copy(dat)
+            F1P1_ids <- sim_dat[F1P1 == 1]$id
+            rand_ids <- sample(F1P1_ids, floor(length(F1P1_ids) * prop))
 
-                                                       if(sim_type == "recode") {
-                                                           sim_dat[id %in% rand_ids, social.told_someone := rbinom(.N, 1, mean_F1)]
-                                                       }
-                                                       if(sim_type == "drop") {
-                                                           sim_dat <- sim_dat[id %notin% rand_ids] 
-                                                       }
+            if(sim_type == "recode") {
+                sim_dat[id %in% rand_ids, social.told_someone := rbinom(.N, 1, mean_F1)]
+            }
+            if(sim_type == "drop") {
+                sim_dat <- sim_dat[id %notin% rand_ids] 
+            }
 
-                                                       mdl <- mix(fml, 
-                                                                  data = sim_dat,
-                                                                  weights = c("weight.reg_scaled", "reg_weight"))
+            # 2. CRITICAL FIX: Use update() to bypass compilation inside the worker
+            mdl <- update(
+                base_mdl,
+                newdata = sim_dat,   # Swaps the data matrix safely
+                refresh = 0,         
+                silent  = 2,         
+                chains  = 2,         
+                iter    = 1000,
+                cores   = 1,         # Keeps worker bounded to 1 core
+                threads = threading(1)
+            )
 
-                                                       res <- bootstrap_wemix_ame(mdl, sim_dat, "social.told_someone", weighted = T)
+            # 3. Extract Marginal Effects
+            ame_res <- avg_slopes(mdl, variables = "social.told_someone", re_formula = NULL)
+            
+            excludes_zero <- (ame_res$conf.low > 0 & ame_res$conf.high > 0) | 
+                             (ame_res$conf.low < 0 & ame_res$conf.high < 0)
 
-                                                       res
+            data.table(
+              estimate      = ame_res$estimate,
+              std.error     = ame_res$std.error, 
+              excludes_zero = excludes_zero
+            )
 
-                                                   }, simplify = F)
-                         repls_dt <- rbindlist(repls)
+        }, simplify = FALSE, future.seed = TRUE) # Essential for parallel Stan seeds
+        
+        repls_dt <- rbindlist(repls)
 
-                           
-    # --- PROPER SIMULATION POOLING METRICS ---
-    pooled_prop_res <- repls_dt[, .(
-      proportion     = prop,
-      sim_type       = sim_type,
-      
-      # 1. Empirical Point Estimate (Average AME across simulations)
-      empirical_ame  = mean(estimate),
-      
-      # 2. Monte Carlo Standard Error (The true variance of the simulation distribution)
-      mc_std_error   = sd(estimate), 
-      
-      # Average Model-Reported Standard Error (for bias comparison)
-      avg_model_se   = mean(std.error),
-      
-      # 3. Empirical Statistical Power (Proportion of times the effect remained significant)
-      empirical_power = mean(p.value < 0.05),
-      
-      n_replicates   = .N
-    )]
-    
-    return(pooled_prop_res)
+        pooled_prop_res <- repls_dt[, .(
+          proportion      = prop,
+          sim_type        = sim_type,
+          empirical_ame   = mean(estimate, na.rm = TRUE),
+          mc_std_error    = sd(estimate, na.rm = TRUE), 
+          avg_model_se    = mean(std.error, na.rm = TRUE),
+          empirical_power = mean(excludes_zero, na.rm = TRUE), 
+          n_replicates    = .N
+        )]
+        
+        pooled_prop_res
+      })
+    )
 }
-              ))}
-
+sims_cyber_drop <- sims(fml_prop_brm_pooled, dat_cyber_pooled, props, n_rep, sim_type = "drop" )
 
 sims_cyber_drop <- sims(fml_prop_mlm_pooled, dat_cyber_pooled, props, n_rep, sim_type = "drop" )
 sims_prop_drop <- sims(fml_prop_mlm_pooled, dat_prop_pooled, props, n_rep, sim_type = "drop" )
