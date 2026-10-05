@@ -366,3 +366,106 @@ batch_bootstrap_typology_ame <- function(model, data, target_vars, categories, B
   return(rbindlist(all_variables_results))
 }
 
+
+prep_profile_data <- function(list_of_tables, target_var_order) {
+  
+  # 1. Bind separate model datasets together using the list names as indicators
+  plot_data <- rbindlist(list_of_tables, idcol = "crime_type")
+  
+  # 2. Standardize variable strings (Title Case parsing)
+  plot_data[, var_clean := gsub("^ses\\.", "", term)]
+  plot_data[, var_clean := gsub("_", " ", var_clean)]
+  plot_data[, var_clean := tools::toTitleCase(var_clean)]
+  
+  # Manual overrides for consistent shorthand labels
+  plot_data[var_clean == "Higher Edu", var_clean := "Education"]
+  plot_data[var_clean == "Household Size F", var_clean := "Household Size"]
+  
+  # 3. Cleanse comparison contrast descriptions
+  plot_data[, contrast_clean := gsub(" - ", " vs. ", contrast, fixed = TRUE)]
+  plot_data[, contrast_clean := gsub("1 vs. 0", "Yes vs. No", contrast_clean, fixed = TRUE)]
+  plot_data[, contrast_clean := gsub("3--4", "3–4", contrast_clean, fixed = TRUE)]
+  
+  # Build a unified factor layout string combining terms and sub-levels
+  plot_data[, display_label := paste0(var_clean, " (", contrast_clean, ")")]
+  
+  # 4. Enforce structural hierarchical ordering across rows and levels
+  sorting_dt <- unique(plot_data[, .(display_label, var_clean, contrast_clean)])
+  sorting_dt[, var_rank := match(var_clean, target_var_order)]
+  setorder(sorting_dt, var_rank, contrast_clean)
+  
+  # Invert vector because ggplot prints discrete items from bottom to top
+  final_axis_levels <- rev(sorting_dt$display_label)
+  plot_data[, display_label := factor(display_label, levels = final_axis_levels)]
+  
+  # Ensure facets and categories preserve structural presentation keys
+  plot_data[, crime_type := factor(crime_type, levels = names(list_of_tables))]
+  plot_data[, excludes_zero := (conf.low > 0 & conf.high > 0) | (conf.low < 0 & conf.high < 0)]
+  
+  return(plot_data)
+}
+
+
+#' Render and Export High-Contrast Profile Matrix
+#' 
+#' @param plot_data Prepped data.table matrix
+#' @param output_path File system target path for the compiled vector PDF graphic
+plot_multinomial_profiles <- function(plot_data, output_path) {
+  
+  # Explicitly lock internal layer positioning metrics
+  strict_dodge <- position_dodge(width = 0.6)
+  setkey(plot_data, group, display_label, crime_type)
+  
+  p <- ggplot(plot_data, aes(x = estimate, y = display_label, 
+                            color = crime_type, group = crime_type, 
+                            alpha = excludes_zero)) + 
+    
+    # Null Baseline Reference Coordinate
+    geom_vline(xintercept = 0, linetype = "dashed", color = "grey60", linewidth = 0.5) +
+    
+    # Horizontal Bayesian Credible Intervals (The Whiskers)
+    geom_errorbarh(aes(xmin = conf.low, xmax = conf.high), 
+                   height = 0.3, 
+                   position = strict_dodge, 
+                   linewidth = 0.5) +
+    
+    # Posterior Means (The Central Dots)
+    geom_point(shape = 16, 
+               position = strict_dodge, 
+               size = 2.2) +
+    
+    # Horizontal Multi-Category Strategy Path Splitting Facets
+    facet_wrap(~group, nrow = 1) +
+    
+    # High-Contrast Parameter Isolation Modifiers
+    scale_alpha_manual(values = c("FALSE" = 0.20, "TRUE" = 1.00), guide = "none") +
+    
+    # Expand and split legend elements over exactly two stacked rows
+    guides(color = guide_legend(nrow = 2, byrow = TRUE)) +
+    
+    # Universal layout theme parameters for clean LaTeX vector embedding
+    theme_bw() +
+    theme(
+      panel.grid.minor = element_blank(),
+      panel.grid.major.y = element_line(color = "grey95"), # Restored grid lines for tracking rows
+      panel.grid.major.x = element_line(color = "grey90"),
+      strip.background = element_rect(fill = "grey95"),
+      strip.text       = element_text(face = "bold", size = 10),
+      axis.text.y      = element_text(size = 9, face = "plain", color = "black"),
+      axis.text.x      = element_text(size = 9),
+      legend.position  = "bottom",
+      legend.title     = element_blank(),
+      legend.text      = element_text(size = 9),
+      legend.box       = "vertical",
+      legend.margin    = margin(t = 5, r = 0, b = 5, l = 0)
+    ) +
+    
+    labs(
+      x = "Average Marginal Effect with 95% Bayesian Credible Interval\n(Absolute Probability Shift)",
+      y = "Socio-Economic Predictors (Contrast Levels)"
+    )
+  
+  # Export clean high-resolution PDF vector geometry
+  ggsave(output_path, plot = p, width = 14, height = 7.5, device = "pdf")
+  message(paste("Flawlessly synchronized profile matrix exported to:", output_path))
+}
