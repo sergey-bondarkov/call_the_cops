@@ -59,6 +59,8 @@ sims <- function(fml, dat, props, n_rep, sim_type, weight_var = "weight") {
         formula = fml,
         data    = dat, # Use original dataset for structural skeleton
         family  = bernoulli(link = "logit"),
+        prior = prior(normal(0, 3), class = "b"),
+
         chains  = 1,         # 1 chain is enough to fully compile the dynamic library
         iter    = 50,        # Minimal iterations to make it take under 2 seconds
         warmup  = 25,
@@ -135,14 +137,17 @@ sims_prop_drop <- sims(fml_prop_brm_pooled, dat_prop_pooled, props, n_rep, sim_t
 sims_viol_drop <- sims(fml_viol_brm_pooled, dat_viol_pooled, props, n_rep, sim_type = "drop" )
 sims_drop <- rbindlist(list(Cybercrime = sims_cyber_drop, Property = sims_prop_drop, Violent = sims_viol_drop), idcol = "crime_class")
 sims_drop[, `:=`(cil = empirical_ame - mc_std_error * 1.96, cih = empirical_ame + mc_std_error * 1.96)]
-fwrite(sims_drop, file.path(out, "sims_drop.csv"))
+fwrite(sims_drop, file.path(out, "sims_drop_weak_priors.csv"))
 
 sims_cyber_recode <- sims(fml_prop_brm_pooled, dat_cyber_pooled, props, n_rep, sim_type = "recode" )
 sims_prop_recode <- sims(fml_prop_brm_pooled, dat_prop_pooled, props, n_rep, sim_type = "recode" )
 sims_viol_recode <- sims(fml_viol_brm_pooled, dat_viol_pooled, props, n_rep, sim_type = "recode" )
 sims_recode <- rbindlist(list(Cybercrime = sims_cyber_recode, Property = sims_prop_recode, Violent = sims_viol_recode), idcol = "crime_class")
 sims_recode[, `:=`(cil = empirical_ame - mc_std_error * 1.96, cih = empirical_ame + mc_std_error * 1.96)]
-fwrite(sims_recode, file.path(out, "sims_recode.csv"))
+fwrite(sims_recode, file.path(out, "sims_recode_weak_priors.csv"))
+
+sims_drop <- fread(file.path(out, "sims_drop_weak_priors.csv"))
+sims_recode <- fread(file.path(out, "sims_recode_weak_priors.csv"))
 
 pl_drop <-
     ggplot(sims_drop, aes(proportion, empirical_ame)) +
@@ -151,8 +156,8 @@ pl_drop <-
     geom_hline(yintercept = 0) +
     facet_wrap(~crime_class, nrow = 1) +
     scale_y_continuous(breaks = seq(0, .25, .05)) +
-    labs(subtitle = "Panel A. Effect of removing a certain share of F1P1 observations\non AME of informing friends or family (BRM)", 
-         y = "Mean AME with 95% Monte Carlo envelope from 100 replications", x = "Share of F1P1 observations removed")
+    labs(subtitle = "Panel A. Effect of removing a certain share of N1P1 observations on AME of informing friends or family (BRM)", 
+         y = "Mean AME with 95% Monte Carlo envelope from 100 replications", x = "Share of N1P1 observations removed")
 
 pl_recode <- 
     ggplot(sims_recode, aes(proportion, empirical_ame)) +
@@ -161,10 +166,10 @@ pl_recode <-
     geom_hline(yintercept = 0) +
     facet_wrap(~crime_class, nrow = 1) +
     scale_y_continuous(breaks = seq(0, .25, .05)) +
-    labs(subtitle = "Panel B. Effect of randomly recoding a certain share of F1P1 observations into F0P1\non AME of informing friends or family (BRM)", 
-         y = "Mean AME with 95% Monte Carlo envelope from 100 replications", x = "Share of F1P1 observations randomly recoded into F0P1")
+    labs(subtitle = "Panel B. Effect of randomly recoding a certain share of N1P1 observations into N0P1 on AME of informing friends or family (BRM)", 
+         y = "Mean AME with 95% Monte Carlo envelope from 100 replications", x = "Share of F1P1 observations randomly recoded into N0P1")
 
 
-    pdf(file.path("paper", "figures", "simulations.pdf"), width = 10, height = 6)
+    pdf(file.path("paper", "figures", "simulations_weak_priors.pdf"), width = 10, height = 6)
     pl_drop / pl_recode + plot_layout(axis_titles = "collect_y") & theme_bw()
     dev.off()
