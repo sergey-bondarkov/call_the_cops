@@ -493,3 +493,7 @@ regr_tab <- glue_tex(R"(\begin{tabular}{lrrr}
 
 # Export complete structure to disk
 writeLines(regr_tab, "paper/tables/regr_1_results.tex")
+
+
+
+ames_to_table_crimeclass(list(Cybercrime = ames)) 

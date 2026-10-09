@@ -1,14 +1,16 @@
-ames_to_table_crimeclass <- function(ames_objects, out_path) {
+ames_to_table_crimeclass <- function(ames_objects, mdl_list, out_path) {
     ames <- rbindlist(ames_objects, idcol = "crime_class")
 
+    # 1. Process terms and values
     ames[, term_contrast := paste0(term, gsub(" -.*", "", contrast))]
     ames[term_contrast != "year2021", term_contrast := gsub("1$", "", term_contrast)]
     ames[, label := coef_map[term_contrast]]
 
-    ames[, c("estimate", "conf.low", "conf.high") := lapply(.SD, function(x) sprintf("%.3f", x)), .SDcols = c("estimate", "conf.low", "conf.high")]
+    ames[, c("estimate", "conf.low", "conf.high") := lapply(.SD, function(x) sprintf("%.3f", as.numeric(x))), .SDcols = c("estimate", "conf.low", "conf.high")]
 
     ames[, CI := paste0("[", conf.low, ", ", conf.high, "]")]
-    ames[, AME := paste0(estimate, ifelse(conf.high < 0 | conf.low > 0, "$\\dagger$", ""))]
+    ames[, AME := paste0(estimate, ifelse(as.numeric(conf.high) < 0 | as.numeric(conf.low) > 0, "$\\dagger$", ""))]
+    
     long_table <- melt(
                        ames, 
                        id.vars = c("label", "crime_class"), 
@@ -18,27 +20,78 @@ ames_to_table_crimeclass <- function(ames_objects, out_path) {
     )
 
     long_table[, label := factor(label, levels = coef_map)]
-
     res_table <- dcast(long_table, label + metric ~ crime_class, value.var = "value")
-
+    
+    # Order columns precisely
     setcolorder(res_table, c("label", "metric", "Cybercrime", "Property", "Violent"))
 
+    # Clean up row layout
     res_table[metric == "CI", label := ""] 
     res_table[, metric := NULL] 
+    
+    # Convert label column to character so we can safely stack numeric row metrics
+    res_table[, label := as.character(label)]
 
-    cat(kbl(res_table,
+    # ---------------------------------------------------------
+    # STABLE BINARY BAYESIAN GOF EXTRACTION (PURE S3 METHODS)
+    # ---------------------------------------------------------
+    target_cols <- c("Cybercrime", "Property", "Violent")
+    
+    gof_data <- lapply(target_cols, function(cc) {
+      m <- mdl_list[[cc]]
+      
+      # 1. Standard brms S3 method to get observations (handles rstan & cmdstanr)
+      obs <- as.character(summary(m)$nobs)
+      
+      # 2. Standard brms S3 summary method for R2
+      r2_summary <- brms::bayes_R2(m, summary = TRUE)
+      r2 <- sprintf("%.3f", r2_summary[1, "Estimate"])
+      
+      data.table(crime_class = cc, Observations = obs, Bayesian_R2 = r2)
+    })
+    
+    dt_gof <- rbindlist(gof_data)
+    
+    # Pivot the metrics wide
+    gof_wide <- dcast(
+      melt(dt_gof, id.vars = "crime_class", variable.name = "metric", value.name = "value"),
+      metric ~ crime_class, 
+      value.var = "value"
+    )
+    
+    # Set display names for GoF row headers
+    setnames(gof_wide, "metric", "label")
+    gof_wide[, label := c("Observations" = "Observations", "Bayesian_R2" = "Bayesian R$^2$")[label]]
+    
+    # Match the explicit table structure
+    setcolorder(gof_wide, c("label", target_cols))
+    
+    # Track position indexes for midrules
+    coef_rows_count <- nrow(res_table)
+    
+    # Merge terms and GoF rows together
+    res_table <- rbind(res_table, gof_wide)
+
+    # ---------------------------------------------------------
+    # FINAL RENDER: Apply booktabs and export
+    # ---------------------------------------------------------
+    kbl(res_table,
         format = "latex",
         booktabs = T,
         escape = FALSE,
         linesep = "",
-        col.names = c("Term", "Cybercrime", "Property", "Violent")),
-        file = out_path)
+        col.names = c("Term", "Cybercrime", "Property", "Violent")) %>%
+    row_spec(coef_rows_count, extra_latex_after = "\\midrule") %>%
+    cat(file = out_path)
 }
 
 
 
 
-multi_ames_to_table <- function(ames_object, out_path) {
+
+
+
+multi_ames_to_table <- function(ames_object, mdl, mdl_null, out_path) {
     setDT(ames_object)
     ames_object[, group := gsub("F", "N", group)]
     ames_object[, group := gsub("x", "*", group)]
@@ -48,14 +101,17 @@ multi_ames_to_table <- function(ames_object, out_path) {
     } else {
         group_order <- c("N0P0H0", "N1P0H0", "N*P0H1", "N0P1H*", "N1P1H*")
     }
+    
+    # 1. Process terms and values
     ames_object[, term_contrast := paste0(term, stri_replace_first_regex(contrast, " -.*", ""))]
     ames_object[term_contrast != "year2021", term_contrast := gsub("1$", "", term_contrast)]
     ames_object[, label := coef_map[term_contrast]]
 
-    ames_object[, c("estimate", "conf.low", "conf.high") := lapply(.SD, function(x) sprintf("%.3f", x)), .SDcols = c("estimate", "conf.low", "conf.high")]
+    ames_object[, c("estimate", "conf.low", "conf.high") := lapply(.SD, function(x) sprintf("%.3f", as.numeric(x))), .SDcols = c("estimate", "conf.low", "conf.high")]
 
     ames_object[, CI := paste0("[", conf.low, ", ", conf.high, "]")]
-    ames_object[, AME := paste0(estimate, ifelse(conf.high < 0 | conf.low > 0, "$\\dagger$", ""))]
+    ames_object[, AME := paste0(estimate, ifelse(as.numeric(conf.high) < 0 | as.numeric(conf.low) > 0, "$\\dagger$", ""))]
+    
     long_table <- melt(
                        ames_object, 
                        id.vars = c("label", "group"), 
@@ -65,44 +121,54 @@ multi_ames_to_table <- function(ames_object, out_path) {
     )
 
     long_table[, label := factor(label, levels = coef_map)]
-
     res_table <- dcast(long_table, label + metric ~ group, value.var = "value")
-
-
     setcolorder(res_table, c("label", "metric", group_order))
 
+    # Clean up row layout
     res_table[metric == "CI", label := ""] 
     res_table[, metric := NULL] 
+    
+    # Convert label column to character so we can append custom GoF rows safely
+    res_table[, label := as.character(label)]
 
     # ---------------------------------------------------------
-    # NATIVE BRMS GOF EXTRACTION (WITHOUT FORMATC)
+    # MULTINOMIAL BAYESIAN GOF: LOO METHOD
     # ---------------------------------------------------------
-    # 1. Get number of observations natively as a string
     obs_val <- as.character(nobs(mdl))
-
-    # 2. Get Bayesian R2 mean natively
-    r2_summary <- brms::bayes_R2(mdl, summary = TRUE)
-    r2_val <- sprintf("%.3f", r2_summary[1, "Estimate"])
-
-    # Set spanning width dimensions
+    
+    # Compute LOO criteria natively, suppressing the expected Pareto k warnings
+    loo_full <- suppressWarnings(brms::loo(mdl, save_psis = FALSE))
+    loo_null <- suppressWarnings(brms::loo(mdl_null, save_psis = FALSE))
+    
+    # Extract the global elpd_loo point estimates
+    elpd_full <- loo_full$estimates["elpd_loo", "Estimate"]
+    elpd_null <- loo_null$estimates["elpd_loo", "Estimate"]
+    
+    # Calculate the LOO-based McFadden R2
+    loo_pseudo_r2 <- 1 - (elpd_full / elpd_null)
+    r2_val <- sprintf("%.3f", loo_pseudo_r2)
+    
     span_width <- length(group_order)
-
-    gof_rows <- data.table(
-      label = c("Observations", "Bayesian R$^2$"),
-      val   = c(obs_val, r2_val)
-    )
-
-    # Clear out column slots and map the spanning LaTeX commands
-    for(col in group_order) {
+    
+    # Build the table rows with explicit structural alignment
+    gof_rows <- data.table(label = c("Observations", "LOO Pseudo $R^2$"))
+    
+    # Target just the FIRST group column to house the merged LaTeX text block
+    first_group_col <- group_order[1]
+    gof_rows[, (first_group_col) := sprintf("\\multicolumn{%d}{c}{%s}", span_width, c(obs_val, r2_val))]
+    
+    # Leave the remaining trailing group columns completely empty
+    for(col in group_order[-1]) {
       gof_rows[, (col) := ""]
     }
-    gof_rows[, (group_order) := sprintf("\\multicolumn{%d}{c}{%s}", span_width, val)]
-    gof_rows[, val := NULL]
+    
+    # Sync column positions precisely with res_table structure
+    setcolorder(gof_rows, c("label", group_order))
 
     # Track structural index rows
     coef_rows_count <- nrow(res_table)
-
-    # Merge coefficients and GoF rows
+    
+    # Merge coefficients and GoF rows smoothly without structure mismatches
     res_table <- rbind(res_table, gof_rows)
 
     # ---------------------------------------------------------
@@ -116,22 +182,9 @@ multi_ames_to_table <- function(ames_object, out_path) {
         col.names = c("Term", group_order)) %>%
       row_spec(coef_rows_count, extra_latex_after = "\\midrule")
 
-    ## Add spacing between your CI pairs
-    #for (r in seq(2, coef_rows_count, by = 2)) {
-      #if (r < coef_rows_count) {
-        #kable_out <- row_spec(kable_out, r, extra_latex_after = "\\addlinespace")
-      #}
-    #}
-
     cat(kable_out, file = out_path)
-    #kbl(res_table,
-        #format = "latex",
-        #booktabs = T,
-        #escape = FALSE,
-        #linesep = "",
-        #col.names = c("Term", group_order)) %>%
-    #cat(file = out_path)
 }
+
 #' Prep Profile Data Matrix
 #' 
 #' @param list_of_tables List of model datasets (data.tables)

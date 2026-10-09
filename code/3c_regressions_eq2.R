@@ -74,19 +74,19 @@ fml_prop_brm_multi <- as.formula(g("path | weights(weight) ~ {paste(c(X_property
 fml_viol_brm_multi <- as.formula(g("path_viol | weights(weight) ~ {paste(c(X_violent[X_violent != 'incident.went_to_hospital']), collapse = '+')} + year + (1 | region)"))
 
 prop_priors <- c(
-  prior(normal(0, 3), class = "b", dpar = "muF0P0"),
-  prior(normal(0, 3), class = "b", dpar = "muF0P1"),
-  prior(normal(0, 3), class = "b", dpar = "muF1P0"),
+  # prior(normal(0, 3), class = "b", dpar = "muF0P0"),
+  # prior(normal(0, 3), class = "b", dpar = "muF0P1"),
+  # prior(normal(0, 3), class = "b", dpar = "muF1P0"),
   prior(normal(0, 3), class = "Intercept", dpar = "muF0P0"),
   prior(normal(0, 3), class = "Intercept", dpar = "muF0P1"),
   prior(normal(0, 3), class = "Intercept", dpar = "muF1P0")
 )
 
 viol_priors <- c(
-  prior(normal(0, 3), class = "b", dpar = "muF0P0H0"),
-  prior(normal(0, 3), class = "b", dpar = "muF0P1Hx"),
-  prior(normal(0, 3), class = "b", dpar = "muF1P0H0"),
-  prior(normal(0, 3), class = "b", dpar = "muFxP0H1"),
+  # prior(normal(0, 3), class = "b", dpar = "muF0P0H0"),
+  # prior(normal(0, 3), class = "b", dpar = "muF0P1Hx"),
+  # prior(normal(0, 3), class = "b", dpar = "muF1P0H0"),
+  # prior(normal(0, 3), class = "b", dpar = "muFxP0H1"),
   prior(normal(0, 3), class = "Intercept", dpar = "muF0P0H0"),
   prior(normal(0, 3), class = "Intercept", dpar = "muF0P1Hx"),
   prior(normal(0, 3), class = "Intercept", dpar = "muF1P0H0"),
@@ -105,10 +105,26 @@ brm_multi_cyber <- brm(
   cores   = 4, chains = 4,
   backend = "cmdstanr"
 )
+brm_multi_cyber_null <- brms::brm(
+  path | weights(weight) ~ (1 | region), 
+  data = dat_cyber_pooled, 
+  family = categorical(link = "logit"),
+  prior = prop_priors,
+  cores   = 4, chains = 4,
+  backend = "cmdstanr"
+)
 brm_multi_prop <- brm(
   formula = fml_prop_brm_multi,
   data    = dat_prop_pooled,
   family  = categorical(link = "logit"),
+  prior = prop_priors,
+  cores   = 4, chains = 4,
+  backend = "cmdstanr"
+)
+brm_multi_prop_null <- brms::brm(
+  path | weights(weight) ~ (1 | region), 
+  data = dat_prop_pooled, 
+  family = categorical(link = "logit"),
   prior = prop_priors,
   cores   = 4, chains = 4,
   backend = "cmdstanr"
@@ -122,7 +138,14 @@ brm_multi_viol <- brm(
   backend = "cmdstanr",
   control = list(max_treedepth = 12)
 )
-
+brm_multi_cyber_null <- brms::brm(
+  path_viol | weights(weight) ~ (1 | region), 
+  data = dat_viol_pooled, 
+  family = categorical(link = "logit"),
+  prior = prop_priors,
+  cores   = 4, chains = 4,
+  backend = "cmdstanr"
+)
 save(list = grep("^brm_", ls(), value = T), file = "temp/brm_multi_models.RData")
 
 # AMEs -------------------------------------------------------------------------
@@ -251,7 +274,7 @@ multi_ames_to_table <- function(ames_object, out_path) {
     cat(file = out_path)
 }
 
-multi_ames_to_table(ames_cyber_full, "paper/tables/app_multi_cyber.tex")
+multi_ames_to_table(ames_cyber_full, brm_multi_cyber, "paper/tables/app_multi_cyber_test.tex")
 multi_ames_to_table(ames_prop_full, "paper/tables/app_multi_prop.tex")
 multi_ames_to_table(ames_viol_full, "paper/tables/app_multi_viol.tex")
 
