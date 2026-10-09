@@ -1,3 +1,42 @@
+ames_to_table_crimeclass <- function(ames_objects, out_path) {
+    ames <- rbindlist(ames_objects, idcol = "crime_class")
+
+    ames[, term_contrast := paste0(term, gsub(" -.*", "", contrast))]
+    ames[term_contrast != "year2021", term_contrast := gsub("1$", "", term_contrast)]
+    ames[, label := coef_map[term_contrast]]
+
+    ames[, c("estimate", "conf.low", "conf.high") := lapply(.SD, function(x) sprintf("%.3f", x)), .SDcols = c("estimate", "conf.low", "conf.high")]
+
+    ames[, CI := paste0("[", conf.low, ", ", conf.high, "]")]
+    ames[, AME := paste0(estimate, ifelse(conf.high < 0 | conf.low > 0, "$\\dagger$", ""))]
+    long_table <- melt(
+                       ames, 
+                       id.vars = c("label", "crime_class"), 
+                       measure.vars = c("AME", "CI"), 
+                       variable.name = "metric", 
+                       value.name = "value"
+    )
+
+    long_table[, label := factor(label, levels = coef_map)]
+
+    res_table <- dcast(long_table, label + metric ~ crime_class, value.var = "value")
+
+    setcolorder(res_table, c("label", "metric", "Cybercrime", "Property", "Violent"))
+
+    res_table[metric == "CI", label := ""] 
+    res_table[, metric := NULL] 
+
+    cat(kbl(res_table,
+        format = "latex",
+        booktabs = T,
+        escape = FALSE,
+        linesep = "",
+        col.names = c("Term", "Cybercrime", "Property", "Violent")),
+        file = out_path)
+}
+
+
+
 
 multi_ames_to_table <- function(ames_object, out_path) {
     setDT(ames_object)
@@ -35,13 +74,63 @@ multi_ames_to_table <- function(ames_object, out_path) {
     res_table[metric == "CI", label := ""] 
     res_table[, metric := NULL] 
 
-    kbl(res_table,
+    # ---------------------------------------------------------
+    # NATIVE BRMS GOF EXTRACTION (WITHOUT FORMATC)
+    # ---------------------------------------------------------
+    # 1. Get number of observations natively as a string
+    obs_val <- as.character(nobs(mdl))
+
+    # 2. Get Bayesian R2 mean natively
+    r2_summary <- brms::bayes_R2(mdl, summary = TRUE)
+    r2_val <- sprintf("%.3f", r2_summary[1, "Estimate"])
+
+    # Set spanning width dimensions
+    span_width <- length(group_order)
+
+    gof_rows <- data.table(
+      label = c("Observations", "Bayesian R$^2$"),
+      val   = c(obs_val, r2_val)
+    )
+
+    # Clear out column slots and map the spanning LaTeX commands
+    for(col in group_order) {
+      gof_rows[, (col) := ""]
+    }
+    gof_rows[, (group_order) := sprintf("\\multicolumn{%d}{c}{%s}", span_width, val)]
+    gof_rows[, val := NULL]
+
+    # Track structural index rows
+    coef_rows_count <- nrow(res_table)
+
+    # Merge coefficients and GoF rows
+    res_table <- rbind(res_table, gof_rows)
+
+    # ---------------------------------------------------------
+    # FINAL RENDER: Apply booktabs and custom line breaks
+    # ---------------------------------------------------------
+    kable_out <- kbl(res_table,
         format = "latex",
         booktabs = T,
         escape = FALSE,
         linesep = "",
         col.names = c("Term", group_order)) %>%
-    cat(file = out_path)
+      row_spec(coef_rows_count, extra_latex_after = "\\midrule")
+
+    ## Add spacing between your CI pairs
+    #for (r in seq(2, coef_rows_count, by = 2)) {
+      #if (r < coef_rows_count) {
+        #kable_out <- row_spec(kable_out, r, extra_latex_after = "\\addlinespace")
+      #}
+    #}
+
+    cat(kable_out, file = out_path)
+    #kbl(res_table,
+        #format = "latex",
+        #booktabs = T,
+        #escape = FALSE,
+        #linesep = "",
+        #col.names = c("Term", group_order)) %>%
+    #cat(file = out_path)
 }
 #' Prep Profile Data Matrix
 #' 

@@ -1,7 +1,6 @@
 #library(WeMix)
 library(brms)
 library(fixest)
-library(lme4)
 #library(modelsummary)
 library(marginaleffects)
 library(data.table)
@@ -12,7 +11,7 @@ g <- glue::glue
 
 setwd(Sys.getenv("CALL_THE_COPS"))
 
-source("code/coef_map.R")
+source("code/helpers/coef_map.R")
 source("code/helpers/X_definition.R")
 source("code/helpers/functions.R")
 
@@ -72,15 +71,15 @@ dat_viol_pooled[, region := fdroplevels(region)]
 
 dat_cyber_2024 <- victims_2024[incident.crime_class == "Cybercrime"]
 dat_cyber_2024 <- dat_cyber_2024[complete.cases(dat_cyber_2024[, ..X_property_2024])]
-dat_cyber_2024[, region := fdroplevels(region)]
+dat_cyber_2024[, region := fdroplevels(as.factor(region))]
 
 dat_prop_2024 <- victims_2024[incident.crime_class == "Property"]
 dat_prop_2024 <- dat_prop_2024[complete.cases(dat_prop_2024[, ..X_property_2024])]
-dat_prop_2024[, region := fdroplevels(region)]
+dat_prop_2024[, region := fdroplevels(as.factor(region))]
 
 dat_viol_2024 <- victims_2024[incident.crime_class == "Violent"]
 dat_viol_2024 <- dat_viol_2024[complete.cases(dat_viol_2024[, ..X_violent_2024])]
-dat_viol_2024[, region := fdroplevels(region)]
+dat_viol_2024[, region := fdroplevels(as.factor(region))]
 
 # Modeling =====================================================================
 
@@ -90,6 +89,7 @@ brm_cyber_pooled <- brm(
   data    = dat_cyber_pooled,
   family  = bernoulli(link = "logit"),
   cores   = 4, chains = 4,
+  prior = prior(normal(0, 3), class = "b"),
   backend = "cmdstanr"  
 )
 brm_prop_pooled <- brm(
@@ -97,12 +97,14 @@ brm_prop_pooled <- brm(
   data    = dat_prop_pooled,
   family  = bernoulli(link = "logit"),
   cores   = 4, chains = 4,
+  prior = prior(normal(0, 3), class = "b"),
   backend = "cmdstanr"  
 )
 brm_viol_pooled <- brm(
   formula = fml_viol_brm_pooled,
   data    = dat_viol_pooled,
   family  = bernoulli(link = "logit"),
+  prior = prior(normal(0, 3), class = "b"),
   cores   = 4, chains = 4,
   backend = "cmdstanr"  
 )
@@ -145,6 +147,7 @@ brm_cyber_2024 <- brm(
   formula = fml_prop_brm_2024,
   data    = dat_cyber_2024,
   family  = bernoulli(link = "logit"),
+  prior = prior(normal(0, 3), class = "b"),
   cores   = 4, chains = 4,
   backend = "cmdstanr"  
 )
@@ -152,6 +155,7 @@ brm_prop_2024 <- brm(
   formula = fml_prop_brm_2024,
   data    = dat_prop_2024,
   family  = bernoulli(link = "logit"),
+  prior = prior(normal(0, 3), class = "b"),
   cores   = 4, chains = 4,
   backend = "cmdstanr"  
 )
@@ -159,6 +163,7 @@ brm_viol_2024 <- brm(
   formula = fml_viol_brm_2024,
   data    = dat_viol_2024,
   family  = bernoulli(link = "logit"),
+  prior = prior(normal(0, 3), class = "b"),
   cores   = 4, chains = 4,
   backend = "cmdstanr"  
 )
@@ -191,6 +196,7 @@ brm_cyber_pooled_noWeights <- brm(
   formula = fml_prop_brm_pooled_noWeights,
   data    = dat_cyber_pooled,
   family  = bernoulli(link = "logit"),
+  prior = prior(normal(0, 3), class = "b"),
   cores   = 4, chains = 4,
   backend = "cmdstanr"  
 )
@@ -198,6 +204,7 @@ brm_prop_pooled_noWeights <- brm(
   formula = fml_prop_brm_pooled_noWeights,
   data    = dat_prop_pooled,
   family  = bernoulli(link = "logit"),
+  prior = prior(normal(0, 3), class = "b"),
   cores   = 4, chains = 4,
   backend = "cmdstanr"  
 )
@@ -205,6 +212,7 @@ brm_viol_pooled_noWeights <- brm(
   formula = fml_viol_brm_pooled_noWeights,
   data    = dat_viol_pooled,
   family  = bernoulli(link = "logit"),
+  prior = prior(normal(0, 3), class = "b"),
   cores   = 4, chains = 4,
   backend = "cmdstanr"  
 )
@@ -220,22 +228,35 @@ lpm_viol_pooled_noWeights <- feols(fml_viol_lpm_pooled,
                                    data = dat_viol_pooled, 
                                    cluster = ~region)
 
-save(list = grepv("^(lpm|blm)_", ls()), file = "temp/models.RData")
+save(list = grepv("^(lpm|brm)_", ls()), file = "temp/models.RData")
 
 # Calculate AMEs  ==============================================================
+
+load("temp/models.RData")
 
 ames_brm_cyber_pooled <- avg_slopes(brm_cyber_pooled, variables = "social.told_someone", wts = "weight")
 ames_brm_prop_pooled <- avg_slopes(brm_prop_pooled, variables = "social.told_someone", wts = "weight")
 ames_brm_viol_pooled <- avg_slopes(brm_viol_pooled, variables = "social.told_someone", wts = "weight")
 
+ames_brm_cyber_pooled_full <- avg_slopes(brm_cyber_pooled,  wts = "weight")
+ames_brm_prop_pooled_full <- avg_slopes(brm_prop_pooled,  wts = "weight")
+ames_brm_viol_pooled_full <- avg_slopes(brm_viol_pooled,  wts = "weight")
+
 ames_brm_cyber_2024 <- avg_slopes(brm_cyber_2024, variables = "social.told_someone", wts = "weight")
 ames_brm_prop_2024 <- avg_slopes(brm_prop_2024, variables = "social.told_someone", wts = "weight")
 ames_brm_viol_2024 <- avg_slopes(brm_viol_2024, variables = "social.told_someone", wts = "weight")
+
+ames_brm_cyber_2024_full <- avg_slopes(brm_cyber_2024,  wts = "weight")
+ames_brm_prop_2024_full <- avg_slopes(brm_prop_2024,  wts = "weight")
+ames_brm_viol_2024_full <- avg_slopes(brm_viol_2024,  wts = "weight")
 
 ames_brm_cyber_pooled_noWeights <- avg_slopes(brm_cyber_pooled_noWeights, variables = "social.told_someone")
 ames_brm_prop_pooled_noWeights <- avg_slopes(brm_prop_pooled_noWeights, variables = "social.told_someone")
 ames_brm_viol_pooled_noWeights <- avg_slopes(brm_viol_pooled_noWeights, variables = "social.told_someone")
 
+ames_brm_cyber_pooled_noWeights_full <- avg_slopes(brm_cyber_pooled_noWeights)
+ames_brm_prop_pooled_noWeights_full <- avg_slopes(brm_prop_pooled_noWeights)
+ames_brm_viol_pooled_noWeights_full <- avg_slopes(brm_viol_pooled_noWeights)
 #ames_mlm_cyber_pooled <- bootstrap_wemix_ame(mlm_cyber_pooled, dat_cyber_pooled, "social.told_someone", weighted = T)
 #ames_mlm_prop_pooled <- bootstrap_wemix_ame(mlm_prop_pooled, dat_prop_pooled, "social.told_someone", weighted = T)
 #ames_mlm_viol_pooled <- bootstrap_wemix_ame(mlm_viol_pooled, dat_viol_pooled, "social.told_someone", weighted = T)
@@ -302,6 +323,12 @@ save(list = grepv("^r2_", ls()), file = "temp/r2s.RData")
 load("temp/ames.RData") 
 load("temp/r2s.RData")
 
+library(kableExtra)
+ames_to_table_crimeclass(list("Cybercrime" = ames_brm_cyber_pooled,
+                              "Property" = ames_brm_prop_pooled,
+                              "Violent" = ames_brm_viol_pooled),
+"paper/tables/ames_pooled_full.text")
+
 # 1. Cell formatter for BRM objects (Uses Dagger symbol if 95% CrI excludes zero)
 format_brm_estimates <- function(ame_object) {
   est   <- as.numeric(ame_object$estimate)
@@ -321,7 +348,6 @@ format_brm_estimates <- function(ame_object) {
   
   return(list(est = est_str, se = ci_str)) # Maps cleanly to your existing table loops
 }
-format_brm_estimates(ames_brm_cyber_pooled)
 
 # 2. Cell formatter for frequentist OLS / LPM summary matrices
 format_lpm_estimates <- function(lpm_model, var_name = "social.told_someone") {
@@ -461,7 +487,7 @@ regr_tab <- glue_tex(R"(\begin{tabular}{lrrr}
 	\addlinespace[5pt]
 	\hline\hline
 	\addlinespace[4pt]
-	\multicolumn{4}{p{11.5cm}}{\textit{Note}: BRM (AME) reports the Bayesian Multilevel Average Marginal Effect, where standard errors in parentheses indicate the exact posterior standard deviation of the marginal effect distribution. The \(\dag \) symbol denotes that the 95% Equal-Tailed Bayesian Credible Interval completely excludes zero. LPM (Slope) reports the unstandardized frequentist Ordinary Least Squares coefficients (functioning as linear marginal effects), with frequentist standard errors in parentheses. Frequentist significance is indicated by: + p < 0.10, * p < 0.05, ** p < 0.01, *** p < 0.001. Estimates in Panels A and B incorporate post-stratification survey weights, normalized to the true sample size scale to preserve valid uncertainty bounds; Panel C displays unweighted estimates for robustness. Models globally control for unobserved regional heterogeneity across 85 distinct geographic clusters.}
+	\multicolumn{4}{p{9.5cm}}{{BRM (AME) reports the average marginal effect obtained in Bayesian multilevel modeling. The $\dagger$ symbol denotes that the 95\% equal-tailed credible interval excludes zero. LPM (Slope) reports the unstandardized frequentist OLS coefficients (functioning as linear marginal effects), with frequentist standard errors in parentheses. Frequentist significance is indicated by: + $p < 0.10$, * $p < 0.05$, ** $p < 0.01$, *** $p < 0.001$. Estimates in Panels A and B incorporate post-stratification survey weights, Panel C displays unweighted estimates for robustness.}
 \end{tabular})"
 )
 
