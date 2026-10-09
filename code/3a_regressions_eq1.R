@@ -1,4 +1,5 @@
 #library(WeMix)
+library(kableExtra)
 library(brms)
 library(fixest)
 #library(modelsummary)
@@ -228,31 +229,31 @@ lpm_viol_pooled_noWeights <- feols(fml_viol_lpm_pooled,
                                    data = dat_viol_pooled, 
                                    cluster = ~region)
 
-save(list = grepv("^(lpm|brm)_", ls()), file = "temp/models.RData")
+save(list = grep("^(lpm|brm)_", ls(), value = T), file = "temp/models.RData")
 
 # Calculate AMEs  ==============================================================
 
 load("temp/models.RData")
 
-ames_brm_cyber_pooled <- avg_slopes(brm_cyber_pooled, variables = "social.told_someone", wts = "weight")
-ames_brm_prop_pooled <- avg_slopes(brm_prop_pooled, variables = "social.told_someone", wts = "weight")
-ames_brm_viol_pooled <- avg_slopes(brm_viol_pooled, variables = "social.told_someone", wts = "weight")
+# ames_brm_cyber_pooled <- avg_slopes(brm_cyber_pooled, variables = "social.told_someone", wts = "weight")
+# ames_brm_prop_pooled <- avg_slopes(brm_prop_pooled, variables = "social.told_someone", wts = "weight")
+# ames_brm_viol_pooled <- avg_slopes(brm_viol_pooled, variables = "social.told_someone", wts = "weight")
 
 ames_brm_cyber_pooled_full <- avg_slopes(brm_cyber_pooled,  wts = "weight")
 ames_brm_prop_pooled_full <- avg_slopes(brm_prop_pooled,  wts = "weight")
 ames_brm_viol_pooled_full <- avg_slopes(brm_viol_pooled,  wts = "weight")
 
-ames_brm_cyber_2024 <- avg_slopes(brm_cyber_2024, variables = "social.told_someone", wts = "weight")
-ames_brm_prop_2024 <- avg_slopes(brm_prop_2024, variables = "social.told_someone", wts = "weight")
-ames_brm_viol_2024 <- avg_slopes(brm_viol_2024, variables = "social.told_someone", wts = "weight")
+# ames_brm_cyber_2024 <- avg_slopes(brm_cyber_2024, variables = "social.told_someone", wts = "weight")
+# ames_brm_prop_2024 <- avg_slopes(brm_prop_2024, variables = "social.told_someone", wts = "weight")
+# ames_brm_viol_2024 <- avg_slopes(brm_viol_2024, variables = "social.told_someone", wts = "weight")
 
 ames_brm_cyber_2024_full <- avg_slopes(brm_cyber_2024,  wts = "weight")
 ames_brm_prop_2024_full <- avg_slopes(brm_prop_2024,  wts = "weight")
 ames_brm_viol_2024_full <- avg_slopes(brm_viol_2024,  wts = "weight")
 
-ames_brm_cyber_pooled_noWeights <- avg_slopes(brm_cyber_pooled_noWeights, variables = "social.told_someone")
-ames_brm_prop_pooled_noWeights <- avg_slopes(brm_prop_pooled_noWeights, variables = "social.told_someone")
-ames_brm_viol_pooled_noWeights <- avg_slopes(brm_viol_pooled_noWeights, variables = "social.told_someone")
+# ames_brm_cyber_pooled_noWeights <- avg_slopes(brm_cyber_pooled_noWeights, variables = "social.told_someone")
+# ames_brm_prop_pooled_noWeights <- avg_slopes(brm_prop_pooled_noWeights, variables = "social.told_someone")
+# ames_brm_viol_pooled_noWeights <- avg_slopes(brm_viol_pooled_noWeights, variables = "social.told_someone")
 
 ames_brm_cyber_pooled_noWeights_full <- avg_slopes(brm_cyber_pooled_noWeights)
 ames_brm_prop_pooled_noWeights_full <- avg_slopes(brm_prop_pooled_noWeights)
@@ -281,7 +282,7 @@ ames_brm_viol_pooled_noWeights_full <- avg_slopes(brm_viol_pooled_noWeights)
 #ames_lpm_prop_pooled_noWeights <- avg_slopes(lpm_prop_pooled_noWeights, variables = "social.told_someone")
 #ames_lpm_viol_pooled_noWeights <- avg_slopes(lpm_viol_pooled_noWeights, variables = "social.told_someone")
 
-save(list = grepv("^ames_", ls()), file = "temp/ames.RData")
+save(list = grep("^ames_", ls(), value = T), file = "temp/ames.RData")
 
 # Goodness of Fit (GoF) Extraction --------------------------------------------
 
@@ -495,5 +496,18 @@ regr_tab <- glue_tex(R"(\begin{tabular}{lrrr}
 writeLines(regr_tab, "paper/tables/regr_1_results.tex")
 
 
+ames_to_table_crimeclass(list(Cybercrime = ames_brm_cyber_pooled_full,
+                              Property = ames_brm_prop_pooled_full,
+                              Violent = ames_brm_viol_pooled_full),
+                         list(Cybercrime = brm_cyber_pooled, 
+                              Property = brm_prop_pooled,
+                              Violent = brm_viol_pooled), 
+                         out_path = "paper/tables/app_bin_pooled.tex") 
 
-ames_to_table_crimeclass(list(Cybercrime = ames)) 
+ames_to_table_crimeclass(list(Cybercrime = ames_brm_cyber_2024_full,
+                              Property = ames_brm_prop_2024_full,
+                              Violent = ames_brm_viol_2024_full),
+                         list(Cybercrime = brm_cyber_2024, 
+                              Property = brm_prop_2024,
+                              Violent = brm_viol_2024), 
+                         out_path = "paper/tables/app_bin_2024.tex") 
