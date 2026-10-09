@@ -8,11 +8,13 @@ library(future)
 library(future.apply)
 library(brms)
 library(marginaleffects)
+library(modelsummary)
+library(kableExtra)
 g <- glue::glue
 
 setwd(Sys.getenv("CALL_THE_COPS"))
 
-source("code/coef_map.R")
+source("code/helpers/coef_map.R")
 source("code/helpers/X_definition.R")
 source("code/helpers/functions.R")
 
@@ -138,19 +140,19 @@ plan(multisession, workers = 24)
 options(marginaleffects_parallel = TRUE)
 
 ames_cyber_ses <- avg_slopes(brm_multi_cyber,
-                             variables = grep("^ses", X_property, value = T),
+                             variables = grep("^(ses|attitude)", X_property, value = T),
                              wts = "weight",
                              re_formula = NULL,
                              ndraws     = 200, 
                              vcov       = FALSE )
 ames_prop_ses <- avg_slopes(brm_multi_prop,
-                             variables = grep("^ses", X_property, value = T),
+                             variables = grep("^(ses|attitude)", X_property, value = T),
                              wts = "weight",
                              re_formula = NULL,
                              ndraws     = 200,
                              vcov       = FALSE )
 ames_viol_ses <- avg_slopes(brm_multi_viol,
-                             variables = grep("^ses", X_violent, value = T),
+                             variables = grep("^(ses|attitude)", X_violent, value = T),
                              wts = "weight",
                              re_formula = NULL,
                              ndraws     = 200, 
@@ -178,10 +180,111 @@ ames_viol_incident <- avg_slopes(brm_multi_viol,
 
 save(list = grep("ames_.*_incident", ls(), value = T), file = "ames_multi_incident.RData")
 
+ames_cyber_full <- avg_slopes(brm_multi_cyber,
+                             wts = "weight",
+                             re_formula = NULL,
+                             ndraws     = 200,   # Subsamples 200 random draws from the massive posterior matrix
+                             vcov       = FALSE )
+ames_prop_full <- avg_slopes(brm_multi_prop,
+                             wts = "weight",
+                             re_formula = NULL,
+                             ndraws     = 200,   # Subsamples 200 random draws from the massive posterior matrix
+                             vcov       = FALSE )
+ames_viol_full <- avg_slopes(brm_multi_viol,
+                             wts = "weight",
+                             re_formula = NULL,
+                             ndraws     = 200,   # Subsamples 200 random draws from the massive posterior matrix
+                             vcov       = FALSE )
 
+save(list = grep("ames_.*_full", ls(), value = T), file = "ames_multi_full.RData")
 
 
 # Plotting AMEs ====================================================================
+
+load("ames_multi_ses.RData")
+load("ames_multi_incident.RData")
+load("ames_multi_full.RData")
+
+
+multi_ames_to_table <- function(ames_object, out_path) {
+    setDT(ames_object)
+    ames_object[, group := gsub("F", "N", group)]
+    ames_object[, group := gsub("x", "*", group)]
+    ngroups <- uniqueN(ames_object$group)
+    if(ngroups == 4) {
+        group_order <- c("N0P0", "N1P0", "N0P1", "N1P1")
+    } else {
+        group_order <- c("N0P0H0", "N1P0H0", "N*P0H1", "N0P1H*", "N1P1H*")
+    }
+    ames_object[, term_contrast := paste0(term, stri_replace_first_regex(contrast, " -.*", ""))]
+    ames_object[term_contrast != "year2021", term_contrast := gsub("1$", "", term_contrast)]
+    ames_object[, label := coef_map[term_contrast]]
+
+    ames_object[, c("estimate", "conf.low", "conf.high") := lapply(.SD, function(x) sprintf("%.3f", x)), .SDcols = c("estimate", "conf.low", "conf.high")]
+
+    ames_object[, CI := paste0("[", conf.low, ", ", conf.high, "]")]
+    ames_object[, AME := paste0(estimate, ifelse(conf.high < 0 | conf.low > 0, "$\\dagger$", ""))]
+    long_table <- melt(
+                       ames_object, 
+                       id.vars = c("label", "group"), 
+                       measure.vars = c("AME", "CI"), 
+                       variable.name = "metric", 
+                       value.name = "value"
+    )
+
+    long_table[, label := factor(label, levels = coef_map)]
+
+    res_table <- dcast(long_table, label + metric ~ group, value.var = "value")
+
+
+    setcolorder(res_table, c("label", "metric", group_order))
+
+    res_table[metric == "CI", label := ""] 
+    res_table[, metric := NULL] 
+
+    kbl(res_table,
+        format = "latex",
+        booktabs = T,
+        escape = FALSE,
+        linesep = "",
+        col.names = c("Term", group_order)) %>%
+    cat(file = out_path)
+}
+
+multi_ames_to_table(ames_cyber_full, "paper/tables/app_multi_cyber.tex")
+multi_ames_to_table(ames_prop_full, "paper/tables/app_multi_prop.tex")
+multi_ames_to_table(ames_viol_full, "paper/tables/app_multi_viol.tex")
+
+
+
+setDT(ames_viol_full)
+ames_cyber_full[, group := gsub("F", "N", group)]
+ames_cyber_full[, term_contrast := paste0(term, stri_replace_first_regex(contrast, " -.*", ""))]
+ames_cyber_full[term_contrast != "year2021", term_contrast := gsub("1$", "", term_contrast)]
+ames_cyber_full[, label := coef_map[term_contrast]]
+View(unique(ames_cyber_full[, .(term_contrast, label)]))
+
+ames_cyber_full[, c("estimate", "conf.low", "conf.high") := lapply(.SD, function(x) round(x, 3)), .SDcols = c("estimate", "conf.low", "conf.high")]
+
+ames_cyber_full[, CI := paste0("[", conf.low, ", ", conf.high, "]")]
+
+ames_cyber_full[, AME := paste0(estimate, ifelse(conf.high < 0 | conf.low > 0, "$\\dagger$", ""))]
+
+test_table <- ames_cyber_full |> dcast(label ~ group, value.var = c("AME", "CI"))
+
+setcolorder(test_table, c("label", 
+                          "AME_N0P0", "CI_N0P0",
+                          "AME_N1P0", "CI_N1P0",
+                          "AME_N0P1", "CI_N0P1",
+                          "AME_N1P1", "CI_N1P1"))
+
+kbl(test_table,
+    format = "latex",
+    escape = F,
+    col.names = c("Term", rep(c("AME", "CI"), 4))) %>%
+    add_header_above(c(" " = 1, "N0P0" = 2, "N1P0" = 2, "N0P1" = 2, "N1P1" = 2))
+
+
 
 # 2. Assemble your data tables into a named list
 # The list names will become the clean visual text on your plot labels automatically
@@ -198,18 +301,28 @@ model_outputs_nonviol_incident <- list(
 
 # 3. Explicitly define your desired vertical row sequence
 ses_var_hierarchy <- c(
-  "Male", 
-  "Age Group", 
-  "Household Size", 
-  "Education", 
-  "Employed", 
-  "Household Income", 
-  "Settlement Type"
+  # "Male",
+  # "Age Group",
+  # "Household Size",
+  # "Education",
+  # "Employed",
+  # "Household Income",
+  # "Settlement Type"
+                       "ses.male",
+                       "ses.age_group",
+                       "ses.settlement_type",
+                       "ses.household_size_f",
+                       "ses.household_income",
+                       "ses.heigher_edu",
+                       "ses.employed",
+                       "attitude.familiar_police",
+                       "attitude.has_crime_record"
+
 )
 
 # 4. Execute the backend processing pipeline functions sequentially
 cleaned_plot_dt <- prep_profile_data(model_outputs_nonviol_ses, ses_var_hierarchy)
-cleaned_plot_dt <- prep_profile_data(model_outputs_nonviol_incident)
+cleaned_plot_dt <- prep_profile_data(model_outputs_nonviol_incident, c("damage.rub_thnd_binned", "incident.repeated", "incident.self_blame"))
 # shading_bands   <- calculate_zebra_shading(cleaned_plot_dt)
 
 # 5. Output the high-contrast chart directly to your manuscript directory
@@ -221,7 +334,9 @@ plot_multinomial_profiles(
 plot_multinomial_profiles(
   plot_data   = cleaned_plot_dt, 
   # shading_data = shading_bands,
-  output_path = "paper/figures/multinomial_incident_profiles_nonviol.pdf"
+  output_path = "paper/figures/multinomial_incident_profiles_nonviol.pdf",
+  width = 10, height = 5
+  
 )
 
 
@@ -234,11 +349,23 @@ cleaned_plot_dt[, group := fct_relevel(group, c("F0P0H0", "F1P0H0", "FxP0H1", "F
 plot_multinomial_profiles(
   plot_data   = cleaned_plot_dt, 
   # shading_data = shading_bands,
-  output_path = "paper/figures/multinomial_ses_profiles_viol.pdf"
+  output_path = "paper/figures/multinomial_ses_profiles_viol.pdf",
+
 )
 
+incident_var_hierarchy <- c(
+                             "damage.physical",                    
+ "damage.rub_thnd_binned"       ,         
+ "incident.offender_had_weapon"    ,      
+ "incident.offender_relationship_grouped",
+ "incident.repeated"       ,              
+ "incident.resisted"    ,                 
+ "incident.self_blame"  ,                 
+ "incident.sexualized"  ,                 
+ "incident.witness"  
+)
 # 4. Execute the backend processing pipeline functions sequentially
-cleaned_plot_dt <- prep_profile_data(list("Violent" = ames_viol_incident))
+cleaned_plot_dt <- prep_profile_data(list("Violent" = ames_viol_incident), incident_var_hierarchy)
 # shading_bands   <- calculate_zebra_shading(cleaned_plot_dt)
 
 cleaned_plot_dt[, group := fct_relevel(group, c("F0P0H0", "F1P0H0", "FxP0H1", "F0P1Hx", "F1P1Hx"))]
@@ -246,8 +373,11 @@ cleaned_plot_dt[, group := fct_relevel(group, c("F0P0H0", "F1P0H0", "FxP0H1", "F
 plot_multinomial_profiles(
   plot_data   = cleaned_plot_dt, 
   # shading_data = shading_bands,
-  output_path = "paper/figures/multinomial_incident_profiles_viol.pdf"
+  output_path = "paper/figures/multinomial_incident_profiles_viol.pdf",
+
 )
+
+
 
 
 
