@@ -221,6 +221,11 @@ ames_viol_full <- avg_slopes(brm_multi_viol,
 
 save(list = grep("ames_.*_full", ls(), value = T), file = "ames_multi_full.RData")
 
+# Full regressiona tables ===================================================== 
+
+multi_ames_to_table(ames_cyber_full, brm_multi_cyber, brm_multi_cyber_null, "paper/tables/app_multi_cyber.tex")
+multi_ames_to_table(ames_prop_full, brm_multi_prop, brm_multi_prop_null, "paper/tables/app_multi_prop.tex")
+multi_ames_to_table(ames_viol_full, brm_multi_viol, brm_multi_viol_null, "paper/tables/app_multi_viol.tex")
 
 # Plotting AMEs ====================================================================
 
@@ -228,98 +233,47 @@ load("ames_multi_ses.RData")
 load("ames_multi_incident.RData")
 load("ames_multi_full.RData")
 
-
-multi_ames_to_table(ames_cyber_full, brm_multi_cyber, brm_multi_cyber_null, "paper/tables/app_multi_cyber.tex")
-multi_ames_to_table(ames_prop_full, brm_multi_prop, brm_multi_prop_null, "paper/tables/app_multi_prop.tex")
-multi_ames_to_table(ames_viol_full, brm_multi_viol, brm_multi_viol_null, "paper/tables/app_multi_viol.tex")
-
-# multi_ames_to_table(ames_prop_full, "paper/tables/app_multi_prop.tex")
-# multi_ames_to_table(ames_viol_full, "paper/tables/app_multi_viol.tex")
-
-
-
-setDT(ames_viol_full)
-ames_cyber_full[, group := gsub("F", "N", group)]
-ames_cyber_full[, term_contrast := paste0(term, stri_replace_first_regex(contrast, " -.*", ""))]
-ames_cyber_full[term_contrast != "year2021", term_contrast := gsub("1$", "", term_contrast)]
-ames_cyber_full[, label := coef_map[term_contrast]]
-View(unique(ames_cyber_full[, .(term_contrast, label)]))
-
-ames_cyber_full[, c("estimate", "conf.low", "conf.high") := lapply(.SD, function(x) round(x, 3)), .SDcols = c("estimate", "conf.low", "conf.high")]
-
-ames_cyber_full[, CI := paste0("[", conf.low, ", ", conf.high, "]")]
-
-ames_cyber_full[, AME := paste0(estimate, ifelse(conf.high < 0 | conf.low > 0, "$\\dagger$", ""))]
-
-test_table <- ames_cyber_full |> dcast(label ~ group, value.var = c("AME", "CI"))
-
-setcolorder(test_table, c("label", 
-                          "AME_N0P0", "CI_N0P0",
-                          "AME_N1P0", "CI_N1P0",
-                          "AME_N0P1", "CI_N0P1",
-                          "AME_N1P1", "CI_N1P1"))
-
-kbl(test_table,
-    format = "latex",
-    escape = F,
-    col.names = c("Term", rep(c("AME", "CI"), 4))) %>%
-    add_header_above(c(" " = 1, "N0P0" = 2, "N1P0" = 2, "N0P1" = 2, "N1P1" = 2))
-
-
-
-# 2. Assemble your data tables into a named list
-# The list names will become the clean visual text on your plot labels automatically
+# Non-violent
 model_outputs_nonviol_ses <- list(
   "Cybercrime"     = as.data.table(ames_cyber_full)[grepl("^(ses|attitude)", term)],
   "Property" =  as.data.table(ames_prop_full)[grepl("^(ses|attitude)", term)]
-  # "Violent Crime"  = ames_viol_ses
 )
 model_outputs_nonviol_incident <- list(
   "Cybercrime"     = as.data.table(ames_cyber_full)[grepl("^(incident|damage)", term)],
   "Property" =  as.data.table(ames_prop_full)[grepl("^(incident|damage)", term)]
-  # "Violent Crime"  = ames_viol_ses
 )
 
-# 4. Execute the backend processing pipeline functions sequentially
-cleaned_plot_dt_ses <- prep_profile_data(model_outputs_nonviol_ses)
-cleaned_plot_dt_incident <- prep_profile_data(model_outputs_nonviol_incident)
-# shading_bands   <- calculate_zebra_shading(cleaned_plot_dt)
+cleaned_plot_dt_nonviol_ses <- prep_profile_data(model_outputs_nonviol_ses)
+cleaned_plot_dt_nonviol_incident <- prep_profile_data(model_outputs_nonviol_incident)
 
-library(ggplot2)
-# 5. Output the high-contrast chart directly to your manuscript directory
+cleaned_plot_dt_nonviol_ses[, label := factor(label, levels = coef_map)]
+cleaned_plot_dt_nonviol_incident[, label := factor(label, levels = coef_map)]
+
 plot_multinomial_profiles(
-  plot_data   = cleaned_plot_dt_ses, 
-  # shading_data = shading_bands,
+  plot_data   = cleaned_plot_dt_nonviol_ses, 
   output_path = "paper/figures/multinomial_ses_profiles_nonviol.pdf"
 )
 plot_multinomial_profiles(
-  plot_data   = cleaned_plot_dt_incident, 
-  # shading_data = shading_bands,
+  plot_data   = cleaned_plot_dt_nonviol_incident, 
   output_path = "paper/figures/multinomial_incident_profiles_nonviol.pdf",
   width = 10, height = 5
-  
 )
 
+# Violent
+cleaned_plot_dt_viol_ses <- prep_profile_data(as.data.table(ames_viol_full)[grepl("^(ses|attitude)", term)])
 
-# 4. Execute the backend processing pipeline functions sequentially
-cleaned_plot_dt_ses <- prep_profile_data(as.data.table(ames_viol_full)[grepl("^(ses|attitude)", term)])
-# shading_bands   <- calculate_zebra_shading(cleaned_plot_dt)
+cleaned_plot_dt_viol_ses[, label := factor(label, levels = coef_map)]
 
-# 5. Output the high-contrast chart directly to your manuscript directory
 plot_multinomial_profiles(
-  plot_data   = cleaned_plot_dt_ses, 
-  # shading_data = shading_bands,
+  plot_data   = cleaned_plot_dt_viol_ses, 
   output_path = "paper/figures/multinomial_ses_profiles_viol.pdf",
-
 )
-cleaned_plot_dt_incident <- prep_profile_data(as.data.table(ames_viol_full)[grepl("^(incident|damage)", term)])
-# shading_bands   <- calculate_zebra_shading(cleaned_plot_dt)
 
-# 5. Output the high-contrast chart directly to your manuscript directory
+cleaned_plot_dt_viol_incident <- prep_profile_data(as.data.table(ames_viol_full)[grepl("^(incident|damage)", term)])
+cleaned_plot_dt_viol_incident[, label := factor(label, levels = coef_map)]
+
 plot_multinomial_profiles(
-  plot_data   = cleaned_plot_dt_incident, 
-  # shading_data = shading_bands,
+  plot_data   = cleaned_plot_dt_viol_incident, 
   output_path = "paper/figures/multinomial_incident_profiles_viol.pdf",
-
 )
 

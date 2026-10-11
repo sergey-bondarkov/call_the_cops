@@ -12,7 +12,7 @@ g <- glue::glue
 
 setwd(Sys.getenv("CALL_THE_COPS"))
 
-source("code/coef_map.R")
+source("code/helpers/coef_map.R")
 source("code/helpers/X_definition.R")
 source("code/helpers/functions.R")
 
@@ -166,8 +166,8 @@ pl_recode <-
     geom_hline(yintercept = 0) +
     facet_wrap(~crime_class, nrow = 1) +
     scale_y_continuous(breaks = seq(0, .25, .05)) +
-    labs(subtitle = "Panel B. Effect of randomly recoding a certain share of N1P1 observations into N0P1 on AME of informing friends or family (BRM)", 
-         y = "Mean AME with 95% Monte Carlo envelope from 100 replications", x = "Share of F1P1 observations randomly recoded into N0P1")
+    labs(subtitle = "Panel B. Effect of randomly recoding a certain share of N1P1 observations on AME of informing friends or family (BRM)", 
+         y = "Mean AME with 95% Monte Carlo envelope from 100 replications", x = "Share of N1P1 observations randomly recoded")
 
 
     pdf(file.path("paper", "figures", "simulations_weak_priors.pdf"), width = 10, height = 6)
