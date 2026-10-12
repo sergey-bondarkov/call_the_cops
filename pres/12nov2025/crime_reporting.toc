@@ -1,8 +1,0 @@
-\babel@toc {english}{}\relax 
-\beamer@sectionintoc {1}{This talk in a nutshell}{3}{0}{1}
-\beamer@sectionintoc {2}{The problem}{4}{0}{2}
-\beamer@sectionintoc {3}{Theoretical models of crime reporting}{5}{0}{3}
-\beamer@sectionintoc {4}{Data}{7}{0}{4}
-\beamer@sectionintoc {5}{Modeling}{10}{0}{5}
-\beamer@sectionintoc {6}{Robustness test}{14}{0}{6}
-\beamer@sectionintoc {7}{Conclusion}{18}{0}{7}

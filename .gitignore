@@ -1,6 +1,7 @@
 # Literature
 lit/
 data/
+paper/
 
 # Temp files
 *.sw[klmnop]

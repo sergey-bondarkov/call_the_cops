@@ -1,8 +1,0 @@
-\babel@toc {english}{}\relax 
-\beamer@sectionintoc {1}{Introduction}{2}{0}{1}
-\beamer@subsectionintoc {1}{1}{From \textit {gatekeepers} to \textit {help-seekers}}{2}{0}{1}
-\beamer@subsectionintoc {1}{2}{Missing the social, or the data--theory feedback loop}{3}{0}{1}
-\beamer@sectionintoc {2}{Data}{6}{0}{2}
-\beamer@sectionintoc {3}{Methods}{9}{0}{3}
-\beamer@sectionintoc {4}{Results}{14}{0}{4}
-\beamer@sectionintoc {5}{Conclusion}{17}{0}{5}
